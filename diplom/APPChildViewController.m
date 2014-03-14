@@ -1,0 +1,311 @@
+//
+//  APPChildViewController.m
+//  diplom
+//
+//  Created by Sergey Kiselev on 29.01.14.
+//  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
+
+#import "APPChildViewController.h"
+
+@interface APPChildViewController ()
+
+@end
+
+@implementation APPChildViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        // Custom initialization
+    }
+    
+    return self;
+    
+}
+
+- (void) dealloc
+{
+    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[[self navigationController] interactivePopGestureRecognizer] setEnabled:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[[self navigationController] interactivePopGestureRecognizer] setEnabled:YES];
+}
+
+- (void)viewDidLoad {
+
+    [super viewDidLoad];
+
+    [self getAnswers];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
+}
+
+- (void) showCommentButton
+{
+    UIButton *launchDialog = [UIButton buttonWithType:UIButtonTypeCustom];
+    [launchDialog setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + self.tableView.contentSize.height, self.tableView.contentSize.width, 44)];
+    [launchDialog addTarget:self action:@selector(launchDialog:) forControlEvents:UIControlEventTouchDown];
+    [launchDialog setTitle:@"Подсказка" forState:UIControlStateNormal];
+    [launchDialog setBackgroundColor:[UIColor whiteColor]];
+    [launchDialog setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [launchDialog.layer setBorderWidth:0];
+    [launchDialog.layer setCornerRadius:5];
+    [self.view addSubview:launchDialog];
+}
+
+- (IBAction)launchDialog:(id)sender
+{
+    // Here we need to pass a full frame
+    CustomIOS7AlertView *alertView = [[CustomIOS7AlertView alloc] init];
+    
+    // Add some custom content to the alert view
+    [alertView setContainerView:[self createDemoView]];
+    
+    // You may use a Block, rather than a delegate.
+    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
+        [alertView close];
+    }];
+    
+    [alertView setUseMotionEffects:true];
+    
+    // And launch the dialog
+    [alertView show];
+}
+
+- (void)customIOS7dialogButtonTouchUpInside: (CustomIOS7AlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex
+{
+    [alertView close];
+}
+
+- (UIView *)createDemoView
+{
+    NSArray *array = [self getAnswers];
+    NSInteger arrayCount = array.count;
+    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 291, 200)];
+    UITextView *comment = [[UITextView alloc] initWithFrame:CGRectMake(3, 3, 285, 196)];
+    comment.editable = false;
+    comment.font = [UIFont systemFontOfSize: 16.0f];
+    comment.textAlignment = NSTextAlignmentCenter;
+    comment.text = [NSString stringWithFormat:@"%@", self.getAnswers[arrayCount - 1]];
+    [demoView addSubview:comment];
+    
+    return demoView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (_imageView.image == 0)
+        return 0;
+    else
+        return 118;
+}
+
+- (NSMutableArray *) getAnswers
+{
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"pdd.sqlite"];
+    const char *dbpath = [defaultDBPath UTF8String];
+    sqlite3_stmt *statement;
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    if (sqlite3_open(dbpath, &_pdd) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%u\" AND QuestionInPaper = \"%d\"", _biletNumber+1, _index+1];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_pdd, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
+                _imageView.image = [UIImage imageWithData:picture];
+
+                for (int i = 2; i < 10; i++)
+                {
+                    if (sqlite3_column_text(statement, i) != NULL)
+                    {
+                        NSString * arrayelement =[[NSString alloc]
+                                                initWithUTF8String:
+                                                (const char *) sqlite3_column_text(statement, i)];
+                        [array addObject:arrayelement];
+                    }
+                }
+                
+                sqlite3_finalize(statement);
+            }
+            else
+            {
+                NSLog(@"Rezultatov net!");
+            }
+        }
+        else
+        {
+            NSLog(@"Ne mogu vypolnit' zapros!");
+        }
+        sqlite3_close(_pdd);
+    }
+    else
+    {
+        NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
+    return array;
+}
+
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+}
+
+-(NSInteger)numberOfSectionInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+
+    NSArray *array = [self getAnswers];
+    return array.count-2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowNumber = [indexPath row];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    NSMutableArray *answerArray = [self getAnswers];
+    if (rowNumber == 0)
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont italicSystemFontOfSize:15.0];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[rowNumber]];
+        cell.textLabel.numberOfLines = 0;
+    }
+    else
+    {
+            cell.textLabel.font = [UIFont systemFontOfSize:15.0];
+            cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@",(long)rowNumber, answerArray[rowNumber]];
+            cell.textLabel.numberOfLines = 0;
+        }
+    return cell;
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSInteger rowNumber = [indexPath row];
+    NSArray *array = [self getAnswers];
+    
+    if (rowNumber == 0)
+    {
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    else if (rowNumber == [array[array.count - 2] intValue])
+    {
+        cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+        for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
+            self.tableView.allowsSelection = NO;
+        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index+1]])
+                [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index+1]];
+    }
+    else
+    {
+        cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+        if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index+1]])
+        {
+            NSLog(@"Uzhe est' takoj vopros");
+        }
+        else
+        {
+        [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index+1]];
+        [self showCommentButton];
+        }
+    }
+    
+    NSUInteger wrongCount = _wrongAnswersArray.count;
+    NSUInteger rightCount = _rightAnswersArray.count;
+    NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d",_index+1, rightCount, wrongCount);
+    if (rightCount+wrongCount == 20)
+    {
+        [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
+        if (wrongCount <= 2)
+        {
+            // Instantiate the nib content without any reference to it.
+            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"View1" owner:nil options:nil];
+            
+            // Find the view among nib contents (not too hard assuming there is only one view in it).
+            UIView *plainView = [nibContents lastObject];
+            
+            // Some hardcoded layout.
+            CGSize padding = (CGSize){ 0.0, 0.0 };
+            plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
+            
+            // Add to the view hierarchy (thus retain).
+            [self.view addSubview:plainView];
+        }
+        else
+        {
+            // Instantiate the nib content without any reference to it.
+            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"View2" owner:nil options:nil];
+            
+            // Find the view among nib contents (not too hard assuming there is only one view in it).
+            UIView *plainView = [nibContents lastObject];
+            
+            // Some hardcoded layout.
+            CGSize padding = (CGSize){ 0.0, 0.0 };
+            plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
+            
+            // Add to the view hierarchy (thus retain).
+            [self.view addSubview:plainView];
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize size = [[[self getAnswers] objectAtIndex:indexPath.row]
+                   sizeWithFont:[UIFont systemFontOfSize:15]
+                   constrainedToSize:CGSizeMake(277, CGFLOAT_MAX)];
+    double commonsize = size.height;
+    
+    if (commonsize < 20)
+        commonsize = 44;
+    else if (commonsize < 40)
+        commonsize = 62;
+    else if (commonsize < 55)
+        commonsize = 80;
+    else if (commonsize < 72)
+        commonsize = 98;
+    else if (commonsize < 90)
+        commonsize = 116;
+    else if (commonsize < 140)
+        commonsize = 154;
+    else if (commonsize < 160)
+        commonsize = 176;
+    else commonsize = 200;
+
+    return commonsize;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    CGRect frame = self.tableView.frame;
+    frame.size = self.tableView.contentSize;
+    self.tableView.frame = frame;
+}
+
+@end

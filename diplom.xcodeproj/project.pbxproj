@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */; };
+		A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
+		A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F9189521C70090AFA2 /* CoreGraphics.framework */; };
+		A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
+		A522E602189521C70090AFA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A522E600189521C70090AFA2 /* InfoPlist.strings */; };
+		A522E604189521C70090AFA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E603189521C70090AFA2 /* main.m */; };
+		A522E608189521C70090AFA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E607189521C70090AFA2 /* AppDelegate.m */; };
+		A522E60B189521C70090AFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A522E609189521C70090AFA2 /* Main.storyboard */; };
+		A522E60E189521C70090AFA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E60D189521C70090AFA2 /* ViewController.m */; };
+		A522E610189521C70090AFA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A522E60F189521C70090AFA2 /* Images.xcassets */; };
+		A522E617189521C70090AFA2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E616189521C70090AFA2 /* XCTest.framework */; };
+		A522E618189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
+		A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
+		A522E621189521C70090AFA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A522E61F189521C70090AFA2 /* InfoPlist.strings */; };
+		A522E623189521C70090AFA2 /* diplomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E622189521C70090AFA2 /* diplomTests.m */; };
+		A522E62D189524CA0090AFA2 /* 1390756284_i.png in Resources */ = {isa = PBXBuildFile; fileRef = A522E62C189524CA0090AFA2 /* 1390756284_i.png */; };
+		A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */ = {isa = PBXBuildFile; fileRef = A522E62E189525890090AFA2 /* 1390756481_daemons.png */; };
+		A5342E3818D1E8F500B97562 /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5342E3718D1E8F500B97562 /* View1.xib */; };
+		A5342E3A18D1E91100B97562 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5342E3918D1E91100B97562 /* View2.xib */; };
+		A563E879189C41CE004320F0 /* pdd2.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E861189C41CE004320F0 /* pdd2.html */; };
+		A563E87A189C41CE004320F0 /* pdd3.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E862189C41CE004320F0 /* pdd3.html */; };
+		A563E87B189C41CE004320F0 /* pdd4.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E863189C41CE004320F0 /* pdd4.html */; };
+		A563E87C189C41CE004320F0 /* pdd5.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E864189C41CE004320F0 /* pdd5.html */; };
+		A563E87D189C41CE004320F0 /* pdd6.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E865189C41CE004320F0 /* pdd6.html */; };
+		A563E87E189C41CE004320F0 /* pdd7.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E866189C41CE004320F0 /* pdd7.html */; };
+		A563E87F189C41CE004320F0 /* pdd8.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E867189C41CE004320F0 /* pdd8.html */; };
+		A563E880189C41CE004320F0 /* pdd9.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E868189C41CE004320F0 /* pdd9.html */; };
+		A563E881189C41CE004320F0 /* pdd10.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E869189C41CE004320F0 /* pdd10.html */; };
+		A563E882189C41CE004320F0 /* pdd11.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86A189C41CE004320F0 /* pdd11.html */; };
+		A563E883189C41CE004320F0 /* pdd12.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86B189C41CE004320F0 /* pdd12.html */; };
+		A563E884189C41CE004320F0 /* pdd13.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86C189C41CE004320F0 /* pdd13.html */; };
+		A563E885189C41CE004320F0 /* pdd14.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86D189C41CE004320F0 /* pdd14.html */; };
+		A563E886189C41CE004320F0 /* pdd15.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86E189C41CE004320F0 /* pdd15.html */; };
+		A563E887189C41CE004320F0 /* pdd16.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E86F189C41CE004320F0 /* pdd16.html */; };
+		A563E888189C41CE004320F0 /* pdd17.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E870189C41CE004320F0 /* pdd17.html */; };
+		A563E889189C41CE004320F0 /* pdd18.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E871189C41CE004320F0 /* pdd18.html */; };
+		A563E88A189C41CE004320F0 /* pdd19.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E872189C41CE004320F0 /* pdd19.html */; };
+		A563E88B189C41CE004320F0 /* pdd20.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E873189C41CE004320F0 /* pdd20.html */; };
+		A563E88C189C41CE004320F0 /* pdd21.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E874189C41CE004320F0 /* pdd21.html */; };
+		A563E88D189C41CE004320F0 /* pdd22.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E875189C41CE004320F0 /* pdd22.html */; };
+		A563E88E189C41CE004320F0 /* pdd23.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E876189C41CE004320F0 /* pdd23.html */; };
+		A563E88F189C41CE004320F0 /* pdd24.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E877189C41CE004320F0 /* pdd24.html */; };
+		A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A563E894189C473D004320F0 /* RulesDetailViewController.m */; };
+		A56F9F9318C12B5F003D0BC3 /* APPChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56F9F9218C12B5F003D0BC3 /* APPChildViewController.xib */; };
+		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
+		A59A569418C62F9200F07FB3 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */; };
+		A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D6FB61896FFC400017711 /* AboutViewController.m */; };
+		A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */; };
+		A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A690D318985634001D5275 /* ThemeListTableViewController.m */; };
+		A5B04AB818BF80B1007B4D05 /* APPChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B04AB518BF80B1007B4D05 /* APPChildViewController.m */; };
+		A5B04AB918BF80B1007B4D05 /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B04AB718BF80B1007B4D05 /* APPViewController.m */; };
+		A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */; };
+		A5CC12E0189DB5350011599C /* pdd1.html in Resources */ = {isa = PBXBuildFile; fileRef = A5CC12DF189DB5350011599C /* pdd1.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A522E61A189521C70090AFA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A522E5EC189521C70090AFA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A522E5F3189521C70090AFA2;
+			remoteInfo = diplom;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A522E5F4189521C70090AFA2 /* diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A522E5FB189521C70090AFA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A522E5FF189521C70090AFA2 /* diplom-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "diplom-Info.plist"; sourceTree = "<group>"; };
+		A522E601189521C70090AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A522E603189521C70090AFA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A522E605189521C70090AFA2 /* diplom-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diplom-Prefix.pch"; sourceTree = "<group>"; };
+		A522E606189521C70090AFA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = diplom/AppDelegate.h; sourceTree = "<group>"; };
+		A522E607189521C70090AFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = diplom/AppDelegate.m; sourceTree = "<group>"; };
+		A522E60A189521C70090AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = diplom/ViewController.h; sourceTree = "<group>"; };
+		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = diplom/ViewController.m; sourceTree = "<group>"; };
+		A522E60F189521C70090AFA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A522E615189521C70090AFA2 /* diplomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diplomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E616189521C70090AFA2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A522E61E189521C70090AFA2 /* diplomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "diplomTests-Info.plist"; sourceTree = "<group>"; };
+		A522E620189521C70090AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A522E622189521C70090AFA2 /* diplomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diplomTests.m; sourceTree = "<group>"; };
+		A522E62C189524CA0090AFA2 /* 1390756284_i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756284_i.png; sourceTree = "<group>"; };
+		A522E62E189525890090AFA2 /* 1390756481_daemons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756481_daemons.png; sourceTree = "<group>"; };
+		A5342E3718D1E8F500B97562 /* View1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
+		A5342E3918D1E91100B97562 /* View2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
+		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
+		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
+		A563E863189C41CE004320F0 /* pdd4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd4.html; sourceTree = "<group>"; };
+		A563E864189C41CE004320F0 /* pdd5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd5.html; sourceTree = "<group>"; };
+		A563E865189C41CE004320F0 /* pdd6.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd6.html; sourceTree = "<group>"; };
+		A563E866189C41CE004320F0 /* pdd7.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd7.html; sourceTree = "<group>"; };
+		A563E867189C41CE004320F0 /* pdd8.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd8.html; sourceTree = "<group>"; };
+		A563E868189C41CE004320F0 /* pdd9.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd9.html; sourceTree = "<group>"; };
+		A563E869189C41CE004320F0 /* pdd10.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd10.html; sourceTree = "<group>"; };
+		A563E86A189C41CE004320F0 /* pdd11.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd11.html; sourceTree = "<group>"; };
+		A563E86B189C41CE004320F0 /* pdd12.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd12.html; sourceTree = "<group>"; };
+		A563E86C189C41CE004320F0 /* pdd13.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd13.html; sourceTree = "<group>"; };
+		A563E86D189C41CE004320F0 /* pdd14.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd14.html; sourceTree = "<group>"; };
+		A563E86E189C41CE004320F0 /* pdd15.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd15.html; sourceTree = "<group>"; };
+		A563E86F189C41CE004320F0 /* pdd16.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd16.html; sourceTree = "<group>"; };
+		A563E870189C41CE004320F0 /* pdd17.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd17.html; sourceTree = "<group>"; };
+		A563E871189C41CE004320F0 /* pdd18.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd18.html; sourceTree = "<group>"; };
+		A563E872189C41CE004320F0 /* pdd19.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd19.html; sourceTree = "<group>"; };
+		A563E873189C41CE004320F0 /* pdd20.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd20.html; sourceTree = "<group>"; };
+		A563E874189C41CE004320F0 /* pdd21.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd21.html; sourceTree = "<group>"; };
+		A563E875189C41CE004320F0 /* pdd22.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd22.html; sourceTree = "<group>"; };
+		A563E876189C41CE004320F0 /* pdd23.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd23.html; sourceTree = "<group>"; };
+		A563E877189C41CE004320F0 /* pdd24.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd24.html; sourceTree = "<group>"; };
+		A563E893189C473D004320F0 /* RulesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesDetailViewController.h; path = diplom/RulesDetailViewController.h; sourceTree = "<group>"; };
+		A563E894189C473D004320F0 /* RulesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesDetailViewController.m; path = diplom/RulesDetailViewController.m; sourceTree = "<group>"; };
+		A56F9F9218C12B5F003D0BC3 /* APPChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APPChildViewController.xib; sourceTree = "<group>"; };
+		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
+		A59A569218C62F9200F07FB3 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOS7AlertView.h; path = diplom/CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOS7AlertView.m; path = diplom/CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		A59D6FB51896FFC400017711 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = diplom/AboutViewController.h; sourceTree = "<group>"; };
+		A59D6FB61896FFC400017711 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = diplom/AboutViewController.m; sourceTree = "<group>"; };
+		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletListTableViewController.h; sourceTree = "<group>"; };
+		A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletListTableViewController.m; sourceTree = "<group>"; };
+		A5A690D218985634001D5275 /* ThemeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeListTableViewController.h; path = diplom/ThemeListTableViewController.h; sourceTree = "<group>"; };
+		A5A690D318985634001D5275 /* ThemeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeListTableViewController.m; path = diplom/ThemeListTableViewController.m; sourceTree = "<group>"; };
+		A5B04AB418BF80B1007B4D05 /* APPChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPChildViewController.h; sourceTree = "<group>"; };
+		A5B04AB518BF80B1007B4D05 /* APPChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPChildViewController.m; sourceTree = "<group>"; };
+		A5B04AB618BF80B1007B4D05 /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
+		A5B04AB718BF80B1007B4D05 /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
+		A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesListTableViewController.h; path = diplom/RulesListTableViewController.h; sourceTree = "<group>"; };
+		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesListTableViewController.m; path = diplom/RulesListTableViewController.m; sourceTree = "<group>"; };
+		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A522E5F1189521C70090AFA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
+				A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */,
+				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
+				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A522E612189521C70090AFA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A522E617189521C70090AFA2 /* XCTest.framework in Frameworks */,
+				A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */,
+				A522E618189521C70090AFA2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A522E5EB189521C70090AFA2 = {
+			isa = PBXGroup;
+			children = (
+				A59D6FB51896FFC400017711 /* AboutViewController.h */,
+				A59D6FB61896FFC400017711 /* AboutViewController.m */,
+				A522E606189521C70090AFA2 /* AppDelegate.h */,
+				A522E607189521C70090AFA2 /* AppDelegate.m */,
+				A59A569218C62F9200F07FB3 /* CustomIOS7AlertView.h */,
+				A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */,
+				A522E5FD189521C70090AFA2 /* diplom */,
+				A522E61C189521C70090AFA2 /* diplomTests */,
+				A522E5F6189521C70090AFA2 /* Frameworks */,
+				A522E5F5189521C70090AFA2 /* Products */,
+				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
+				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
+				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
+				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
+				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
+				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
+				A522E60C189521C70090AFA2 /* ViewController.h */,
+				A522E60D189521C70090AFA2 /* ViewController.m */,
+			);
+			sourceTree = "<group>";
+		};
+		A522E5F5189521C70090AFA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A522E5F4189521C70090AFA2 /* diplom.app */,
+				A522E615189521C70090AFA2 /* diplomTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A522E5F6189521C70090AFA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */,
+				A522E5F7189521C70090AFA2 /* Foundation.framework */,
+				A522E5F9189521C70090AFA2 /* CoreGraphics.framework */,
+				A522E5FB189521C70090AFA2 /* UIKit.framework */,
+				A522E616189521C70090AFA2 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A522E5FD189521C70090AFA2 /* diplom */ = {
+			isa = PBXGroup;
+			children = (
+				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
+				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
+				A56F9F9218C12B5F003D0BC3 /* APPChildViewController.xib */,
+				A5B04AB418BF80B1007B4D05 /* APPChildViewController.h */,
+				A5B04AB518BF80B1007B4D05 /* APPChildViewController.m */,
+				A5B04AB618BF80B1007B4D05 /* APPViewController.h */,
+				A5B04AB718BF80B1007B4D05 /* APPViewController.m */,
+				A522E60F189521C70090AFA2 /* Images.xcassets */,
+				A522E609189521C70090AFA2 /* Main.storyboard */,
+				A522E5FE189521C70090AFA2 /* Supporting Files */,
+				A5342E3718D1E8F500B97562 /* View1.xib */,
+				A5342E3918D1E91100B97562 /* View2.xib */,
+			);
+			path = diplom;
+			sourceTree = "<group>";
+		};
+		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A57B891018D3045500CB1E52 /* pdd.sqlite */,
+				A5CC12DF189DB5350011599C /* pdd1.html */,
+				A563E861189C41CE004320F0 /* pdd2.html */,
+				A563E862189C41CE004320F0 /* pdd3.html */,
+				A563E863189C41CE004320F0 /* pdd4.html */,
+				A563E864189C41CE004320F0 /* pdd5.html */,
+				A563E865189C41CE004320F0 /* pdd6.html */,
+				A563E866189C41CE004320F0 /* pdd7.html */,
+				A563E867189C41CE004320F0 /* pdd8.html */,
+				A563E868189C41CE004320F0 /* pdd9.html */,
+				A563E869189C41CE004320F0 /* pdd10.html */,
+				A563E86A189C41CE004320F0 /* pdd11.html */,
+				A563E86B189C41CE004320F0 /* pdd12.html */,
+				A563E86C189C41CE004320F0 /* pdd13.html */,
+				A563E86D189C41CE004320F0 /* pdd14.html */,
+				A563E86E189C41CE004320F0 /* pdd15.html */,
+				A563E86F189C41CE004320F0 /* pdd16.html */,
+				A563E870189C41CE004320F0 /* pdd17.html */,
+				A563E871189C41CE004320F0 /* pdd18.html */,
+				A563E872189C41CE004320F0 /* pdd19.html */,
+				A563E873189C41CE004320F0 /* pdd20.html */,
+				A563E874189C41CE004320F0 /* pdd21.html */,
+				A563E875189C41CE004320F0 /* pdd22.html */,
+				A563E876189C41CE004320F0 /* pdd23.html */,
+				A563E877189C41CE004320F0 /* pdd24.html */,
+				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
+				A522E62C189524CA0090AFA2 /* 1390756284_i.png */,
+				A522E5FF189521C70090AFA2 /* diplom-Info.plist */,
+				A522E600189521C70090AFA2 /* InfoPlist.strings */,
+				A522E603189521C70090AFA2 /* main.m */,
+				A522E605189521C70090AFA2 /* diplom-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A522E61C189521C70090AFA2 /* diplomTests */ = {
+			isa = PBXGroup;
+			children = (
+				A522E622189521C70090AFA2 /* diplomTests.m */,
+				A522E61D189521C70090AFA2 /* Supporting Files */,
+			);
+			path = diplomTests;
+			sourceTree = "<group>";
+		};
+		A522E61D189521C70090AFA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A522E61E189521C70090AFA2 /* diplomTests-Info.plist */,
+				A522E61F189521C70090AFA2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A522E5F3189521C70090AFA2 /* diplom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplom" */;
+			buildPhases = (
+				A522E5F0189521C70090AFA2 /* Sources */,
+				A522E5F1189521C70090AFA2 /* Frameworks */,
+				A522E5F2189521C70090AFA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = diplom;
+			productName = diplom;
+			productReference = A522E5F4189521C70090AFA2 /* diplom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A522E614189521C70090AFA2 /* diplomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplomTests" */;
+			buildPhases = (
+				A522E611189521C70090AFA2 /* Sources */,
+				A522E612189521C70090AFA2 /* Frameworks */,
+				A522E613189521C70090AFA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A522E61B189521C70090AFA2 /* PBXTargetDependency */,
+			);
+			name = diplomTests;
+			productName = diplomTests;
+			productReference = A522E615189521C70090AFA2 /* diplomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A522E5EC189521C70090AFA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Sergey Kiselev";
+				TargetAttributes = {
+					A522E614189521C70090AFA2 = {
+						TestTargetID = A522E5F3189521C70090AFA2;
+					};
+				};
+			};
+			buildConfigurationList = A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "diplom" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A522E5EB189521C70090AFA2;
+			productRefGroup = A522E5F5189521C70090AFA2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A522E5F3189521C70090AFA2 /* diplom */,
+				A522E614189521C70090AFA2 /* diplomTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A522E5F2189521C70090AFA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A522E62D189524CA0090AFA2 /* 1390756284_i.png in Resources */,
+				A522E610189521C70090AFA2 /* Images.xcassets in Resources */,
+				A563E887189C41CE004320F0 /* pdd16.html in Resources */,
+				A563E881189C41CE004320F0 /* pdd10.html in Resources */,
+				A563E889189C41CE004320F0 /* pdd18.html in Resources */,
+				A563E880189C41CE004320F0 /* pdd9.html in Resources */,
+				A5342E3818D1E8F500B97562 /* View1.xib in Resources */,
+				A5CC12E0189DB5350011599C /* pdd1.html in Resources */,
+				A522E602189521C70090AFA2 /* InfoPlist.strings in Resources */,
+				A563E88C189C41CE004320F0 /* pdd21.html in Resources */,
+				A563E884189C41CE004320F0 /* pdd13.html in Resources */,
+				A563E88F189C41CE004320F0 /* pdd24.html in Resources */,
+				A563E87C189C41CE004320F0 /* pdd5.html in Resources */,
+				A563E87D189C41CE004320F0 /* pdd6.html in Resources */,
+				A56F9F9318C12B5F003D0BC3 /* APPChildViewController.xib in Resources */,
+				A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */,
+				A563E882189C41CE004320F0 /* pdd11.html in Resources */,
+				A563E88A189C41CE004320F0 /* pdd19.html in Resources */,
+				A563E879189C41CE004320F0 /* pdd2.html in Resources */,
+				A563E883189C41CE004320F0 /* pdd12.html in Resources */,
+				A563E885189C41CE004320F0 /* pdd14.html in Resources */,
+				A522E60B189521C70090AFA2 /* Main.storyboard in Resources */,
+				A563E88B189C41CE004320F0 /* pdd20.html in Resources */,
+				A563E888189C41CE004320F0 /* pdd17.html in Resources */,
+				A563E88E189C41CE004320F0 /* pdd23.html in Resources */,
+				A563E87B189C41CE004320F0 /* pdd4.html in Resources */,
+				A563E87E189C41CE004320F0 /* pdd7.html in Resources */,
+				A563E87F189C41CE004320F0 /* pdd8.html in Resources */,
+				A563E87A189C41CE004320F0 /* pdd3.html in Resources */,
+				A563E886189C41CE004320F0 /* pdd15.html in Resources */,
+				A563E88D189C41CE004320F0 /* pdd22.html in Resources */,
+				A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */,
+				A5342E3A18D1E91100B97562 /* View2.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A522E613189521C70090AFA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A522E621189521C70090AFA2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A522E5F0189521C70090AFA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */,
+				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
+				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
+				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
+				A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */,
+				A522E608189521C70090AFA2 /* AppDelegate.m in Sources */,
+				A5B04AB918BF80B1007B4D05 /* APPViewController.m in Sources */,
+				A522E604189521C70090AFA2 /* main.m in Sources */,
+				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
+				A59A569418C62F9200F07FB3 /* CustomIOS7AlertView.m in Sources */,
+				A5B04AB818BF80B1007B4D05 /* APPChildViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A522E611189521C70090AFA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A522E623189521C70090AFA2 /* diplomTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A522E61B189521C70090AFA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A522E5F3189521C70090AFA2 /* diplom */;
+			targetProxy = A522E61A189521C70090AFA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A522E600189521C70090AFA2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A522E601189521C70090AFA2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A522E609189521C70090AFA2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A522E60A189521C70090AFA2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A522E61F189521C70090AFA2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A522E620189521C70090AFA2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A522E624189521C70090AFA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A522E625189521C70090AFA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A522E627189521C70090AFA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
+				INFOPLIST_FILE = "diplom/diplom-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A522E628189521C70090AFA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
+				INFOPLIST_FILE = "diplom/diplom-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A522E62A189521C70090AFA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diplom.app/diplom";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A522E62B189521C70090AFA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diplom.app/diplom";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
+				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "diplom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A522E624189521C70090AFA2 /* Debug */,
+				A522E625189521C70090AFA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A522E627189521C70090AFA2 /* Debug */,
+				A522E628189521C70090AFA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A522E62A189521C70090AFA2 /* Debug */,
+				A522E62B189521C70090AFA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A522E5EC189521C70090AFA2 /* Project object */;
+}
