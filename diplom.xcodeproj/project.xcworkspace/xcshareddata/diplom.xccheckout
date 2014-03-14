@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6321E4E3-A469-4A70-841D-F9D0149FB0FF</string>
+	<string>418B129B-FE99-47D3-8CC3-91A690512B0C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>diplom</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8FA08CC1-00DD-44F9-999F-1FF2FEBDE8B3</key>
-		<string>https://github.com/serg1991/diplom.git</string>
+		<key>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</key>
+		<string>https://github.com/serg1991/diplom_newbase.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>diplom.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8FA08CC1-00DD-44F9-999F-1FF2FEBDE8B3</key>
+		<key>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/serg1991/diplom.git</string>
+	<string>https://github.com/serg1991/diplom_newbase.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8FA08CC1-00DD-44F9-999F-1FF2FEBDE8B3</string>
+	<string>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8FA08CC1-00DD-44F9-999F-1FF2FEBDE8B3</string>
+			<string>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>diplom</string>
 		</dict>
