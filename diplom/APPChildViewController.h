@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) NSUInteger biletNumber;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
+@property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
 
 @end

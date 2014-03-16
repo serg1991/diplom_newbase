@@ -26,6 +26,7 @@
 		A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */ = {isa = PBXBuildFile; fileRef = A522E62E189525890090AFA2 /* 1390756481_daemons.png */; };
 		A5342E3818D1E8F500B97562 /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5342E3718D1E8F500B97562 /* View1.xib */; };
 		A5342E3A18D1E91100B97562 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5342E3918D1E91100B97562 /* View2.xib */; };
+		A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A54F73F218D6402700EAB2A5 /* StyleSettings.plist */; };
 		A563E879189C41CE004320F0 /* pdd2.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E861189C41CE004320F0 /* pdd2.html */; };
 		A563E87A189C41CE004320F0 /* pdd3.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E862189C41CE004320F0 /* pdd3.html */; };
 		A563E87B189C41CE004320F0 /* pdd4.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E863189C41CE004320F0 /* pdd4.html */; };
@@ -97,6 +98,7 @@
 		A522E62E189525890090AFA2 /* 1390756481_daemons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756481_daemons.png; sourceTree = "<group>"; };
 		A5342E3718D1E8F500B97562 /* View1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		A5342E3918D1E91100B97562 /* View2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
+		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
 		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
 		A563E863189C41CE004320F0 /* pdd4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd4.html; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
+				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A59D6FB51896FFC400017711 /* AboutViewController.h */,
 				A59D6FB61896FFC400017711 /* AboutViewController.m */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
@@ -296,6 +299,7 @@
 				A522E5F0189521C70090AFA2 /* Sources */,
 				A522E5F1189521C70090AFA2 /* Frameworks */,
 				A522E5F2189521C70090AFA2 /* Resources */,
+				OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -395,6 +399,7 @@
 				A563E88D189C41CE004320F0 /* pdd22.html in Resources */,
 				A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */,
 				A5342E3A18D1E91100B97562 /* View2.xib in Resources */,
+				A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +412,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		OBJCLEANCUSTOMRUNSCRIPTT /* Objective-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\" \nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\" \nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A522E5F0189521C70090AFA2 /* Sources */ = {

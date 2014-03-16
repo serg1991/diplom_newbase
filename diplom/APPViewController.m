@@ -39,7 +39,6 @@
     label.font = [UIFont systemFontOfSize: 18.0f];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
-    
     self.navigationItem.titleView = label;
 }
 
@@ -60,7 +59,6 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     NSUInteger index = [(APPChildViewController *)viewController index];
-    
     if (index == 0) {
         return nil;
     }
@@ -89,6 +87,7 @@
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     // The selected item reflected in the page indicator.
+    
     return 0;
 }
 

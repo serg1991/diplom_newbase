@@ -54,7 +54,6 @@
             while (sqlite3_step(statement2) == SQLITE_ROW) {
                 NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement2, 0)];
                 [_themeQuestionNumber addObject:arrayelement];
-                NSLog(@"%d %@", _themeQuestionNumber.count, arrayelement);
             }
         }
         sqlite3_finalize(statement2);
@@ -103,15 +102,18 @@
                    constrainedToSize:CGSizeMake(260, CGFLOAT_MAX)];
     double commonsize = size.height + 14;
     
-    if (commonsize < 43)
+    if (commonsize < 43) {
         commonsize = 44.0;
-    else if (commonsize < 57)
+    }
+    else if (commonsize < 57) {
         commonsize = 66.0;
-    else if (commonsize > 66 && commonsize < 79)
+    }
+    else if (commonsize > 66 && commonsize < 79) {
         commonsize = 88.0;
-    else
+    }
+    else {
         commonsize = 110.0;
-
+    }
     
     return commonsize;
 }

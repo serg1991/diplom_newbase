@@ -169,8 +169,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger rowNumber = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     NSMutableArray *answerArray = [self getAnswers];
     if (rowNumber == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -188,34 +187,63 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger rowNumber = [indexPath row];
+    NSArray *array = [self getAnswers];
+
+    if ([self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже правильно ответил
+        self.tableView.allowsSelection = NO;
+        if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+    }
+    else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
+        int questnum = [self.wrongAnswersSelectedArray indexOfObject:[NSNumber numberWithLong:_index + 1]];
+        self.tableView.allowsSelection = NO;
+        if (rowNumber != [array[array.count - 2] intValue] && rowNumber == questnum + 1)  // если ответ НЕправильный
+            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
     
+    if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] && ![self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) {
     if (rowNumber == 0) {
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    else if (rowNumber == [array[array.count - 2] intValue]) {
+    else if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
         cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
         for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
             self.tableView.allowsSelection = NO;
         if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]])
                 [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
     }
-    else {
+    else { // если ответ неправильный
         cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
         if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
             NSLog(@"Uzhe est' takoj vopros");
         }
         else {
         [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
+        [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
         [self showCommentButton];
         }
     }
-    
+    }
+    else {
+        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            self.tableView.allowsSelection = NO;
+    }
+        else {
+                cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+            self.tableView.allowsSelection = NO;
+        }
+    }
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", _index + 1, rightCount, wrongCount);
@@ -258,21 +286,30 @@
                    constrainedToSize:CGSizeMake(277, CGFLOAT_MAX)];
     double commonsize = size.height;
     
-    if (commonsize < 20)
+    if (commonsize < 20) {
         commonsize = 44;
-    else if (commonsize < 40)
+    }
+    else if (commonsize < 40) {
         commonsize = 62;
-    else if (commonsize < 55)
+    }
+    else if (commonsize < 55) {
         commonsize = 80;
-    else if (commonsize < 72)
+    }
+    else if (commonsize < 72) {
         commonsize = 98;
-    else if (commonsize < 90)
+    }
+    else if (commonsize < 90) {
         commonsize = 116;
-    else if (commonsize < 140)
+    }
+    else if (commonsize < 140) {
         commonsize = 154;
-    else if (commonsize < 160)
+    }
+    else if (commonsize < 160) {
         commonsize = 176;
-    else commonsize = 200;
+    }
+    else {
+     commonsize = 200;   
+    }
 
     return commonsize;
 }
