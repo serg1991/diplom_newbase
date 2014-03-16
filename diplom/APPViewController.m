@@ -15,8 +15,7 @@
 @implementation APPViewController
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
@@ -39,19 +38,17 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 22)];
     label.font = [UIFont systemFontOfSize: 18.0f];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber+1];
+    label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
     
     self.navigationItem.titleView = label;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (APPChildViewController *)viewControllerAtIndex:(NSUInteger)index
-{
+- (APPChildViewController *)viewControllerAtIndex:(NSUInteger)index {
     APPChildViewController *childViewController = [[APPChildViewController alloc] initWithNibName:@"APPChildViewController" bundle:nil];
     childViewController.index = index;
     childViewController.biletNumber = _biletNumber;
@@ -61,8 +58,7 @@
     return childViewController;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     NSUInteger index = [(APPChildViewController *)viewController index];
     
     if (index == 0) {
@@ -75,24 +71,23 @@
     return [self viewControllerAtIndex:index];
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(APPChildViewController *)viewController index];
     index++;
     if (index == 20)
+        
         return nil;
+    
     return [self viewControllerAtIndex:index];
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
-{
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
     // The number of items reflected in the page indicator.
+    
     return 20;
 }
 
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
-{
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     // The selected item reflected in the page indicator.
     return 0;
 }

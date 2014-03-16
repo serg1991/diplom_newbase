@@ -13,4 +13,5 @@
 @interface BiletListTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *biletNumbers;
 @property (nonatomic, strong) NSArray *biletRecords;
+
 @end

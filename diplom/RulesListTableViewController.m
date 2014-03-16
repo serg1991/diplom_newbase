@@ -15,17 +15,16 @@
 
 @implementation RulesListTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     _ruleNumbers = @[@"Общие положения",
@@ -85,34 +84,30 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [_ruleNumbers count];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ruleListCell" forIndexPath:indexPath];
         long row = [indexPath row];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row+1, _ruleNumbers[row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
+    
     return cell;
 }
 
@@ -121,25 +116,23 @@
                    sizeWithFont:[UIFont systemFontOfSize:18]
                    constrainedToSize:CGSizeMake(250, CGFLOAT_MAX)];
     double height = size.height;
-    if (height < 22)
-    {
+    if (height < 22) {
         height = 44;
     }
-    else if (height < 43)
-    {
+    else if (height < 43) {
         height = 66;
     }
-    else if (height < 90)
-    {
+    else if (height < 90) {
         height = 88;
     }
-
-    else height = 132;
+    else {
+        height = 132;
+    }
+    
     return height;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showRuleDetails"]) {
         RulesDetailViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
@@ -147,7 +140,7 @@
         
         detailViewController.ruleDetailModel = @[_ruleDetail[row]];
         
-        NSString *result = [NSString stringWithFormat:@"%ld. %@", row+1, _ruleNumbers[row]];
+        NSString *result = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
         detailViewController.ruleName = result;
     }
 }

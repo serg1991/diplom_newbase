@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) NSArray *ruleNumbers;
 @property (nonatomic, strong) NSArray *ruleDetail;
+
 @end
