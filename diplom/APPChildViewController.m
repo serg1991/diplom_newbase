@@ -27,17 +27,17 @@
 
 - (void)dealloc {
     [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-
+    
 }
 
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
-
+    
     [self getAnswers];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    
     [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
@@ -110,12 +110,12 @@
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
                 _imageView.image = [UIImage imageWithData:picture];
-
+                
                 for (int i = 2; i < 10; i++) {
                     if (sqlite3_column_text(statement, i) != NULL) {
                         NSString *arrayelement = [[NSString alloc]
-                                                initWithUTF8String:
-                                                (const char *) sqlite3_column_text(statement, i)];
+                                                  initWithUTF8String:
+                                                  (const char *) sqlite3_column_text(statement, i)];
                         [array addObject:arrayelement];
                     }
                 }
@@ -149,7 +149,7 @@
 }
 
 - (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSUInteger)section {
-
+    
     NSArray *array = [self getAnswers];
     
     return array.count - 2;
@@ -168,10 +168,10 @@
         cell.textLabel.numberOfLines = 0;
     }
     else {
-            cell.textLabel.font = [UIFont systemFontOfSize:15.0];
-            cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
-            cell.textLabel.numberOfLines = 0;
-        }
+        cell.textLabel.font = [UIFont systemFontOfSize:15.0];
+        cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
+        cell.textLabel.numberOfLines = 0;
+    }
     
     return cell;
 }
@@ -188,14 +188,14 @@
         int questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
         [self showCommentButton];
-       if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithInt:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
-          cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+        if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithInt:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
+            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSUInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
@@ -205,39 +205,41 @@
     }
     if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] && ![self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) {
         if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
-        cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-        for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
-            self.tableView.allowsSelection = NO;
-        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]])
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
+                self.tableView.allowsSelection = NO;
+            if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]])
                 [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
-    }
-    else { // если ответ неправильный
-        cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
-        if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
-            NSLog(@"Uzhe est' takoj vopros");
         }
-        else {
-        [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
-        [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
-        [self showCommentButton];
+        else { // если ответ неправильный
+            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+            if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
+                NSLog(@"Uzhe est' takoj vopros");
+            }
+            else {
+                [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
+                [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
+                [self showCommentButton];
+            }
         }
-    }
     }
     else {
         if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
             cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
             self.tableView.allowsSelection = NO;
-    }
+        }
         else {
-            if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
-                cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-            else
+            if (rowNumber == [array[array.count - 2] intValue]) {
+                cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];// если ответ правильный
+            }
+            else {
                 cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+            }
             self.tableView.allowsSelection = NO;
         }
     }
-
+    
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", _index + 1, rightCount, wrongCount);
@@ -302,9 +304,9 @@
         commonsize = 176;
     }
     else {
-     commonsize = 200;   
+        commonsize = 200;
     }
-
+    
     return commonsize;
 }
 
