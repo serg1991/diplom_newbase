@@ -15,5 +15,6 @@
 @property (nonatomic) NSUInteger biletNumber;
 @property (nonatomic, retain) NSMutableArray *rightArray;
 @property (nonatomic, retain) NSMutableArray *wrongArray;
+@property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
 
 @end

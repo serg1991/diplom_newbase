@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import <sqlite3.h>
 #import "CustomIOS7AlertView.h"
 
 @interface APPChildViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger index;
+@property (assign, nonatomic) NSUInteger index;
 @property (nonatomic) sqlite3 *pdd;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

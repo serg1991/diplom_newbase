@@ -129,7 +129,7 @@ CGFloat buttonSpacerHeight = 0;
 }
 
 // Default button behaviour
-- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSUInteger)buttonIndex {
     [self close];
 }
 

@@ -30,16 +30,6 @@
 
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [[[self navigationController] interactivePopGestureRecognizer] setEnabled:NO];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[[self navigationController] interactivePopGestureRecognizer] setEnabled:YES];
-}
-
 - (void)viewDidLoad {
 
     [super viewDidLoad];
@@ -81,13 +71,13 @@
     [alertView show];
 }
 
-- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSUInteger)buttonIndex {
     [alertView close];
 }
 
 - (UIView *)createDemoView {
     NSArray *array = [self getAnswers];
-    NSInteger arrayCount = array.count;
+    NSUInteger arrayCount = array.count;
     UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 291, 200)];
     UITextView *comment = [[UITextView alloc] initWithFrame:CGRectMake(3, 3, 285, 196)];
     comment.editable = false;
@@ -99,7 +89,7 @@
     return demoView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
     int height =  (_imageView.image == 0) ? 0 : 118;
     
     return height;
@@ -129,7 +119,6 @@
                         [array addObject:arrayelement];
                     }
                 }
-                
                 sqlite3_finalize(statement);
             }
             else {
@@ -155,11 +144,11 @@
     
 }
 
-- (NSInteger)numberOfSectionInTableView:(UITableView *)tableView {
+- (NSUInteger)numberOfSectionInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSUInteger)section {
 
     NSArray *array = [self getAnswers];
     
@@ -167,7 +156,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger rowNumber = [indexPath row];
+    NSUInteger rowNumber = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     NSMutableArray *answerArray = [self getAnswers];
@@ -188,34 +177,35 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger rowNumber = [indexPath row];
+    NSUInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
-
     if ([self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже правильно ответил
         self.tableView.allowsSelection = NO;
         if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
     }
     else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
-        int questnum = [self.wrongAnswersSelectedArray indexOfObject:[NSNumber numberWithLong:_index + 1]];
+        int questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
-        if (rowNumber != [array[array.count - 2] intValue] && rowNumber == questnum + 1)  // если ответ НЕправильный
-            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+        [self showCommentButton];
+       if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithInt:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
+          cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSInteger rowNumber = [indexPath row];
+    NSUInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
-    
-    if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] && ![self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) {
     if (rowNumber == 0) {
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    else if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
+    if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] && ![self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) {
+        if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
         cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
         for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
             self.tableView.allowsSelection = NO;
@@ -240,10 +230,14 @@
             self.tableView.allowsSelection = NO;
     }
         else {
+            if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
+                cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            else
                 cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
             self.tableView.allowsSelection = NO;
         }
     }
+
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", _index + 1, rightCount, wrongCount);
@@ -251,7 +245,7 @@
         [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
         if (wrongCount <= 2) {
             // Instantiate the nib content without any reference to it.
-            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"View1" owner:nil options:nil];
+            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"GoodResultInBilet" owner:nil options:nil];
             
             // Find the view among nib contents (not too hard assuming there is only one view in it).
             UIView *plainView = [nibContents lastObject];
@@ -265,7 +259,7 @@
         }
         else {
             // Instantiate the nib content without any reference to it.
-            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"View2" owner:nil options:nil];
+            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"BadResultInBilet" owner:nil options:nil];
             
             // Find the view among nib contents (not too hard assuming there is only one view in it).
             UIView *plainView = [nibContents lastObject];

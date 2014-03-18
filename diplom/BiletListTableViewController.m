@@ -148,6 +148,7 @@
     if ([[segue identifier] isEqualToString:@"showBiletDetails"]) {
         NSMutableArray *rightArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
         
         APPViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
@@ -155,6 +156,7 @@
         detailViewController.biletNumber = row;
         detailViewController.wrongArray = wrongArray;
         detailViewController.rightArray = rightArray;
+        detailViewController.wrongSelectedArray = wrongSelectedArray;
     }
 }
 

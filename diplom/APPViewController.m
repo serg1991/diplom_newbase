@@ -40,6 +40,10 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
     self.navigationItem.titleView = label;
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +57,7 @@
     childViewController.biletNumber = _biletNumber;
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;
+    childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     
     return childViewController;
 }
