@@ -26,31 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self ifTableExists];
+    [self makeBiletRecordsArray];
     
-    NSString *docsDir;
-    NSArray *dirPaths;
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [defaultDBPath UTF8String];
-    sqlite3_stmt *statement;
-    _biletRecords = [[NSMutableArray alloc] init];
-    NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-    long row = [myIndexPath row];
-    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        for (row = 0; row < 40; row ++) {
-            NSString *querySQL = [NSString stringWithFormat:@"SELECT Max(rightCount) from paper_ab_stat WHERE biletNumber = \"%ld\"", row + 1];
-            const char *query_stmt = [querySQL UTF8String];
-            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
-                if (sqlite3_step(statement) == SQLITE_ROW) {
-                    NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
-                    [_biletRecords addObject:arrayelement];
-                }
-            }
-            sqlite3_finalize(statement);
-        }
-    }
-    sqlite3_close(_pdd_ab_stat);
     _biletNumbers = @[@"Билет №1",
                       @"Билет №2",
                       @"Билет №3",
@@ -142,6 +120,66 @@
         detailViewController.rightArray = rightArray;
         detailViewController.wrongSelectedArray = wrongSelectedArray;
     }
+}
+
+- (void)ifTableExists {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    NSString *databasePath;
+    
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    
+    if ([filemgr fileExistsAtPath: databasePath ] == NO) {
+		const char *dbpath = [databasePath UTF8String];
+        
+        if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+            char *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT, biletNumber INTEGER, rightCount INTEGER, wrongCount INTEGER, startDate TEXT, finishDate TEXT)";
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to create table");
+            }
+            sqlite3_close(_pdd_ab_stat);
+        }
+        else {
+            NSLog(@"Failed to open/create database");
+        }
+    }
+}
+
+- (NSMutableArray *)makeBiletRecordsArray {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [defaultDBPath UTF8String];
+    sqlite3_stmt *statement;
+    _biletRecords = [[NSMutableArray alloc] init];
+    NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+    long row = [myIndexPath row];
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        for (row = 0; row < 40; row ++) {
+            NSString *querySQL = [NSString stringWithFormat:@"SELECT Max(rightCount) from paper_ab_stat WHERE biletNumber = \"%ld\"", row + 1];
+            const char *query_stmt = [querySQL UTF8String];
+            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+                if (sqlite3_step(statement) == SQLITE_ROW) {
+                    NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
+                    [_biletRecords addObject:arrayelement];
+                }
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(_pdd_ab_stat);
+    
+    return _biletRecords;
 }
 
 @end
