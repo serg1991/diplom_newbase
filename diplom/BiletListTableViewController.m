@@ -27,6 +27,30 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [defaultDBPath UTF8String];
+    sqlite3_stmt *statement;
+    _biletRecords = [[NSMutableArray alloc] init];
+    NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+    long row = [myIndexPath row];
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        for (row = 0; row < 40; row ++) {
+            NSString *querySQL = [NSString stringWithFormat:@"SELECT Max(rightCount) from paper_ab_stat WHERE biletNumber = \"%ld\"", row + 1];
+            const char *query_stmt = [querySQL UTF8String];
+            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+                if (sqlite3_step(statement) == SQLITE_ROW) {
+                    NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
+                    [_biletRecords addObject:arrayelement];
+                }
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(_pdd_ab_stat);
     _biletNumbers = @[@"Билет №1",
                       @"Билет №2",
                       @"Билет №3",
@@ -67,47 +91,7 @@
                       @"Билет №38",
                       @"Билет №39",
                       @"Билет №40"];
-    _biletRecords = @[@"",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" ",
-                      @" "];
-                      // Uncomment the following line to preserve selection between presentations.
+    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -135,7 +119,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"biletListCell" forIndexPath:indexPath];
     long row = [indexPath row];
     NSString *record = [NSString stringWithFormat:@"Рекорд: %@ из 20", _biletRecords[row]];
-
+    
     // Configure the cell...
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = _biletNumbers[row];

@@ -155,10 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */,
-				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
 				A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */,
-				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
 				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
+				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
+				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

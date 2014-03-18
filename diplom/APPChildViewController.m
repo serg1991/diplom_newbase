@@ -83,7 +83,7 @@
     comment.editable = false;
     comment.font = [UIFont systemFontOfSize:16.0f];
     comment.textAlignment = NSTextAlignmentCenter;
-    comment.text = [NSString stringWithFormat:@"%@", self.getAnswers[arrayCount - 1]];
+    comment.text = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
     [demoView addSubview:comment];
     
     return demoView;
@@ -101,12 +101,12 @@
     sqlite3_stmt *statement;
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
-    if (sqlite3_open(dbpath, &_pdd) == SQLITE_OK) {
+    if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%u\" AND QuestionInPaper = \"%d\"", _biletNumber + 1, _index + 1];
         
         const char *query_stmt = [querySQL UTF8String];
         
-        if (sqlite3_prepare_v2(_pdd, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_prepare_v2(_pdd_ab, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
                 _imageView.image = [UIImage imageWithData:picture];
@@ -128,7 +128,7 @@
         else {
             NSLog(@"Ne mogu vypolnit' zapros!");
         }
-        sqlite3_close(_pdd);
+        sqlite3_close(_pdd_ab);
     }
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
@@ -190,12 +190,10 @@
         [self showCommentButton];
         if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithInt:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSUInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
@@ -203,40 +201,19 @@
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] && ![self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) {
-        if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
+    else {
+    if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
             cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
-            for (rowNumber = 1; rowNumber < array.count - 1; rowNumber++)
-                self.tableView.allowsSelection = NO;
-            if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]])
-                [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
+            self.tableView.allowsSelection = NO;
+            [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
         }
         else { // если ответ неправильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
-            if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
-                NSLog(@"Uzhe est' takoj vopros");
-            }
-            else {
-                [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
-                [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
-                [self showCommentButton];
-            }
-        }
-    }
-    else {
-        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]]) {
-            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
             self.tableView.allowsSelection = NO;
-        }
-        else {
-            if (rowNumber == [array[array.count - 2] intValue]) {
-                cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];// если ответ правильный
-            }
-            else {
-                cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
-            }
-            self.tableView.allowsSelection = NO;
+            [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
+            [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
+            [self showCommentButton];
         }
     }
     
@@ -244,34 +221,102 @@
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", _index + 1, rightCount, wrongCount);
     if (rightCount + wrongCount == 20) {
-        [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
-        if (wrongCount <= 2) {
-            // Instantiate the nib content without any reference to it.
-            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"GoodResultInBilet" owner:nil options:nil];
-            
-            // Find the view among nib contents (not too hard assuming there is only one view in it).
-            UIView *plainView = [nibContents lastObject];
-            
-            // Some hardcoded layout.
-            CGSize padding = (CGSize){ 0.0, 0.0 };
-            plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-            
-            // Add to the view hierarchy (thus retain).
-            [self.view addSubview:plainView];
+        [self getResultOfTest];
+        [self writeStatisticsToBase];
+    }
+}
+
+- (void)getResultOfTest {
+    [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
+    if (_wrongAnswersArray.count <= 2) {
+        // Instantiate the nib content without any reference to it.
+        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"GoodResultInBilet" owner:nil options:nil];
+        
+        // Find the view among nib contents (not too hard assuming there is only one view in it).
+        UIView *plainView = [nibContents lastObject];
+        
+        // Some hardcoded layout.
+        CGSize padding = (CGSize){ 0.0, 0.0 };
+        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
+        
+        // Add to the view hierarchy (thus retain).
+        [self.view addSubview:plainView];
+    }
+    else {
+        // Instantiate the nib content without any reference to it.
+        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"BadResultInBilet" owner:nil options:nil];
+        
+        // Find the view among nib contents (not too hard assuming there is only one view in it).
+        UIView *plainView = [nibContents lastObject];
+        
+        // Some hardcoded layout.
+        CGSize padding = (CGSize){ 0.0, 0.0 };
+        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
+        
+        // Add to the view hierarchy (thus retain).
+        [self.view addSubview:plainView];
+    }
+}
+
+- (void)writeStatisticsToBase {
+    [self ifTableExists];
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [defaultDBPath UTF8String];
+    sqlite3_stmt *statement;
+    NSDate *date = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", _biletNumber + 1, _rightAnswersArray.count, _wrongAnswersArray.count, _startDate, dateString];
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE) {
+        NSLog(@"Zapis' proizvedena uspeshno");
         }
         else {
-            // Instantiate the nib content without any reference to it.
-            NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"BadResultInBilet" owner:nil options:nil];
-            
-            // Find the view among nib contents (not too hard assuming there is only one view in it).
-            UIView *plainView = [nibContents lastObject];
-            
-            // Some hardcoded layout.
-            CGSize padding = (CGSize){ 0.0, 0.0 };
-            plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-            
-            // Add to the view hierarchy (thus retain).
-            [self.view addSubview:plainView];
+            NSLog(@"Neuspeshno");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_pdd_ab_stat);
+    }
+    else {
+        NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
+}
+
+- (void)ifTableExists {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    NSString *databasePath;
+
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    
+    if ([filemgr fileExistsAtPath: databasePath ] == NO) {
+		const char *dbpath = [databasePath UTF8String];
+        
+        if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+            char *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT, biletNumber INTEGER, rightCount INTEGER, wrongCount INTEGER, startDate TEXT, finishDate TEXT)";
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to create table");
+            }
+            sqlite3_close(_pdd_ab_stat);
+        }
+        else {
+            NSLog(@"Failed to open/create database");
         }
     }
 }

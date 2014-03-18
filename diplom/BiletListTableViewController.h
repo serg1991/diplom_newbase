@@ -12,6 +12,7 @@
 
 @interface BiletListTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *biletNumbers;
-@property (nonatomic, strong) NSArray *biletRecords;
+@property (nonatomic, strong) NSMutableArray *biletRecords;
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 
 @end

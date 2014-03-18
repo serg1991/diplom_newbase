@@ -14,12 +14,14 @@
 @interface APPChildViewController : UIViewController
 
 @property (assign, nonatomic) NSUInteger index;
-@property (nonatomic) sqlite3 *pdd;
+@property (nonatomic) sqlite3 *pdd_ab;
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) NSUInteger biletNumber;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
+@property (nonatomic, retain) NSString *startDate;
 
 @end
