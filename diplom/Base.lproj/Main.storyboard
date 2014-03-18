@@ -158,7 +158,7 @@
                     <view key="view" contentMode="scaleToFill" id="45h-Cf-Cml">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.84997027853260865" green="0.84997027853260865" blue="0.84997027853260865" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="9er-Jh-ESU"/>
                 </viewController>
