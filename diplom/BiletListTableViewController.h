@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APPChildViewController.h"
-#import "APPViewController.h"
+#import "BiletChildViewController.h"
+#import "BiletViewController.h"
 
 @interface BiletListTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *biletNumbers;

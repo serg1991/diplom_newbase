@@ -5,13 +5,13 @@
 //  Created by Sergey Kiselev on 29.01.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
 
-#import "APPChildViewController.h"
+#import "BiletChildViewController.h"
 
-@interface APPChildViewController ()
+@interface BiletChildViewController ()
 
 @end
 
-@implementation APPChildViewController
+@implementation BiletChildViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     

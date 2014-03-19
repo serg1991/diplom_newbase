@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="10"/>
         </scene>
-        <!--View Controller-->
+        <!--Bilet View Controller-->
         <scene sceneID="VHT-Po-HKT">
             <objects>
-                <viewController id="kN0-F3-UG9" customClass="APPViewController" sceneMemberID="viewController">
+                <viewController id="kN0-F3-UG9" customClass="BiletViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pz6-hh-Nl9"/>
                         <viewControllerLayoutGuide type="bottom" id="f4K-X2-NjP"/>

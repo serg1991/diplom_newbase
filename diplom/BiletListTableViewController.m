@@ -112,7 +112,7 @@
         NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
         
-        APPViewController *detailViewController = [segue destinationViewController];
+        BiletViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         long row = [myIndexPath row];
         detailViewController.biletNumber = row;

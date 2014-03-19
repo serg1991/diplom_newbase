@@ -11,7 +11,7 @@
 #import <sqlite3.h>
 #import "CustomIOS7AlertView.h"
 
-@interface APPChildViewController : UIViewController
+@interface BiletChildViewController : UIViewController
 
 @property (assign, nonatomic) NSUInteger index;
 @property (nonatomic) sqlite3 *pdd_ab;

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APPChildViewController.h"
+#import "BiletChildViewController.h"
 
-@interface APPViewController : UIViewController <UIPageViewControllerDataSource>
+@interface BiletViewController : UIViewController <UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (nonatomic) NSUInteger biletNumber;

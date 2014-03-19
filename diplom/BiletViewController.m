@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
 //
 
-#import "APPViewController.h"
+#import "BiletViewController.h"
 
-@interface APPViewController ()
+@interface BiletViewController ()
 
 @end
 
-@implementation APPViewController
+@implementation BiletViewController
 
 
 - (void)viewDidLoad {
@@ -29,7 +29,7 @@
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
-    APPChildViewController *initialViewController = [self viewControllerAtIndex:0];
+    BiletChildViewController *initialViewController = [self viewControllerAtIndex:0];
     
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
     
@@ -55,8 +55,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (APPChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    APPChildViewController *childViewController = [[APPChildViewController alloc] initWithNibName:@"APPChildViewController" bundle:nil];
+- (BiletChildViewController *)viewControllerAtIndex:(NSUInteger)index {
+    BiletChildViewController *childViewController = [[BiletChildViewController alloc] initWithNibName:@"APPChildViewController" bundle:nil];
     childViewController.index = index;
     childViewController.biletNumber = _biletNumber;
     childViewController.rightAnswersArray = _rightArray;
@@ -68,7 +68,7 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = [(APPChildViewController *)viewController index];
+    NSUInteger index = [(BiletChildViewController *)viewController index];
     if (index == 0) {
         return nil;
     }
@@ -80,7 +80,7 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = [(APPChildViewController *)viewController index];
+    NSUInteger index = [(BiletChildViewController *)viewController index];
     index++;
     if (index == 20)
         
