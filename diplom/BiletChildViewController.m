@@ -24,19 +24,11 @@
     return self;
 }
 
-- (void)dealloc {
-    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     [self getAnswers];
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
 - (void)showCommentButton {
@@ -162,7 +154,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = [UIFont italicSystemFontOfSize:15.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[rowNumber]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[0]];
         cell.textLabel.numberOfLines = 0;
     }
     else {
@@ -277,7 +269,7 @@
         NSLog(@"Zapis' proizvedena uspeshno");
         }
         else {
-            NSLog(@"Neuspeshno");
+            NSLog(@"Zapis' proizvedena neuspeshno");
         }
         sqlite3_finalize(statement);
         sqlite3_close(_pdd_ab_stat);
@@ -290,9 +282,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size = [[[self getAnswers] objectAtIndex:indexPath.row]
                    sizeWithFont:[UIFont systemFontOfSize:15]
-                   constrainedToSize:CGSizeMake(277, CGFLOAT_MAX)];
+                   constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
     double commonsize = size.height;
-    
+    //NSLog(@"Вопрос %d. Вариант %d. before = %f", (int)_index + 1, indexPath.row, commonsize);
     if (commonsize < 20) {
         commonsize = 44;
     }
@@ -308,8 +300,11 @@
     else if (commonsize < 90) {
         commonsize = 116;
     }
-    else if (commonsize < 140) {
-        commonsize = 154;
+    else if (commonsize < 108) {
+        commonsize = 134;
+    }
+    else if (commonsize < 142) {
+        commonsize = 152;
     }
     else if (commonsize < 160) {
         commonsize = 176;
@@ -317,14 +312,9 @@
     else {
         commonsize = 200;
     }
+   // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
     
     return commonsize;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    CGRect frame = self.tableView.frame;
-    frame.size = self.tableView.contentSize;
-    self.tableView.frame = frame;
 }
 
 @end
