@@ -24,11 +24,19 @@
     return self;
 }
 
+- (void)dealloc {
+    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     [self getAnswers];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
 - (void)showCommentButton {
@@ -177,7 +185,6 @@
     else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
         long questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
-        [self showCommentButton];
         if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithLong:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     }
@@ -192,7 +199,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else {
-    if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
+        if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
             cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
             self.tableView.allowsSelection = NO;
@@ -203,7 +210,7 @@
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
-            [self showCommentButton];
+            [self launchDialog:0];
         }
     }
     
@@ -266,7 +273,7 @@
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-        NSLog(@"Zapis' proizvedena uspeshno");
+            NSLog(@"Zapis' proizvedena uspeshno");
         }
         else {
             NSLog(@"Zapis' proizvedena neuspeshno");
@@ -284,37 +291,40 @@
                    sizeWithFont:[UIFont systemFontOfSize:15]
                    constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
     double commonsize = size.height;
-    //NSLog(@"Вопрос %d. Вариант %d. before = %f", (int)_index + 1, indexPath.row, commonsize);
+    NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
     if (commonsize < 20) {
-        commonsize = 44;
+        return commonsize = 44;
     }
     else if (commonsize < 40) {
-        commonsize = 62;
+        return commonsize = 62;
     }
     else if (commonsize < 55) {
-        commonsize = 80;
+        return commonsize = 80;
     }
     else if (commonsize < 72) {
-        commonsize = 98;
+        return commonsize = 98;
     }
     else if (commonsize < 90) {
-        commonsize = 116;
+        return commonsize = 116;
     }
     else if (commonsize < 108) {
-        commonsize = 134;
+        return commonsize = 134;
     }
     else if (commonsize < 142) {
-        commonsize = 152;
+        return commonsize = 152;
     }
     else if (commonsize < 160) {
-        commonsize = 176;
+        return commonsize = 176;
     }
     else {
-        commonsize = 200;
+        return commonsize = 200;
     }
-   // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
-    
-    return commonsize;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    CGRect frame = self.tableView.frame;
+    frame.size = self.tableView.contentSize;
+    self.tableView.frame = frame;
 }
 
 @end

@@ -56,7 +56,7 @@
 }
 
 - (BiletChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    BiletChildViewController *childViewController = [[BiletChildViewController alloc] initWithNibName:@"APPChildViewController" bundle:nil];
+    BiletChildViewController *childViewController = [[BiletChildViewController alloc] initWithNibName:@"BiletChildViewController" bundle:nil];
     childViewController.index = index;
     childViewController.biletNumber = _biletNumber;
     childViewController.rightAnswersArray = _rightArray;
