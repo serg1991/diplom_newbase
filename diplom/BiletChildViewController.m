@@ -22,12 +22,10 @@
     }
     
     return self;
-    
 }
 
 - (void)dealloc {
     [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-    
 }
 
 - (void)viewDidLoad {

@@ -23,6 +23,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self makeBiletRecordsArray];
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
