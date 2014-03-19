@@ -28,47 +28,10 @@
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     [self ifTableExists];
     [self makeBiletRecordsArray];
-    
-    _biletNumbers = @[@"Билет №1",
-                      @"Билет №2",
-                      @"Билет №3",
-                      @"Билет №4",
-                      @"Билет №5",
-                      @"Билет №6",
-                      @"Билет №7",
-                      @"Билет №8",
-                      @"Билет №9",
-                      @"Билет №10",
-                      @"Билет №11",
-                      @"Билет №12",
-                      @"Билет №13",
-                      @"Билет №14",
-                      @"Билет №15",
-                      @"Билет №16",
-                      @"Билет №17",
-                      @"Билет №18",
-                      @"Билет №19",
-                      @"Билет №20",
-                      @"Билет №21",
-                      @"Билет №22",
-                      @"Билет №23",
-                      @"Билет №24",
-                      @"Билет №25",
-                      @"Билет №26",
-                      @"Билет №27",
-                      @"Билет №28",
-                      @"Билет №29",
-                      @"Билет №30",
-                      @"Билет №31",
-                      @"Билет №32",
-                      @"Билет №33",
-                      @"Билет №34",
-                      @"Билет №35",
-                      @"Билет №36",
-                      @"Билет №37",
-                      @"Билет №38",
-                      @"Билет №39",
-                      @"Билет №40"];
+    _biletNumbers = [[NSMutableArray alloc] init];
+    for (long row = 0; row < 40; row ++) {
+        [_biletNumbers addObject:[NSString stringWithFormat:@"Билет № %d", (int) row + 1]];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

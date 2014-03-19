@@ -11,7 +11,7 @@
 #import "BiletViewController.h"
 
 @interface BiletListTableViewController : UITableViewController
-@property (nonatomic, strong) NSArray *biletNumbers;
+@property (nonatomic, strong) NSMutableArray *biletNumbers;
 @property (nonatomic, strong) NSMutableArray *biletRecords;
 @property (nonatomic) sqlite3 *pdd_ab_stat;
 

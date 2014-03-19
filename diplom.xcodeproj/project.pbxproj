@@ -130,20 +130,20 @@
 		A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "17608358-3349-476b-ae94-40cad5b45c6b.jpeg"; sourceTree = "<group>"; };
 		A56B76F318D8692E00B1CDCF /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		A56F9F9218C12B5F003D0BC3 /* BiletChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BiletChildViewController.xib; sourceTree = "<group>"; };
+		A56F9F9218C12B5F003D0BC3 /* BiletChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BiletChildViewController.xib; path = diplom/BiletChildViewController.xib; sourceTree = "<group>"; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
 		A59A569218C62F9200F07FB3 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOS7AlertView.h; path = diplom/CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOS7AlertView.m; path = diplom/CustomIOS7AlertView.m; sourceTree = "<group>"; };
 		A59D6FB51896FFC400017711 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = diplom/AboutViewController.h; sourceTree = "<group>"; };
 		A59D6FB61896FFC400017711 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = diplom/AboutViewController.m; sourceTree = "<group>"; };
-		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletListTableViewController.h; sourceTree = "<group>"; };
-		A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletListTableViewController.m; sourceTree = "<group>"; };
-		A5A690D218985634001D5275 /* ThemeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeListTableViewController.h; path = diplom/ThemeListTableViewController.h; sourceTree = "<group>"; };
-		A5A690D318985634001D5275 /* ThemeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeListTableViewController.m; path = diplom/ThemeListTableViewController.m; sourceTree = "<group>"; };
-		A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletChildViewController.h; sourceTree = "<group>"; };
-		A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletChildViewController.m; sourceTree = "<group>"; };
-		A5B04AB618BF80B1007B4D05 /* BiletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletViewController.h; sourceTree = "<group>"; };
-		A5B04AB718BF80B1007B4D05 /* BiletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletViewController.m; sourceTree = "<group>"; };
+		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletListTableViewController.h; path = diplom/BiletListTableViewController.h; sourceTree = "<group>"; };
+		A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletListTableViewController.m; path = diplom/BiletListTableViewController.m; sourceTree = "<group>"; };
+		A5A690D218985634001D5275 /* ThemeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeListTableViewController.h; sourceTree = "<group>"; };
+		A5A690D318985634001D5275 /* ThemeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeListTableViewController.m; sourceTree = "<group>"; };
+		A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletChildViewController.h; path = diplom/BiletChildViewController.h; sourceTree = "<group>"; };
+		A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletChildViewController.m; path = diplom/BiletChildViewController.m; sourceTree = "<group>"; };
+		A5B04AB618BF80B1007B4D05 /* BiletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletViewController.h; path = diplom/BiletViewController.h; sourceTree = "<group>"; };
+		A5B04AB718BF80B1007B4D05 /* BiletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletViewController.m; path = diplom/BiletViewController.m; sourceTree = "<group>"; };
 		A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesListTableViewController.h; path = diplom/RulesListTableViewController.h; sourceTree = "<group>"; };
 		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesListTableViewController.m; path = diplom/RulesListTableViewController.m; sourceTree = "<group>"; };
 		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
@@ -178,11 +178,17 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A59D6FB51896FFC400017711 /* AboutViewController.h */,
 				A59D6FB61896FFC400017711 /* AboutViewController.m */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
+				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
+				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
+				A56F9F9218C12B5F003D0BC3 /* BiletChildViewController.xib */,
+				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
+				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
+				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
+				A5B04AB718BF80B1007B4D05 /* BiletViewController.m */,
 				A59A569218C62F9200F07FB3 /* CustomIOS7AlertView.h */,
 				A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */,
 				A522E5FD189521C70090AFA2 /* diplom */,
@@ -193,8 +199,7 @@
 				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
 				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
 				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
-				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
-				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
+				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A522E60C189521C70090AFA2 /* ViewController.h */,
 				A522E60D189521C70090AFA2 /* ViewController.m */,
 			);
@@ -225,13 +230,8 @@
 		A522E5FD189521C70090AFA2 /* diplom */ = {
 			isa = PBXGroup;
 			children = (
-				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
-				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
-				A56F9F9218C12B5F003D0BC3 /* BiletChildViewController.xib */,
-				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
-				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
-				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
-				A5B04AB718BF80B1007B4D05 /* BiletViewController.m */,
+				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
+				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A522E5FE189521C70090AFA2 /* Supporting Files */,
