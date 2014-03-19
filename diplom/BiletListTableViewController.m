@@ -162,10 +162,8 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     _biletRecords = [[NSMutableArray alloc] init];
-    NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
-    long row = [myIndexPath row];
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        for (row = 0; row < 40; row ++) {
+        for (long row = 0; row < 40; row ++) {
             NSString *querySQL = [NSString stringWithFormat:@"SELECT Max(rightCount) from paper_ab_stat WHERE biletNumber = \"%ld\"", row + 1];
             const char *query_stmt = [querySQL UTF8String];
             if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {

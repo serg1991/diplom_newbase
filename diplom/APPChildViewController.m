@@ -102,7 +102,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%u\" AND QuestionInPaper = \"%d\"", _biletNumber + 1, _index + 1];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%d\" AND QuestionInPaper = \"%d\"", (int)_biletNumber + 1, (int)_index + 1];
         
         const char *query_stmt = [querySQL UTF8String];
         
@@ -185,10 +185,10 @@
             cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
     }
     else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
-        int questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
+        long questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
         [self showCommentButton];
-        if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithInt:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
+        if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithLong:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     }
 }
@@ -219,7 +219,7 @@
     
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
-    NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", _index + 1, rightCount, wrongCount);
+    NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {
         [self getResultOfTest];
         [self writeStatisticsToBase];
@@ -272,7 +272,7 @@
     NSString *dateString = [dateFormatter stringFromDate:date];
     
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", _biletNumber + 1, _rightAnswersArray.count, _wrongAnswersArray.count, _startDate, dateString];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_biletNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {

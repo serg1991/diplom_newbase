@@ -124,7 +124,7 @@ CGFloat buttonSpacerHeight = 0;
     }
 
     if (onButtonTouchUpInside != NULL) {
-        onButtonTouchUpInside(self, [sender tag]);
+        onButtonTouchUpInside(self, (int)[sender tag]);
     }
 }
 
