@@ -216,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="1553" y="681"/>
         </scene>
-        <!--Examen View Controller - Экзамен-->
+        <!--Examen View Controller-->
         <scene sceneID="ICz-SV-bsP">
             <objects>
                 <viewController id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
@@ -229,9 +229,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.85098046064376831" green="0.85098046064376831" blue="0.85098046064376831" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Экзамен" id="spx-JI-S4d">
-                        <barButtonItem key="backBarButtonItem" title="Прервать" id="m2x-u1-QEA"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="spx-JI-S4d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lv-s7-vvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

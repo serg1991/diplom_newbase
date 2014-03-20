@@ -14,6 +14,8 @@
 
 @implementation ExamenViewController
 
+@synthesize theLabel;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -23,13 +25,47 @@
     return self;
 }
 
+- (IBAction)doCountdown:(id)sender {
+    if (countdownTimer)
+        return;
+    
+    remainingTicks = 1200;
+    [self updateLabel];
+    
+    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
+}
+
+- (void)handleTimerTick {
+    remainingTicks--;
+    [self updateLabel];
+    
+    if (remainingTicks <= 0) {
+        [countdownTimer invalidate];
+        countdownTimer = nil;
+    }
+}
+
+- (void)updateLabel {
+    NSString *badNul = @"0";
+    NSString *goodNul = @"00";
+    NSString *minutes = [NSString stringWithFormat:@"%d", remainingTicks / 60];
+    NSString *seconds = [NSString stringWithFormat:@"%d", remainingTicks % 60];
+    if ([minutes isEqualToString:badNul])
+        minutes = goodNul;
+    if ([seconds isEqualToString:badNul])
+        seconds = goodNul;
+    theLabel.text =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //дата начала решения билета
     NSDate *date = [[NSDate alloc] init];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     _dateString = [dateFormatter stringFromDate:date];
-    
+
+    //генерация номеров билетов для вопросов экзамена
     _randomNumbers = [[NSMutableArray alloc] init];
     for (int i = 0; i < 20; i++) {
         NSUInteger randomNumber;
@@ -37,6 +73,7 @@
         [_randomNumbers addObject:[NSNumber numberWithInt:randomNumber]];
     }
     
+    //добавление контроллеров в массив
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
@@ -53,6 +90,10 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
+    self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
+    [self doCountdown:nil];
+    [self.navigationItem setTitle:@"Экзамен"];
+    [self.navigationController.navigationBar addSubview:theLabel];
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
