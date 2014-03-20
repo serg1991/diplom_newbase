@@ -25,4 +25,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showExamen"]) {
+        NSMutableArray *rightArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
+        
+        ExamenViewController *detailViewController = [segue destinationViewController];
+
+        detailViewController.wrongArray = wrongArray;
+        detailViewController.rightArray = rightArray;
+        detailViewController.wrongSelectedArray = wrongSelectedArray;
+    }
+}
+
 @end

@@ -1,19 +1,27 @@
 //
-//  BiletViewController.m
+//  ExamenViewController.m
 //  diplom
 //
-//  Created by Sergey Kiselev on 29.01.14.
+//  Created by Sergey Kiselev on 20.03.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
 //
 
-#import "BiletViewController.h"
+#import "ExamenViewController.h"
 
-@interface BiletViewController ()
+@interface ExamenViewController ()
 
 @end
 
-@implementation BiletViewController
+@implementation ExamenViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,14 +30,21 @@
     [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     _dateString = [dateFormatter stringFromDate:date];
     
+    _randomNumbers = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 20; i++) {
+        NSUInteger randomNumber;
+        randomNumber = arc4random()%(40 - 1 + 1) + 1;
+        [_randomNumbers addObject:[NSNumber numberWithInt:randomNumber]];
+    }
+    
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
-
+    
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
     
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
-    BiletChildViewController *initialViewController = [self viewControllerAtIndex:0];
+    ExamenChildViewController *initialViewController = [self viewControllerAtIndex:0];
     
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
     
@@ -38,12 +53,6 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
-
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 22)];
-    label.font = [UIFont systemFontOfSize: 18.0f];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
-    self.navigationItem.titleView = label;
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
@@ -55,20 +64,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BiletChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    BiletChildViewController *childViewController = [[BiletChildViewController alloc] initWithNibName:@"QuestionViewController" bundle:nil];
+- (ExamenChildViewController *)viewControllerAtIndex:(NSUInteger)index {
+    ExamenChildViewController *childViewController = [[ExamenChildViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
     childViewController.index = index;
-    childViewController.biletNumber = _biletNumber;
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _dateString;
+    childViewController.randomNumbers = _randomNumbers;
     
     return childViewController;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = [(BiletChildViewController *)viewController index];
+    NSUInteger index = [(ExamenChildViewController *)viewController index];
     if (index == 0) {
         return nil;
     }
@@ -80,7 +89,7 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = [(BiletChildViewController *)viewController index];
+    NSUInteger index = [(ExamenChildViewController *)viewController index];
     index++;
     if (index == 20)
         

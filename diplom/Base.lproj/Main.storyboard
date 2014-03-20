@@ -43,6 +43,9 @@
                                 <state key="normal" title="Сдача экзамена">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8Uv-Ok-Pa9" kind="push" identifier="showExamen" id="rbu-zd-0rt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJS-OY-Mh4">
                                 <rect key="frame" x="47" y="445" width="226" height="30"/>
@@ -213,6 +216,27 @@
             </objects>
             <point key="canvasLocation" x="1553" y="681"/>
         </scene>
+        <!--Examen View Controller - Экзамен-->
+        <scene sceneID="ICz-SV-bsP">
+            <objects>
+                <viewController id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hIs-yp-PET"/>
+                        <viewControllerLayoutGuide type="bottom" id="DlR-gB-RNW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tpI-RH-dQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.85098046064376831" green="0.85098046064376831" blue="0.85098046064376831" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Экзамен" id="spx-JI-S4d">
+                        <barButtonItem key="backBarButtonItem" title="Прервать" id="m2x-u1-QEA"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lv-s7-vvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="1340"/>
+        </scene>
         <!--Rules List Table View Controller - Rules List-->
         <scene sceneID="dGS-6Y-5ni">
             <objects>
@@ -254,7 +278,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAX-S9-Vil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="1822"/>
+            <point key="canvasLocation" x="1553" y="2030"/>
         </scene>
         <!--Rules Detail View Controller-->
         <scene sceneID="5hI-W6-rGN">
@@ -290,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqz-Oh-c0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="1822"/>
+            <point key="canvasLocation" x="2084" y="2030"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="RB0-ec-cKr">
@@ -361,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epJ-Pi-PCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="2713"/>
+            <point key="canvasLocation" x="1553" y="3571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uni-Zu-J5q">

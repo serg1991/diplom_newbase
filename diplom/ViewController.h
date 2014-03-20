@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExamenViewController.h"
 
 @interface ViewController : UIViewController
 

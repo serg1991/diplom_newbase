@@ -1,22 +1,21 @@
 //
-//  APPChildViewController.m
+//  ExamenChildViewController.m
 //  diplom
 //
-//  Created by Sergey Kiselev on 29.01.14.
+//  Created by Sergey Kiselev on 20.03.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
+//
 
-#import "BiletChildViewController.h"
+#import "ExamenChildViewController.h"
 
-@interface BiletChildViewController ()
+@interface ExamenChildViewController ()
 
 @end
 
-@implementation BiletChildViewController
+@implementation ExamenChildViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
     if (self) {
         // Custom initialization
     }
@@ -39,54 +38,6 @@
     [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
-- (void)showCommentButton {
-    UIButton *launchDialog = [UIButton buttonWithType:UIButtonTypeCustom];
-    [launchDialog setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + self.tableView.contentSize.height, self.tableView.contentSize.width, 44)];
-    [launchDialog addTarget:self action:@selector(launchDialog:) forControlEvents:UIControlEventTouchDown];
-    [launchDialog setTitle:@"Подсказка" forState:UIControlStateNormal];
-    [launchDialog setBackgroundColor:[UIColor whiteColor]];
-    [launchDialog setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [launchDialog.layer setBorderWidth:0];
-    [launchDialog.layer setCornerRadius:5];
-    [self.view addSubview:launchDialog];
-}
-
-- (IBAction)launchDialog:(id)sender {
-    // Here we need to pass a full frame
-    CustomIOS7AlertView *alertView = [[CustomIOS7AlertView alloc] init];
-    
-    // Add some custom content to the alert view
-    [alertView setContainerView:[self createDemoView]];
-    
-    // You may use a Block, rather than a delegate.
-    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
-        [alertView close];
-    }];
-    
-    [alertView setUseMotionEffects:true];
-    
-    // And launch the dialog
-    [alertView show];
-}
-
-- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSUInteger)buttonIndex {
-    [alertView close];
-}
-
-- (UIView *)createDemoView {
-    NSArray *array = [self getAnswers];
-    NSUInteger arrayCount = array.count;
-    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 291, 200)];
-    UITextView *comment = [[UITextView alloc] initWithFrame:CGRectMake(3, 3, 285, 196)];
-    comment.editable = false;
-    comment.font = [UIFont systemFontOfSize:16.0f];
-    comment.textAlignment = NSTextAlignmentCenter;
-    comment.text = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
-    [demoView addSubview:comment];
-    
-    return demoView;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
     int height =  (_imageView.image == 0) ? 0 : 118;
     
@@ -98,9 +49,9 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    
+
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%d\" AND QuestionInPaper = \"%d\"", (int)_biletNumber + 1, (int)_index + 1];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%@\" AND QuestionInPaper = \"%d\"", _randomNumbers[_index] , (int)_index + 1];
         
         const char *query_stmt = [querySQL UTF8String];
         
@@ -210,7 +161,6 @@
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
-            [self launchDialog:0];
         }
     }
     
@@ -219,7 +169,7 @@
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {
         [self getResultOfTest];
-        [self writeStatisticsToBase];
+      //  [self writeStatisticsToBase];
     }
 }
 
@@ -254,44 +204,44 @@
         [self.view addSubview:plainView];
     }
 }
-
-- (void)writeStatisticsToBase {
-    NSString *docsDir;
-    NSArray *dirPaths;
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [defaultDBPath UTF8String];
-    sqlite3_stmt *statement;
-    NSDate *date = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    
-    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_biletNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
-        const char *insert_stmt = [insertSQL UTF8String];
-        sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
-        if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Zapis' proizvedena uspeshno");
-        }
-        else {
-            NSLog(@"Zapis' proizvedena neuspeshno");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_pdd_ab_stat);
-    }
-    else {
-        NSLog(@"Ne mogu ustanovit' soedinenie!");
-    }
-}
+//
+//- (void)writeStatisticsToBase {
+//    NSString *docsDir;
+//    NSArray *dirPaths;
+//    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    docsDir = [dirPaths objectAtIndex:0];
+//    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+//    const char *dbpath = [defaultDBPath UTF8String];
+//    sqlite3_stmt *statement;
+//    NSDate *date = [[NSDate alloc] init];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
+//    NSString *dateString = [dateFormatter stringFromDate:date];
+//    
+//    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+//        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_biletNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
+//        const char *insert_stmt = [insertSQL UTF8String];
+//        sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
+//        if (sqlite3_step(statement) == SQLITE_DONE) {
+//            NSLog(@"Zapis' proizvedena uspeshno");
+//        }
+//        else {
+//            NSLog(@"Zapis' proizvedena neuspeshno");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_pdd_ab_stat);
+//    }
+//    else {
+//        NSLog(@"Ne mogu ustanovit' soedinenie!");
+//    }
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size = [[[self getAnswers] objectAtIndex:indexPath.row]
                    sizeWithFont:[UIFont systemFontOfSize:15]
                    constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
     double commonsize = size.height;
-   // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
+    // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
     if (commonsize < 20) {
         return commonsize = 44;
     }

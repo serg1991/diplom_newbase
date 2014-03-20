@@ -1,21 +1,21 @@
 //
-//  BiletViewController.h
+//  ExamenViewController.h
 //  diplom
 //
-//  Created by Sergey Kiselev on 29.01.14.
+//  Created by Sergey Kiselev on 20.03.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "BiletChildViewController.h"
+#import "ExamenChildViewController.h"
 
-@interface BiletViewController : UIViewController <UIPageViewControllerDataSource>
+@interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
-@property (nonatomic) NSUInteger biletNumber;
 @property (nonatomic, retain) NSMutableArray *rightArray;
 @property (nonatomic, retain) NSMutableArray *wrongArray;
 @property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
+@property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic, retain) NSString *dateString;
 
 @end
