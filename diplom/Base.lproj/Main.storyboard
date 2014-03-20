@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="10"/>
         </scene>
-        <!--Bilet View Controller-->
+        <!--Bilet View Controller - Bilet Detail-->
         <scene sceneID="VHT-Po-HKT">
             <objects>
-                <viewController id="kN0-F3-UG9" customClass="BiletViewController" sceneMemberID="viewController">
+                <viewController title="Bilet Detail" id="kN0-F3-UG9" customClass="BiletViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pz6-hh-Nl9"/>
                         <viewControllerLayoutGuide type="bottom" id="f4K-X2-NjP"/>
@@ -216,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="681"/>
         </scene>
-        <!--Examen View Controller-->
+        <!--Examen View Controller - Examen-->
         <scene sceneID="ICz-SV-bsP">
             <objects>
-                <viewController id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
+                <viewController title="Examen" id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hIs-yp-PET"/>
                         <viewControllerLayoutGuide type="bottom" id="DlR-gB-RNW"/>
@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="2030"/>
         </scene>
-        <!--Rules Detail View Controller-->
+        <!--Rules Detail View Controller - Rules Detail-->
         <scene sceneID="5hI-W6-rGN">
             <objects>
-                <viewController id="WXv-dK-AMs" customClass="RulesDetailViewController" sceneMemberID="viewController">
+                <viewController title="Rules Detail" id="WXv-dK-AMs" customClass="RulesDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iAo-Ks-uch"/>
                         <viewControllerLayoutGuide type="bottom" id="CGF-cJ-hhJ"/>

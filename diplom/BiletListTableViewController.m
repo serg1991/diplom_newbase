@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self ifTableExists];
+    [self ifBiletStatTableExists];
     [self makeBiletRecordsArray];
     _biletNumbers = [[NSMutableArray alloc] init];
     for (long row = 0; row < 40; row ++) {
@@ -90,7 +90,7 @@
     }
 }
 
-- (void)ifTableExists {
+- (void)ifBiletStatTableExists {
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;

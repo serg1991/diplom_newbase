@@ -163,13 +163,12 @@
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
         }
     }
-    
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {
         [self getResultOfTest];
-      //  [self writeStatisticsToBase];
+        [self writeStatisticsToBase];
     }
 }
 
@@ -204,37 +203,38 @@
         [self.view addSubview:plainView];
     }
 }
-//
-//- (void)writeStatisticsToBase {
-//    NSString *docsDir;
-//    NSArray *dirPaths;
-//    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    docsDir = [dirPaths objectAtIndex:0];
-//    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-//    const char *dbpath = [defaultDBPath UTF8String];
-//    sqlite3_stmt *statement;
-//    NSDate *date = [[NSDate alloc] init];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-//    NSString *dateString = [dateFormatter stringFromDate:date];
-//    
-//    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-//        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_biletNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
-//        const char *insert_stmt = [insertSQL UTF8String];
-//        sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
-//        if (sqlite3_step(statement) == SQLITE_DONE) {
-//            NSLog(@"Zapis' proizvedena uspeshno");
-//        }
-//        else {
-//            NSLog(@"Zapis' proizvedena neuspeshno");
-//        }
-//        sqlite3_finalize(statement);
-//        sqlite3_close(_pdd_ab_stat);
-//    }
-//    else {
-//        NSLog(@"Ne mogu ustanovit' soedinenie!");
-//    }
-//}
+
+- (void)writeStatisticsToBase {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [defaultDBPath UTF8String];
+    sqlite3_stmt *statement;
+    NSDate *date = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_examen_stat(rightCount, wrongCount, rightAnswers, wrongAnswers, startDate, finishDate) VALUES ('%d', '%d', '%@', '%@', '%@', '%@')", (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, [_rightAnswersArray componentsJoinedByString:@","], [_wrongAnswersArray componentsJoinedByString:@","], _startDate, dateString];
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE) {
+            NSLog(@"Zapis' proizvedena uspeshno");
+        }
+        else {
+            NSLog(@"%s", insert_stmt);
+            NSLog(@"Zapis' proizvedena neuspeshno");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_pdd_ab_stat);
+    }
+    else {
+        NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size = [[[self getAnswers] objectAtIndex:indexPath.row]

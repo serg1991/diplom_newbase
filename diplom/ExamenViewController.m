@@ -46,15 +46,22 @@
 }
 
 - (void)updateLabel {
-    NSString *badNul = @"0";
-    NSString *goodNul = @"00";
     NSString *minutes = [NSString stringWithFormat:@"%d", remainingTicks / 60];
     NSString *seconds = [NSString stringWithFormat:@"%d", remainingTicks % 60];
-    if ([minutes isEqualToString:badNul])
-        minutes = goodNul;
-    if ([seconds isEqualToString:badNul])
-        seconds = goodNul;
+    NSUInteger myMinute = [minutes intValue];
+    NSUInteger mySecond = [seconds intValue];
+    if (myMinute < 10)
+        minutes = [NSString stringWithFormat:@"0%d", remainingTicks / 60];
+    if (mySecond < 10)
+        seconds = [NSString stringWithFormat:@"0%d", remainingTicks % 60];
     theLabel.text =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:(BOOL)animated];
+    
+    [countdownTimer invalidate];
+    [self.theLabel removeFromSuperview];
 }
 
 - (void)viewDidLoad {
@@ -90,11 +97,12 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
+    //добавление шапки из названия контроллера и таймера
     self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
     [self doCountdown:nil];
     [self.navigationItem setTitle:@"Экзамен"];
     [self.navigationController.navigationBar addSubview:theLabel];
-    
+    //отключение жеста свайпа от левого края экрана
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     }

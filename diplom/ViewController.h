@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ExamenViewController.h"
+#import <sqlite3.h>
 
 @interface ViewController : UIViewController
+
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 
 @end
