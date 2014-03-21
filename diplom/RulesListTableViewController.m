@@ -114,22 +114,22 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size = [[_ruleNumbers objectAtIndex:indexPath.row]
                    sizeWithFont:[UIFont systemFontOfSize:18]
-                   constrainedToSize:CGSizeMake(250, CGFLOAT_MAX)];
-    double height = size.height;
-    if (height < 22) {
-        height = 44;
+                   constrainedToSize:CGSizeMake(263, CGFLOAT_MAX)];
+    double commonsize = size.height + 14;
+    if (commonsize < 43) {
+        commonsize = 44.0;
     }
-    else if (height < 43) {
-        height = 66;
+    else if (commonsize < 57) {
+        commonsize = 66.0;
     }
-    else if (height < 90) {
-        height = 88;
+    else if (commonsize > 66 && commonsize < 79) {
+        commonsize = 88.0;
     }
     else {
-        height = 132;
+        commonsize = 132.0;
     }
     
-    return height;
+    return commonsize;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -138,7 +138,7 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         long row = [myIndexPath row];
         
-        detailViewController.ruleDetailModel = @[_ruleDetail[row]];
+        detailViewController.ruleDetailModel = _ruleDetail[row];
         
         NSString *result = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
         detailViewController.ruleName = result;
