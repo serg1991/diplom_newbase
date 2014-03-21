@@ -26,13 +26,13 @@
 }
 
 - (IBAction)doCountdown:(id)sender {
-    if (countdownTimer)
+    if (appDelegate.timer)
         return;
     
     remainingTicks = 1200;
     [self updateLabel];
     
-    countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
+    appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
 }
 
 - (void)handleTimerTick {
@@ -40,8 +40,8 @@
     [self updateLabel];
     
     if (remainingTicks <= 0) {
-        [countdownTimer invalidate];
-        countdownTimer = nil;
+        [appDelegate.timer invalidate];
+        appDelegate.timer = nil;
     }
 }
 
@@ -59,8 +59,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:(BOOL)animated];
-    
-    [countdownTimer invalidate];
+    [appDelegate.timer invalidate];
     [self.theLabel removeFromSuperview];
 }
 
@@ -99,6 +98,8 @@
     [self.pageController didMoveToParentViewController:self];
     //добавление шапки из названия контроллера и таймера
     self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.timer = nil;
     [self doCountdown:nil];
     [self.navigationItem setTitle:@"Экзамен"];
     [self.navigationController.navigationBar addSubview:theLabel];
@@ -121,6 +122,7 @@
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _dateString;
     childViewController.randomNumbers = _randomNumbers;
+    childViewController.timer = appDelegate.timer;
     
     return childViewController;
 }

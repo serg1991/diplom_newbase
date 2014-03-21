@@ -49,7 +49,7 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSMutableArray *array = [[NSMutableArray alloc] init];
-
+    
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%@\" AND QuestionInPaper = \"%d\"", _randomNumbers[_index] , (int)_index + 1];
         
@@ -169,6 +169,7 @@
     if (rightCount + wrongCount == 20) {
         [self getResultOfTest];
         [self writeStatisticsToBase];
+        [_timer invalidate];
     }
 }
 

@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ExamenChildViewController.h"
+#import "AppDelegate.h"
 
 @interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 {
+    AppDelegate *appDelegate;
     UILabel *theLabel;
     
 @private
-    NSTimer *countdownTimer;
     NSUInteger remainingTicks;
 }
 
