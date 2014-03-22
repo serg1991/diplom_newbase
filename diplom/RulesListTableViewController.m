@@ -137,9 +137,7 @@
         RulesDetailViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         long row = [myIndexPath row];
-        
-        detailViewController.ruleDetailModel = _ruleDetail[row];
-        
+        detailViewController.ruleDetailModel  = [NSString stringWithFormat:@"%@", _ruleDetail[row]];
         NSString *result = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
         detailViewController.ruleName = result;
     }

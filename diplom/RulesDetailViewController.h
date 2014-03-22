@@ -11,7 +11,7 @@
 @interface RulesDetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *rulesWebView;
-@property (strong, nonatomic) NSArray *ruleDetailModel;
+@property (strong, nonatomic) NSString *ruleDetailModel;
 @property (strong, nonatomic) NSString *ruleName;
 
 @end

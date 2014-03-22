@@ -33,7 +33,7 @@
     
     self.navigationItem.titleView = label;
 
-    NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_ruleDetailModel[0] ofType:@"html"]];
+    NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_ruleDetailModel ofType:@"html"]];
     [_rulesWebView loadRequest:[NSURLRequest requestWithURL:htmlFile]];
     // Do any additional setup after loading the view.
 }
