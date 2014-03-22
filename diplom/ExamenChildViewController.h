@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic, retain) NSString *startDate;
 @property (nonatomic, retain) NSTimer *timer;
+@property (assign, nonatomic) NSUInteger remainingTicks;
 
 @end

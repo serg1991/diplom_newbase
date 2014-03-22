@@ -25,6 +25,19 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    if (_timer)
+        return;
+    
+    remainingTicks = 1200;
+    [self updateLabel];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
+}
+
 - (void)handleTimerTick {
     remainingTicks--;
     [self updateLabel];
@@ -45,19 +58,6 @@
     if (mySecond < 10)
         seconds = [NSString stringWithFormat:@"0%d", remainingTicks % 60];
     theLabel.text =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    if (_timer)
-        return;
-    
-    remainingTicks = 1200;
-    [self updateLabel];
-    
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -124,6 +124,7 @@
     childViewController.startDate = _dateString;
     childViewController.randomNumbers = _randomNumbers;
     childViewController.timer = _timer;
+    childViewController.remainingTicks = remainingTicks;
     
     return childViewController;
 }

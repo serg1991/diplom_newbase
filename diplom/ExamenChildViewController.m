@@ -166,7 +166,7 @@
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
-    if (rightCount + wrongCount == 20) {
+    if (rightCount + wrongCount == 20 || _remainingTicks == 0) {
         [self getResultOfTest];
         [self writeStatisticsToBase];
         [_timer invalidate];
