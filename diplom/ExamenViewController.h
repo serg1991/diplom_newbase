@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ExamenChildViewController.h"
-#import "AppDelegate.h"
 
 @interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 {

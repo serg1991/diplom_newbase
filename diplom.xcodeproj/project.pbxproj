@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */; };
+		A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */; };
+		A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */; };
+		A51E8AAE18DE49D700BAC3E5 /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51E8AAC18DE49D700BAC3E5 /* StatisticsViewController.xib */; };
 		A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
 		A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F9189521C70090AFA2 /* CoreGraphics.framework */; };
 		A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
@@ -80,6 +83,11 @@
 
 /* Begin PBXFileReference section */
 		A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsChildViewController.h; sourceTree = "<group>"; };
+		A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsChildViewController.m; sourceTree = "<group>"; };
+		A51E8AAC18DE49D700BAC3E5 /* StatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsViewController.xib; sourceTree = "<group>"; };
 		A522E5F4189521C70090AFA2 /* diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,10 +109,10 @@
 		A522E622189521C70090AFA2 /* diplomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diplomTests.m; sourceTree = "<group>"; };
 		A522E62C189524CA0090AFA2 /* 1390756284_i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756284_i.png; sourceTree = "<group>"; };
 		A522E62E189525890090AFA2 /* 1390756481_daemons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756481_daemons.png; sourceTree = "<group>"; };
-		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenViewController.h; sourceTree = "<group>"; };
-		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
-		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
-		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenChildViewController.m; sourceTree = "<group>"; };
+		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamenViewController.h; path = diplom/ExamenViewController.h; sourceTree = "<group>"; };
+		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamenViewController.m; path = diplom/ExamenViewController.m; sourceTree = "<group>"; };
+		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamenChildViewController.h; path = diplom/ExamenChildViewController.h; sourceTree = "<group>"; };
+		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamenChildViewController.m; path = diplom/ExamenChildViewController.m; sourceTree = "<group>"; };
 		A5342E3718D1E8F500B97562 /* GoodResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodResultInBilet.xib; path = diplom/GoodResultInBilet.xib; sourceTree = "<group>"; };
 		A5342E3918D1E91100B97562 /* BadResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BadResultInBilet.xib; path = diplom/BadResultInBilet.xib; sourceTree = "<group>"; };
 		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
@@ -193,6 +201,10 @@
 				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
 				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
 				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
+				A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */,
+				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
+				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
+				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
 				A5B04AB718BF80B1007B4D05 /* BiletViewController.m */,
 				A59A569218C62F9200F07FB3 /* CustomIOS7AlertView.h */,
 				A59A569318C62F9200F07FB3 /* CustomIOS7AlertView.m */,
@@ -240,12 +252,13 @@
 		A522E5FD189521C70090AFA2 /* diplom */ = {
 			isa = PBXGroup;
 			children = (
-				A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */,
-				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
-				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
-				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
+				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
+				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
+				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
+				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
+				A51E8AAC18DE49D700BAC3E5 /* StatisticsViewController.xib */,
 				A522E5FE189521C70090AFA2 /* Supporting Files */,
 			);
 			path = diplom;
@@ -387,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A522E62D189524CA0090AFA2 /* 1390756284_i.png in Resources */,
+				A51E8AAE18DE49D700BAC3E5 /* StatisticsViewController.xib in Resources */,
 				A522E610189521C70090AFA2 /* Images.xcassets in Resources */,
 				A563E887189C41CE004320F0 /* pdd16.html in Resources */,
 				A563E881189C41CE004320F0 /* pdd10.html in Resources */,
@@ -460,6 +474,7 @@
 				A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */,
 				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
+				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
 				A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */,
 				A522E608189521C70090AFA2 /* AppDelegate.m in Sources */,
@@ -468,6 +483,7 @@
 				A5B04AB918BF80B1007B4D05 /* BiletViewController.m in Sources */,
 				A522E604189521C70090AFA2 /* main.m in Sources */,
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
+				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
 				A59A569418C62F9200F07FB3 /* CustomIOS7AlertView.m in Sources */,
 				A5B04AB818BF80B1007B4D05 /* BiletChildViewController.m in Sources */,
 			);

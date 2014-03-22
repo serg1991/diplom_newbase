@@ -315,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="2030"/>
         </scene>
-        <!--View Controller - Statistics-->
+        <!--Statistics View Controller - Statistics-->
         <scene sceneID="Zoh-ot-8u6">
             <objects>
-                <viewController title="Statistics" id="Zxv-Lk-QLT" sceneMemberID="viewController">
+                <viewController title="Statistics" id="Zxv-Lk-QLT" customClass="StatisticsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okI-7c-sxD"/>
                         <viewControllerLayoutGuide type="bottom" id="geG-uF-XxH"/>
@@ -326,27 +326,9 @@
                     <view key="view" contentMode="scaleToFill" id="fHz-we-XU9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NEr-T7-0II">
-                                <rect key="frame" x="20" y="104" width="280" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Билеты"/>
-                                    <segment title="Темы"/>
-                                    <segment title="Экзамен"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите модуль, статистику по которому вы хотите получить" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="Fcq-kc-Zem">
-                                <rect key="frame" x="65" y="63" width="200" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.85098046059999999" green="0.85098046059999999" blue="0.85098046059999999" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Статистика" id="Z39-WO-Mrq"/>
+                    <navigationItem key="navigationItem" id="Z39-WO-Mrq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOH-XO-y8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
