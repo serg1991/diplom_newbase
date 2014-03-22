@@ -30,8 +30,8 @@
     [self updateLabel];
     
     if (remainingTicks <= 0) {
-        [appDelegate.timer invalidate];
-        appDelegate.timer = nil;
+        [_timer invalidate];
+        _timer = nil;
     }
 }
 
@@ -51,18 +51,18 @@
     
     [super viewWillAppear:animated];
     
-    if (appDelegate.timer)
+    if (_timer)
         return;
     
     remainingTicks = 1200;
     [self updateLabel];
     
-    appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:(BOOL)animated];
-    [appDelegate.timer invalidate];
+    [_timer invalidate];
     [self.theLabel removeFromSuperview];
 }
 
@@ -101,8 +101,7 @@
     [self.pageController didMoveToParentViewController:self];
     //добавление шапки из названия контроллера и таймера
     self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.timer = nil;
+    _timer = nil;
     [self.navigationItem setTitle:@"Экзамен"];
     [self.navigationController.navigationBar addSubview:theLabel];
     //отключение жеста свайпа от левого края экрана
@@ -124,7 +123,7 @@
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _dateString;
     childViewController.randomNumbers = _randomNumbers;
-    childViewController.timer = appDelegate.timer;
+    childViewController.timer = _timer;
     
     return childViewController;
 }

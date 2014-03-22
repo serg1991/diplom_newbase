@@ -10,7 +10,6 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (nonatomic, retain) NSTimer *timer;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

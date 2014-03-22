@@ -12,7 +12,6 @@
 
 @interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 {
-    AppDelegate *appDelegate;
     UILabel *theLabel;
     
 @private
@@ -26,6 +25,8 @@
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic, retain) NSString *dateString;
 @property (nonatomic, retain) IBOutlet UILabel *theLabel;
+@property (nonatomic, retain) NSTimer *timer;
+
 - (void)handleTimerTick;
 - (void)updateLabel;
 
