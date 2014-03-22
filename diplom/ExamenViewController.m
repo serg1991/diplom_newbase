@@ -76,7 +76,7 @@
     for (int i = 0; i < 20; i++) {
         NSUInteger randomNumber;
         randomNumber = arc4random()%(40 - 1 + 1) + 1;
-        [_randomNumbers addObject:[NSNumber numberWithInt:randomNumber]];
+        [_randomNumbers addObject:[NSNumber numberWithUnsignedLong:randomNumber]];
     }
     
     //добавление контроллеров в массив

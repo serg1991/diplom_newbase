@@ -16,7 +16,7 @@
     UILabel *theLabel;
     
 @private
-    NSUInteger remainingTicks;
+    int remainingTicks;
 }
 
 @property (strong, nonatomic) UIPageViewController *pageController;

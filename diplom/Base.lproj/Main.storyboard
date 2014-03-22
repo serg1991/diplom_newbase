@@ -18,8 +18,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO3-8j-OJN">
-                                <rect key="frame" x="115" y="347" width="91" height="30"/>
+                                <rect key="frame" x="115" y="363" width="91" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="dcO-gK-iWl"/>
+                                </constraints>
                                 <state key="normal" title="Билеты ПДД">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,8 +31,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ8-Sj-XkE">
-                                <rect key="frame" x="79" y="385" width="162" height="30"/>
+                                <rect key="frame" x="79" y="399" width="162" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="LxM-qz-BJU"/>
+                                </constraints>
                                 <state key="normal" title="Билеты ПДД по темам">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -38,8 +44,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVX-dg-Ca3">
-                                <rect key="frame" x="128" y="423" width="63" height="30"/>
+                                <rect key="frame" x="128" y="435" width="63" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="796-Pn-K6Z"/>
+                                </constraints>
                                 <state key="normal" title="Экзамен">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -48,8 +57,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJS-OY-Mh4">
-                                <rect key="frame" x="47" y="461" width="226" height="30"/>
+                                <rect key="frame" x="47" y="471" width="226" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="TkY-uL-9fr"/>
+                                </constraints>
                                 <state key="normal" title="Правила Дорожного Движения">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -58,28 +70,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-17-Ihr">
-                                <rect key="frame" x="118" y="499" width="83" height="30"/>
+                                <rect key="frame" x="119" y="507" width="83" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="mZ0-T4-eza"/>
+                                </constraints>
                                 <state key="normal" title="Статистика">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1390756284_i.png" translatesAutoresizingMaskIntoConstraints="NO" id="mMF-sd-UM7">
-                                <rect key="frame" x="279" y="538" width="30" height="30"/>
+                                <rect key="frame" x="279" y="536" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hzB-W6-TWY"/>
+                                    <constraint firstAttribute="height" constant="30" id="iez-ZS-y49"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1390756481_daemons.png" translatesAutoresizingMaskIntoConstraints="NO" id="HzJ-Wx-Zuc">
-                                <rect key="frame" x="31" y="83" width="256" height="256"/>
+                                <rect key="frame" x="31" y="76" width="256" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUn-Hg-PmK">
-                                <rect key="frame" x="279" y="535" width="30" height="30"/>
+                                <rect key="frame" x="279" y="536" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Eob-qF-YSK"/>
+                                    <constraint firstAttribute="width" constant="30" id="RbP-5n-uCY"/>
                                 </constraints>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,24 +106,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7zc-17-Ihr" secondAttribute="bottom" constant="39" id="2hJ-9m-XZX"/>
-                            <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="centerX" secondItem="DVX-dg-Ca3" secondAttribute="centerX" id="9Dr-yJ-0VJ"/>
-                            <constraint firstItem="DVX-dg-Ca3" firstAttribute="top" secondItem="HZ8-Sj-XkE" secondAttribute="bottom" constant="8" symbolic="YES" id="Bmb-ay-4MY"/>
-                            <constraint firstItem="wO3-8j-OJN" firstAttribute="top" secondItem="HzJ-Wx-Zuc" secondAttribute="bottom" constant="8" symbolic="YES" id="NjM-ZF-HlS"/>
-                            <constraint firstItem="7zc-17-Ihr" firstAttribute="top" secondItem="OJS-OY-Mh4" secondAttribute="bottom" constant="8" symbolic="YES" id="OUe-Sx-gd0"/>
-                            <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="RBC-Uh-nEQ"/>
-                            <constraint firstAttribute="bottom" secondItem="mMF-sd-UM7" secondAttribute="bottom" id="U5N-DH-r2k"/>
-                            <constraint firstItem="wO3-8j-OJN" firstAttribute="centerX" secondItem="HZ8-Sj-XkE" secondAttribute="centerX" id="Vn2-N6-Sfp"/>
-                            <constraint firstItem="HZ8-Sj-XkE" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="VqX-GM-kCf"/>
-                            <constraint firstItem="HZ8-Sj-XkE" firstAttribute="top" secondItem="wO3-8j-OJN" secondAttribute="bottom" constant="8" symbolic="YES" id="WE5-Yb-mxr"/>
-                            <constraint firstItem="7zc-17-Ihr" firstAttribute="centerX" secondItem="DVX-dg-Ca3" secondAttribute="centerX" id="WeJ-4o-2Lu"/>
-                            <constraint firstAttribute="trailing" secondItem="yUn-Hg-PmK" secondAttribute="trailing" constant="11" id="dl7-GN-uO3"/>
-                            <constraint firstItem="mMF-sd-UM7" firstAttribute="leading" secondItem="yUn-Hg-PmK" secondAttribute="leading" id="kOe-zx-yJa"/>
-                            <constraint firstItem="OJS-OY-Mh4" firstAttribute="centerX" secondItem="HZ8-Sj-XkE" secondAttribute="centerX" id="kSe-UQ-3jP"/>
-                            <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="31" id="oRA-bQ-PpL"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="yUn-Hg-PmK" secondAttribute="bottom" constant="3" id="pj1-gH-zXj"/>
-                            <constraint firstItem="OJS-OY-Mh4" firstAttribute="top" secondItem="DVX-dg-Ca3" secondAttribute="bottom" constant="8" symbolic="YES" id="vVi-vy-rcw"/>
-                            <constraint firstItem="yUn-Hg-PmK" firstAttribute="trailing" secondItem="mMF-sd-UM7" secondAttribute="trailing" id="xk8-C3-Bkw"/>
+                            <constraint firstItem="7zc-17-Ihr" firstAttribute="centerX" secondItem="OJS-OY-Mh4" secondAttribute="centerX" id="0Ic-Kd-tzQ"/>
+                            <constraint firstItem="wO3-8j-OJN" firstAttribute="top" secondItem="HzJ-Wx-Zuc" secondAttribute="bottom" constant="19" id="19f-oT-kGi"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mMF-sd-UM7" secondAttribute="bottom" constant="2" id="8qo-mp-3GQ"/>
+                            <constraint firstItem="wO3-8j-OJN" firstAttribute="centerX" secondItem="HZ8-Sj-XkE" secondAttribute="centerX" id="E3d-CO-sgl"/>
+                            <constraint firstItem="OJS-OY-Mh4" firstAttribute="centerX" secondItem="HZ8-Sj-XkE" secondAttribute="centerX" id="Fsv-Rh-pWd"/>
+                            <constraint firstItem="OJS-OY-Mh4" firstAttribute="top" secondItem="DVX-dg-Ca3" secondAttribute="bottom" constant="14" id="KJQ-wv-VO7"/>
+                            <constraint firstItem="mMF-sd-UM7" firstAttribute="leading" secondItem="yUn-Hg-PmK" secondAttribute="leading" id="PcI-fh-Lu3"/>
+                            <constraint firstItem="mMF-sd-UM7" firstAttribute="top" secondItem="yUn-Hg-PmK" secondAttribute="top" id="QU6-0P-ekf"/>
+                            <constraint firstItem="7zc-17-Ihr" firstAttribute="top" secondItem="OJS-OY-Mh4" secondAttribute="bottom" constant="14" id="Vl0-ty-Dzw"/>
+                            <constraint firstAttribute="trailing" secondItem="mMF-sd-UM7" secondAttribute="trailing" constant="11" id="Yti-Bt-sVg"/>
+                            <constraint firstItem="DVX-dg-Ca3" firstAttribute="centerX" secondItem="HzJ-Wx-Zuc" secondAttribute="centerX" id="a13-y7-D0c"/>
+                            <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="31" id="bFW-6t-OML"/>
+                            <constraint firstItem="HZ8-Sj-XkE" firstAttribute="top" secondItem="wO3-8j-OJN" secondAttribute="bottom" constant="14" id="dQR-Ng-HL0"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7zc-17-Ihr" secondAttribute="bottom" constant="39" id="g1W-yG-njU"/>
+                            <constraint firstItem="mMF-sd-UM7" firstAttribute="trailing" secondItem="yUn-Hg-PmK" secondAttribute="trailing" id="gfF-gv-KDw"/>
+                            <constraint firstItem="HZ8-Sj-XkE" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ruO-qj-Bbu"/>
+                            <constraint firstItem="DVX-dg-Ca3" firstAttribute="top" secondItem="HZ8-Sj-XkE" secondAttribute="bottom" constant="14" id="xfF-oH-PHf"/>
+                            <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="12" id="zt8-e7-HFD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Знаток ПДД" id="0gL-YC-LpA">
