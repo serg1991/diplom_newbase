@@ -25,16 +25,6 @@
     return self;
 }
 
-- (IBAction)doCountdown:(id)sender {
-    if (appDelegate.timer)
-        return;
-    
-    remainingTicks = 1200;
-    [self updateLabel];
-    
-    appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
-}
-
 - (void)handleTimerTick {
     remainingTicks--;
     [self updateLabel];
@@ -55,6 +45,19 @@
     if (mySecond < 10)
         seconds = [NSString stringWithFormat:@"0%d", remainingTicks % 60];
     theLabel.text =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    if (appDelegate.timer)
+        return;
+    
+    remainingTicks = 1200;
+    [self updateLabel];
+    
+    appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -100,7 +103,6 @@
     self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.timer = nil;
-    [self doCountdown:nil];
     [self.navigationItem setTitle:@"Экзамен"];
     [self.navigationController.navigationBar addSubview:theLabel];
     //отключение жеста свайпа от левого края экрана

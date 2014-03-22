@@ -26,11 +26,7 @@
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic, retain) NSString *dateString;
 @property (nonatomic, retain) IBOutlet UILabel *theLabel;
-
-- (IBAction)doCountdown:(id)sender;
-
 - (void)handleTimerTick;
-
 - (void)updateLabel;
 
 @end
