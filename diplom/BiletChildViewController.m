@@ -39,52 +39,17 @@
     [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
-- (void)showCommentButton {
-    UIButton *launchDialog = [UIButton buttonWithType:UIButtonTypeCustom];
-    [launchDialog setFrame:CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y + self.tableView.contentSize.height, self.tableView.contentSize.width, 44)];
-    [launchDialog addTarget:self action:@selector(launchDialog:) forControlEvents:UIControlEventTouchDown];
-    [launchDialog setTitle:@"Подсказка" forState:UIControlStateNormal];
-    [launchDialog setBackgroundColor:[UIColor whiteColor]];
-    [launchDialog setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [launchDialog.layer setBorderWidth:0];
-    [launchDialog.layer setCornerRadius:5];
-    [self.view addSubview:launchDialog];
-}
+- (void)showComment {
+        NSArray *array = [self getAnswers];
+        NSUInteger arrayCount = array.count;
+        NSString *comment = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
 
-- (IBAction)launchDialog:(id)sender {
-    // Here we need to pass a full frame
-    CustomIOS7AlertView *alertView = [[CustomIOS7AlertView alloc] init];
-    
-    // Add some custom content to the alert view
-    [alertView setContainerView:[self createDemoView]];
-    
-    // You may use a Block, rather than a delegate.
-    [alertView setOnButtonTouchUpInside:^(CustomIOS7AlertView *alertView, int buttonIndex) {
-        [alertView close];
-    }];
-    
-    [alertView setUseMotionEffects:true];
-    
-    // And launch the dialog
-    [alertView show];
-}
-
-- (void)customIOS7dialogButtonTouchUpInside:(CustomIOS7AlertView *)alertView clickedButtonAtIndex:(NSUInteger)buttonIndex {
-    [alertView close];
-}
-
-- (UIView *)createDemoView {
-    NSArray *array = [self getAnswers];
-    NSUInteger arrayCount = array.count;
-    UIView *demoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 291, 200)];
-    UITextView *comment = [[UITextView alloc] initWithFrame:CGRectMake(3, 3, 285, 196)];
-    comment.editable = false;
-    comment.font = [UIFont systemFontOfSize:16.0f];
-    comment.textAlignment = NSTextAlignmentCenter;
-    comment.text = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
-    [demoView addSubview:comment];
-    
-    return demoView;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Подсказка"
+                                                    message:comment
+                                                   delegate:self
+                                          cancelButtonTitle:@"ОК"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
@@ -210,7 +175,7 @@
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
-            [self launchDialog:0];
+            [self showComment];
         }
     }
     

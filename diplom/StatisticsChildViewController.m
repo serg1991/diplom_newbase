@@ -25,7 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (_index == 0)
     _label.text = [NSString stringWithFormat:@"%d", _index + 1];
+    else
+        _label.text = [NSString stringWithFormat:@"%d ololo", _index + 1];
+
     // Do any additional setup after loading the view from its nib.
 }
 

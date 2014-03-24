@@ -108,6 +108,50 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+    UILabel *label = [[UILabel alloc] init];
+    [label setTextColor:[UIColor blackColor]];
+    [label setText:@"Прервать"];
+    [label sizeToFit];
+    
+    int space = 7;
+    label.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, label.frame.origin.y, label.frame.size.width, label.frame.size.height);
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, label.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+    
+    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+    [view addSubview:imageView];
+    [view addSubview:label];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    
+    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        label.alpha = 0.0;
+        CGRect orig = label.frame;
+        label.frame = CGRectMake(label.frame.origin.x + 25, label.frame.origin.y, label.frame.size.width, label.frame.size.height);
+        label.alpha = 1.0;
+        label.frame = orig;
+    } completion:nil];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)confirmCancel {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание"
+                                                    message:@"Вы действительно хотите выйти из тестирования? Ваш прогресс не будет сохранен."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Нет"
+                                          otherButtonTitles:@"Да, выйти", nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning {
