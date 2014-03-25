@@ -24,6 +24,7 @@
                                     <constraint firstAttribute="height" constant="22" id="dcO-gK-iWl"/>
                                 </constraints>
                                 <state key="normal" title="Билеты ПДД">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -37,6 +38,7 @@
                                     <constraint firstAttribute="height" constant="22" id="LxM-qz-BJU"/>
                                 </constraints>
                                 <state key="normal" title="Билеты ПДД по темам">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -50,6 +52,7 @@
                                     <constraint firstAttribute="height" constant="22" id="796-Pn-K6Z"/>
                                 </constraints>
                                 <state key="normal" title="Экзамен">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -63,6 +66,7 @@
                                     <constraint firstAttribute="height" constant="22" id="TkY-uL-9fr"/>
                                 </constraints>
                                 <state key="normal" title="Правила Дорожного Движения">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -76,6 +80,7 @@
                                     <constraint firstAttribute="height" constant="22" id="mZ0-T4-eza"/>
                                 </constraints>
                                 <state key="normal" title="Статистика">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

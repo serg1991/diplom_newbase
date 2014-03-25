@@ -97,11 +97,11 @@
 		A522E601189521C70090AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A522E603189521C70090AFA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A522E605189521C70090AFA2 /* diplom-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diplom-Prefix.pch"; sourceTree = "<group>"; };
-		A522E606189521C70090AFA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = diplom/AppDelegate.h; sourceTree = "<group>"; };
-		A522E607189521C70090AFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = diplom/AppDelegate.m; sourceTree = "<group>"; };
+		A522E606189521C70090AFA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A522E607189521C70090AFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A522E60A189521C70090AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = diplom/ViewController.h; sourceTree = "<group>"; };
-		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = diplom/ViewController.m; sourceTree = "<group>"; };
+		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A522E60F189521C70090AFA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A522E615189521C70090AFA2 /* diplomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diplomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E616189521C70090AFA2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -110,13 +110,13 @@
 		A522E622189521C70090AFA2 /* diplomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diplomTests.m; sourceTree = "<group>"; };
 		A522E62C189524CA0090AFA2 /* 1390756284_i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756284_i.png; sourceTree = "<group>"; };
 		A522E62E189525890090AFA2 /* 1390756481_daemons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756481_daemons.png; sourceTree = "<group>"; };
-		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamenViewController.h; path = diplom/ExamenViewController.h; sourceTree = "<group>"; };
-		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamenViewController.m; path = diplom/ExamenViewController.m; sourceTree = "<group>"; };
-		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamenChildViewController.h; path = diplom/ExamenChildViewController.h; sourceTree = "<group>"; };
-		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamenChildViewController.m; path = diplom/ExamenChildViewController.m; sourceTree = "<group>"; };
-		A5342E3718D1E8F500B97562 /* GoodResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodResultInBilet.xib; path = diplom/GoodResultInBilet.xib; sourceTree = "<group>"; };
-		A5342E3918D1E91100B97562 /* BadResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BadResultInBilet.xib; path = diplom/BadResultInBilet.xib; sourceTree = "<group>"; };
-		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
+		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenViewController.h; sourceTree = "<group>"; };
+		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
+		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
+		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenChildViewController.m; sourceTree = "<group>"; };
+		A5342E3718D1E8F500B97562 /* GoodResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodResultInBilet.xib; sourceTree = "<group>"; };
+		A5342E3918D1E91100B97562 /* BadResultInBilet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadResultInBilet.xib; sourceTree = "<group>"; };
+		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = StyleSettings.plist; path = ../StyleSettings.plist; sourceTree = "<group>"; };
 		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
 		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
 		A563E863189C41CE004320F0 /* pdd4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd4.html; sourceTree = "<group>"; };
@@ -140,27 +140,27 @@
 		A563E875189C41CE004320F0 /* pdd22.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd22.html; sourceTree = "<group>"; };
 		A563E876189C41CE004320F0 /* pdd23.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd23.html; sourceTree = "<group>"; };
 		A563E877189C41CE004320F0 /* pdd24.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd24.html; sourceTree = "<group>"; };
-		A563E893189C473D004320F0 /* RulesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesDetailViewController.h; path = diplom/RulesDetailViewController.h; sourceTree = "<group>"; };
-		A563E894189C473D004320F0 /* RulesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesDetailViewController.m; path = diplom/RulesDetailViewController.m; sourceTree = "<group>"; };
+		A563E893189C473D004320F0 /* RulesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesDetailViewController.h; sourceTree = "<group>"; };
+		A563E894189C473D004320F0 /* RulesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesDetailViewController.m; sourceTree = "<group>"; };
 		A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "17608358-3349-476b-ae94-40cad5b45c6b.jpeg"; sourceTree = "<group>"; };
 		A56B76F318D8692E00B1CDCF /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		A56F9F9218C12B5F003D0BC3 /* QuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionsViewController.xib; path = diplom/QuestionsViewController.xib; sourceTree = "<group>"; };
+		A56F9F9218C12B5F003D0BC3 /* QuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionsViewController.xib; sourceTree = "<group>"; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
 		A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
-		A59D6FB51896FFC400017711 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = diplom/AboutViewController.h; sourceTree = "<group>"; };
-		A59D6FB61896FFC400017711 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = diplom/AboutViewController.m; sourceTree = "<group>"; };
-		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletListTableViewController.h; path = diplom/BiletListTableViewController.h; sourceTree = "<group>"; };
-		A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletListTableViewController.m; path = diplom/BiletListTableViewController.m; sourceTree = "<group>"; };
-		A5A690D218985634001D5275 /* ThemeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeListTableViewController.h; path = diplom/ThemeListTableViewController.h; sourceTree = "<group>"; };
-		A5A690D318985634001D5275 /* ThemeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeListTableViewController.m; path = diplom/ThemeListTableViewController.m; sourceTree = "<group>"; };
-		A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletChildViewController.h; path = diplom/BiletChildViewController.h; sourceTree = "<group>"; };
-		A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletChildViewController.m; path = diplom/BiletChildViewController.m; sourceTree = "<group>"; };
-		A5B04AB618BF80B1007B4D05 /* BiletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiletViewController.h; path = diplom/BiletViewController.h; sourceTree = "<group>"; };
-		A5B04AB718BF80B1007B4D05 /* BiletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiletViewController.m; path = diplom/BiletViewController.m; sourceTree = "<group>"; };
-		A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesListTableViewController.h; path = diplom/RulesListTableViewController.h; sourceTree = "<group>"; };
-		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesListTableViewController.m; path = diplom/RulesListTableViewController.m; sourceTree = "<group>"; };
+		A59D6FB51896FFC400017711 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		A59D6FB61896FFC400017711 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletListTableViewController.h; sourceTree = "<group>"; };
+		A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletListTableViewController.m; sourceTree = "<group>"; };
+		A5A690D218985634001D5275 /* ThemeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeListTableViewController.h; sourceTree = "<group>"; };
+		A5A690D318985634001D5275 /* ThemeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeListTableViewController.m; sourceTree = "<group>"; };
+		A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletChildViewController.h; sourceTree = "<group>"; };
+		A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletChildViewController.m; sourceTree = "<group>"; };
+		A5B04AB618BF80B1007B4D05 /* BiletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletViewController.h; sourceTree = "<group>"; };
+		A5B04AB718BF80B1007B4D05 /* BiletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiletViewController.m; sourceTree = "<group>"; };
+		A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesListTableViewController.h; sourceTree = "<group>"; };
+		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesListTableViewController.m; sourceTree = "<group>"; };
 		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,36 +193,10 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A59D6FB51896FFC400017711 /* AboutViewController.h */,
-				A59D6FB61896FFC400017711 /* AboutViewController.m */,
-				A522E606189521C70090AFA2 /* AppDelegate.h */,
-				A522E607189521C70090AFA2 /* AppDelegate.m */,
-				A5342E3918D1E91100B97562 /* BadResultInBilet.xib */,
-				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
-				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
-				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
-				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
-				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
-				A5B04AB718BF80B1007B4D05 /* BiletViewController.m */,
 				A522E5FD189521C70090AFA2 /* diplom */,
 				A522E61C189521C70090AFA2 /* diplomTests */,
-				A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */,
-				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
-				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
-				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
-				A5342E3718D1E8F500B97562 /* GoodResultInBilet.xib */,
 				A522E5F5189521C70090AFA2 /* Products */,
-				A56F9F9218C12B5F003D0BC3 /* QuestionsViewController.xib */,
-				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
-				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
-				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
-				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
-				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
-				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
-				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
-				A522E60C189521C70090AFA2 /* ViewController.h */,
-				A522E60D189521C70090AFA2 /* ViewController.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,14 +225,40 @@
 		A522E5FD189521C70090AFA2 /* diplom */ = {
 			isa = PBXGroup;
 			children = (
+				A59D6FB51896FFC400017711 /* AboutViewController.h */,
+				A59D6FB61896FFC400017711 /* AboutViewController.m */,
+				A522E606189521C70090AFA2 /* AppDelegate.h */,
+				A522E607189521C70090AFA2 /* AppDelegate.m */,
+				A5342E3918D1E91100B97562 /* BadResultInBilet.xib */,
+				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
+				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
+				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
+				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
+				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
+				A5B04AB718BF80B1007B4D05 /* BiletViewController.m */,
+				A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */,
+				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
+				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
+				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
+				A5342E3718D1E8F500B97562 /* GoodResultInBilet.xib */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
-				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
-				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
+				A56F9F9218C12B5F003D0BC3 /* QuestionsViewController.xib */,
+				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
+				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
+				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
+				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
 				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
+				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
+				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
 				A51E8AAC18DE49D700BAC3E5 /* StatisticsViewController.xib */,
+				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A522E5FE189521C70090AFA2 /* Supporting Files */,
+				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
+				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
+				A522E60C189521C70090AFA2 /* ViewController.h */,
+				A522E60D189521C70090AFA2 /* ViewController.m */,
 			);
 			path = diplom;
 			sourceTree = "<group>";
