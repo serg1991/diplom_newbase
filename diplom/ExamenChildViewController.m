@@ -242,7 +242,6 @@
                    sizeWithFont:[UIFont systemFontOfSize:15]
                    constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
     double commonsize = size.height;
-    // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
     if (commonsize < 20) {
         return commonsize = 44;
     }

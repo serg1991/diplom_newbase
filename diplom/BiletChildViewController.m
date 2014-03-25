@@ -191,32 +191,10 @@
 - (void)getResultOfTest {
     [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
     if (_wrongAnswersArray.count <= 2) {
-        // Instantiate the nib content without any reference to it.
-        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"GoodResultInBilet" owner:nil options:nil];
-        
-        // Find the view among nib contents (not too hard assuming there is only one view in it).
-        UIView *plainView = [nibContents lastObject];
-        
-        // Some hardcoded layout.
-        CGSize padding = (CGSize){ 0.0, 0.0 };
-        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-        
-        // Add to the view hierarchy (thus retain).
-        [self.view addSubview:plainView];
+        //[self performSegueWithIdentifier:@"GoodResult" sender:self];
     }
     else {
-        // Instantiate the nib content without any reference to it.
-        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"BadResultInBilet" owner:nil options:nil];
-        
-        // Find the view among nib contents (not too hard assuming there is only one view in it).
-        UIView *plainView = [nibContents lastObject];
-        
-        // Some hardcoded layout.
-        CGSize padding = (CGSize){ 0.0, 0.0 };
-        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-        
-        // Add to the view hierarchy (thus retain).
-        [self.view addSubview:plainView];
+        //[self performSegueWithIdentifier:@"BadResult" sender:self];
     }
 }
 
@@ -257,7 +235,6 @@
                    sizeWithFont:[UIFont systemFontOfSize:15]
                    constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
     double commonsize = size.height;
-   // NSLog(@"Вопрос %d. Вариант %d. after = %f", (int)_index + 1, indexPath.row, commonsize);
     if (commonsize < 20) {
         return commonsize = 44;
     }

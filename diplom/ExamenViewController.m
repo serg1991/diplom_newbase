@@ -159,7 +159,7 @@
 }
 
 - (ExamenChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    ExamenChildViewController *childViewController = [[ExamenChildViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
+    ExamenChildViewController *childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ExamenChildViewController"];
     childViewController.index = index;
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;

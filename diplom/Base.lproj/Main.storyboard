@@ -456,6 +456,84 @@
             </objects>
             <point key="canvasLocation" x="608" y="718"/>
         </scene>
+        <!--Examen Child View Controller-->
+        <scene sceneID="Ish-qB-bC8">
+            <objects>
+                <viewController storyboardIdentifier="ExamenChildViewController" id="qhf-aJ-uaC" customClass="ExamenChildViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zqb-3Q-01O"/>
+                        <viewControllerLayoutGuide type="bottom" id="ETl-a6-ZDa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1lB-7r-Qru">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-Ce-im2">
+                                <rect key="frame" x="2" y="64" width="316" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qhf-aJ-uaC" id="be3-Ct-USC"/>
+                                    <outlet property="delegate" destination="qhf-aJ-uaC" id="ltD-Eu-2rP"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-9m-duP">
+                                <rect key="frame" x="2" y="62" width="316" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rKK-mr-8i3"/>
+                    <connections>
+                        <outlet property="imageView" destination="x9l-9m-duP" id="bXg-aP-iZ2"/>
+                        <outlet property="tableView" destination="rqg-Ce-im2" id="fX2-Vk-h1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbg-jq-9h2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2007" y="1340"/>
+        </scene>
+        <!--Bilet Child View Controller-->
+        <scene sceneID="HUG-rW-mtf">
+            <objects>
+                <viewController storyboardIdentifier="BiletChildViewController" id="4XG-hJ-eoF" customClass="BiletChildViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kSj-EN-UCM"/>
+                        <viewControllerLayoutGuide type="bottom" id="n4Q-le-Mec"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pbu-72-lAH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="35n-OM-kl5">
+                                <rect key="frame" x="2" y="64" width="316" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4XG-hJ-eoF" id="7xi-ev-SCY"/>
+                                    <outlet property="delegate" destination="4XG-hJ-eoF" id="Ml0-pV-Y8z"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-Hq-JYn">
+                                <rect key="frame" x="2" y="62" width="316" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QMw-KG-TXS"/>
+                    <connections>
+                        <outlet property="imageView" destination="DNg-Hq-JYn" id="GNC-D2-JZL"/>
+                        <outlet property="tableView" destination="35n-OM-kl5" id="dm1-cC-eeX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eix-Lg-t2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="10"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1390756284_i.png" width="48" height="48"/>

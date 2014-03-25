@@ -98,7 +98,7 @@
 }
 
 - (BiletChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    BiletChildViewController *childViewController = [[BiletChildViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
+    BiletChildViewController *childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"BiletChildViewController"];
     childViewController.index = index;
     childViewController.biletNumber = _biletNumber;
     childViewController.rightAnswersArray = _rightArray;
