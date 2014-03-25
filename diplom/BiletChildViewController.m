@@ -24,10 +24,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -35,8 +31,6 @@
     [self getAnswers];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
 - (void)showComment {
@@ -262,12 +256,6 @@
     else {
         return commonsize = 200;
     }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    CGRect frame = self.tableView.frame;
-    frame.size = self.tableView.contentSize;
-    self.tableView.frame = frame;
 }
 
 @end

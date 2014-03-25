@@ -23,10 +23,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -34,8 +30,6 @@
     [self getAnswers];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
@@ -176,32 +170,10 @@
 - (void)getResultOfTest {
     [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
     if (_wrongAnswersArray.count <= 2) {
-        // Instantiate the nib content without any reference to it.
-        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"GoodResultInBilet" owner:nil options:nil];
-        
-        // Find the view among nib contents (not too hard assuming there is only one view in it).
-        UIView *plainView = [nibContents lastObject];
-        
-        // Some hardcoded layout.
-        CGSize padding = (CGSize){ 0.0, 0.0 };
-        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-        
-        // Add to the view hierarchy (thus retain).
-        [self.view addSubview:plainView];
+        //[self performSegueWithIdentifier:@"GoodResult" sender:self];
     }
     else {
-        // Instantiate the nib content without any reference to it.
-        NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"BadResultInBilet" owner:nil options:nil];
-        
-        // Find the view among nib contents (not too hard assuming there is only one view in it).
-        UIView *plainView = [nibContents lastObject];
-        
-        // Some hardcoded layout.
-        CGSize padding = (CGSize){ 0.0, 0.0 };
-        plainView.frame = (CGRect){padding.width, padding.height, plainView.frame.size};
-        
-        // Add to the view hierarchy (thus retain).
-        [self.view addSubview:plainView];
+        //[self performSegueWithIdentifier:@"BadResult" sender:self];
     }
 }
 
@@ -269,12 +241,6 @@
     else {
         return commonsize = 200;
     }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    CGRect frame = self.tableView.frame;
-    frame.size = self.tableView.contentSize;
-    self.tableView.frame = frame;
 }
 
 @end
