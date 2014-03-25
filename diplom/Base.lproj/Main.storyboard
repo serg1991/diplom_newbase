@@ -129,9 +129,7 @@
                             <constraint firstItem="HzJ-Wx-Zuc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="12" id="zt8-e7-HFD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Знаток ПДД" id="0gL-YC-LpA">
-                        <barButtonItem key="backBarButtonItem" title="Меню" id="hIG-Tp-Co0"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Знаток ПДД" id="0gL-YC-LpA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,9 +177,7 @@
                             <outlet property="delegate" destination="caC-Qi-zfp" id="rzq-BD-mtc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Билеты" id="h42-8w-eMC">
-                        <barButtonItem key="backBarButtonItem" title="Прервать" id="tI1-xU-ypc"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Билеты" id="h42-8w-eMC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCw-Uc-R1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,9 +241,7 @@
                             <outlet property="delegate" destination="f26-mQ-JCO" id="Kdy-RX-zEB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Список тем" id="djw-TC-CyP">
-                        <barButtonItem key="backBarButtonItem" title="К списку тем" id="Cg6-ab-QOs"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Список тем" id="djw-TC-CyP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVy-kD-Tdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,9 +301,7 @@
                             <outlet property="delegate" destination="mqX-HA-aTw" id="PoY-le-sxs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ПДД" id="XLV-D3-rvJ">
-                        <barButtonItem key="backBarButtonItem" title="ПДД" id="dnb-Cx-4Gf"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ПДД" id="XLV-D3-rvJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAX-S9-Vil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
