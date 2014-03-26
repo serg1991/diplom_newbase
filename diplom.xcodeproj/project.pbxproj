@@ -109,7 +109,7 @@
 		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
 		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
 		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenChildViewController.m; sourceTree = "<group>"; };
-		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = StyleSettings.plist; path = ../StyleSettings.plist; sourceTree = "<group>"; };
+		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
 		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
 		A563E863189C41CE004320F0 /* pdd4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd4.html; sourceTree = "<group>"; };
@@ -185,6 +185,7 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
+				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A522E5FD189521C70090AFA2 /* diplom */,
 				A522E61C189521C70090AFA2 /* diplomTests */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
@@ -241,7 +242,6 @@
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
 				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
 				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
-				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
 				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
 				A522E60C189521C70090AFA2 /* ViewController.h */,

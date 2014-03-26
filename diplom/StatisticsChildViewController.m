@@ -27,10 +27,10 @@
     [super viewDidLoad];
     
     if (_index == 0) {
-        _label.text = [NSString stringWithFormat:@"%d", _index + 1];
+        _label.text = [NSString stringWithFormat:@"%u", _index + 1];
     }
     else {
-        _label.text = [NSString stringWithFormat:@"%d ololo", _index + 1];
+        _label.text = [NSString stringWithFormat:@"%u ololo", _index + 1];
     }
 }
 //    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
