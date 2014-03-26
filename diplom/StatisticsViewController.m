@@ -91,7 +91,7 @@
 }
 
 - (StatisticsChildViewController *)viewControllerAtIndex:(NSUInteger)index {
-    StatisticsChildViewController *childViewController = [[StatisticsChildViewController alloc] initWithNibName:@"StatisticsViewController" bundle:nil];
+    StatisticsChildViewController *childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StatisticsChildViewController"];
     childViewController.index = index;
     
     return childViewController;

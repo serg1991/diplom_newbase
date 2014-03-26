@@ -33,6 +33,18 @@
         _label.text = [NSString stringWithFormat:@"%d ololo", _index + 1];
     }
 }
+//    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
+//}
+//
+//- (void)dealloc {
+//    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+//}
+//
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    CGRect frame = self.tableView.frame;
+//    frame.size = self.tableView.contentSize;
+//    self.tableView.frame = frame;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -331,6 +331,24 @@
             </objects>
             <point key="canvasLocation" x="1553" y="2716"/>
         </scene>
+        <!--Statistics Child View Controller-->
+        <scene sceneID="u8n-Co-VW1">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsChildViewController" id="lWQ-R7-q0m" customClass="StatisticsChildViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NC8-hD-8Yh"/>
+                        <viewControllerLayoutGuide type="bottom" id="beU-y4-Fzz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wke-P6-srW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyk-T3-8le" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="2716"/>
+        </scene>
         <!--Rules Detail View Controller - Rules Detail-->
         <scene sceneID="5hI-W6-rGN">
             <objects>
@@ -513,8 +531,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="4XG-hJ-eoF" id="7xi-ev-SCY"/>
-                                    <outlet property="delegate" destination="4XG-hJ-eoF" id="Ml0-pV-Y8z"/>
+                                    <outlet property="dataSource" destination="4XG-hJ-eoF" id="YbA-XE-JnX"/>
+                                    <outlet property="delegate" destination="4XG-hJ-eoF" id="USh-6x-GiB"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-Hq-JYn">
