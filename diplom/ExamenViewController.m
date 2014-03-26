@@ -146,7 +146,7 @@
 
 - (void)confirmCancel {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание"
-                                                    message:@"Вы действительно хотите выйти из тестирования? Ваш прогресс не будет сохранен."
+                                                    message:@"Вы действительно хотите \n выйти из тестирования? \n Ваш прогресс не будет сохранен."
                                                    delegate:self
                                           cancelButtonTitle:@"Нет"
                                           otherButtonTitles:@"Да, выйти", nil];

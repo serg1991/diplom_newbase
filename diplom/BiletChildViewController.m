@@ -167,6 +167,7 @@
     if (rowNumber == 0) {
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self showComment];
     }
     else {
         if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
