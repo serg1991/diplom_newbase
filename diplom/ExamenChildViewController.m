@@ -179,7 +179,6 @@
 }
 
 - (void)getResultOfTest {
-    [NSThread sleepForTimeInterval:1.00]; //pause before go to result's xib
     if (_wrongAnswersArray.count <= 2) {
         //[self performSegueWithIdentifier:@"GoodResult" sender:self];
     }

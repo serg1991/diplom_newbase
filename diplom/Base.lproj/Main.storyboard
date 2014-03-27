@@ -347,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyk-T3-8le" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="2716"/>
+            <point key="canvasLocation" x="1960" y="2716"/>
         </scene>
         <!--Rules Detail View Controller - Rules Detail-->
         <scene sceneID="5hI-W6-rGN">
@@ -383,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqz-Oh-c0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="2030"/>
+            <point key="canvasLocation" x="1960" y="2030"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="RB0-ec-cKr">
@@ -511,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbg-jq-9h2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2007" y="1340"/>
+            <point key="canvasLocation" x="1960" y="1340"/>
         </scene>
         <!--Bilet Child View Controller-->
         <scene sceneID="HUG-rW-mtf">
@@ -550,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eix-Lg-t2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="10"/>
+            <point key="canvasLocation" x="2376" y="10"/>
         </scene>
     </scenes>
     <resources>

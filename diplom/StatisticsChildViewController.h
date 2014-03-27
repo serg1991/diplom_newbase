@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface StatisticsChildViewController : UIViewController
 
 @property (assign, nonatomic) NSUInteger index;
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 
 @end

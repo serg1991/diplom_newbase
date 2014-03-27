@@ -23,28 +23,56 @@
     return self;
 }
 
+- (void)getBiletStatistics {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    NSString *databasePath;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *statement;
+    int i = 0;
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                UILabel *label =  [[UILabel alloc] initWithFrame: CGRectMake(10, 10 + (i * 30), 300, 20)];
+                label.text = [NSString stringWithFormat:@"Билет №%d \t \t \t \t \t   %3.2f%%", sqlite3_column_int(statement, 0), sqlite3_column_double(statement, 3) * 100];
+                if (sqlite3_column_double(statement, 3) < 0.8) {
+                    label.backgroundColor = [UIColor redColor];
+                }
+                else {
+                    label.backgroundColor = [UIColor greenColor];
+                }
+                label.layer.borderColor = [UIColor blackColor].CGColor;
+                label.layer.borderWidth = 1.0;
+                [self.view addSubview:label];
+                i++;
+            }
+            sqlite3_finalize(statement);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros!");
+        }
+        sqlite3_close(_pdd_ab_stat);
+    }
+    else {
+        NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (_index == 0) {
-        _label.text = [NSString stringWithFormat:@"%u", _index + 1];
-    }
-    else {
-        _label.text = [NSString stringWithFormat:@"%u ololo", _index + 1];
-    }
+    if (_index == 0)
+        [self getBiletStatistics];
 }
-//    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
-//}
-//
-//- (void)dealloc {
-//    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-//}
-//
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-//    CGRect frame = self.tableView.frame;
-//    frame.size = self.tableView.contentSize;
-//    self.tableView.frame = frame;
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
