@@ -23,7 +23,7 @@
     _dateString = [dateFormatter stringFromDate:date];
     
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
-
+    
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
     
     self.pageController.dataSource = self;
@@ -38,7 +38,7 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
-
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 22)];
     label.font = [UIFont systemFontOfSize: 18.0f];
     label.textAlignment = NSTextAlignmentCenter;

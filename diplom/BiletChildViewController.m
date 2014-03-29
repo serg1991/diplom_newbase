@@ -45,10 +45,10 @@
 }
 
 - (void)showComment {
-        NSArray *array = [self getAnswers];
-        NSUInteger arrayCount = array.count;
-        NSString *comment = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
-
+    NSArray *array = [self getAnswers];
+    NSUInteger arrayCount = array.count;
+    NSString *comment = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Подсказка"
                                                     message:comment
                                                    delegate:self

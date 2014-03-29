@@ -62,7 +62,7 @@
         label.frame = orig;
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-
+    
     self.navigationItem.leftBarButtonItem = backButton;
 }
 

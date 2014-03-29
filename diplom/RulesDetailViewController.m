@@ -32,7 +32,7 @@
     label.text = _ruleName;
     
     self.navigationItem.titleView = label;
-
+    
     NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_ruleDetailModel ofType:@"html"]];
     [_rulesWebView loadRequest:[NSURLRequest requestWithURL:htmlFile]];
     

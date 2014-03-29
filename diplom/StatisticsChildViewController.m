@@ -75,7 +75,7 @@
         BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletCommonStatTitle sizeToFit];
         [self.view addSubview:BiletCommonStatTitle];
-
+        
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
         const char *query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
@@ -105,6 +105,17 @@
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
+}
+
+- (void)getThemeStatistics {
+    NSString *docsDir;
+    NSArray *dirPaths;
+    NSString *databasePath;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    const char *dbpath = [databasePath UTF8String];
 }
 
 - (void)getExamenStatistics {
@@ -244,7 +255,7 @@
             [self getBiletStatistics];
             break;
         case 1:
-            //[self getThemeStatistics];
+            [self getThemeStatistics];
             break;
         case 2:
             [self getExamenStatistics];

@@ -59,6 +59,8 @@
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
 		A58EDA4318E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */; };
 		A58EDA4518E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */; };
+		A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26B18E759F6004D6996 /* ThemeViewController.m */; };
+		A592F26F18E75A26004D6996 /* ThemeChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26E18E75A26004D6996 /* ThemeChildViewController.m */; };
 		A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D6FB61896FFC400017711 /* AboutViewController.m */; };
 		A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */; };
 		A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A690D318985634001D5275 /* ThemeListTableViewController.m */; };
@@ -141,6 +143,10 @@
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
 		A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
+		A592F26A18E759F6004D6996 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		A592F26B18E759F6004D6996 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		A592F26D18E75A26004D6996 /* ThemeChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeChildViewController.h; sourceTree = "<group>"; };
+		A592F26E18E75A26004D6996 /* ThemeChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeChildViewController.m; sourceTree = "<group>"; };
 		A59D6FB51896FFC400017711 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		A59D6FB61896FFC400017711 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		A5A690C918984D7C001D5275 /* BiletListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiletListTableViewController.h; sourceTree = "<group>"; };
@@ -237,14 +243,17 @@
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
 				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
 				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
-				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
 				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
 				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
 				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
+				A592F26D18E75A26004D6996 /* ThemeChildViewController.h */,
+				A592F26E18E75A26004D6996 /* ThemeChildViewController.m */,
 				A5A690D218985634001D5275 /* ThemeListTableViewController.h */,
 				A5A690D318985634001D5275 /* ThemeListTableViewController.m */,
+				A592F26A18E759F6004D6996 /* ThemeViewController.h */,
+				A592F26B18E759F6004D6996 /* ThemeViewController.m */,
 				A522E60C189521C70090AFA2 /* ViewController.h */,
 				A522E60D189521C70090AFA2 /* ViewController.m */,
 				A522E5FE189521C70090AFA2 /* Supporting Files */,
@@ -255,6 +264,7 @@
 		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A522E62C189524CA0090AFA2 /* 1390756284_i.png */,
 				A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
@@ -460,6 +470,7 @@
 			files = (
 				A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */,
 				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
+				A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */,
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
 				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
@@ -468,6 +479,7 @@
 				A526410518DB1E7100AD31D6 /* ExamenViewController.m in Sources */,
 				A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */,
 				A5B04AB918BF80B1007B4D05 /* BiletViewController.m in Sources */,
+				A592F26F18E75A26004D6996 /* ThemeChildViewController.m in Sources */,
 				A522E604189521C70090AFA2 /* main.m in Sources */,
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
 				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,

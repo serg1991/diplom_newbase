@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
-
+    
     [self ifExamenStatTableExists];
 }
 
@@ -58,7 +58,7 @@
         NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
         
         ExamenViewController *detailViewController = [segue destinationViewController];
-
+        
         detailViewController.wrongArray = wrongArray;
         detailViewController.rightArray = rightArray;
         detailViewController.wrongSelectedArray = wrongSelectedArray;
