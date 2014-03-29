@@ -26,6 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getAnswers];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
+}
+
+- (void)dealloc {
+    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    CGRect frame = self.tableView.frame;
+    frame.size = self.tableView.contentSize;
+    self.tableView.frame = frame;
 }
 
 - (void)showComment {

@@ -145,6 +145,9 @@
             NSLog(@"Failed to open/create database");
         }
     }
+    else {
+        NSLog(@"File exists!");
+    }
 }
 
 - (NSMutableArray *)makeBiletRecordsArray {
@@ -165,6 +168,10 @@
                     NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
                     [_biletRecords addObject:arrayelement];
                 }
+            }
+            else {
+                NSNumber *arrayelement = [NSNumber numberWithInt:0];
+               [_biletRecords addObject:arrayelement];
             }
             sqlite3_finalize(statement);
         }

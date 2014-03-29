@@ -592,8 +592,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="wZR-XZ-S4N" id="MeJ-HQ-tXs"/>
-                                    <outlet property="delegate" destination="wZR-XZ-S4N" id="ULj-P7-VHP"/>
+                                    <outlet property="dataSource" destination="wZR-XZ-S4N" id="Ulg-83-HIg"/>
+                                    <outlet property="delegate" destination="wZR-XZ-S4N" id="dyh-HI-mKd"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wZ-3u-Wi0">
@@ -606,7 +606,7 @@
                     <navigationItem key="navigationItem" id="eOU-Du-Udo"/>
                     <connections>
                         <outlet property="imageView" destination="1wZ-3u-Wi0" id="c1a-97-Aqf"/>
-                        <outlet property="tableView" destination="nyD-BP-LLh" id="inn-vm-0El"/>
+                        <outlet property="tableView" destination="nyD-BP-LLh" id="TGJ-Of-p0J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlV-gP-D3e" userLabel="First Responder" sceneMemberID="firstResponder"/>

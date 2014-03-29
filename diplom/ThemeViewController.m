@@ -134,7 +134,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(ThemeChildViewController *)viewController index];
     index++;
-    if (index == (int)_themeCount[_themeNumber])
+    if (index == [[_themeCount objectAtIndex:_themeNumber]integerValue])
         
         return nil;
     
@@ -143,7 +143,7 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
     // The number of items reflected in the page indicator.
-    return _themeCount[_themeNumber];
+    return [[_themeCount objectAtIndex:_themeNumber]integerValue];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
