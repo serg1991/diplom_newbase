@@ -145,4 +145,21 @@
     return commonsize;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showThemeDetails"]) {
+        NSMutableArray *rightArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
+        
+        ThemeViewController *detailViewController = [segue destinationViewController];
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        long row = [myIndexPath row];
+        detailViewController.themeNumber = row;
+        detailViewController.themeCount = _themeQuestionNumber;
+        detailViewController.wrongArray = wrongArray;
+        detailViewController.rightArray = rightArray;
+        detailViewController.wrongSelectedArray = wrongSelectedArray;
+    }
+}
+
 @end

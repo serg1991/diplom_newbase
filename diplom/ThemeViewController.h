@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThemeChildViewController.h"
 
 @interface ThemeViewController : UIViewController <UIPageViewControllerDataSource>
+
+@property (strong, nonatomic) UIPageViewController *pageController;
+@property (nonatomic) NSUInteger themeNumber;
+@property (nonatomic, retain) NSMutableArray *rightArray;
+@property (nonatomic, retain) NSMutableArray *wrongArray;
+@property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
+@property (nonatomic, retain) NSMutableArray *themeCount;
+@property (nonatomic, retain) NSString *dateString;
 
 @end

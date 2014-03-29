@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BiletChildViewController.h"
 #import "BiletViewController.h"
 
 @interface BiletListTableViewController : UITableViewController

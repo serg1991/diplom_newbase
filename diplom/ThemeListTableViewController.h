@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <sqlite3.h>
+#import "ThemeViewController.h"
 
 @interface ThemeListTableViewController : UITableViewController
 @property (nonatomic, retain) NSMutableArray *themeTheme;

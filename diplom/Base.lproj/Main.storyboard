@@ -138,12 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="718"/>
+            <point key="canvasLocation" x="956" y="1736"/>
         </scene>
-        <!--Bilet List Table View Controller - Bilet List-->
+        <!--Bilet List Table View Controller - Билеты-->
         <scene sceneID="uOf-sQ-44R">
             <objects>
-                <tableViewController title="Bilet List" id="caC-Qi-zfp" customClass="BiletListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="caC-Qi-zfp" customClass="BiletListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yHQ-n9-J0M">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="10"/>
         </scene>
-        <!--Bilet View Controller - Bilet Detail-->
+        <!--Bilet View Controller-->
         <scene sceneID="VHT-Po-HKT">
             <objects>
-                <viewController title="Bilet Detail" id="kN0-F3-UG9" customClass="BiletViewController" sceneMemberID="viewController">
+                <viewController id="kN0-F3-UG9" customClass="BiletViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pz6-hh-Nl9"/>
                         <viewControllerLayoutGuide type="bottom" id="f4K-X2-NjP"/>
@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1960" y="10"/>
         </scene>
-        <!--Theme List Table View Controller - Theme List-->
+        <!--Theme List Table View Controller - Список тем-->
         <scene sceneID="G5H-z5-Yhe">
             <objects>
-                <tableViewController title="Theme List" id="f26-mQ-JCO" customClass="ThemeListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="f26-mQ-JCO" customClass="ThemeListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zuq-74-VRs">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,6 +239,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6MK-I6-hws" kind="push" identifier="showThemeDetails" id="wRX-vg-yad"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -252,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="681"/>
         </scene>
-        <!--Examen View Controller - Examen-->
+        <!--Examen View Controller-->
         <scene sceneID="ICz-SV-bsP">
             <objects>
-                <viewController title="Examen" id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
+                <viewController id="8Uv-Ok-Pa9" customClass="ExamenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hIs-yp-PET"/>
                         <viewControllerLayoutGuide type="bottom" id="DlR-gB-RNW"/>
@@ -271,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1558" y="1340"/>
         </scene>
-        <!--Rules List Table View Controller - Rules List-->
+        <!--Rules List Table View Controller - ПДД-->
         <scene sceneID="dGS-6Y-5ni">
             <objects>
-                <tableViewController title="Rules List" id="mqX-HA-aTw" customClass="RulesListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="mqX-HA-aTw" customClass="RulesListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xE3-eW-cDq">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="1553" y="2030"/>
         </scene>
-        <!--Statistics View Controller - Statistics-->
+        <!--Statistics View Controller-->
         <scene sceneID="Zoh-ot-8u6">
             <objects>
-                <viewController title="Statistics" id="Zxv-Lk-QLT" customClass="StatisticsViewController" sceneMemberID="viewController">
+                <viewController id="Zxv-Lk-QLT" customClass="StatisticsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okI-7c-sxD"/>
                         <viewControllerLayoutGuide type="bottom" id="geG-uF-XxH"/>
@@ -349,10 +352,10 @@
             </objects>
             <point key="canvasLocation" x="1960" y="2716"/>
         </scene>
-        <!--Rules Detail View Controller - Rules Detail-->
+        <!--Rules Detail View Controller-->
         <scene sceneID="5hI-W6-rGN">
             <objects>
-                <viewController title="Rules Detail" id="WXv-dK-AMs" customClass="RulesDetailViewController" sceneMemberID="viewController">
+                <viewController id="WXv-dK-AMs" customClass="RulesDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iAo-Ks-uch"/>
                         <viewControllerLayoutGuide type="bottom" id="CGF-cJ-hhJ"/>
@@ -385,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="1960" y="2030"/>
         </scene>
-        <!--About View Controller - About-->
+        <!--About View Controller - О приложении-->
         <scene sceneID="RB0-ec-cKr">
             <objects>
-                <viewController title="About" id="Mhv-MW-aWB" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController id="Mhv-MW-aWB" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GZ5-kA-vnU"/>
                         <viewControllerLayoutGuide type="bottom" id="k5C-az-WQX"/>
@@ -472,7 +475,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbp-SX-VhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="718"/>
+            <point key="canvasLocation" x="444" y="1736"/>
         </scene>
         <!--Examen Child View Controller-->
         <scene sceneID="Ish-qB-bC8">
@@ -551,6 +554,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eix-Lg-t2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2376" y="10"/>
+        </scene>
+        <!--Theme View Controller-->
+        <scene sceneID="Gcl-fD-YWy">
+            <objects>
+                <viewController storyboardIdentifier="ThemeViewController" id="6MK-I6-hws" customClass="ThemeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PCd-T1-dxR"/>
+                        <viewControllerLayoutGuide type="bottom" id="NRg-HN-LDG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lgz-tn-XOZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.84997027849999995" green="0.84997027849999995" blue="0.84997027849999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wfH-fq-uJp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0d-Au-abm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1960" y="681"/>
+        </scene>
+        <!--Theme Child View Controller-->
+        <scene sceneID="eAv-Rx-h9w">
+            <objects>
+                <viewController storyboardIdentifier="ThemeChildViewController" id="wZR-XZ-S4N" customClass="ThemeChildViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dSC-sG-Wuj"/>
+                        <viewControllerLayoutGuide type="bottom" id="BmR-IJ-Wur"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DIg-5N-c1t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-BP-LLh">
+                                <rect key="frame" x="2" y="2" width="316" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wZR-XZ-S4N" id="MeJ-HQ-tXs"/>
+                                    <outlet property="delegate" destination="wZR-XZ-S4N" id="ULj-P7-VHP"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wZ-3u-Wi0">
+                                <rect key="frame" x="2" y="2" width="316" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eOU-Du-Udo"/>
+                    <connections>
+                        <outlet property="imageView" destination="1wZ-3u-Wi0" id="c1a-97-Aqf"/>
+                        <outlet property="tableView" destination="nyD-BP-LLh" id="inn-vm-0El"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlV-gP-D3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2376" y="681"/>
         </scene>
     </scenes>
     <resources>
