@@ -54,12 +54,11 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE QuestionType = \"%d\" LIMIT \"%d\" OFFSET \"%d\"", (int)_themeNumber + 1, 1, _index];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE QuestionType = \"%d\" LIMIT 1 OFFSET \"%lu\"", (int)_themeNumber + 1, (unsigned long)_index];
         
         const char *query_stmt = [querySQL UTF8String];
-            NSLog(@"%s", query_stmt);
         if (sqlite3_prepare_v2(_pdd_ab, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
-           if (sqlite3_step(statement) == SQLITE_ROW) {
+            if (sqlite3_step(statement) == SQLITE_ROW) {
                 NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
                 _imageView.image = [UIImage imageWithData:picture];
                 
