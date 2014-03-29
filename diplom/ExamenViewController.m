@@ -69,11 +69,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //дата начала решения билета
-    NSDate *date = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-    _dateString = [dateFormatter stringFromDate:date];
-
+    _date = [[NSDate alloc] init];
+    _ti = [_date timeIntervalSince1970];
+    
     //генерация номеров билетов для вопросов экзамена
     _randomNumbers = [[NSMutableArray alloc] init];
     for (int i = 0; i < 20; i++) {
@@ -164,7 +162,7 @@
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
-    childViewController.startDate = _dateString;
+    childViewController.startDate = _ti;
     childViewController.randomNumbers = _randomNumbers;
     childViewController.timer = _timer;
     childViewController.remainingTicks = remainingTicks;

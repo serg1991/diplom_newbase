@@ -237,6 +237,7 @@
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
 				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
 				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
+				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
 				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
@@ -255,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				A522E62C189524CA0090AFA2 /* 1390756284_i.png */,
-				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
 				A522E5FF189521C70090AFA2 /* diplom-Info.plist */,

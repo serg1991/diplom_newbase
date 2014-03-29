@@ -22,7 +22,8 @@
 @property (nonatomic, retain) NSMutableArray *wrongArray;
 @property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
-@property (nonatomic, retain) NSString *dateString;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic) NSTimeInterval ti;
 @property (nonatomic, retain) IBOutlet UILabel *theLabel;
 @property (nonatomic, retain) NSTimer *timer;
 

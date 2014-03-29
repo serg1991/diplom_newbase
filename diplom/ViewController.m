@@ -82,7 +82,7 @@
     
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         char *errMsg;
-        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_examen_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT,  rightCount INTEGER, wrongCount INTEGER, rightAnswers TEXT, wrongAnswers TEXT, startDate TEXT, finishDate TEXT)";
+        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_examen_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT,  rightCount INTEGER, wrongCount INTEGER, rightAnswers TEXT, wrongAnswers TEXT, startDate INTEGER, finishDate INTEGER)";
         if (sqlite3_exec(_pdd_ab_stat, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
             NSLog(@"Failed to create table");
         }
