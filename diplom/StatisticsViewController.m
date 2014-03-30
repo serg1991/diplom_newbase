@@ -100,42 +100,28 @@
         dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         docsDir = [dirPaths objectAtIndex:0];
         databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-        const char *dbpath = [databasePath UTF8String];
-        sqlite3_stmt *statement1, *statement2, *statement3;
+		const char *dbpath = [databasePath UTF8String];
+        
         if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-            NSString *querySQL1 = [NSString stringWithFormat:@"Delete from paper_ab_stat"];
-            const char *query_stmt1 = [querySQL1 UTF8String];
+            char *errMsg;
+
+            const char *sql_stmt_removeBiletStat = "DELETE FROM paper_ab_stat WHERE RecNo > 0";
+            const char *sql_stmt_removeThemeStat = "DELETE FROM paper_ab_theme_stat WHERE RecNo > 0";
+            const char *sql_stmt_removeExamenStat = "DELETE FROM paper_ab_examen_stat WHERE RecNo > 0";
             
-            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
-                NSLog(@"Removed all data from paper_ab_stat OK!");
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_removeBiletStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to remove bilet table!");
             }
-            else {
-                NSLog(@"Removed all data from paper_ab_stat not OK!");
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_removeThemeStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to remove theme table!");
             }
-            sqlite3_finalize(statement1);
-            
-            NSString *querySQL2 = [NSString stringWithFormat:@"Delete from paper_ab_theme_stat"];
-            const char *query_stmt2 = [querySQL2 UTF8String];
-            
-            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
-                NSLog(@"Removed all data from paper_ab_theme_stat OK!");
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_removeExamenStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to remove examen table!");
             }
-            else {
-                NSLog(@"Removed all data from paper_ab_theme_stat not OK!");
-            }
-            sqlite3_finalize(statement2);
-            
-            NSString *querySQL3 = [NSString stringWithFormat:@"Delete from paper_ab_examen_stat"];
-            const char *query_stmt3 = [querySQL3 UTF8String];
-            
-            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
-                NSLog(@"Removed all data from paper_ab_examen_stat OK!");
-            }
-            else {
-                NSLog(@"Removed all data from paper_ab_examen_stat not OK!");
-            }
-            sqlite3_finalize(statement3);
             sqlite3_close(_pdd_ab_stat);
+        }
+        else {
+            NSLog(@"Failed to open database!");
         }
     }
     else {

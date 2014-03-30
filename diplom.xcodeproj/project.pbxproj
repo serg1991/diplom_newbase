@@ -58,6 +58,7 @@
 		A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */; };
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
 		A583B82D18E8B83000E2B6BF /* UIButtonBarTrash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */; };
+		A583B82F18E8B9C600E2B6BF /* UIButtonBarTrash.png in Resources */ = {isa = PBXBuildFile; fileRef = A583B82E18E8B9C600E2B6BF /* UIButtonBarTrash.png */; };
 		A58EDA4318E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */; };
 		A58EDA4518E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */; };
 		A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26B18E759F6004D6996 /* ThemeViewController.m */; };
@@ -143,6 +144,7 @@
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
 		A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarTrash@2x.png"; sourceTree = "<group>"; };
+		A583B82E18E8B9C600E2B6BF /* UIButtonBarTrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarTrash.png; sourceTree = "<group>"; };
 		A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
 		A592F26A18E759F6004D6996 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				A563E866189C41CE004320F0 /* pdd7.html */,
 				A563E867189C41CE004320F0 /* pdd8.html */,
 				A563E868189C41CE004320F0 /* pdd9.html */,
+				A583B82E18E8B9C600E2B6BF /* UIButtonBarTrash.png */,
 				A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */,
 				A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */,
 				A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */,
@@ -434,6 +437,7 @@
 				A563E87F189C41CE004320F0 /* pdd8.html in Resources */,
 				A563E87A189C41CE004320F0 /* pdd3.html in Resources */,
 				A563E886189C41CE004320F0 /* pdd15.html in Resources */,
+				A583B82F18E8B9C600E2B6BF /* UIButtonBarTrash.png in Resources */,
 				A563E88D189C41CE004320F0 /* pdd22.html in Resources */,
 				A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */,
 				A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */,

@@ -87,10 +87,14 @@
                     BiletCommonStat.textColor = [UIColor whiteColor];
                     UIGraphicsBeginImageContext(CGSizeMake(300, 20));
                     CGContextRef context = UIGraphicsGetCurrentContext();
+                    if (sqlite3_column_int(statement2, 0) != 0) {
                     CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
                     CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                    }
+                    if (sqlite3_column_int(statement2, 1) != 0) {
                     CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
-                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * (1 - 300 * (sqlite3_column_int(statement2, 0) / sqlite3_column_int(statement2, 2))), 20));
+                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * (1 - 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2))), 20));
+                    }
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
