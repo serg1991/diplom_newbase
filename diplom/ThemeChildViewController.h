@@ -18,10 +18,10 @@
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) NSUInteger themeNumber;
+@property (nonatomic) NSUInteger themeCount;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
-@property (nonatomic, retain) NSMutableArray *themeCount;
 @property (nonatomic, retain) NSString *startDate;
 
 @end

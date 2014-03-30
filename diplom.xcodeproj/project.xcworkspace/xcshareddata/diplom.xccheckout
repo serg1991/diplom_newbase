@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>418B129B-FE99-47D3-8CC3-91A690512B0C</string>
+	<string>222CA291-EE69-4FDE-92BA-E4F005EC3461</string>
 	<key>IDESourceControlProjectName</key>
 	<string>diplom</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</key>
-		<string>https://github.com/serg1991/diplom_newbase.git</string>
+		<key>185A4D1E-593F-4183-BCD7-6870785F25B6</key>
+		<string>https://github.com/serg1991/znatokPDD.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>diplom.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</key>
+		<key>185A4D1E-593F-4183-BCD7-6870785F25B6</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/serg1991/diplom_newbase.git</string>
+	<string>https://github.com/serg1991/znatokPDD.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</string>
+	<string>185A4D1E-593F-4183-BCD7-6870785F25B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AAAC0136-C5D9-4ECC-9A52-8CFEF360C1C7</string>
+			<string>185A4D1E-593F-4183-BCD7-6870785F25B6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>diplom</string>
+			<string>znatokPDD</string>
 		</dict>
 	</array>
 </dict>

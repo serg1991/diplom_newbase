@@ -114,7 +114,7 @@
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _dateString;
-    childViewController.themeCount = _themeCount;
+    childViewController.themeCount = [[_themeCount objectAtIndex:_themeNumber]integerValue];
     
     return childViewController;
 }

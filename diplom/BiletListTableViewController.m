@@ -31,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    [self ifBiletStatTableExists];
     [self makeBiletRecordsArray];
     _biletNumbers = [[NSMutableArray alloc] init];
     for (long row = 0; row < 40; row ++) {
@@ -113,40 +112,6 @@
         detailViewController.wrongArray = wrongArray;
         detailViewController.rightArray = rightArray;
         detailViewController.wrongSelectedArray = wrongSelectedArray;
-    }
-}
-
-- (void)ifBiletStatTableExists {
-    NSString *docsDir;
-    NSArray *dirPaths;
-    NSString *databasePath;
-    
-    // Get the documents directory
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    docsDir = [dirPaths objectAtIndex:0];
-    
-    // Build the path to the database file
-    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    
-    if ([filemgr fileExistsAtPath: databasePath ] == NO) {
-		const char *dbpath = [databasePath UTF8String];
-        
-        if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT, biletNumber INTEGER, rightCount INTEGER, wrongCount INTEGER, startDate TEXT, finishDate TEXT)";
-            if (sqlite3_exec(_pdd_ab_stat, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
-                NSLog(@"Failed to create table");
-            }
-            sqlite3_close(_pdd_ab_stat);
-        }
-        else {
-            NSLog(@"Failed to open/create database");
-        }
-    }
-    else {
-        NSLog(@"File exists!");
     }
 }
 

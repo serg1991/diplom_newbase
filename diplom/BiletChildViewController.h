@@ -1,5 +1,5 @@
 //
-//  APPChildViewController.h
+//  BiletChildViewController.h
 //  diplom
 //
 //  Created by Sergey Kiselev on 29.01.14.

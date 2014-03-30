@@ -13,5 +13,6 @@
 @property (nonatomic, retain) NSMutableArray *themeTheme;
 @property (nonatomic, strong) NSMutableArray *themeQuestionNumber;
 @property (nonatomic) sqlite3 *pdd;
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 
 @end

@@ -20,7 +20,7 @@
     [super viewDidLoad];
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     
-    [self ifExamenStatTableExists];
+    [self ifStatTablesExists];
 }
 
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
@@ -65,7 +65,7 @@
     }
 }
 
-- (void)ifExamenStatTableExists {
+- (void)ifStatTablesExists {
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
@@ -77,19 +77,33 @@
     
     // Build the path to the database file
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+    NSFileManager *filemgr = [NSFileManager defaultManager];
     
-    const char *dbpath = [databasePath UTF8String];
-    
-    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        char *errMsg;
-        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS paper_ab_examen_stat (RecNo INTEGER PRIMARY KEY AUTOINCREMENT,  rightCount INTEGER, wrongCount INTEGER, rightAnswers TEXT, wrongAnswers TEXT, startDate INTEGER, finishDate INTEGER)";
-        if (sqlite3_exec(_pdd_ab_stat, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
-            NSLog(@"Failed to create table");
+    if ([filemgr fileExistsAtPath: databasePath ] == NO) {
+		const char *dbpath = [databasePath UTF8String];
+        
+        if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+            char *errMsg;
+            const char *sql_stmt_biletStat = "CREATE TABLE IF NOT EXISTS paper_ab_stat (RecNo integer PRIMARY KEY AUTOINCREMENT NOT NULL, biletNumber integer NOT NULL, rightCount integer NOT NULL, wrongCount integer NOT NULL, startDate integer NOT NULL, finishDate integer NOT NULL)";
+            const char *sql_stmt_themeStat = "CREATE TABLE IF NOT EXISTS paper_ab_theme_stat (RecNo integer PRIMARY KEY AUTOINCREMENT NOT NULL, themeNumber integer NOT NULL, rightCount integer NOT NULL, wrongCount integer NOT NULL, startDate integer NOT NULL, finishDate integer NOT NULL)";
+            const char *sql_stmt_examenStat = "CREATE TABLE IF NOT EXISTS paper_ab_examen_stat (RecNo integer PRIMARY KEY AUTOINCREMENT NOT NULL, rightCount integer NOT NULL, wrongCount integer NOT NULL, rightAnswers text NOT NULL, wrongAnswers text NOT NULL, startDate integer NOT NULL, finishDate integer NOT NULL)";
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_biletStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to create bilet table!");
+            }
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_themeStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to create theme table!");
+            }
+            if (sqlite3_exec(_pdd_ab_stat, sql_stmt_examenStat, NULL, NULL, &errMsg) != SQLITE_OK) {
+                NSLog(@"Failed to create examen table!");
+            }
+            sqlite3_close(_pdd_ab_stat);
         }
-        sqlite3_close(_pdd_ab_stat);
+        else {
+            NSLog(@"Failed to open/create database");
+        }
     }
     else {
-        NSLog(@"Failed to open/create database");
+        NSLog(@"File exists!");
     }
 }
 
