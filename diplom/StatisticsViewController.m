@@ -77,12 +77,79 @@
         labelback.frame = orig;
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [trashButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarTrash"] forState:UIControlStateNormal];
+    trashButton.frame = CGRectMake(0, 0, 22, 22);
+    [trashButton addTarget:self action:@selector(confirmReset) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *trashIconButton = [[UIBarButtonItem alloc]initWithCustomView:trashButton];
+    self.navigationItem.rightBarButtonItem = trashIconButton;
 }
 
 - (void)confirmCancel {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex) {
+        NSString *docsDir;
+        NSArray *dirPaths;
+        NSString *databasePath;
+        
+        dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        docsDir = [dirPaths objectAtIndex:0];
+        databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
+        const char *dbpath = [databasePath UTF8String];
+        sqlite3_stmt *statement1, *statement2, *statement3;
+        if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+            NSString *querySQL1 = [NSString stringWithFormat:@"Delete from paper_ab_stat"];
+            const char *query_stmt1 = [querySQL1 UTF8String];
+            
+            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
+                NSLog(@"Removed all data from paper_ab_stat OK!");
+            }
+            else {
+                NSLog(@"Removed all data from paper_ab_stat not OK!");
+            }
+            sqlite3_finalize(statement1);
+            
+            NSString *querySQL2 = [NSString stringWithFormat:@"Delete from paper_ab_theme_stat"];
+            const char *query_stmt2 = [querySQL2 UTF8String];
+            
+            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+                NSLog(@"Removed all data from paper_ab_theme_stat OK!");
+            }
+            else {
+                NSLog(@"Removed all data from paper_ab_theme_stat not OK!");
+            }
+            sqlite3_finalize(statement2);
+            
+            NSString *querySQL3 = [NSString stringWithFormat:@"Delete from paper_ab_examen_stat"];
+            const char *query_stmt3 = [querySQL3 UTF8String];
+            
+            if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
+                NSLog(@"Removed all data from paper_ab_examen_stat OK!");
+            }
+            else {
+                NSLog(@"Removed all data from paper_ab_examen_stat not OK!");
+            }
+            sqlite3_finalize(statement3);
+            sqlite3_close(_pdd_ab_stat);
+        }
+    }
+    else {
+        NSLog(@"Mozhno bylo i ne nazhimat' togda!");
+    }
+}
+
+- (void)confirmReset {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание"
+                                                    message:@"Вы действительно хотите сбросить статистику и рекорды?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Нет"
+                                          otherButtonTitles:@"Да, сбросить", nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning {

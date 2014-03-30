@@ -83,7 +83,7 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     
     self.navigationItem.leftBarButtonItem = backButton;
-
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {

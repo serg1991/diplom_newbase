@@ -57,6 +57,7 @@
 		A56B76F418D8692E00B1CDCF /* crash.png in Resources */ = {isa = PBXBuildFile; fileRef = A56B76F318D8692E00B1CDCF /* crash.png */; };
 		A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */; };
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
+		A583B82D18E8B83000E2B6BF /* UIButtonBarTrash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */; };
 		A58EDA4318E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */; };
 		A58EDA4518E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */; };
 		A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26B18E759F6004D6996 /* ThemeViewController.m */; };
@@ -141,6 +142,7 @@
 		A56B76F318D8692E00B1CDCF /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
+		A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarTrash@2x.png"; sourceTree = "<group>"; };
 		A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
 		A592F26A18E759F6004D6996 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
@@ -264,8 +266,8 @@
 		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A522E62C189524CA0090AFA2 /* 1390756284_i.png */,
+				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
 				A522E5FF189521C70090AFA2 /* diplom-Info.plist */,
@@ -297,6 +299,7 @@
 				A563E866189C41CE004320F0 /* pdd7.html */,
 				A563E867189C41CE004320F0 /* pdd8.html */,
 				A563E868189C41CE004320F0 /* pdd9.html */,
+				A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */,
 				A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */,
 				A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */,
 			);
@@ -427,6 +430,7 @@
 				A563E88E189C41CE004320F0 /* pdd23.html in Resources */,
 				A563E87B189C41CE004320F0 /* pdd4.html in Resources */,
 				A563E87E189C41CE004320F0 /* pdd7.html in Resources */,
+				A583B82D18E8B83000E2B6BF /* UIButtonBarTrash@2x.png in Resources */,
 				A563E87F189C41CE004320F0 /* pdd8.html in Resources */,
 				A563E87A189C41CE004320F0 /* pdd3.html in Resources */,
 				A563E886189C41CE004320F0 /* pdd15.html in Resources */,
@@ -611,7 +615,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
 				INFOPLIST_FILE = "diplom/diplom-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -625,7 +629,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
 				INFOPLIST_FILE = "diplom/diplom-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

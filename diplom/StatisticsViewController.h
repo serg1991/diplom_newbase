@@ -12,5 +12,6 @@
 @interface StatisticsViewController : UIViewController <UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
+@property (nonatomic) sqlite3 *pdd_ab_stat;
 
 @end
