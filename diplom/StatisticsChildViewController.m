@@ -68,7 +68,7 @@
         else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
-        UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 25 + (i * 30), 300, 40)];
+        UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 55 + (i * 30), 300, 40)];
         BiletCommonStatTitle.text = @"Общая статистика ответов на билеты\nПравильных ответов\t\t\t  Неправильных ответов";
         BiletCommonStatTitle.textAlignment = NSTextAlignmentCenter;
         BiletCommonStatTitle.numberOfLines = 2;
@@ -82,7 +82,7 @@
             if (sqlite3_step(statement2) == SQLITE_ROW) {
                 if (sqlite3_column_int(statement2, 2) != 0) {
                     NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 0), sqlite3_column_int(statement2, 1)];
-                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 55 + (i * 30), 300, 20)];
+                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 85 + (i * 30), 300, 20)];
                     BiletCommonStat.text = stat;
                     BiletCommonStat.textColor = [UIColor whiteColor];
                     UIGraphicsBeginImageContext(CGSizeMake(300, 20));
@@ -93,7 +93,7 @@
                     }
                     if (sqlite3_column_int(statement2, 1) != 0) {
                     CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
-                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * (1 - 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2))), 20));
+                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * ((sqlite3_column_int(statement2, 1) * 1.0 / sqlite3_column_int(statement2, 2))), 20));
                     }
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
@@ -135,8 +135,8 @@
     const char *dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement, *statement2, *statement3;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
         
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
         const char *query_stmt = [querySQL UTF8String];
         
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
@@ -170,7 +170,6 @@
         }
         
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
-        
         const char *query_stmt2 = [querySQL2 UTF8String];
         
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
