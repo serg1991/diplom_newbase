@@ -161,7 +161,7 @@
                 UIGraphicsEndImageContext();
                 ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                 [self.view addSubview:ExResult];
-                
+                _bottomBestResult = ExResult.frame;
             }
             sqlite3_finalize(statement);
         }
@@ -169,20 +169,55 @@
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
         
-        UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 60, 300, 20)];
+        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
+        
+        const char *query_stmt2 = [querySQL2 UTF8String];
+        
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+            if (sqlite3_step(statement2) == SQLITE_ROW) {
+                UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 50, 300, 40)];
+                ExCommonResultTitle.textAlignment = NSTextAlignmentCenter;
+                ExCommonResultTitle.numberOfLines = 2;
+                ExCommonResultTitle.text = @" Общая статистика прохождения экзамена\nПравильных ответов\t\t\t  Неправильных ответов";
+                ExCommonResultTitle.font = [UIFont italicSystemFontOfSize:11];
+                [ExCommonResultTitle sizeToFit];
+                [self.view addSubview:ExCommonResultTitle];
+                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 0), sqlite3_column_int(statement2, 1)];
+                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, ExCommonResultTitle.frame.origin.y + 30, 300, 20)];
+                ExResult.text = stat;
+                ExResult.textColor = [UIColor whiteColor];
+                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * (sqlite3_column_double(statement2, 1) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                _bottomBestResult2 = ExResult.frame;
+                [self.view addSubview:ExResult];
+            }
+            sqlite3_finalize(statement2);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros #2!");
+        }
+        
+        UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, _bottomBestResult2.origin.y + 50, 300, 20)];
         ExBestResultTitle.textAlignment = NSTextAlignmentCenter;
         ExBestResultTitle.numberOfLines = 2;
-        ExBestResultTitle.text = @" \t Лучшие результаты при прохождении экзамена\n Ошибки  \t\tДата тестирования\t\t   Время ";
+        ExBestResultTitle.text = @"\tЛучшие результаты при прохождении экзамена\n   Ошибки     \t    Дата тестирования \t          Время ";
         ExBestResultTitle.font = [UIFont italicSystemFontOfSize:11];
         [ExBestResultTitle sizeToFit];
         [self.view addSubview:ExBestResultTitle];
         
-        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 5"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+        NSString *querySQL3 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 5"];
+        const char *query_stmt3 = [querySQL3 UTF8String];
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
             int i = 0;
-            while (sqlite3_step(statement2) == SQLITE_ROW) {
-                int timeDiff = sqlite3_column_int(statement2, 1) - sqlite3_column_int(statement2, 2);
+            while (sqlite3_step(statement3) == SQLITE_ROW) {
+                int timeDiff = sqlite3_column_int(statement3, 1) - sqlite3_column_int(statement3, 2);
                 NSString *minutes = [NSString stringWithFormat:@"%d", timeDiff / 60];
                 NSString *seconds = [NSString stringWithFormat:@"%d", timeDiff % 60];
                 NSUInteger myMinute = [minutes intValue];
@@ -192,13 +227,12 @@
                 if (mySecond < 10)
                     seconds = [NSString stringWithFormat:@"0%d", timeDiff % 60];
                 NSString *exTime =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-                NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement2, 1)];
+                NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement3, 1)];
                 NSDateFormatter *date_formatter = [[NSDateFormatter alloc] init];
                 [date_formatter setDateFormat:@"dd MMMM YYYY"];
                 NSString *result = [date_formatter stringFromDate:date];
-                NSString *stat2 = [NSString stringWithFormat:@" %d\t\t|\t %@\t | %@ ", 20 - sqlite3_column_int(statement2, 0), result, exTime];
-                UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, 90 + (30 * i), 300, 20)];
-                _bottomBestResult = exBestResults.frame;
+                NSString *stat2 = [NSString stringWithFormat:@" %d\t     |\t\t %@\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult2.origin.y + 80 + (30 * i), 300, 20)];
                 exBestResults.text = stat2;
                 exBestResults.textColor = [UIColor blackColor];
                 exBestResults.layer.borderColor = [UIColor blackColor].CGColor;
@@ -206,40 +240,6 @@
                 [exBestResults sizeToFit];
                 [self.view addSubview:exBestResults];
                 i++;
-            }
-            sqlite3_finalize(statement2);
-        }
-        else {
-            NSLog(@"Ne mogu vypolnit' zapros #2!");
-        }
-        
-        NSString *querySQL3 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
-        
-        const char *query_stmt3 = [querySQL3 UTF8String];
-        
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
-            if (sqlite3_step(statement3) == SQLITE_ROW) {
-                UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 30, 300, 40)];
-                ExCommonResultTitle.textAlignment = NSTextAlignmentCenter;
-                ExCommonResultTitle.numberOfLines = 2;
-                ExCommonResultTitle.text = @" Общая статистика прохождения экзамена\nПравильных ответов\t\t\t  Неправильных ответов";
-                ExCommonResultTitle.font = [UIFont italicSystemFontOfSize:11];
-                [ExCommonResultTitle sizeToFit];
-                [self.view addSubview:ExCommonResultTitle];
-                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement3, 0), sqlite3_column_int(statement3, 1)];
-                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, ExCommonResultTitle.frame.origin.y + 30, 300, 20)];
-                ExResult.text = stat;
-                ExResult.textColor = [UIColor whiteColor];
-                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement3, 0) * 1.0 / sqlite3_column_int(statement3, 2)), 20));
-                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
-                CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement3, 0) * 1.0 / sqlite3_column_int(statement3, 2)), 0.0, 300 * (sqlite3_column_double(statement3, 1) * 1.0 / sqlite3_column_int(statement3, 2)), 20));
-                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:ExResult];
             }
             sqlite3_finalize(statement3);
         }

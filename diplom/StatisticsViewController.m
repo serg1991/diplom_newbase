@@ -125,7 +125,7 @@
         }
     }
     else {
-        NSLog(@"Mozhno bylo i ne nazhimat' togda!");
+        NSLog(@"Mozhno bylo by ne nazhimat' togda!");
     }
 }
 
