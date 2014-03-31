@@ -14,6 +14,5 @@
 @property (assign, nonatomic) NSUInteger index;
 @property (nonatomic) sqlite3 *pdd_ab_stat;
 @property (nonatomic, assign) CGRect bottomBestResult;
-@property (nonatomic, assign) CGRect bottomBestResult2;
 
 @end

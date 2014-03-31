@@ -32,43 +32,11 @@
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
-    sqlite3_stmt *statement, *statement2;
-    UILabel *BiletStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
-    BiletStatTitle.text = @"\tСтатистика правильности ответов по билетам";
-    BiletStatTitle.textAlignment = NSTextAlignmentCenter;
-    BiletStatTitle.font = [UIFont italicSystemFontOfSize:11];
-    [BiletStatTitle sizeToFit];
-    [self.view addSubview:BiletStatTitle];
+    sqlite3_stmt *statement1, *statement2;
+
     int i = 0;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
-        
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
-            while (sqlite3_step(statement) == SQLITE_ROW) {
-                NSString *stat = [NSString stringWithFormat:@" Билет №%d - %3.2f%%", sqlite3_column_int(statement, 0), sqlite3_column_double(statement, 3) * 100];
-                UILabel *BiletStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 20 + (i * 30), 300, 20)];
-                BiletStat.text = stat;
-                BiletStat.textColor = [UIColor whiteColor];
-                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * sqlite3_column_double(statement, 3), 20));
-                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
-                CGContextFillRect(context, CGRectMake(300 * sqlite3_column_double(statement, 3), 0.0, 300 * (1 - sqlite3_column_double(statement, 3)), 20));
-                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:BiletStat];
-                i++;
-            }
-            sqlite3_finalize(statement);
-        }
-        else {
-            NSLog(@"Ne mogu vypolnit' zapros #1!");
-        }
-        UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 55 + (i * 30), 300, 40)];
+        UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
         BiletCommonStatTitle.text = @"Общая статистика ответов на билеты\nПравильных ответов\t\t\t  Неправильных ответов";
         BiletCommonStatTitle.textAlignment = NSTextAlignmentCenter;
         BiletCommonStatTitle.numberOfLines = 2;
@@ -76,30 +44,63 @@
         [BiletCommonStatTitle sizeToFit];
         [self.view addSubview:BiletCommonStatTitle];
         
-        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
-            if (sqlite3_step(statement2) == SQLITE_ROW) {
-                if (sqlite3_column_int(statement2, 2) != 0) {
-                    NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 0), sqlite3_column_int(statement2, 1)];
-                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 85 + (i * 30), 300, 20)];
+        NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
+        const char *query_stmt1 = [querySQL1 UTF8String];
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
+            if (sqlite3_step(statement1) == SQLITE_ROW) {
+                if (sqlite3_column_int(statement1, 2) != 0) {
+                    NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                     BiletCommonStat.text = stat;
                     BiletCommonStat.textColor = [UIColor whiteColor];
                     UIGraphicsBeginImageContext(CGSizeMake(300, 20));
                     CGContextRef context = UIGraphicsGetCurrentContext();
-                    if (sqlite3_column_int(statement2, 0) != 0) {
-                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
-                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                    if (sqlite3_column_int(statement1, 0) != 0) {
+                        CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                        CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
                     }
-                    if (sqlite3_column_int(statement2, 1) != 0) {
-                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
-                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * ((sqlite3_column_int(statement2, 1) * 1.0 / sqlite3_column_int(statement2, 2))), 20));
+                    if (sqlite3_column_int(statement1, 1) != 0) {
+                        CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                        CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * ((sqlite3_column_int(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2))), 20));
                     }
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:BiletCommonStat];
                 }
+            }
+            sqlite3_finalize(statement1);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros #1!");
+        }
+        
+        UILabel *BiletStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+        BiletStatTitle.text = @"\tСтатистика правильности ответов по билетам";
+        BiletStatTitle.textAlignment = NSTextAlignmentCenter;
+        BiletStatTitle.font = [UIFont italicSystemFontOfSize:11];
+        [BiletStatTitle sizeToFit];
+        [self.view addSubview:BiletStatTitle];
+        
+        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
+        const char *query_stmt2 = [querySQL2 UTF8String];
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement2) == SQLITE_ROW) {
+                NSString *stat = [NSString stringWithFormat:@" Билет №%d - %3.2f%%", sqlite3_column_int(statement2, 0), sqlite3_column_double(statement2, 3) * 100];
+                UILabel *BiletStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 110 + (i * 30), 300, 20)];
+                BiletStat.text = stat;
+                BiletStat.textColor = [UIColor whiteColor];
+                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * sqlite3_column_double(statement2, 3), 20));
+                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                CGContextFillRect(context, CGRectMake(300 * sqlite3_column_double(statement2, 3), 0.0, 300 * (1 - sqlite3_column_double(statement2, 3)), 20));
+                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                [self.view addSubview:BiletStat];
+                i++;
             }
             sqlite3_finalize(statement2);
         }
@@ -122,6 +123,86 @@
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *statement1, *statement2;
+
+    if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
+        BiletCommonStatTitle.text = @"Общая статистика ответов на темы\nПравильных ответов\t\t\t  Неправильных ответов";
+        BiletCommonStatTitle.textAlignment = NSTextAlignmentCenter;
+        BiletCommonStatTitle.numberOfLines = 2;
+        BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
+        [BiletCommonStatTitle sizeToFit];
+        [self.view addSubview:BiletCommonStatTitle];
+        
+        NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_theme_stat"];
+        const char *query_stmt1 = [querySQL1 UTF8String];
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
+            if (sqlite3_step(statement1) == SQLITE_ROW) {
+                if (sqlite3_column_int(statement1, 2) != 0) {
+                    NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
+                    BiletCommonStat.text = stat;
+                    BiletCommonStat.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    if (sqlite3_column_int(statement1, 0) != 0) {
+                        CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                        CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
+                    }
+                    if (sqlite3_column_int(statement1, 1) != 0) {
+                        CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                        CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * ((sqlite3_column_int(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2))), 20));
+                    }
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:BiletCommonStat];
+                }
+            }
+            sqlite3_finalize(statement1);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros #1!");
+        }
+        UILabel *ThemeStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+        ThemeStatTitle.text = @"\tСтатистика правильности ответов по темам";
+        ThemeStatTitle.textAlignment = NSTextAlignmentCenter;
+        ThemeStatTitle.font = [UIFont italicSystemFontOfSize:11];
+        [ThemeStatTitle sizeToFit];
+        [self.view addSubview:ThemeStatTitle];
+        int i = 0;
+        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT themeNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_theme_stat GROUP BY themeNumber ORDER BY percent DESC"];
+        
+        const char *query_stmt2 = [querySQL2 UTF8String];
+        
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement2) == SQLITE_ROW) {
+                NSString *stat = [NSString stringWithFormat:@" Тема №%d - %3.2f%%", sqlite3_column_int(statement2, 0), sqlite3_column_double(statement2, 3) * 100];
+                UILabel *BiletStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 110 + (i * 30), 300, 20)];
+                BiletStat.text = stat;
+                BiletStat.textColor = [UIColor whiteColor];
+                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * sqlite3_column_double(statement2, 3), 20));
+                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                CGContextFillRect(context, CGRectMake(300 * sqlite3_column_double(statement2, 3), 0.0, 300 * (1 - sqlite3_column_double(statement2, 3)), 20));
+                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                [self.view addSubview:BiletStat];
+                i++;
+            }
+            sqlite3_finalize(statement2);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros #2!");
+        }
+        sqlite3_close(_pdd_ab_stat);
+    }
+    else {
+        NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
 }
 
 - (void)getExamenStatistics {
@@ -133,69 +214,67 @@
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
-    sqlite3_stmt *statement, *statement2, *statement3;
+    sqlite3_stmt *statement1, *statement2, *statement3;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
+        NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
+        const char *query_stmt1 = [querySQL1 UTF8String];
         
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
-            if (sqlite3_step(statement) == SQLITE_ROW) {
-                UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
-                ExTriesTitle.numberOfLines = 2;
-                ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement, 0)];
-                ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
-                [ExTriesTitle sizeToFit];
-                [self.view addSubview:ExTriesTitle];
-                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement, 1), sqlite3_column_int(statement, 2)];
-                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
-                ExResult.text = stat;
-                ExResult.textColor = [UIColor whiteColor];
-                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (1 - (sqlite3_column_double(statement, 2) * 1.0 / sqlite3_column_int(statement, 0))), 20));
-                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
-                CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement, 2) * 1.0 / sqlite3_column_int(statement, 0))), 0.0, 300 * (sqlite3_column_double(statement, 2) * 1.0 / sqlite3_column_int(statement, 0)), 20));
-                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:ExResult];
-                _bottomBestResult = ExResult.frame;
-            }
-            sqlite3_finalize(statement);
-        }
-        else {
-            NSLog(@"Ne mogu vypolnit' zapros #1!");
-        }
-        
-        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
-        
-        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
-            if (sqlite3_step(statement2) == SQLITE_ROW) {
-                UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 50, 300, 40)];
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
+            if (sqlite3_step(statement1) == SQLITE_ROW) {
+                UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
                 ExCommonResultTitle.textAlignment = NSTextAlignmentCenter;
                 ExCommonResultTitle.numberOfLines = 2;
                 ExCommonResultTitle.text = @" Общая статистика прохождения экзамена\nПравильных ответов\t\t\t  Неправильных ответов";
                 ExCommonResultTitle.font = [UIFont italicSystemFontOfSize:11];
                 [ExCommonResultTitle sizeToFit];
                 [self.view addSubview:ExCommonResultTitle];
-                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 0), sqlite3_column_int(statement2, 1)];
-                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, ExCommonResultTitle.frame.origin.y + 30, 300, 20)];
+                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                 ExResult.text = stat;
                 ExResult.textColor = [UIColor whiteColor];
                 UIGraphicsBeginImageContext(CGSizeMake(300, 20));
                 CGContextRef context = UIGraphicsGetCurrentContext();
                 CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
                 CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
-                CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement2, 0) * 1.0 / sqlite3_column_int(statement2, 2)), 0.0, 300 * (sqlite3_column_double(statement2, 1) * 1.0 / sqlite3_column_int(statement2, 2)), 20));
+                CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * (sqlite3_column_double(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
                 UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
                 ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                _bottomBestResult2 = ExResult.frame;
                 [self.view addSubview:ExResult];
+            }
+            sqlite3_finalize(statement1);
+        }
+        else {
+            NSLog(@"Ne mogu vypolnit' zapros #1!");
+        }
+        
+        NSString *querySQL2 = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
+        const char *query_stmt2 = [querySQL2 UTF8String];
+        
+        if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
+            if (sqlite3_step(statement2) == SQLITE_ROW) {
+                UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+                ExTriesTitle.numberOfLines = 2;
+                ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
+                ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
+                [ExTriesTitle sizeToFit];
+                [self.view addSubview:ExTriesTitle];
+                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
+                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 110, 300, 20)];
+                ExResult.text = stat;
+                ExResult.textColor = [UIColor whiteColor];
+                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 20));
+                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 300 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 20));
+                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                [self.view addSubview:ExResult];
+                _bottomBestResult = ExResult.frame;
             }
             sqlite3_finalize(statement2);
         }
@@ -203,7 +282,8 @@
             NSLog(@"Ne mogu vypolnit' zapros #2!");
         }
         
-        UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, _bottomBestResult2.origin.y + 50, 300, 20)];
+        
+        UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, _bottomBestResult.origin.y + 50, 300, 20)];
         ExBestResultTitle.textAlignment = NSTextAlignmentCenter;
         ExBestResultTitle.numberOfLines = 2;
         ExBestResultTitle.text = @"\tЛучшие результаты при прохождении экзамена\n   Ошибки     \t    Дата тестирования \t          Время ";
@@ -231,7 +311,7 @@
                 [date_formatter setDateFormat:@"dd MMMM YYYY"];
                 NSString *result = [date_formatter stringFromDate:date];
                 NSString *stat2 = [NSString stringWithFormat:@" %d\t     |\t\t %@\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
-                UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult2.origin.y + 80 + (30 * i), 300, 20)];
+                UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 80 + (30 * i), 300, 20)];
                 exBestResults.text = stat2;
                 exBestResults.textColor = [UIColor blackColor];
                 exBestResults.layer.borderColor = [UIColor blackColor].CGColor;
