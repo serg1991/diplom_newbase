@@ -138,12 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="1736"/>
+            <point key="canvasLocation" x="232" y="1736"/>
         </scene>
-        <!--Good Result View Controller-->
+        <!--Bad Result View Controller-->
         <scene sceneID="AjN-Sk-VuK">
             <objects>
-                <viewController storyboardIdentifier="GoodResultBilet" id="XGU-ea-inw" customClass="GoodResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BadResultBilet" id="XGU-ea-inw" customClass="BadResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2gD-7O-oP4"/>
                         <viewControllerLayoutGuide type="bottom" id="UT7-hS-DsG"/>
@@ -152,29 +152,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-oL-rAl">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Экзамен не сдан!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-bh-EiG">
+                                <rect key="frame" x="90" y="216" width="141" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.95416525139999997" green="0.070364834860000003" blue="0.092865295220000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GL0-fg-Tau">
+                                <rect key="frame" x="96" y="80" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="sxe-Lu-wcH"/>
                     <connections>
+                        <outlet property="imageBad" destination="GL0-fg-Tau" id="6rx-kJ-2sL"/>
                         <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Yjq-ID-zwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGJ-pf-b10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536" y="10"/>
+            <point key="canvasLocation" x="3669" y="1202"/>
         </scene>
-        <!--Bad Result View Controller-->
+        <!--Good Result View Controller-->
         <scene sceneID="F41-xK-4C8">
             <objects>
-                <viewController storyboardIdentifier="BadResultBilet" id="QGX-ze-FcP" customClass="BadResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoodResultBilet" id="QGX-ze-FcP" customClass="GoodResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6r8-7n-0DV"/>
                         <viewControllerLayoutGuide type="bottom" id="ASg-se-YdF"/>
@@ -183,23 +188,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfK-0a-FIe">
-                                <rect key="frame" x="139" y="273" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Экзамен сдан!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgz-NI-OdE">
+                                <rect key="frame" x="101" y="216" width="118" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.27843805379999997" green="0.68773352580000002" blue="0.1003944392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htR-78-9eG">
+                                <rect key="frame" x="96" y="80" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="aFR-U5-Vk5"/>
                     <connections>
+                        <outlet property="imageGood" destination="htR-78-9eG" id="PiW-KT-faV"/>
                         <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Azb-gZ-yqP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r90-oA-ajF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2955" y="10"/>
+            <point key="canvasLocation" x="3135" y="1202"/>
         </scene>
         <!--Bilet List Table View Controller - Билеты-->
         <scene sceneID="uOf-sQ-44R">
@@ -536,7 +547,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbp-SX-VhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="1736"/>
+            <point key="canvasLocation" x="-217" y="1736"/>
         </scene>
         <!--Examen Child View Controller-->
         <scene sceneID="Ish-qB-bC8">
@@ -571,6 +582,8 @@
                     <connections>
                         <outlet property="imageView" destination="x9l-9m-duP" id="bXg-aP-iZ2"/>
                         <outlet property="tableView" destination="rqg-Ce-im2" id="fX2-Vk-h1f"/>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="GoodResultExamen" id="Q2H-VW-Mf4"/>
+                        <segue destination="XGU-ea-inw" kind="push" identifier="BadResultExamen" id="rKr-dA-2tS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbg-jq-9h2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -687,6 +700,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Azb-gZ-yqP"/>
+        <segue reference="6GZ-MH-SB6"/>
+        <segue reference="Yjq-ID-zwR"/>
+        <segue reference="Q2H-VW-Mf4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GoodResultViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imageGood;
+@property (nonatomic) NSUInteger whichController;
 
 @end

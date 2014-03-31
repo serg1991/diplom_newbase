@@ -17,7 +17,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     
     return self;
@@ -64,16 +63,13 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE QuestionType = \"%d\" LIMIT 1 OFFSET \"%lu\"", (int)_themeNumber + 1, (unsigned long)_index];
-        
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
                 _imageView.image = [UIImage imageWithData:picture];
-                
                 for (int i = 2; i < 10; i++) {
                     if (sqlite3_column_text(statement, i) != NULL) {
                         NSString *arrayelement = [[NSString alloc]
@@ -102,7 +98,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSUInteger)numberOfSectionInTableView:(UITableView *)tableView {
@@ -110,7 +105,6 @@
 }
 
 - (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSUInteger)section {
-    
     NSArray *array = [self getAnswers];
     
     return array.count - 2;
@@ -204,12 +198,10 @@
     NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
-    
     NSDate *date = [[NSDate alloc] init];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:date];
-    
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_theme_stat(themeNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_themeNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
         const char *insert_stmt = [insertSQL UTF8String];

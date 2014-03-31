@@ -18,18 +18,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
-        // Custom initialization
     }
     
     return self;
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    
     [self getAnswers];
-    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
 }
@@ -48,7 +44,6 @@
     NSArray *array = [self getAnswers];
     NSUInteger arrayCount = array.count;
     NSString *comment = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", self.getAnswers[arrayCount - 1], [self.getAnswers[arrayCount - 2] intValue]];
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Подсказка"
                                                     message:comment
                                                    delegate:self
@@ -68,17 +63,13 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    
     if (sqlite3_open(dbpath, &_pdd_ab) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT RecNo, Picture, Question, Answer1, Answer2, Answer3, Answer4, Answer5, RightAnswer, Comment FROM paper_ab WHERE PaperNumber = \"%d\" AND QuestionInPaper = \"%d\"", (int)_biletNumber + 1, (int)_index + 1];
-        
         const char *query_stmt = [querySQL UTF8String];
-        
         if (sqlite3_prepare_v2(_pdd_ab, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 NSData *picture = [[NSData alloc] initWithBytes:sqlite3_column_blob(statement, 1) length: sqlite3_column_bytes(statement, 1)];
                 _imageView.image = [UIImage imageWithData:picture];
-                
                 for (int i = 2; i < 10; i++) {
                     if (sqlite3_column_text(statement, i) != NULL) {
                         NSString *arrayelement = [[NSString alloc]
@@ -108,7 +99,6 @@
 - (void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
     
 }
 
@@ -117,7 +107,6 @@
 }
 
 - (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSUInteger)section {
-    
     NSArray *array = [self getAnswers];
     
     return array.count - 2;
@@ -184,7 +173,6 @@
             [self showComment];
         }
     }
-    
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
@@ -203,6 +191,18 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"GoodResultBilet"]) {
+        GoodResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.whichController = 0;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"BadResultBilet"]) {
+        BadResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.whichController = 0;
+    }
+}
+
 - (void)writeStatisticsToBase {
     NSString *docsDir;
     NSArray *dirPaths;
@@ -211,12 +211,10 @@
     NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
-    
     NSDate *date = [[NSDate alloc] init];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:date];
-    
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_stat(biletNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_biletNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
         const char *insert_stmt = [insertSQL UTF8String];

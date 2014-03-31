@@ -17,7 +17,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     
     return self;
@@ -27,13 +26,11 @@
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
-    
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2;
-
     int i = 0;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
@@ -43,7 +40,6 @@
         BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletCommonStatTitle sizeToFit];
         [self.view addSubview:BiletCommonStatTitle];
-        
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
         const char *query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
@@ -74,14 +70,12 @@
         else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
-        
         UILabel *BiletStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
         BiletStatTitle.text = @"\tСтатистика правильности ответов по билетам";
         BiletStatTitle.textAlignment = NSTextAlignmentCenter;
         BiletStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletStatTitle sizeToFit];
         [self.view addSubview:BiletStatTitle];
-        
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
         const char *query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
@@ -118,13 +112,11 @@
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
-    
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2;
-
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
         BiletCommonStatTitle.text = @"Общая статистика ответов на темы\nПравильных ответов\t\t\t  Неправильных ответов";
@@ -133,7 +125,6 @@
         BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletCommonStatTitle sizeToFit];
         [self.view addSubview:BiletCommonStatTitle];
-        
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_theme_stat"];
         const char *query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
@@ -172,9 +163,7 @@
         [self.view addSubview:ThemeStatTitle];
         int i = 0;
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT themeNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_theme_stat GROUP BY themeNumber ORDER BY percent DESC"];
-        
         const char *query_stmt2 = [querySQL2 UTF8String];
-        
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement2) == SQLITE_ROW) {
                 NSString *stat = [NSString stringWithFormat:@" Тема №%d - %3.2f%%", sqlite3_column_int(statement2, 0), sqlite3_column_double(statement2, 3) * 100];
@@ -209,7 +198,6 @@
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
-    
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
@@ -218,7 +206,6 @@
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
         const char *query_stmt1 = [querySQL1 UTF8String];
-        
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement1) == SQLITE_ROW) {
                 UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
@@ -248,10 +235,8 @@
         else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
-        
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
         const char *query_stmt2 = [querySQL2 UTF8String];
-        
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement2) == SQLITE_ROW) {
                 UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
@@ -281,8 +266,6 @@
         else {
             NSLog(@"Ne mogu vypolnit' zapros #2!");
         }
-        
-        
         UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, _bottomBestResult.origin.y + 50, 300, 20)];
         ExBestResultTitle.textAlignment = NSTextAlignmentCenter;
         ExBestResultTitle.numberOfLines = 2;
@@ -290,7 +273,6 @@
         ExBestResultTitle.font = [UIFont italicSystemFontOfSize:11];
         [ExBestResultTitle sizeToFit];
         [self.view addSubview:ExBestResultTitle];
-        
         NSString *querySQL3 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 5"];
         const char *query_stmt3 = [querySQL3 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
@@ -334,7 +316,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     switch (_index) {
         case 0:
             [self getBiletStatistics];
@@ -350,7 +331,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

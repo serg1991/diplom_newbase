@@ -17,7 +17,6 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     
     return self;
@@ -40,19 +39,15 @@
     UILabel *label = [[UILabel alloc] init];
     [label setText:@"Меню"];
     [label sizeToFit];
-    
     int space = 6;
     label.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, label.frame.origin.y, label.frame.size.width, label.frame.size.height);
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, label.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    
     view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
     [view addSubview:imageView];
     [view addSubview:label];
-    
     UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
     [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:button];
-    
     [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         label.alpha = 0.0;
         CGRect orig = label.frame;
@@ -61,7 +56,6 @@
         label.frame = orig;
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    
     self.navigationItem.leftBarButtonItem = backButton;
 }
 
@@ -71,18 +65,15 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return _biletNumbers.count;
 }
 
@@ -90,8 +81,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"biletListCell" forIndexPath:indexPath];
     long row = [indexPath row];
     NSString *record = [NSString stringWithFormat:@"Рекорд: %@ из 20", _biletRecords[row]];
-    
-    // Configure the cell...
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = _biletNumbers[row];
     cell.detailTextLabel.text = record;
@@ -104,7 +93,6 @@
         NSMutableArray *rightArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
-        
         BiletViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         long row = [myIndexPath row];

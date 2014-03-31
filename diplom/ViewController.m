@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
-    
     [self ifStatTablesExists];
 }
 
@@ -56,9 +55,7 @@
         NSMutableArray *rightArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
         NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
-        
         ExamenViewController *detailViewController = [segue destinationViewController];
-        
         detailViewController.wrongArray = wrongArray;
         detailViewController.rightArray = rightArray;
         detailViewController.wrongSelectedArray = wrongSelectedArray;
@@ -69,19 +66,14 @@
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
-    
     // Get the documents directory
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
     docsDir = [dirPaths objectAtIndex:0];
-    
     // Build the path to the database file
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     NSFileManager *filemgr = [NSFileManager defaultManager];
-    
     if ([filemgr fileExistsAtPath: databasePath ] == NO) {
 		const char *dbpath = [databasePath UTF8String];
-        
         if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
             char *errMsg;
             const char *sql_stmt_biletStat = "CREATE TABLE IF NOT EXISTS paper_ab_stat (RecNo integer PRIMARY KEY AUTOINCREMENT NOT NULL, biletNumber integer NOT NULL, rightCount integer NOT NULL, wrongCount integer NOT NULL, startDate integer NOT NULL, finishDate integer NOT NULL)";

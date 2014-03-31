@@ -12,7 +12,6 @@
 @interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 {
     UILabel *theLabel;
-    
 @private
     int remainingTicks;
 }
