@@ -11,8 +11,6 @@
 		A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */; };
 		A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */; };
 		A5208FB518E9DF930092C8CA /* cars.png in Resources */ = {isa = PBXBuildFile; fileRef = A5208FB418E9DF930092C8CA /* cars.png */; };
-		A5208FC018E9E4040092C8CA /* BadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5208FBF18E9E4040092C8CA /* BadResultViewController.m */; };
-		A5208FC318E9E40C0092C8CA /* GoodResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */; };
 		A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
 		A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F9189521C70090AFA2 /* CoreGraphics.framework */; };
 		A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
@@ -25,12 +23,12 @@
 		A522E617189521C70090AFA2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E616189521C70090AFA2 /* XCTest.framework */; };
 		A522E618189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
 		A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
-		A522E621189521C70090AFA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A522E61F189521C70090AFA2 /* InfoPlist.strings */; };
-		A522E623189521C70090AFA2 /* diplomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E622189521C70090AFA2 /* diplomTests.m */; };
 		A522E62D189524CA0090AFA2 /* 1390756284_i.png in Resources */ = {isa = PBXBuildFile; fileRef = A522E62C189524CA0090AFA2 /* 1390756284_i.png */; };
 		A522E62F189525890090AFA2 /* 1390756481_daemons.png in Resources */ = {isa = PBXBuildFile; fileRef = A522E62E189525890090AFA2 /* 1390756481_daemons.png */; };
 		A526410518DB1E7100AD31D6 /* ExamenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410418DB1E7100AD31D6 /* ExamenViewController.m */; };
 		A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */; };
+		A52EB7C018EA0BB300E4E537 /* GoodResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */; };
+		A52EB7C318EA0BC000E4E537 /* BadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */; };
 		A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A54F73F218D6402700EAB2A5 /* StyleSettings.plist */; };
 		A563E879189C41CE004320F0 /* pdd2.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E861189C41CE004320F0 /* pdd2.html */; };
 		A563E87A189C41CE004320F0 /* pdd3.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E862189C41CE004320F0 /* pdd3.html */; };
@@ -91,35 +89,32 @@
 		A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsChildViewController.h; sourceTree = "<group>"; };
 		A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsChildViewController.m; sourceTree = "<group>"; };
 		A5208FB418E9DF930092C8CA /* cars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cars.png; sourceTree = "<group>"; };
-		A5208FBE18E9E4040092C8CA /* BadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BadResultViewController.h; path = ../BadResultViewController.h; sourceTree = "<group>"; };
-		A5208FBF18E9E4040092C8CA /* BadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BadResultViewController.m; path = ../BadResultViewController.m; sourceTree = "<group>"; };
-		A5208FC118E9E40C0092C8CA /* GoodResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodResultViewController.h; path = ../GoodResultViewController.h; sourceTree = "<group>"; };
-		A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodResultViewController.m; path = ../GoodResultViewController.m; sourceTree = "<group>"; };
-		A522E5F4189521C70090AFA2 /* diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E5F4189521C70090AFA2 /* Знаток ПДД.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Знаток ПДД.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A522E5FB189521C70090AFA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A522E5FF189521C70090AFA2 /* diplom-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "diplom-Info.plist"; sourceTree = "<group>"; };
+		A522E5FF189521C70090AFA2 /* Знаток ПДД-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Знаток ПДД-Info.plist"; sourceTree = "<group>"; };
 		A522E601189521C70090AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A522E603189521C70090AFA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A522E605189521C70090AFA2 /* diplom-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diplom-Prefix.pch"; sourceTree = "<group>"; };
+		A522E605189521C70090AFA2 /* Знаток ПДД-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Знаток ПДД-Prefix.pch"; sourceTree = "<group>"; };
 		A522E606189521C70090AFA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A522E607189521C70090AFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A522E60A189521C70090AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A522E60F189521C70090AFA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A522E615189521C70090AFA2 /* diplomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diplomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Знаток ПДДTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E616189521C70090AFA2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A522E61E189521C70090AFA2 /* diplomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "diplomTests-Info.plist"; sourceTree = "<group>"; };
-		A522E620189521C70090AFA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A522E622189521C70090AFA2 /* diplomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diplomTests.m; sourceTree = "<group>"; };
 		A522E62C189524CA0090AFA2 /* 1390756284_i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756284_i.png; sourceTree = "<group>"; };
 		A522E62E189525890090AFA2 /* 1390756481_daemons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1390756481_daemons.png; sourceTree = "<group>"; };
 		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenViewController.h; sourceTree = "<group>"; };
 		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
 		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
 		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenChildViewController.m; sourceTree = "<group>"; };
+		A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodResultViewController.h; sourceTree = "<group>"; };
+		A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodResultViewController.m; sourceTree = "<group>"; };
+		A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadResultViewController.h; sourceTree = "<group>"; };
+		A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadResultViewController.m; sourceTree = "<group>"; };
 		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
 		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
@@ -202,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				A522E5FD189521C70090AFA2 /* diplom */,
-				A522E61C189521C70090AFA2 /* diplomTests */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
 				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
@@ -213,8 +207,8 @@
 		A522E5F5189521C70090AFA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A522E5F4189521C70090AFA2 /* diplom.app */,
-				A522E615189521C70090AFA2 /* diplomTests.xctest */,
+				A522E5F4189521C70090AFA2 /* Знаток ПДД.app */,
+				A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,12 +229,14 @@
 		A522E5FD189521C70090AFA2 /* diplom */ = {
 			isa = PBXGroup;
 			children = (
+				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
+				A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */,
+				A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */,
+				A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */,
 				A59D6FB51896FFC400017711 /* AboutViewController.h */,
 				A59D6FB61896FFC400017711 /* AboutViewController.m */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
-				A5208FBE18E9E4040092C8CA /* BadResultViewController.h */,
-				A5208FBF18E9E4040092C8CA /* BadResultViewController.m */,
 				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
 				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
 				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
@@ -251,8 +247,6 @@
 				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
 				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
 				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
-				A5208FC118E9E40C0092C8CA /* GoodResultViewController.h */,
-				A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
@@ -282,8 +276,8 @@
 				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
 				A5208FB418E9DF930092C8CA /* cars.png */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
-				A522E5FF189521C70090AFA2 /* diplom-Info.plist */,
-				A522E605189521C70090AFA2 /* diplom-Prefix.pch */,
+				A522E5FF189521C70090AFA2 /* Знаток ПДД-Info.plist */,
+				A522E605189521C70090AFA2 /* Знаток ПДД-Prefix.pch */,
 				A522E600189521C70090AFA2 /* InfoPlist.strings */,
 				A522E603189521C70090AFA2 /* main.m */,
 				A57B891018D3045500CB1E52 /* pdd.sqlite */,
@@ -320,30 +314,12 @@
 			path = diplom;
 			sourceTree = "<group>";
 		};
-		A522E61C189521C70090AFA2 /* diplomTests */ = {
-			isa = PBXGroup;
-			children = (
-				A522E622189521C70090AFA2 /* diplomTests.m */,
-				A522E61D189521C70090AFA2 /* Supporting Files */,
-			);
-			path = diplomTests;
-			sourceTree = "<group>";
-		};
-		A522E61D189521C70090AFA2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A522E61E189521C70090AFA2 /* diplomTests-Info.plist */,
-				A522E61F189521C70090AFA2 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A522E5F3189521C70090AFA2 /* diplom */ = {
+		A522E5F3189521C70090AFA2 /* Знаток ПДД */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplom" */;
+			buildConfigurationList = A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДД" */;
 			buildPhases = (
 				A522E5F0189521C70090AFA2 /* Sources */,
 				A522E5F1189521C70090AFA2 /* Frameworks */,
@@ -354,14 +330,14 @@
 			);
 			dependencies = (
 			);
-			name = diplom;
+			name = "Знаток ПДД";
 			productName = diplom;
-			productReference = A522E5F4189521C70090AFA2 /* diplom.app */;
+			productReference = A522E5F4189521C70090AFA2 /* Знаток ПДД.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A522E614189521C70090AFA2 /* diplomTests */ = {
+		A522E614189521C70090AFA2 /* Знаток ПДДTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplomTests" */;
+			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДДTests" */;
 			buildPhases = (
 				A522E611189521C70090AFA2 /* Sources */,
 				A522E612189521C70090AFA2 /* Frameworks */,
@@ -372,9 +348,9 @@
 			dependencies = (
 				A522E61B189521C70090AFA2 /* PBXTargetDependency */,
 			);
-			name = diplomTests;
+			name = "Знаток ПДДTests";
 			productName = diplomTests;
-			productReference = A522E615189521C70090AFA2 /* diplomTests.xctest */;
+			productReference = A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -391,7 +367,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "diplom" */;
+			buildConfigurationList = A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "Знаток ПДД" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -404,8 +380,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A522E5F3189521C70090AFA2 /* diplom */,
-				A522E614189521C70090AFA2 /* diplomTests */,
+				A522E5F3189521C70090AFA2 /* Знаток ПДД */,
+				A522E614189521C70090AFA2 /* Знаток ПДДTests */,
 			);
 		};
 /* End PBXProject section */
@@ -459,7 +435,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A522E621189521C70090AFA2 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,8 +466,6 @@
 				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
 				A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */,
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
-				A5208FC018E9E4040092C8CA /* BadResultViewController.m in Sources */,
-				A5208FC318E9E40C0092C8CA /* GoodResultViewController.m in Sources */,
 				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
 				A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */,
@@ -505,6 +478,8 @@
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
 				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
 				A5B04AB818BF80B1007B4D05 /* BiletChildViewController.m in Sources */,
+				A52EB7C018EA0BB300E4E537 /* GoodResultViewController.m in Sources */,
+				A52EB7C318EA0BC000E4E537 /* BadResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +487,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A522E623189521C70090AFA2 /* diplomTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +495,7 @@
 /* Begin PBXTargetDependency section */
 		A522E61B189521C70090AFA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A522E5F3189521C70090AFA2 /* diplom */;
+			target = A522E5F3189521C70090AFA2 /* Знаток ПДД */;
 			targetProxy = A522E61A189521C70090AFA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -541,14 +515,6 @@
 				A522E60A189521C70090AFA2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A522E61F189521C70090AFA2 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A522E620189521C70090AFA2 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -630,10 +596,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
-				INFOPLIST_FILE = "diplom/diplom-Info.plist";
+				GCC_PREFIX_HEADER = "diplom/Знаток ПДД-Prefix.pch";
+				INFOPLIST_FILE = "diplom/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Знаток ПДД";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -644,10 +610,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
-				INFOPLIST_FILE = "diplom/diplom-Info.plist";
+				GCC_PREFIX_HEADER = "diplom/Знаток ПДД-Prefix.pch";
+				INFOPLIST_FILE = "diplom/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Знаток ПДД";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -668,7 +634,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Знаток ПДДTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -686,7 +652,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
 				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Знаток ПДДTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -695,7 +661,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "diplom" */ = {
+		A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "Знаток ПДД" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E624189521C70090AFA2 /* Debug */,
@@ -704,7 +670,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplom" */ = {
+		A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДД" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E627189521C70090AFA2 /* Debug */,
@@ -713,7 +679,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "diplomTests" */ = {
+		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДДTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E62A189521C70090AFA2 /* Debug */,
