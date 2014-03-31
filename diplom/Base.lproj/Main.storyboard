@@ -140,12 +140,73 @@
             </objects>
             <point key="canvasLocation" x="956" y="1736"/>
         </scene>
+        <!--Good Result View Controller-->
+        <scene sceneID="AjN-Sk-VuK">
+            <objects>
+                <viewController storyboardIdentifier="GoodResultBilet" id="XGU-ea-inw" customClass="GoodResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2gD-7O-oP4"/>
+                        <viewControllerLayoutGuide type="bottom" id="UT7-hS-DsG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Kp-OQ-hOM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-oL-rAl">
+                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sxe-Lu-wcH"/>
+                    <connections>
+                        <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Yjq-ID-zwR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGJ-pf-b10" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3536" y="10"/>
+        </scene>
+        <!--Bad Result View Controller-->
+        <scene sceneID="F41-xK-4C8">
+            <objects>
+                <viewController storyboardIdentifier="BadResultBilet" id="QGX-ze-FcP" customClass="BadResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6r8-7n-0DV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ASg-se-YdF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Vi-WE-4n6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfK-0a-FIe">
+                                <rect key="frame" x="139" y="273" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aFR-U5-Vk5"/>
+                    <connections>
+                        <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Azb-gZ-yqP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r90-oA-ajF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2955" y="10"/>
+        </scene>
         <!--Bilet List Table View Controller - Билеты-->
         <scene sceneID="uOf-sQ-44R">
             <objects>
                 <tableViewController id="caC-Qi-zfp" customClass="BiletListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yHQ-n9-J0M">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -197,7 +258,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f4K-X2-NjP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="45h-Cf-Cml">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.84997027853260865" green="0.84997027853260865" blue="0.84997027853260865" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -549,6 +610,8 @@
                     <connections>
                         <outlet property="imageView" destination="DNg-Hq-JYn" id="GNC-D2-JZL"/>
                         <outlet property="tableView" destination="35n-OM-kl5" id="dm1-cC-eeX"/>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="GoodResultBilet" id="dwv-j1-B7e"/>
+                        <segue destination="XGU-ea-inw" kind="push" identifier="BadResultBilet" id="6GZ-MH-SB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eix-Lg-t2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -623,4 +686,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Azb-gZ-yqP"/>
+    </inferredMetricsTieBreakers>
 </document>

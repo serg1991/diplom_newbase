@@ -10,6 +10,10 @@
 		A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */; };
 		A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */; };
 		A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */; };
+		A5208FB518E9DF930092C8CA /* cars.png in Resources */ = {isa = PBXBuildFile; fileRef = A5208FB418E9DF930092C8CA /* cars.png */; };
+		A5208FB718E9E0FD0092C8CA /* Car_accident.png in Resources */ = {isa = PBXBuildFile; fileRef = A5208FB618E9E0FD0092C8CA /* Car_accident.png */; };
+		A5208FC018E9E4040092C8CA /* BadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5208FBF18E9E4040092C8CA /* BadResultViewController.m */; };
+		A5208FC318E9E40C0092C8CA /* GoodResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */; };
 		A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
 		A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F9189521C70090AFA2 /* CoreGraphics.framework */; };
 		A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
@@ -53,7 +57,6 @@
 		A563E88E189C41CE004320F0 /* pdd23.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E876189C41CE004320F0 /* pdd23.html */; };
 		A563E88F189C41CE004320F0 /* pdd24.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E877189C41CE004320F0 /* pdd24.html */; };
 		A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A563E894189C473D004320F0 /* RulesDetailViewController.m */; };
-		A56B76F218D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */; };
 		A56B76F418D8692E00B1CDCF /* crash.png in Resources */ = {isa = PBXBuildFile; fileRef = A56B76F318D8692E00B1CDCF /* crash.png */; };
 		A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */; };
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
@@ -88,6 +91,12 @@
 		A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
 		A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsChildViewController.h; sourceTree = "<group>"; };
 		A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsChildViewController.m; sourceTree = "<group>"; };
+		A5208FB418E9DF930092C8CA /* cars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cars.png; sourceTree = "<group>"; };
+		A5208FB618E9E0FD0092C8CA /* Car_accident.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Car_accident.png; sourceTree = "<group>"; };
+		A5208FBE18E9E4040092C8CA /* BadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BadResultViewController.h; path = ../BadResultViewController.h; sourceTree = "<group>"; };
+		A5208FBF18E9E4040092C8CA /* BadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BadResultViewController.m; path = ../BadResultViewController.m; sourceTree = "<group>"; };
+		A5208FC118E9E40C0092C8CA /* GoodResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodResultViewController.h; path = ../GoodResultViewController.h; sourceTree = "<group>"; };
+		A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodResultViewController.m; path = ../GoodResultViewController.m; sourceTree = "<group>"; };
 		A522E5F4189521C70090AFA2 /* diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,7 +148,6 @@
 		A563E877189C41CE004320F0 /* pdd24.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd24.html; sourceTree = "<group>"; };
 		A563E893189C473D004320F0 /* RulesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesDetailViewController.h; sourceTree = "<group>"; };
 		A563E894189C473D004320F0 /* RulesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesDetailViewController.m; sourceTree = "<group>"; };
-		A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "17608358-3349-476b-ae94-40cad5b45c6b.jpeg"; sourceTree = "<group>"; };
 		A56B76F318D8692E00B1CDCF /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
@@ -195,11 +203,12 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
 				A522E5FD189521C70090AFA2 /* diplom */,
 				A522E61C189521C70090AFA2 /* diplomTests */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
+				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
+				A522E5FE189521C70090AFA2 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,8 +241,12 @@
 				A59D6FB61896FFC400017711 /* AboutViewController.m */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
+				A5208FBE18E9E4040092C8CA /* BadResultViewController.h */,
+				A5208FBF18E9E4040092C8CA /* BadResultViewController.m */,
 				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
 				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
+				A5208FC118E9E40C0092C8CA /* GoodResultViewController.h */,
+				A5208FC218E9E40C0092C8CA /* GoodResultViewController.m */,
 				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
 				A5A690CA18984D7C001D5275 /* BiletListTableViewController.m */,
 				A5B04AB618BF80B1007B4D05 /* BiletViewController.h */,
@@ -260,7 +273,6 @@
 				A592F26B18E759F6004D6996 /* ThemeViewController.m */,
 				A522E60C189521C70090AFA2 /* ViewController.h */,
 				A522E60D189521C70090AFA2 /* ViewController.m */,
-				A522E5FE189521C70090AFA2 /* Supporting Files */,
 			);
 			path = diplom;
 			sourceTree = "<group>";
@@ -268,9 +280,10 @@
 		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5208FB618E9E0FD0092C8CA /* Car_accident.png */,
 				A522E62C189524CA0090AFA2 /* 1390756284_i.png */,
 				A522E62E189525890090AFA2 /* 1390756481_daemons.png */,
-				A56B76F118D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg */,
+				A5208FB418E9DF930092C8CA /* cars.png */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
 				A522E5FF189521C70090AFA2 /* diplom-Info.plist */,
 				A522E605189521C70090AFA2 /* diplom-Prefix.pch */,
@@ -307,6 +320,7 @@
 				A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */,
 			);
 			name = "Supporting Files";
+			path = diplom;
 			sourceTree = "<group>";
 		};
 		A522E61C189521C70090AFA2 /* diplomTests */ = {
@@ -410,7 +424,6 @@
 				A563E881189C41CE004320F0 /* pdd10.html in Resources */,
 				A563E889189C41CE004320F0 /* pdd18.html in Resources */,
 				A563E880189C41CE004320F0 /* pdd9.html in Resources */,
-				A56B76F218D8664C00B1CDCF /* 17608358-3349-476b-ae94-40cad5b45c6b.jpeg in Resources */,
 				A5CC12E0189DB5350011599C /* pdd1.html in Resources */,
 				A56B76F418D8692E00B1CDCF /* crash.png in Resources */,
 				A58EDA4318E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */,
@@ -418,6 +431,7 @@
 				A522E602189521C70090AFA2 /* InfoPlist.strings in Resources */,
 				A563E88C189C41CE004320F0 /* pdd21.html in Resources */,
 				A563E884189C41CE004320F0 /* pdd13.html in Resources */,
+				A5208FB718E9E0FD0092C8CA /* Car_accident.png in Resources */,
 				A563E88F189C41CE004320F0 /* pdd24.html in Resources */,
 				A563E87C189C41CE004320F0 /* pdd5.html in Resources */,
 				A563E87D189C41CE004320F0 /* pdd6.html in Resources */,
@@ -436,6 +450,7 @@
 				A583B82D18E8B83000E2B6BF /* UIButtonBarTrash@2x.png in Resources */,
 				A563E87F189C41CE004320F0 /* pdd8.html in Resources */,
 				A563E87A189C41CE004320F0 /* pdd3.html in Resources */,
+				A5208FB518E9DF930092C8CA /* cars.png in Resources */,
 				A563E886189C41CE004320F0 /* pdd15.html in Resources */,
 				A583B82F18E8B9C600E2B6BF /* UIButtonBarTrash.png in Resources */,
 				A563E88D189C41CE004320F0 /* pdd22.html in Resources */,
@@ -480,6 +495,8 @@
 				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
 				A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */,
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
+				A5208FC018E9E4040092C8CA /* BadResultViewController.m in Sources */,
+				A5208FC318E9E40C0092C8CA /* GoodResultViewController.m in Sources */,
 				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
 				A59D6FB71896FFC400017711 /* AboutViewController.m in Sources */,

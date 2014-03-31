@@ -189,10 +189,10 @@
 
 - (void)getResultOfTest {
     if (_wrongAnswersArray.count <= 2) {
-        //[self performSegueWithIdentifier:@"GoodResult" sender:self];
+        [self performSegueWithIdentifier:@"GoodResultTheme" sender:self];
     }
     else {
-        //[self performSegueWithIdentifier:@"BadResult" sender:self];
+        [self performSegueWithIdentifier:@"BadResultTheme" sender:self];
     }
 }
 

@@ -66,7 +66,7 @@
 }
 
 - (void)confirmCancel {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

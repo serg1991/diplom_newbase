@@ -196,10 +196,10 @@
 
 - (void)getResultOfTest {
     if (_wrongAnswersArray.count <= 2) {
-        //[self performSegueWithIdentifier:@"GoodResult" sender:self];
+        [self performSegueWithIdentifier:@"GoodResultBilet" sender:self];
     }
     else {
-        //[self performSegueWithIdentifier:@"BadResult" sender:self];
+        [self performSegueWithIdentifier:@"BadResultBilet" sender:self];
     }
 }
 

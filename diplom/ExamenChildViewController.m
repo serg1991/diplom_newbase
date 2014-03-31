@@ -180,10 +180,10 @@
 
 - (void)getResultOfTest {
     if (_wrongAnswersArray.count <= 2) {
-        //[self performSegueWithIdentifier:@"GoodResult" sender:self];
+        [self performSegueWithIdentifier:@"GoodResultExamen" sender:self];
     }
     else {
-        //[self performSegueWithIdentifier:@"BadResult" sender:self];
+        [self performSegueWithIdentifier:@"BadResultExamen" sender:self];
     }
 }
 
