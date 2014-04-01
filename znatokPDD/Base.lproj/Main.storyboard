@@ -169,12 +169,11 @@
                     <navigationItem key="navigationItem" id="sxe-Lu-wcH"/>
                     <connections>
                         <outlet property="imageBad" destination="GL0-fg-Tau" id="6rx-kJ-2sL"/>
-                        <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Yjq-ID-zwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGJ-pf-b10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3669" y="1202"/>
+            <point key="canvasLocation" x="3691" y="1645"/>
         </scene>
         <!--Good Result View Controller-->
         <scene sceneID="F41-xK-4C8">
@@ -205,19 +204,18 @@
                     <navigationItem key="navigationItem" id="aFR-U5-Vk5"/>
                     <connections>
                         <outlet property="imageGood" destination="htR-78-9eG" id="PiW-KT-faV"/>
-                        <segue destination="caC-Qi-zfp" kind="push" identifier="backToBiletList" id="Azb-gZ-yqP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r90-oA-ajF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="1202"/>
+            <point key="canvasLocation" x="2926" y="1645"/>
         </scene>
         <!--Bilet List Table View Controller - Билеты-->
         <scene sceneID="uOf-sQ-44R">
             <objects>
                 <tableViewController id="caC-Qi-zfp" customClass="BiletListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yHQ-n9-J0M">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -269,7 +267,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f4K-X2-NjP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="45h-Cf-Cml">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.84997027853260865" green="0.84997027853260865" blue="0.84997027853260865" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -701,7 +699,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="rKr-dA-2tS"/>
-        <segue reference="Q2H-VW-Mf4"/>
-        <segue reference="Yjq-ID-zwR"/>
+        <segue reference="dwv-j1-B7e"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -67,7 +67,8 @@
 }
 
 - (void)backToBiletList {
-    [self performSegueWithIdentifier:@"backToBiletList" sender:self];
+    UIViewController *prevVC = [self.navigationController.viewControllers objectAtIndex:1];
+    [self.navigationController popToViewController:prevVC animated:YES];
 }
 
 - (void)backToMenu {
