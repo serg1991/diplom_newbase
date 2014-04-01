@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1908E1DB-445B-497B-ACF2-44E280345B3C</string>
+	<string>098D52F5-126B-4F7E-8508-ADC7D3E5A808</string>
 	<key>IDESourceControlProjectName</key>
-	<string>diplom</string>
+	<string>Знаток ПДД</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F178D5B5-9E14-4F8C-8AE1-B71457280C35</key>
+		<key>D8F3C302-F076-4789-B1DB-B580F6C52C85</key>
 		<string>https://github.com/serg1991/znatokPDD.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>diplom.xcodeproj/project.xcworkspace</string>
+	<string>Знаток ПДД.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F178D5B5-9E14-4F8C-8AE1-B71457280C35</key>
+		<key>D8F3C302-F076-4789-B1DB-B580F6C52C85</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F178D5B5-9E14-4F8C-8AE1-B71457280C35</string>
+	<string>D8F3C302-F076-4789-B1DB-B580F6C52C85</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F178D5B5-9E14-4F8C-8AE1-B71457280C35</string>
+			<string>D8F3C302-F076-4789-B1DB-B580F6C52C85</string>
 			<key>IDESourceControlWCCName</key>
 			<string>znatokPDD</string>
 		</dict>

@@ -37,9 +37,12 @@
     [view addSubview:imageView];
     [view addSubview:labelback];
     UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    if (_whichController == 0)
+    if (_whichController == 0) {
         [button addTarget:self action:@selector(backToBiletList) forControlEvents:UIControlEventTouchUpInside];
-    else [button addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else {
+        [button addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
+    }
     [view addSubview:button];
     [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^ {
         labelback.alpha = 0.0;

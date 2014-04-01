@@ -78,7 +78,7 @@
 			containerPortal = A522E5EC189521C70090AFA2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A522E5F3189521C70090AFA2;
-			remoteInfo = diplom;
+			remoteInfo = ZnatokPDD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -196,7 +196,7 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A522E5FD189521C70090AFA2 /* diplom */,
+				A522E5FD189521C70090AFA2 /* ZnatokPDD */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
 				A54F73F218D6402700EAB2A5 /* StyleSettings.plist */,
@@ -226,7 +226,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A522E5FD189521C70090AFA2 /* diplom */ = {
+		A522E5FD189521C70090AFA2 /* ZnatokPDD */ = {
 			isa = PBXGroup;
 			children = (
 				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
@@ -266,7 +266,8 @@
 				A522E60C189521C70090AFA2 /* ViewController.h */,
 				A522E60D189521C70090AFA2 /* ViewController.m */,
 			);
-			path = diplom;
+			name = ZnatokPDD;
+			path = ZnatokPDD;
 			sourceTree = "<group>";
 		};
 		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
@@ -311,7 +312,7 @@
 				A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */,
 			);
 			name = "Supporting Files";
-			path = diplom;
+			path = ZnatokPDD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +332,7 @@
 			dependencies = (
 			);
 			name = "Знаток ПДД";
-			productName = diplom;
+			productName = ZnatokPDD;
 			productReference = A522E5F4189521C70090AFA2 /* Знаток ПДД.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -349,7 +350,7 @@
 				A522E61B189521C70090AFA2 /* PBXTargetDependency */,
 			);
 			name = "Знаток ПДДTests";
-			productName = diplomTests;
+			productName = ZnatokPDDTests;
 			productReference = A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -596,8 +597,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/Знаток ПДД-Prefix.pch";
-				INFOPLIST_FILE = "diplom/Знаток ПДД-Info.plist";
+				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Знаток ПДД";
 				WRAPPER_EXTENSION = app;
@@ -610,8 +611,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/Знаток ПДД-Prefix.pch";
-				INFOPLIST_FILE = "diplom/Знаток ПДД-Info.plist";
+				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Знаток ПДД";
 				WRAPPER_EXTENSION = app;
@@ -621,19 +622,19 @@
 		A522E62A189521C70090AFA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diplom.app/diplom";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZnatokPDD.app/ZnatokPDD";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
+				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
+				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
 				PRODUCT_NAME = "Знаток ПДДTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -643,15 +644,15 @@
 		A522E62B189521C70090AFA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/diplom.app/diplom";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZnatokPDD.app/ZnatokPDD";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "diplom/diplom-Prefix.pch";
-				INFOPLIST_FILE = "diplomTests/diplomTests-Info.plist";
+				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
+				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
 				PRODUCT_NAME = "Знаток ПДДTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

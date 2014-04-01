@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A522E5F3189521C70090AFA2"
-               BuildableName = "diplom.app"
+               BuildableName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.app"
                BlueprintName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;"
                ReferencedContainer = "container:&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A522E614189521C70090AFA2"
-               BuildableName = "diplomTests.xctest"
+               BuildableName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;Tests.xctest"
                BlueprintName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;Tests"
                ReferencedContainer = "container:&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A522E5F3189521C70090AFA2"
-            BuildableName = "diplom.app"
+            BuildableName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.app"
             BlueprintName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;"
             ReferencedContainer = "container:&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A522E5F3189521C70090AFA2"
-            BuildableName = "diplom.app"
+            BuildableName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.app"
             BlueprintName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;"
             ReferencedContainer = "container:&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A522E5F3189521C70090AFA2"
-            BuildableName = "diplom.app"
+            BuildableName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.app"
             BlueprintName = "&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;"
             ReferencedContainer = "container:&#x417;&#x43d;&#x430;&#x442;&#x43e;&#x43a; &#x41f;&#x414;&#x414;.xcodeproj">
          </BuildableReference>
