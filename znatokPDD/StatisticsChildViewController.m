@@ -64,6 +64,22 @@
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:BiletCommonStat];
                 }
+                else {
+                    NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
+                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
+                    BiletCommonStat.text = stat;
+                    BiletCommonStat.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * 0.5, 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                    CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:BiletCommonStat];
+                }
             }
             sqlite3_finalize(statement1);
         }
@@ -149,6 +165,22 @@
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:BiletCommonStat];
                 }
+                else {
+                    NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
+                    UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
+                    BiletCommonStat.text = stat;
+                    BiletCommonStat.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * 0.5, 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);
+                    CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:BiletCommonStat];
+                }
             }
             sqlite3_finalize(statement1);
         }
@@ -215,20 +247,38 @@
                 ExCommonResultTitle.font = [UIFont italicSystemFontOfSize:11];
                 [ExCommonResultTitle sizeToFit];
                 [self.view addSubview:ExCommonResultTitle];
-                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
-                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
-                ExResult.text = stat;
-                ExResult.textColor = [UIColor whiteColor];
-                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
-                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
-                CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * (sqlite3_column_double(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
-                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:ExResult];
+                if (sqlite3_column_int(statement1, 2) != 0) {
+                    NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                    UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
+                    ExResult.text = stat;
+                    ExResult.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                    CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * (sqlite3_column_double(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:ExResult];
+                }
+                else {
+                    NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
+                    UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
+                    ExResult.text = stat;
+                    ExResult.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * 0.5, 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                    CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:ExResult];
+                }
             }
             sqlite3_finalize(statement1);
         }
@@ -239,27 +289,52 @@
         const char *query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement2) == SQLITE_ROW) {
-                UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
-                ExTriesTitle.numberOfLines = 2;
-                ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
-                ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
-                [ExTriesTitle sizeToFit];
-                [self.view addSubview:ExTriesTitle];
-                NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
-                UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 110, 300, 20)];
-                ExResult.text = stat;
-                ExResult.textColor = [UIColor whiteColor];
-                UIGraphicsBeginImageContext(CGSizeMake(300, 20));
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
-                CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 20));
-                CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
-                CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 300 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 20));
-                UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:ExResult];
-                _bottomBestResult = ExResult.frame;
+                if (sqlite3_column_int(statement2, 0) != 0) {
+                    UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+                    ExTriesTitle.numberOfLines = 2;
+                    ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
+                    ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
+                    [ExTriesTitle sizeToFit];
+                    [self.view addSubview:ExTriesTitle];
+                    NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
+                    UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 110, 300, 20)];
+                    ExResult.text = stat;
+                    ExResult.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                    CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 300 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:ExResult];
+                    _bottomBestResult = ExResult.frame;
+                }
+                else {
+                    UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+                    ExTriesTitle.numberOfLines = 2;
+                    ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : 0\nУспешных \t\t\t\t\t\t  Неуспешных"];
+                    ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
+                    [ExTriesTitle sizeToFit];
+                    [self.view addSubview:ExTriesTitle];
+                    NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t\t 0 "];
+                    UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 110, 300, 20)];
+                    ExResult.text = stat;
+                    ExResult.textColor = [UIColor whiteColor];
+                    UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                    CGContextRef context = UIGraphicsGetCurrentContext();
+                    CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                    CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * 0.5, 20));
+                    CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                    CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
+                    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                    [self.view addSubview:ExResult];
+                    _bottomBestResult = ExResult.frame;
+                }
             }
             sqlite3_finalize(statement2);
         }
