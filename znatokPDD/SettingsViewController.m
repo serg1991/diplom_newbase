@@ -62,74 +62,9 @@
 }
 
 - (IBAction)shareWithFriends:(id)sender {
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Рассказать друзьям о приложении" delegate:self cancelButtonTitle:@"Отмена" destructiveButtonTitle:nil otherButtonTitles:
-                            @"ВКонтакте",
-                            @"Facebook",
-                            @"Twitter",
-                            @"Одноклассники",
-                            @"Мой Мир",
-                            @"E-mail",
-                            @"SMS",
-                            nil];
-    popup.tag = 1;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
-}
-
-- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    switch (popup.tag) {
-        case 1: {
-            switch (buttonIndex) {
-                case 0:
-//                    [self VKShare];
-                    break;
-                case 1:
-                    [self FBShare];
-                    break;
-                case 2:
-                    [self TwitterShare];
-                    break;
-                case 3:
-    //                [self ODShare];
-                    break;
-                case 4:
-      //              [self MyMirShare];
-                    break;
-                case 5:
-        //            [self MailShare];
-                    break;
-                case 6:
-          //          [self SMSShare];
-                    break;
-                default:
-                    break;
-            }
-            break;
-        }
-        default:
-            break;
-    }
-}
-
-- (void)TwitterShare {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone http://itunes.apple.com/RU/lookup?bundleId=ru.sergekiselev.znatokpdd"];
-        [tweetSheet addImage:[UIImage imageNamed:@"logo.png"]];
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
-}
-
-- (void)FBShare {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        [controller setInitialText:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone"];
-        [controller addURL:[NSURL URLWithString:@"http://itunes.apple.com/RU/lookup?bundleId=ru.sergekiselev.znatokpdd"]];
-        [controller addImage:[UIImage imageNamed:@"logo.png"]];
-        [self presentViewController:controller animated:YES completion:Nil];
-    }
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo.png"], nil] applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (IBAction)vibroSwitchCnahged:(id)sender {

@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
-//#import ""
 
-@interface SettingsViewController : UIViewController <UIActionSheetDelegate>
+@interface SettingsViewController : UIViewController //<UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *vibroSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *commentSwitch;

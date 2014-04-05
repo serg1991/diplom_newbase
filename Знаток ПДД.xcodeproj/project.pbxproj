@@ -70,9 +70,7 @@
 		A5B04AB918BF80B1007B4D05 /* BiletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B04AB718BF80B1007B4D05 /* BiletViewController.m */; };
 		A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */; };
 		A5CC12E0189DB5350011599C /* pdd1.html in Resources */ = {isa = PBXBuildFile; fileRef = A5CC12DF189DB5350011599C /* pdd1.html */; };
-		A5CCDE5B18F067760052456F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDE5A18F067760052456F /* StoreKit.framework */; };
 		A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDE5C18F0677F0052456F /* Social.framework */; };
-		A5CCDF0E18F072860052456F /* libVKSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDF0B18F072790052456F /* libVKSdk.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,20 +80,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A522E5F3189521C70090AFA2;
 			remoteInfo = ZnatokPDD;
-		};
-		A5CCDF0A18F072790052456F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5CCDF0518F072790052456F /* sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3C7542D182133CC00964716;
-			remoteInfo = VKSdk;
-		};
-		A5CCDF0C18F072790052456F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5CCDF0518F072790052456F /* sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3BACC401865905B003158DA;
-			remoteInfo = VKSdkResources;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -183,9 +167,7 @@
 		A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesListTableViewController.h; sourceTree = "<group>"; };
 		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesListTableViewController.m; sourceTree = "<group>"; };
 		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
-		A5CCDE5A18F067760052456F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A5CCDE5C18F0677F0052456F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		A5CCDF0518F072790052456F /* sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sdk.xcodeproj; path = "../vk-ios-sdk/sdk/sdk.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,12 +175,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5CCDF0E18F072860052456F /* libVKSdk.a in Frameworks */,
 				A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */,
 				A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */,
 				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
 				A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */,
-				A5CCDE5B18F067760052456F /* StoreKit.framework in Frameworks */,
 				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
 				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
 			);
@@ -220,7 +200,6 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A5CCDF0518F072790052456F /* sdk.xcodeproj */,
 				A522E5FD189521C70090AFA2 /* ZnatokPDD */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
@@ -242,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				A5CCDE5C18F0677F0052456F /* Social.framework */,
-				A5CCDE5A18F067760052456F /* StoreKit.framework */,
 				A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */,
 				A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */,
 				A522E5F7189521C70090AFA2 /* Foundation.framework */,
@@ -342,15 +320,6 @@
 			path = ZnatokPDD;
 			sourceTree = "<group>";
 		};
-		A5CCDF0618F072790052456F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A5CCDF0B18F072790052456F /* libVKSdk.a */,
-				A5CCDF0D18F072790052456F /* VKSdkResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -399,6 +368,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Sergey Kiselev";
 				TargetAttributes = {
+					A522E5F3189521C70090AFA2 = {
+						DevelopmentTeam = GT8KA4RMUZ;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
 					A522E614189521C70090AFA2 = {
 						TestTargetID = A522E5F3189521C70090AFA2;
 					};
@@ -415,12 +392,6 @@
 			mainGroup = A522E5EB189521C70090AFA2;
 			productRefGroup = A522E5F5189521C70090AFA2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A5CCDF0618F072790052456F /* Products */;
-					ProjectRef = A5CCDF0518F072790052456F /* sdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				A522E5F3189521C70090AFA2 /* Знаток ПДД */,
@@ -428,23 +399,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		A5CCDF0B18F072790052456F /* libVKSdk.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libVKSdk.a;
-			remoteRef = A5CCDF0A18F072790052456F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A5CCDF0D18F072790052456F /* VKSdkResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = VKSdkResources.bundle;
-			remoteRef = A5CCDF0C18F072790052456F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A522E5F2189521C70090AFA2 /* Resources */ = {
@@ -649,6 +603,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Знаток ПДД";
@@ -663,6 +621,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Знаток ПДД";
