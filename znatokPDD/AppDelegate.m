@@ -7,11 +7,28 @@
 //
 
 #import "AppDelegate.h"
+#import "iRate.h"
 
 @implementation AppDelegate
 
++ (void)initialize {
+    [iRate sharedInstance].usesUntilPrompt = 10;
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].remindPeriod = 7;
+    [iRate sharedInstance].promptForNewVersionIfUserRated = YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings objectForKey:@"needVibro"] == nil) {
+        [settings setBool:YES forKey:@"needVibro"];
+    }
+    if ([settings objectForKey:@"showComment"] == nil) {
+        [settings setBool:YES forKey:@"showComment"];
+    }
+    [settings synchronize];
+
     return YES;
 }
 

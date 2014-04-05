@@ -135,6 +135,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSUInteger rowNumber = [indexPath row];
     NSArray *array = [self getAnswers];
@@ -144,8 +145,9 @@
     }
     else {
         if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
-            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            if ([settings boolForKey:@"needVibro"]) {
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
+            }            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
             self.tableView.allowsSelection = NO;
             [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
         }

@@ -10,6 +10,8 @@
 	<string>Знаток ПДД</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>688702B0-B43A-4194-9CB8-42B02446CBA5</key>
+		<string>https://github.com/VKCOM/vk-ios-sdk.git</string>
 		<key>D8F3C302-F076-4789-B1DB-B580F6C52C85</key>
 		<string>https://github.com/serg1991/znatokPDD.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Знаток ПДД.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>688702B0-B43A-4194-9CB8-42B02446CBA5</key>
+		<string>../../../vk-ios-sdk</string>
 		<key>D8F3C302-F076-4789-B1DB-B580F6C52C85</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>D8F3C302-F076-4789-B1DB-B580F6C52C85</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>688702B0-B43A-4194-9CB8-42B02446CBA5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>vk-ios-sdk</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
