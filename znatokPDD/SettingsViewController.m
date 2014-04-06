@@ -62,9 +62,25 @@
 }
 
 - (IBAction)shareWithFriends:(id)sender {
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo.png"], nil] applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
-    [self presentViewController:activityVC animated:YES completion:nil];
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                        message:@"Проверьте свое интернет-соединение!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ОК"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"There IS NO internet connection");
+    }
+    else {
+        NSLog(@"There IS internet connection");
+        VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo_share.png"],nil] applicationActivities:@[vkontakteActivity]];
+        [activityVC setValue:@"Подготовься к экзамену в ГАИ!" forKey:@"subject"];
+        activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
 }
 
 - (IBAction)vibroSwitchCnahged:(id)sender {
@@ -77,6 +93,62 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:_commentSwitch.isOn forKey:@"showComment"];
     [defaults synchronize];
+}
+
+- (IBAction)sendDevMail:(id)sender {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                        message:@"Проверьте свое интернет-соединение!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ОК"
+                                              otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"There IS NO internet connection");
+    }
+    else {
+        NSLog(@"There IS internet connection");
+        if ([MFMailComposeViewController canSendMail]) {
+            NSString *emailTitle = @"Знаток ПДД - письмо разработчику";
+            NSString *messageBody = [NSString stringWithFormat:@"Мой вопрос: \n \n \n Мое устройство - %@. \n Версия прошивки - %@.", [UIDevice currentDevice].model, [[UIDevice currentDevice] systemVersion]];
+            NSArray *toRecipents = [NSArray arrayWithObject:@"kiselev.serge@inbox.ru"];
+            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setSubject:emailTitle];
+            [mc setMessageBody:messageBody isHTML:NO];
+            [mc setToRecipients:toRecipents];
+            [self presentViewController:mc animated:YES completion:NULL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                            message:@"Вы не можете отправлять email-сообщения. Убедитесь, что в настройках почты подключен аккаунт."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ОК"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

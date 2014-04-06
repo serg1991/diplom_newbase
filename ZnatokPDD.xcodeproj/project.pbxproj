@@ -30,6 +30,7 @@
 		A5326A7B18EC09F9006FF377 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5326A7818EC09F9006FF377 /* iRate.bundle */; };
 		A5326A7C18EC09F9006FF377 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326A7A18EC09F9006FF377 /* iRate.m */; };
 		A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A54F73F218D6402700EAB2A5 /* StyleSettings.plist */; };
+		A5614FE118F20EE700263A57 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A5614FE018F20EE700263A57 /* MBProgressHUD.m */; };
 		A563E879189C41CE004320F0 /* pdd2.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E861189C41CE004320F0 /* pdd2.html */; };
 		A563E87A189C41CE004320F0 /* pdd3.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E862189C41CE004320F0 /* pdd3.html */; };
 		A563E87B189C41CE004320F0 /* pdd4.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E863189C41CE004320F0 /* pdd4.html */; };
@@ -54,6 +55,9 @@
 		A563E88E189C41CE004320F0 /* pdd23.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E876189C41CE004320F0 /* pdd23.html */; };
 		A563E88F189C41CE004320F0 /* pdd24.html in Resources */ = {isa = PBXBuildFile; fileRef = A563E877189C41CE004320F0 /* pdd24.html */; };
 		A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A563E894189C473D004320F0 /* RulesDetailViewController.m */; };
+		A56A012218F0BE3B000D38F9 /* logo_share.png in Resources */ = {isa = PBXBuildFile; fileRef = A56A012118F0BE3B000D38F9 /* logo_share.png */; };
+		A56A012618F0BF57000D38F9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56A012518F0BF57000D38F9 /* MessageUI.framework */; };
+		A56A012918F0C295000D38F9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A56A012818F0C295000D38F9 /* Reachability.m */; };
 		A56B76F418D8692E00B1CDCF /* crash.png in Resources */ = {isa = PBXBuildFile; fileRef = A56B76F318D8692E00B1CDCF /* crash.png */; };
 		A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */; };
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
@@ -71,6 +75,10 @@
 		A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */; };
 		A5CC12E0189DB5350011599C /* pdd1.html in Resources */ = {isa = PBXBuildFile; fileRef = A5CC12DF189DB5350011599C /* pdd1.html */; };
 		A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDE5C18F0677F0052456F /* Social.framework */; };
+		A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2BE3718F2075000248E7C /* VKontakteActivity.m */; };
+		A5D2BE4318F2085400248E7C /* libVKSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BE4018F2084800248E7C /* libVKSdk.a */; };
+		A5F8D28E18F0AACD008E0C03 /* ic_vk_logo_nb.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */; };
+		A5F8D28F18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +89,20 @@
 			remoteGlobalIDString = A522E5F3189521C70090AFA2;
 			remoteInfo = ZnatokPDD;
 		};
+		A5D2BE3F18F2084800248E7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3C7542D182133CC00964716;
+			remoteInfo = VKSdk;
+		};
+		A5D2BE4118F2084800248E7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3BACC401865905B003158DA;
+			remoteInfo = VKSdkResources;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -90,20 +112,20 @@
 		A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsChildViewController.h; sourceTree = "<group>"; };
 		A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsChildViewController.m; sourceTree = "<group>"; };
 		A5208FB418E9DF930092C8CA /* cars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cars.png; sourceTree = "<group>"; };
-		A522E5F4189521C70090AFA2 /* Знаток ПДД.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Знаток ПДД.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E5F4189521C70090AFA2 /* ZnatokPDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZnatokPDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A522E5FB189521C70090AFA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A522E5FF189521C70090AFA2 /* Знаток ПДД-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Знаток ПДД-Info.plist"; sourceTree = "<group>"; };
+		A522E5FF189521C70090AFA2 /* ZnatokPDD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZnatokPDD-Info.plist"; sourceTree = "<group>"; };
 		A522E603189521C70090AFA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A522E605189521C70090AFA2 /* Знаток ПДД-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Знаток ПДД-Prefix.pch"; sourceTree = "<group>"; };
+		A522E605189521C70090AFA2 /* ZnatokPDD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZnatokPDD-Prefix.pch"; sourceTree = "<group>"; };
 		A522E606189521C70090AFA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A522E607189521C70090AFA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A522E60A189521C70090AFA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A522E60F189521C70090AFA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Знаток ПДДTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZnatokPDDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E616189521C70090AFA2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A522E62E189525890090AFA2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenViewController.h; sourceTree = "<group>"; };
@@ -118,6 +140,8 @@
 		A5326A7918EC09F9006FF377 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		A5326A7A18EC09F9006FF377 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
+		A5614FDF18F20EE700263A57 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		A5614FE018F20EE700263A57 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		A563E861189C41CE004320F0 /* pdd2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd2.html; sourceTree = "<group>"; };
 		A563E862189C41CE004320F0 /* pdd3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd3.html; sourceTree = "<group>"; };
 		A563E863189C41CE004320F0 /* pdd4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd4.html; sourceTree = "<group>"; };
@@ -143,6 +167,10 @@
 		A563E877189C41CE004320F0 /* pdd24.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd24.html; sourceTree = "<group>"; };
 		A563E893189C473D004320F0 /* RulesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesDetailViewController.h; sourceTree = "<group>"; };
 		A563E894189C473D004320F0 /* RulesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesDetailViewController.m; sourceTree = "<group>"; };
+		A56A012118F0BE3B000D38F9 /* logo_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_share.png; sourceTree = "<group>"; };
+		A56A012518F0BF57000D38F9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A56A012718F0C295000D38F9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A56A012818F0C295000D38F9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A56B76F318D8692E00B1CDCF /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
@@ -168,6 +196,11 @@
 		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesListTableViewController.m; sourceTree = "<group>"; };
 		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
 		A5CCDE5C18F0677F0052456F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A5D2BE3618F2075000248E7C /* VKontakteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKontakteActivity.h; path = ../znatokPDD/VKontakteActivity.h; sourceTree = "<group>"; };
+		A5D2BE3718F2075000248E7C /* VKontakteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKontakteActivity.m; path = ../znatokPDD/VKontakteActivity.m; sourceTree = "<group>"; };
+		A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sdk.xcodeproj; path = "../vk-ios-sdk/sdk/sdk.xcodeproj"; sourceTree = "<group>"; };
+		A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_vk_logo_nb.png; sourceTree = "<group>"; };
+		A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_vk_logo_nb@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,9 +208,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2BE4318F2085400248E7C /* libVKSdk.a in Frameworks */,
 				A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */,
 				A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */,
 				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
+				A56A012618F0BF57000D38F9 /* MessageUI.framework in Frameworks */,
 				A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */,
 				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
 				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
@@ -200,6 +235,7 @@
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
+				A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */,
 				A522E5FD189521C70090AFA2 /* ZnatokPDD */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
@@ -211,8 +247,8 @@
 		A522E5F5189521C70090AFA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A522E5F4189521C70090AFA2 /* Знаток ПДД.app */,
-				A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */,
+				A522E5F4189521C70090AFA2 /* ZnatokPDD.app */,
+				A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +256,7 @@
 		A522E5F6189521C70090AFA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A56A012518F0BF57000D38F9 /* MessageUI.framework */,
 				A5CCDE5C18F0677F0052456F /* Social.framework */,
 				A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */,
 				A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */,
@@ -234,9 +271,7 @@
 		A522E5FD189521C70090AFA2 /* ZnatokPDD */ = {
 			isa = PBXGroup;
 			children = (
-				A5326A7818EC09F9006FF377 /* iRate.bundle */,
-				A5326A7918EC09F9006FF377 /* iRate.h */,
-				A5326A7A18EC09F9006FF377 /* iRate.m */,
+				A5614FE218F20F6400263A57 /* 3rd party */,
 				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
 				A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */,
 				A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */,
@@ -280,6 +315,7 @@
 		A522E5FE189521C70090AFA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A56A012118F0BE3B000D38F9 /* logo_share.png */,
 				A5CC12DF189DB5350011599C /* pdd1.html */,
 				A563E869189C41CE004320F0 /* pdd10.html */,
 				A563E86A189C41CE004320F0 /* pdd11.html */,
@@ -305,8 +341,10 @@
 				A563E867189C41CE004320F0 /* pdd8.html */,
 				A563E868189C41CE004320F0 /* pdd9.html */,
 				A522E603189521C70090AFA2 /* main.m */,
-				A522E605189521C70090AFA2 /* Знаток ПДД-Prefix.pch */,
-				A522E5FF189521C70090AFA2 /* Знаток ПДД-Info.plist */,
+				A522E605189521C70090AFA2 /* ZnatokPDD-Prefix.pch */,
+				A522E5FF189521C70090AFA2 /* ZnatokPDD-Info.plist */,
+				A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */,
+				A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */,
 				A5208FB418E9DF930092C8CA /* cars.png */,
 				A56B76F318D8692E00B1CDCF /* crash.png */,
 				A522E62E189525890090AFA2 /* logo.png */,
@@ -320,12 +358,37 @@
 			path = ZnatokPDD;
 			sourceTree = "<group>";
 		};
+		A5614FE218F20F6400263A57 /* 3rd party */ = {
+			isa = PBXGroup;
+			children = (
+				A5614FDF18F20EE700263A57 /* MBProgressHUD.h */,
+				A5614FE018F20EE700263A57 /* MBProgressHUD.m */,
+				A56A012718F0C295000D38F9 /* Reachability.h */,
+				A5D2BE3618F2075000248E7C /* VKontakteActivity.h */,
+				A5D2BE3718F2075000248E7C /* VKontakteActivity.m */,
+				A56A012818F0C295000D38F9 /* Reachability.m */,
+				A5326A7818EC09F9006FF377 /* iRate.bundle */,
+				A5326A7918EC09F9006FF377 /* iRate.h */,
+				A5326A7A18EC09F9006FF377 /* iRate.m */,
+			);
+			name = "3rd party";
+			sourceTree = "<group>";
+		};
+		A5D2BE3B18F2084800248E7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2BE4018F2084800248E7C /* libVKSdk.a */,
+				A5D2BE4218F2084800248E7C /* VKSdkResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A522E5F3189521C70090AFA2 /* Знаток ПДД */ = {
+		A522E5F3189521C70090AFA2 /* ZnatokPDD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДД" */;
+			buildConfigurationList = A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDD" */;
 			buildPhases = (
 				A522E5F0189521C70090AFA2 /* Sources */,
 				A522E5F1189521C70090AFA2 /* Frameworks */,
@@ -336,14 +399,14 @@
 			);
 			dependencies = (
 			);
-			name = "Знаток ПДД";
+			name = ZnatokPDD;
 			productName = ZnatokPDD;
-			productReference = A522E5F4189521C70090AFA2 /* Знаток ПДД.app */;
+			productReference = A522E5F4189521C70090AFA2 /* ZnatokPDD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A522E614189521C70090AFA2 /* Знаток ПДДTests */ = {
+		A522E614189521C70090AFA2 /* ZnatokPDDTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДДTests" */;
+			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDDTests" */;
 			buildPhases = (
 				A522E611189521C70090AFA2 /* Sources */,
 				A522E612189521C70090AFA2 /* Frameworks */,
@@ -354,9 +417,9 @@
 			dependencies = (
 				A522E61B189521C70090AFA2 /* PBXTargetDependency */,
 			);
-			name = "Знаток ПДДTests";
+			name = ZnatokPDDTests;
 			productName = ZnatokPDDTests;
-			productReference = A522E615189521C70090AFA2 /* Знаток ПДДTests.xctest */;
+			productReference = A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -381,7 +444,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "Знаток ПДД" */;
+			buildConfigurationList = A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "ZnatokPDD" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -392,13 +455,36 @@
 			mainGroup = A522E5EB189521C70090AFA2;
 			productRefGroup = A522E5F5189521C70090AFA2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A5D2BE3B18F2084800248E7C /* Products */;
+					ProjectRef = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				A522E5F3189521C70090AFA2 /* Знаток ПДД */,
-				A522E614189521C70090AFA2 /* Знаток ПДДTests */,
+				A522E5F3189521C70090AFA2 /* ZnatokPDD */,
+				A522E614189521C70090AFA2 /* ZnatokPDDTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A5D2BE4018F2084800248E7C /* libVKSdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libVKSdk.a;
+			remoteRef = A5D2BE3F18F2084800248E7C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A5D2BE4218F2084800248E7C /* VKSdkResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = VKSdkResources.bundle;
+			remoteRef = A5D2BE4118F2084800248E7C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A522E5F2189521C70090AFA2 /* Resources */ = {
@@ -422,6 +508,7 @@
 				A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */,
 				A563E882189C41CE004320F0 /* pdd11.html in Resources */,
 				A563E88A189C41CE004320F0 /* pdd19.html in Resources */,
+				A56A012218F0BE3B000D38F9 /* logo_share.png in Resources */,
 				A563E879189C41CE004320F0 /* pdd2.html in Resources */,
 				A563E883189C41CE004320F0 /* pdd12.html in Resources */,
 				A563E885189C41CE004320F0 /* pdd14.html in Resources */,
@@ -437,6 +524,8 @@
 				A5326A7B18EC09F9006FF377 /* iRate.bundle in Resources */,
 				A5208FB518E9DF930092C8CA /* cars.png in Resources */,
 				A563E886189C41CE004320F0 /* pdd15.html in Resources */,
+				A5F8D28F18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png in Resources */,
+				A5F8D28E18F0AACD008E0C03 /* ic_vk_logo_nb.png in Resources */,
 				A583B82F18E8B9C600E2B6BF /* UIButtonBarTrash.png in Resources */,
 				A563E88D189C41CE004320F0 /* pdd22.html in Resources */,
 				A522E62F189525890090AFA2 /* logo.png in Resources */,
@@ -482,12 +571,15 @@
 				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
 				A59D6FB71896FFC400017711 /* SettingsViewController.m in Sources */,
+				A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */,
 				A5326A7C18EC09F9006FF377 /* iRate.m in Sources */,
 				A522E608189521C70090AFA2 /* AppDelegate.m in Sources */,
 				A526410518DB1E7100AD31D6 /* ExamenViewController.m in Sources */,
+				A56A012918F0C295000D38F9 /* Reachability.m in Sources */,
 				A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */,
 				A5B04AB918BF80B1007B4D05 /* BiletViewController.m in Sources */,
 				A592F26F18E75A26004D6996 /* ThemeChildViewController.m in Sources */,
+				A5614FE118F20EE700263A57 /* MBProgressHUD.m in Sources */,
 				A522E604189521C70090AFA2 /* main.m in Sources */,
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
 				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
@@ -509,7 +601,7 @@
 /* Begin PBXTargetDependency section */
 		A522E61B189521C70090AFA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A522E5F3189521C70090AFA2 /* Знаток ПДД */;
+			target = A522E5F3189521C70090AFA2 /* ZnatokPDD */;
 			targetProxy = A522E61A189521C70090AFA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -602,14 +694,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
+				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "Знаток ПДД";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = ZnatokPDD;
+				USER_HEADER_SEARCH_PATHS = "/Users/Sergey/Desktop/vk-ios-sdk/sdk/sdk/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -620,14 +715,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZnatokPDD/Знаток ПДД-Prefix.pch";
+				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
-				INFOPLIST_FILE = "ZnatokPDD/Знаток ПДД-Info.plist";
+				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "Знаток ПДД";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = ZnatokPDD;
+				USER_HEADER_SEARCH_PATHS = "/Users/Sergey/Desktop/vk-ios-sdk/sdk/sdk/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -648,7 +746,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
-				PRODUCT_NAME = "Знаток ПДДTests";
+				PRODUCT_NAME = ZnatokPDDTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -666,7 +764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
 				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
-				PRODUCT_NAME = "Знаток ПДДTests";
+				PRODUCT_NAME = ZnatokPDDTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -675,7 +773,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "Знаток ПДД" */ = {
+		A522E5EF189521C70090AFA2 /* Build configuration list for PBXProject "ZnatokPDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E624189521C70090AFA2 /* Debug */,
@@ -684,7 +782,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДД" */ = {
+		A522E626189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E627189521C70090AFA2 /* Debug */,
@@ -693,7 +791,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "Знаток ПДДTests" */ = {
+		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDDTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A522E62A189521C70090AFA2 /* Debug */,
