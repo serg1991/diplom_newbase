@@ -160,14 +160,13 @@ static NSString * kAppID = @"4289778";
 }
 
 - (void)vkSdkUserDeniedAccess:(VKError *)authorizationError {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Access denied"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                        message:@"Доступ запрещен"
                                                        delegate:self
-                                              cancelButtonTitle:@"Close"
+                                              cancelButtonTitle:@"Закрыть"
                                               otherButtonTitles:nil];
     [alertView show];
-    
-	[self end];
+    [self.HUD hide:YES];
 }
 
 + (UIActivityCategory)activityCategory {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A508A05C18F2155E001CA259 /* libVKSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A508A05918F21555001CA259 /* libVKSdk.a */; };
 		A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */; };
 		A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */; };
 		A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */; };
@@ -76,12 +77,25 @@
 		A5CC12E0189DB5350011599C /* pdd1.html in Resources */ = {isa = PBXBuildFile; fileRef = A5CC12DF189DB5350011599C /* pdd1.html */; };
 		A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDE5C18F0677F0052456F /* Social.framework */; };
 		A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2BE3718F2075000248E7C /* VKontakteActivity.m */; };
-		A5D2BE4318F2085400248E7C /* libVKSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2BE4018F2084800248E7C /* libVKSdk.a */; };
 		A5F8D28E18F0AACD008E0C03 /* ic_vk_logo_nb.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */; };
 		A5F8D28F18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A508A05818F21555001CA259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A508A05318F21555001CA259 /* sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3C7542D182133CC00964716;
+			remoteInfo = VKSdk;
+		};
+		A508A05A18F21555001CA259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A508A05318F21555001CA259 /* sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3BACC401865905B003158DA;
+			remoteInfo = VKSdkResources;
+		};
 		A522E61A189521C70090AFA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A522E5EC189521C70090AFA2 /* Project object */;
@@ -89,23 +103,10 @@
 			remoteGlobalIDString = A522E5F3189521C70090AFA2;
 			remoteInfo = ZnatokPDD;
 		};
-		A5D2BE3F18F2084800248E7C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3C7542D182133CC00964716;
-			remoteInfo = VKSdk;
-		};
-		A5D2BE4118F2084800248E7C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3BACC401865905B003158DA;
-			remoteInfo = VKSdkResources;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A508A05318F21555001CA259 /* sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sdk.xcodeproj; path = znatokPDD/VKAPI/sdk.xcodeproj; sourceTree = SOURCE_ROOT; };
 		A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		A5CCDE5C18F0677F0052456F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A5D2BE3618F2075000248E7C /* VKontakteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKontakteActivity.h; path = ../znatokPDD/VKontakteActivity.h; sourceTree = "<group>"; };
 		A5D2BE3718F2075000248E7C /* VKontakteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKontakteActivity.m; path = ../znatokPDD/VKontakteActivity.m; sourceTree = "<group>"; };
-		A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sdk.xcodeproj; path = "../vk-ios-sdk/sdk/sdk.xcodeproj"; sourceTree = "<group>"; };
 		A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_vk_logo_nb.png; sourceTree = "<group>"; };
 		A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_vk_logo_nb@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D2BE4318F2085400248E7C /* libVKSdk.a in Frameworks */,
+				A508A05C18F2155E001CA259 /* libVKSdk.a in Frameworks */,
 				A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */,
 				A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */,
 				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
@@ -232,10 +232,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A508A05418F21555001CA259 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A508A05918F21555001CA259 /* libVKSdk.a */,
+				A508A05B18F21555001CA259 /* VKSdkResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A522E5EB189521C70090AFA2 = {
 			isa = PBXGroup;
 			children = (
-				A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */,
 				A522E5FD189521C70090AFA2 /* ZnatokPDD */,
 				A522E5F6189521C70090AFA2 /* Frameworks */,
 				A522E5F5189521C70090AFA2 /* Products */,
@@ -256,12 +264,12 @@
 		A522E5F6189521C70090AFA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */,
+				A522E5F9189521C70090AFA2 /* CoreGraphics.framework */,
+				A522E5F7189521C70090AFA2 /* Foundation.framework */,
+				A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */,
 				A56A012518F0BF57000D38F9 /* MessageUI.framework */,
 				A5CCDE5C18F0677F0052456F /* Social.framework */,
-				A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */,
-				A50EA7E0189DA2A200F4749D /* libsqlite3.dylib */,
-				A522E5F7189521C70090AFA2 /* Foundation.framework */,
-				A522E5F9189521C70090AFA2 /* CoreGraphics.framework */,
 				A522E5FB189521C70090AFA2 /* UIKit.framework */,
 				A522E616189521C70090AFA2 /* XCTest.framework */,
 			);
@@ -272,14 +280,10 @@
 			isa = PBXGroup;
 			children = (
 				A5614FE218F20F6400263A57 /* 3rd party */,
-				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
-				A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */,
-				A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */,
-				A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */,
-				A59D6FB51896FFC400017711 /* SettingsViewController.h */,
-				A59D6FB61896FFC400017711 /* SettingsViewController.m */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
+				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
+				A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */,
 				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
 				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
 				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
@@ -290,12 +294,16 @@
 				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
 				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
 				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
+				A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */,
+				A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
 				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
 				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
 				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
+				A59D6FB51896FFC400017711 /* SettingsViewController.h */,
+				A59D6FB61896FFC400017711 /* SettingsViewController.m */,
 				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
 				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
@@ -361,26 +369,18 @@
 		A5614FE218F20F6400263A57 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
-				A5614FDF18F20EE700263A57 /* MBProgressHUD.h */,
-				A5614FE018F20EE700263A57 /* MBProgressHUD.m */,
-				A56A012718F0C295000D38F9 /* Reachability.h */,
-				A5D2BE3618F2075000248E7C /* VKontakteActivity.h */,
-				A5D2BE3718F2075000248E7C /* VKontakteActivity.m */,
-				A56A012818F0C295000D38F9 /* Reachability.m */,
+				A508A05318F21555001CA259 /* sdk.xcodeproj */,
 				A5326A7818EC09F9006FF377 /* iRate.bundle */,
 				A5326A7918EC09F9006FF377 /* iRate.h */,
 				A5326A7A18EC09F9006FF377 /* iRate.m */,
+				A5614FDF18F20EE700263A57 /* MBProgressHUD.h */,
+				A5614FE018F20EE700263A57 /* MBProgressHUD.m */,
+				A56A012718F0C295000D38F9 /* Reachability.h */,
+				A56A012818F0C295000D38F9 /* Reachability.m */,
+				A5D2BE3618F2075000248E7C /* VKontakteActivity.h */,
+				A5D2BE3718F2075000248E7C /* VKontakteActivity.m */,
 			);
 			name = "3rd party";
-			sourceTree = "<group>";
-		};
-		A5D2BE3B18F2084800248E7C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A5D2BE4018F2084800248E7C /* libVKSdk.a */,
-				A5D2BE4218F2084800248E7C /* VKSdkResources.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,8 +457,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A5D2BE3B18F2084800248E7C /* Products */;
-					ProjectRef = A5D2BE3A18F2084800248E7C /* sdk.xcodeproj */;
+					ProductGroup = A508A05418F21555001CA259 /* Products */;
+					ProjectRef = A508A05318F21555001CA259 /* sdk.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -470,18 +470,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A5D2BE4018F2084800248E7C /* libVKSdk.a */ = {
+		A508A05918F21555001CA259 /* libVKSdk.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libVKSdk.a;
-			remoteRef = A5D2BE3F18F2084800248E7C /* PBXContainerItemProxy */;
+			remoteRef = A508A05818F21555001CA259 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A5D2BE4218F2084800248E7C /* VKSdkResources.bundle */ = {
+		A508A05B18F21555001CA259 /* VKSdkResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = VKSdkResources.bundle;
-			remoteRef = A5D2BE4118F2084800248E7C /* PBXContainerItemProxy */;
+			remoteRef = A508A05A18F21555001CA259 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -704,7 +704,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
-				USER_HEADER_SEARCH_PATHS = "/Users/Sergey/Desktop/vk-ios-sdk/sdk/sdk/**";
+				USER_HEADER_SEARCH_PATHS = "../**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -725,7 +725,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
-				USER_HEADER_SEARCH_PATHS = "/Users/Sergey/Desktop/vk-ios-sdk/sdk/sdk/**";
+				USER_HEADER_SEARCH_PATHS = "../**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

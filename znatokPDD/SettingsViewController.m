@@ -76,7 +76,10 @@
     else {
         NSLog(@"There IS internet connection");
         VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo_share.png"],nil] applicationActivities:@[vkontakteActivity]];
+        NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://yandex.ru"]];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                                initWithActivityItems:shareItems
+                                                applicationActivities:@[vkontakteActivity]];
         [activityVC setValue:@"Подготовься к экзамену в ГАИ!" forKey:@"subject"];
         activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
         [self presentViewController:activityVC animated:YES completion:nil];

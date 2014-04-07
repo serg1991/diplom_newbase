@@ -23,6 +23,7 @@
 }
 
 - (void)getBiletStatistics {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
@@ -39,7 +40,7 @@
         BiletCommonStatTitle.numberOfLines = 2;
         BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletCommonStatTitle sizeToFit];
-        [self.view addSubview:BiletCommonStatTitle];
+        [scrollView addSubview:BiletCommonStatTitle];
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
         const char *query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
@@ -62,7 +63,7 @@
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                    [self.view addSubview:BiletCommonStat];
+                    [scrollView addSubview:BiletCommonStat];
                 }
                 else {
                     NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
@@ -78,7 +79,7 @@
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                    [self.view addSubview:BiletCommonStat];
+                    [scrollView addSubview:BiletCommonStat];
                 }
             }
             sqlite3_finalize(statement1);
@@ -91,7 +92,7 @@
         BiletStatTitle.textAlignment = NSTextAlignmentCenter;
         BiletStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletStatTitle sizeToFit];
-        [self.view addSubview:BiletStatTitle];
+        [scrollView addSubview:BiletStatTitle];
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
         const char *query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
@@ -109,7 +110,7 @@
                 UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
                 BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:BiletStat];
+                [scrollView addSubview:BiletStat];
                 i++;
             }
             sqlite3_finalize(statement2);
@@ -122,9 +123,12 @@
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
+    [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+    [self.view addSubview:scrollView];
 }
 
 - (void)getThemeStatistics {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     NSString *docsDir;
     NSArray *dirPaths;
     NSString *databasePath;
@@ -133,6 +137,7 @@
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
     const char *dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2;
+    int i = 0;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         UILabel *BiletCommonStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
         BiletCommonStatTitle.text = @"Общая статистика ответов на темы\nПравильных ответов\t\t\t  Неправильных ответов";
@@ -140,7 +145,7 @@
         BiletCommonStatTitle.numberOfLines = 2;
         BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [BiletCommonStatTitle sizeToFit];
-        [self.view addSubview:BiletCommonStatTitle];
+        [scrollView addSubview:BiletCommonStatTitle];
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_theme_stat"];
         const char *query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
@@ -163,7 +168,7 @@
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                    [self.view addSubview:BiletCommonStat];
+                    [scrollView addSubview:BiletCommonStat];
                 }
                 else {
                     NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
@@ -179,7 +184,7 @@
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                    [self.view addSubview:BiletCommonStat];
+                    [scrollView addSubview:BiletCommonStat];
                 }
             }
             sqlite3_finalize(statement1);
@@ -192,8 +197,7 @@
         ThemeStatTitle.textAlignment = NSTextAlignmentCenter;
         ThemeStatTitle.font = [UIFont italicSystemFontOfSize:11];
         [ThemeStatTitle sizeToFit];
-        [self.view addSubview:ThemeStatTitle];
-        int i = 0;
+        [scrollView addSubview:ThemeStatTitle];
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT themeNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_theme_stat GROUP BY themeNumber ORDER BY percent DESC"];
         const char *query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
@@ -211,7 +215,7 @@
                 UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
                 BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
-                [self.view addSubview:BiletStat];
+                [scrollView addSubview:BiletStat];
                 i++;
             }
             sqlite3_finalize(statement2);
@@ -224,6 +228,8 @@
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
+    [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+    [self.view addSubview:scrollView];
 }
 
 - (void)getExamenStatistics {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VKSdk.h"
+#import "VKAPI/sdk/vksdk.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

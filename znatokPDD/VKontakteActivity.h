@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "vksdk.h"
+#import "VKAPI/sdk/vksdk.h"
 #import "MBProgressHUD.h"
 
 @interface VKontakteActivity : UIActivity <VKSdkDelegate>

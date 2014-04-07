@@ -12,8 +12,8 @@
 @implementation AppDelegate
 
 + (void)initialize {
-    [iRate sharedInstance].usesUntilPrompt = 10;
-    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 15;
+    [iRate sharedInstance].daysUntilPrompt = 0;
     [iRate sharedInstance].remindPeriod = 7;
     [iRate sharedInstance].promptForNewVersionIfUserRated = YES;
 }
