@@ -7,19 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import "iRate.h"
 
 @implementation AppDelegate
 
 + (void)initialize {
-    [iRate sharedInstance].usesUntilPrompt = 15;
-    [iRate sharedInstance].daysUntilPrompt = 0;
     [iRate sharedInstance].remindPeriod = 7;
     [iRate sharedInstance].promptForNewVersionIfUserRated = YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     if ([settings objectForKey:@"needVibro"] == nil) {
         [settings setBool:YES forKey:@"needVibro"];
@@ -28,7 +24,7 @@
         [settings setBool:YES forKey:@"showComment"];
     }
     [settings synchronize];
-
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

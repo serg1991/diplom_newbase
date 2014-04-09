@@ -123,8 +123,13 @@
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
-    [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
-    [self.view addSubview:scrollView];
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == 480) {
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
+    }
+    else {
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+    }    [self.view addSubview:scrollView];
 }
 
 - (void)getThemeStatistics {
@@ -228,7 +233,13 @@
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
-    [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == 480) {
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
+    }
+    else {
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+    }
     [self.view addSubview:scrollView];
 }
 

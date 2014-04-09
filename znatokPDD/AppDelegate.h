@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VKAPI/sdk/vksdk.h"
+#import "iRate.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
