@@ -88,6 +88,7 @@
 		A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */; };
 		A5CC12E0189DB5350011599C /* pdd1.html in Resources */ = {isa = PBXBuildFile; fileRef = A5CC12DF189DB5350011599C /* pdd1.html */; };
 		A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CCDE5C18F0677F0052456F /* Social.framework */; };
+		A5CDAD6318F5EF8A002FAE8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CDAD6218F5EF8A002FAE8A /* StoreKit.framework */; };
 		A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2BE3718F2075000248E7C /* VKontakteActivity.m */; };
 		A5F8D28E18F0AACD008E0C03 /* ic_vk_logo_nb.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */; };
 		A5F8D28F18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F8D28D18F0AACD008E0C03 /* ic_vk_logo_nb@2x.png */; };
@@ -221,6 +222,7 @@
 		A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulesListTableViewController.m; sourceTree = "<group>"; };
 		A5CC12DF189DB5350011599C /* pdd1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pdd1.html; sourceTree = "<group>"; };
 		A5CCDE5C18F0677F0052456F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A5CDAD6218F5EF8A002FAE8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A5D2BE3618F2075000248E7C /* VKontakteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKontakteActivity.h; path = ../znatokPDD/VKontakteActivity.h; sourceTree = "<group>"; };
 		A5D2BE3718F2075000248E7C /* VKontakteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKontakteActivity.m; path = ../znatokPDD/VKontakteActivity.m; sourceTree = "<group>"; };
 		A5F8D28C18F0AACD008E0C03 /* ic_vk_logo_nb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_vk_logo_nb.png; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */,
 				A56A012618F0BF57000D38F9 /* MessageUI.framework in Frameworks */,
 				A5CCDE5D18F0677F0052456F /* Social.framework in Frameworks */,
+				A5CDAD6318F5EF8A002FAE8A /* StoreKit.framework in Frameworks */,
 				A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */,
 				A50EA7E1189DA2A200F4749D /* libsqlite3.dylib in Frameworks */,
 			);
@@ -288,6 +291,7 @@
 		A522E5F6189521C70090AFA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5CDAD6218F5EF8A002FAE8A /* StoreKit.framework */,
 				A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */,
 				A522E5F9189521C70090AFA2 /* CoreGraphics.framework */,
 				A522E5F7189521C70090AFA2 /* Foundation.framework */,
