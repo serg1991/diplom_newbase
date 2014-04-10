@@ -129,7 +129,8 @@
     }
     else {
         [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
-    }    [self.view addSubview:scrollView];
+    }
+    [self.view addSubview:scrollView];
 }
 
 - (void)getThemeStatistics {

@@ -25,6 +25,7 @@
     }
     [settings synchronize];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

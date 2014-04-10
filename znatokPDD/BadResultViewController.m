@@ -24,6 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *minutes = [NSString stringWithFormat:@"%d", _time / 60];
+    NSString *seconds = [NSString stringWithFormat:@"%d", _time % 60];
+    NSUInteger myMinute = [minutes intValue];
+    NSUInteger mySecond = [seconds intValue];
+    if (myMinute < 10)
+        minutes = [NSString stringWithFormat:@"0%d", _time / 60];
+    if (mySecond < 10)
+        seconds = [NSString stringWithFormat:@"0%d", _time % 60];
     UIImageView *backButtonImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     if (_whichController == 0) {
@@ -56,10 +64,57 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
-    UIImage *image = [UIImage imageNamed:@"crash.png"];
-    [_imageBad.layer setBorderColor:[[UIColor redColor] CGColor]];
-    [_imageBad.layer setBorderWidth:2.0];
-    [_imageBad setImage:image];
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight == 480) {
+        UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+        resultImage.image  = [UIImage imageNamed:@"crash.png"];
+        [resultImage.layer setBorderColor:[[UIColor greenColor] CGColor]];
+        [resultImage.layer setBorderWidth:2.0];
+        [self.view addSubview:resultImage];
+        UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 166, 118, 22)];
+        resultLabel.text = @"Экзамен сдан!";
+        resultLabel.textColor = [UIColor greenColor];
+        [self.view addSubview:resultLabel];
+        UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 222, 64, 64)];
+        goodImage.image  = [UIImage imageNamed:@"bad.png"];
+        [self.view addSubview:goodImage];
+        UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 242, 152, 22)];
+        countLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+        countLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:countLabel];
+        UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 312, 64, 64)];
+        timeImage.image  = [UIImage imageNamed:@"clock.png"];
+        [self.view addSubview:timeImage];
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 332, 152, 22)];
+        timeLabel.text = [NSString stringWithFormat:@"%d / 20", _rightCount];
+        timeLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:timeLabel];
+    }
+    else {
+        UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+        resultImage.image  = [UIImage imageNamed:@"crash.png"];
+        [resultImage.layer setBorderColor:[[UIColor greenColor] CGColor]];
+        [resultImage.layer setBorderWidth:2.0];
+        [self.view addSubview:resultImage];
+        UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 186, 118, 22)];
+        resultLabel.text = @"Экзамен сдан!";
+        resultLabel.textColor = [UIColor greenColor];
+        [self.view addSubview:resultLabel];
+        UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 252, 64, 64)];
+        goodImage.image  = [UIImage imageNamed:@"bad.png"];
+        [self.view addSubview:goodImage];
+        UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 272, 152, 22)];
+        countLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+        countLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:countLabel];
+        UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 342, 64, 64)];
+        timeImage.image  = [UIImage imageNamed:@"clock.png"];
+        [self.view addSubview:timeImage];
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 362, 152, 22)];
+        timeLabel.text = [NSString stringWithFormat:@"%d / 20", _rightCount];
+        timeLabel.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:timeLabel];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

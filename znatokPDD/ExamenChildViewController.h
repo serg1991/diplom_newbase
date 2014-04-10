@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic) NSTimeInterval finishDate;
 @property (nonatomic, retain) NSTimer *timer;
 @property (assign, nonatomic) NSUInteger remainingTicks;
 

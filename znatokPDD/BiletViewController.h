@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSMutableArray *rightArray;
 @property (nonatomic, retain) NSMutableArray *wrongArray;
 @property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
-@property (nonatomic, retain) NSString *dateString;
+@property (nonatomic) NSTimeInterval startDate;
 
 @end

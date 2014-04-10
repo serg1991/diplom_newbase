@@ -11,5 +11,9 @@
 @interface BadResultViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageBad;
 @property (nonatomic) NSUInteger whichController;
+@property (nonatomic) NSUInteger rightCount;
+@property (nonatomic) NSUInteger time;
+@property (weak, nonatomic) IBOutlet UILabel *clockResult;
+@property (weak, nonatomic) IBOutlet UILabel *examenResult;
 
 @end

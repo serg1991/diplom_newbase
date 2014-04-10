@@ -186,9 +186,9 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSDate *date = [[NSDate alloc] init];
-    NSTimeInterval ti = [date timeIntervalSince1970];
+    _finishDate = [date timeIntervalSince1970];
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_examen_stat(rightCount, wrongCount, rightAnswers, wrongAnswers, startDate, finishDate) VALUES ('%d', '%d', '%@', '%@', '%11.0f', '%11.0f')", (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, [_rightAnswersArray componentsJoinedByString:@","], [_wrongAnswersArray componentsJoinedByString:@","], _startDate, ti];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_examen_stat(rightCount, wrongCount, rightAnswers, wrongAnswers, startDate, finishDate) VALUES ('%d', '%d', '%@', '%@', '%11.0f', '%11.0f')", (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, [_rightAnswersArray componentsJoinedByString:@","], [_wrongAnswersArray componentsJoinedByString:@","], _startDate, _finishDate];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
@@ -210,11 +210,14 @@
     if ([[segue identifier] isEqualToString:@"GoodResultExamen"]) {
         GoodResultViewController *detailViewController = [segue destinationViewController];
         detailViewController.whichController = 1;
+        detailViewController.rightCount = _rightAnswersArray.count;
+        detailViewController.time = _finishDate - _startDate;
     }
-    
     if ([[segue identifier] isEqualToString:@"BadResultExamen"]) {
         BadResultViewController *detailViewController = [segue destinationViewController];
         detailViewController.whichController = 1;
+        detailViewController.rightCount = _rightAnswersArray.count;
+        detailViewController.time = _finishDate - _startDate;
     }
 }
 

@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface GoodResultViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageGood;
 @property (nonatomic) NSUInteger whichController;
+@property (nonatomic) NSUInteger rightCount;
+@property (nonatomic) NSUInteger time;
+@property (weak, nonatomic) IBOutlet UILabel *clockResult;
+@property (weak, nonatomic) IBOutlet UILabel *examenResult;
 
 @end

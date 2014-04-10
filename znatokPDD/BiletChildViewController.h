@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
-@property (nonatomic, retain) NSString *startDate;
+@property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic) NSTimeInterval finishDate;
 
 @end
