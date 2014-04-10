@@ -188,25 +188,13 @@
 }
 
 - (void)getResultOfTest {
-    if (_wrongAnswersArray.count <= 2) {
-        [self performSegueWithIdentifier:@"GoodResultBilet" sender:self];
-    }
-    else {
-        [self performSegueWithIdentifier:@"BadResultBilet" sender:self];
-    }
+        [self performSegueWithIdentifier:@"ResultBilet" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"GoodResultBilet"]) {
-        GoodResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.whichController = 0;
-        detailViewController.rightCount = _rightAnswersArray.count;
-        detailViewController.time = _finishDate - _startDate;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"BadResultBilet"]) {
-        BadResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.whichController = 0;
+    if ([[segue identifier] isEqualToString:@"ResultBilet"]) {
+        ResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.examen = false;
         detailViewController.rightCount = _rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
     }

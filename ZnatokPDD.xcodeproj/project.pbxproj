@@ -24,8 +24,7 @@
 		A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
 		A526410518DB1E7100AD31D6 /* ExamenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410418DB1E7100AD31D6 /* ExamenViewController.m */; };
 		A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */; };
-		A52EB7C018EA0BB300E4E537 /* GoodResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */; };
-		A52EB7C318EA0BC000E4E537 /* BadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */; };
+		A52EB7C018EA0BB300E4E537 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */; };
 		A5326A7B18EC09F9006FF377 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A5326A7818EC09F9006FF377 /* iRate.bundle */; };
 		A5326A7C18EC09F9006FF377 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326A7A18EC09F9006FF377 /* iRate.m */; };
 		A53AB38818F6E2C500577C1D /* cars.png in Resources */ = {isa = PBXBuildFile; fileRef = A53AB38618F6E2C500577C1D /* cars.png */; };
@@ -151,10 +150,8 @@
 		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
 		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
 		A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenChildViewController.m; sourceTree = "<group>"; };
-		A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodResultViewController.h; sourceTree = "<group>"; };
-		A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodResultViewController.m; sourceTree = "<group>"; };
-		A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadResultViewController.h; sourceTree = "<group>"; };
-		A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadResultViewController.m; sourceTree = "<group>"; };
+		A52EB7BE18EA0BB300E4E537 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		A5326A7818EC09F9006FF377 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		A5326A7918EC09F9006FF377 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		A5326A7A18EC09F9006FF377 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -324,8 +321,6 @@
 				A5614FE218F20F6400263A57 /* 3rd party */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
-				A52EB7C118EA0BC000E4E537 /* BadResultViewController.h */,
-				A52EB7C218EA0BC000E4E537 /* BadResultViewController.m */,
 				A5B04AB418BF80B1007B4D05 /* BiletChildViewController.h */,
 				A5B04AB518BF80B1007B4D05 /* BiletChildViewController.m */,
 				A5A690C918984D7C001D5275 /* BiletListTableViewController.h */,
@@ -336,8 +331,8 @@
 				A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */,
 				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
 				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
-				A52EB7BE18EA0BB300E4E537 /* GoodResultViewController.h */,
-				A52EB7BF18EA0BB300E4E537 /* GoodResultViewController.m */,
+				A52EB7BE18EA0BB300E4E537 /* ResultViewController.h */,
+				A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
@@ -664,8 +659,7 @@
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
 				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
 				A5B04AB818BF80B1007B4D05 /* BiletChildViewController.m in Sources */,
-				A52EB7C018EA0BB300E4E537 /* GoodResultViewController.m in Sources */,
-				A52EB7C318EA0BC000E4E537 /* BadResultViewController.m in Sources */,
+				A52EB7C018EA0BB300E4E537 /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

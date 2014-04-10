@@ -210,29 +210,10 @@
             </objects>
             <point key="canvasLocation" x="232" y="1736"/>
         </scene>
-        <!--Bad Result View Controller-->
-        <scene sceneID="AjN-Sk-VuK">
-            <objects>
-                <viewController storyboardIdentifier="BadResultBilet" id="XGU-ea-inw" customClass="BadResultViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2gD-7O-oP4"/>
-                        <viewControllerLayoutGuide type="bottom" id="UT7-hS-DsG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Kp-OQ-hOM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="sxe-Lu-wcH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WGJ-pf-b10" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3071" y="1165"/>
-        </scene>
-        <!--Good Result View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="F41-xK-4C8">
             <objects>
-                <viewController storyboardIdentifier="GoodResultBilet" id="QGX-ze-FcP" customClass="GoodResultViewController" sceneMemberID="viewController">
+                <viewController id="QGX-ze-FcP" customClass="ResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6r8-7n-0DV"/>
                         <viewControllerLayoutGuide type="bottom" id="ASg-se-YdF"/>
@@ -246,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r90-oA-ajF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498" y="1165"/>
+            <point key="canvasLocation" x="2634" y="702"/>
         </scene>
         <!--Bilet List Table View Controller - Билеты-->
         <scene sceneID="uOf-sQ-44R">
@@ -664,8 +645,7 @@
                     <connections>
                         <outlet property="imageView" destination="x9l-9m-duP" id="bXg-aP-iZ2"/>
                         <outlet property="tableView" destination="rqg-Ce-im2" id="fX2-Vk-h1f"/>
-                        <segue destination="QGX-ze-FcP" kind="push" identifier="GoodResultExamen" id="Q2H-VW-Mf4"/>
-                        <segue destination="XGU-ea-inw" kind="push" identifier="BadResultExamen" id="rKr-dA-2tS"/>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="ResultExamen" id="Q2H-VW-Mf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbg-jq-9h2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -705,8 +685,7 @@
                     <connections>
                         <outlet property="imageView" destination="DNg-Hq-JYn" id="GNC-D2-JZL"/>
                         <outlet property="tableView" destination="35n-OM-kl5" id="dm1-cC-eeX"/>
-                        <segue destination="QGX-ze-FcP" kind="push" identifier="GoodResultBilet" id="dwv-j1-B7e"/>
-                        <segue destination="XGU-ea-inw" kind="push" identifier="BadResultBilet" id="6GZ-MH-SB6"/>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="ResultBilet" id="dwv-j1-B7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eix-Lg-t2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -787,7 +766,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dwv-j1-B7e"/>
-        <segue reference="6GZ-MH-SB6"/>
+        <segue reference="Q2H-VW-Mf4"/>
     </inferredMetricsTieBreakers>
 </document>

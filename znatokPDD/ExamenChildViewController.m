@@ -162,19 +162,14 @@
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {// || _remainingTicks == 0) {
-        [self getResultOfTest];
         [self writeStatisticsToBase];
+        [self getResultOfTest];
         [_timer invalidate];
     }
 }
 
 - (void)getResultOfTest {
-    if (_wrongAnswersArray.count <= 2) {
-        [self performSegueWithIdentifier:@"GoodResultExamen" sender:self];
-    }
-    else {
-        [self performSegueWithIdentifier:@"BadResultExamen" sender:self];
-    }
+        [self performSegueWithIdentifier:@"ResultExamen" sender:self];
 }
 
 - (void)writeStatisticsToBase {
@@ -207,15 +202,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"GoodResultExamen"]) {
-        GoodResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.whichController = 1;
-        detailViewController.rightCount = _rightAnswersArray.count;
-        detailViewController.time = _finishDate - _startDate;
-    }
-    if ([[segue identifier] isEqualToString:@"BadResultExamen"]) {
-        BadResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.whichController = 1;
+    if ([[segue identifier] isEqualToString:@"ResultExamen"]) {
+        ResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.examen = true;
         detailViewController.rightCount = _rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
     }

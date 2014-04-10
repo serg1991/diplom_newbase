@@ -11,7 +11,6 @@
 
 @interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
 {
-    UILabel *theLabel;
 @private
     int remainingTicks;
 }
@@ -22,8 +21,8 @@
 @property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
 @property (nonatomic, retain) NSMutableArray *randomNumbers;
 @property (nonatomic, retain) NSDate *date;
-@property (nonatomic) NSTimeInterval ti;
-@property (nonatomic, retain) IBOutlet UILabel *theLabel;
+@property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic, retain) UILabel *theLabel;
 @property (nonatomic, retain) NSTimer *timer;
 
 - (void)handleTimerTick;
