@@ -39,17 +39,13 @@
     if (remainingTicks <= 0) {
         [_timer invalidate];
         _timer = nil;
-        [self performSegueWithIdentifier:@"timerOver" sender:self];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"timerOver"]) {
-        NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-        ResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.examen = true;
-        detailViewController.rightCount = [settings integerForKey:@"lastRightCount"];
-        detailViewController.time = 1200;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание"
+                                                        message:@"Время, отведенное на тестирование закончилось.\n Ваш результат не будет сохранен."
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"ОК", nil];
+        alert.tag = 2;
+        [alert show];
     }
 }
 
@@ -73,8 +69,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    [settings setInteger:0 forKey:@"lastRightCount"];
     //дата начала решения билета
     _date = [[NSDate alloc] init];
     _startDate = [_date timeIntervalSince1970];
@@ -130,9 +124,18 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex) {
-        [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"%d", alertView.tag);
+    switch (alertView.tag) {
+        case 1:
+            if (buttonIndex) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            break;
+        case 2:
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
     }
+
 }
 
 - (void)confirmCancel {
@@ -141,6 +144,7 @@
                                                    delegate:self
                                           cancelButtonTitle:@"Нет"
                                           otherButtonTitles:@"Да, выйти", nil];
+    alert.tag = 1;
     [alert show];
 }
 

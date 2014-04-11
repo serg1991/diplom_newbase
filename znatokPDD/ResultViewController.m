@@ -79,7 +79,7 @@
             [self.view addSubview:resultImage];
             UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
             resultLabel.text = @"Экзамен сдан!";
-            [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
+            resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             [self.view addSubview:resultLabel];
             UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             goodImage.image  = [UIImage imageNamed:@"good.png"];
@@ -104,7 +104,7 @@
             [self.view addSubview:resultImage];
             UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
             resultLabel.text = @"Экзамен сдан!";
-            [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
+            resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             [self.view addSubview:resultLabel];
             UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             goodImage.image  = [UIImage imageNamed:@"good.png"];
@@ -131,7 +131,7 @@
             [self.view addSubview:resultImage];
             UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 160, 160, 22)];
             resultLabel.text = @"Экзамен не сдан!";
-            [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
+            resultLabel.textColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
             [self.view addSubview:resultLabel];
             UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             badImage.image  = [UIImage imageNamed:@"bad.png"];
@@ -154,21 +154,21 @@
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
             [resultImage.layer setBorderWidth:1.0];
             [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 160, 160, 22)];
+            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 180, 160, 22)];
             resultLabel.text = @"Экзамен не сдан!";
-            [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
+            resultLabel.textColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
             [self.view addSubview:resultLabel];
-            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
+            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 242, 64, 64)];
             badImage.image  = [UIImage imageNamed:@"bad.png"];
             [self.view addSubview:badImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
+            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 263, 70, 22)];
             countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
             countLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
+            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 242, 64, 64)];
             timeImage.image  = [UIImage imageNamed:@"clock.png"];
             [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 263, 70, 22)];
             timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
             timeLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:timeLabel];
@@ -189,14 +189,14 @@
             [self.view addSubview:refreshLabel];
         }
         else { // 4 inch
-            UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(128, 320, 64, 64)];
+            UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(128, 360, 64, 64)];
             [imageview setImage:[UIImage imageNamed:@"reload.png"]];
             [imageview setUserInteractionEnabled:YES];
             UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
             [singleTap setNumberOfTapsRequired:1];
             [imageview addGestureRecognizer:singleTap];
             [self.view addSubview:imageview];
-            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 390, 160, 22)];
+            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 430, 160, 22)];
             refreshLabel.text = @"Начать заново";
             refreshLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:refreshLabel];

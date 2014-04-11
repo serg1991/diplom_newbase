@@ -291,7 +291,7 @@
                     <view key="view" contentMode="scaleToFill" id="45h-Cf-Cml">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.84997027853260865" green="0.84997027853260865" blue="0.84997027853260865" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="9er-Jh-ESU"/>
                 </viewController>
@@ -358,12 +358,9 @@
                     <view key="view" contentMode="scaleToFill" id="tpI-RH-dQ6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.85098046064376831" green="0.85098046064376831" blue="0.85098046064376831" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="spx-JI-S4d"/>
-                    <connections>
-                        <segue destination="QGX-ze-FcP" kind="push" identifier="timerOver" id="cfe-Ey-srh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lv-s7-vvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -709,7 +706,7 @@
                     <view key="view" contentMode="scaleToFill" id="Lgz-tn-XOZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.84997027849999995" green="0.84997027849999995" blue="0.84997027849999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="wfH-fq-uJp"/>
                 </viewController>
@@ -773,6 +770,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="jE6-7w-nn4"/>
-        <segue reference="cfe-Ey-srh"/>
+        <segue reference="dwv-j1-B7e"/>
     </inferredMetricsTieBreakers>
 </document>
