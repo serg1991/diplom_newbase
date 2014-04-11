@@ -224,6 +224,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="aFR-U5-Vk5"/>
+                    <connections>
+                        <segue destination="8Uv-Ok-Pa9" kind="push" identifier="examenAgain" id="jE6-7w-nn4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r90-oA-ajF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,11 +356,14 @@
                         <viewControllerLayoutGuide type="bottom" id="DlR-gB-RNW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tpI-RH-dQ6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.85098046064376831" green="0.85098046064376831" blue="0.85098046064376831" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="spx-JI-S4d"/>
+                    <connections>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="timerOver" id="cfe-Ey-srh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lv-s7-vvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -766,6 +772,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Q2H-VW-Mf4"/>
+        <segue reference="jE6-7w-nn4"/>
+        <segue reference="cfe-Ey-srh"/>
     </inferredMetricsTieBreakers>
 </document>

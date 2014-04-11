@@ -39,6 +39,17 @@
     if (remainingTicks <= 0) {
         [_timer invalidate];
         _timer = nil;
+        [self performSegueWithIdentifier:@"timerOver" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"timerOver"]) {
+        NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+        ResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.examen = true;
+        detailViewController.rightCount = [settings integerForKey:@"lastRightCount"];
+        detailViewController.time = 1200;
     }
 }
 
@@ -62,6 +73,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings setInteger:0 forKey:@"lastRightCount"];
     //дата начала решения билета
     _date = [[NSDate alloc] init];
     _startDate = [_date timeIntervalSince1970];

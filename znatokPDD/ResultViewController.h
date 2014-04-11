@@ -12,6 +12,7 @@
 #import "VKontakteActivity.h"
 #import <Social/Social.h>
 #import <MessageUI/MessageUI.h>
+#import "ExamenViewController.h"
 
 @interface ResultViewController : UIViewController
 

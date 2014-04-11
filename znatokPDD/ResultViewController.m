@@ -70,111 +70,157 @@
     self.navigationItem.rightBarButtonItem = shareIconButton;
     
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if (_rightCount > 17) {
-        if (screenHeight == 480) {
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+    if (_rightCount > 17) { //good result
+        if (screenHeight == 480) { //3.5 inch
+            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"cars.png"];
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
             [resultImage.layer setBorderWidth:1.0];
             [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 166, 118, 22)];
+            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
             resultLabel.text = @"Экзамен сдан!";
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
             [self.view addSubview:resultLabel];
-            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 222, 64, 64)];
+            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             goodImage.image  = [UIImage imageNamed:@"good.png"];
             [self.view addSubview:goodImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 242, 152, 22)];
+            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
             countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
             countLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 312, 64, 64)];
+            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
             timeImage.image  = [UIImage imageNamed:@"clock.png"];
             [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 332, 152, 22)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
             timeLabel.textAlignment = NSTextAlignmentCenter;
             timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
             [self.view addSubview:timeLabel];
         }
-        else {
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+        else { // 4 inch
+            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"cars.png"];
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
             [resultImage.layer setBorderWidth:1.0];
             [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 186, 118, 22)];
+            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
             resultLabel.text = @"Экзамен сдан!";
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
             [self.view addSubview:resultLabel];
-            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 252, 64, 64)];
+            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             goodImage.image  = [UIImage imageNamed:@"good.png"];
             [self.view addSubview:goodImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 272, 152, 22)];
+            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
             countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
             countLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 342, 64, 64)];
+            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
             timeImage.image  = [UIImage imageNamed:@"clock.png"];
             [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 362, 152, 22)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
             timeLabel.textAlignment = NSTextAlignmentCenter;
             timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
             [self.view addSubview:timeLabel];
         }
     }
-    else {
-        if (screenHeight == 480) {
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+    else { // bad result
+        if (screenHeight == 480) { // 3.5 inch
+            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"crash.png"];
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
             [resultImage.layer setBorderWidth:1.0];
             [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 166, 150, 22)];
+            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 160, 160, 22)];
             resultLabel.text = @"Экзамен не сдан!";
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
             [self.view addSubview:resultLabel];
-            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 222, 64, 64)];
+            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             badImage.image  = [UIImage imageNamed:@"bad.png"];
             [self.view addSubview:badImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 242, 152, 22)];
+            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
             countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
             countLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 312, 64, 64)];
+            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
             timeImage.image  = [UIImage imageNamed:@"clock.png"];
             [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 332, 152, 22)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
             timeLabel.textAlignment = NSTextAlignmentCenter;
             timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
             [self.view addSubview:timeLabel];
         }
-        else {
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 18, 128, 128)];
+        else { // 4 inch
+            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"crash.png"];
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
             [resultImage.layer setBorderWidth:1.0];
             [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 186, 150, 22)];
+            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 160, 160, 22)];
             resultLabel.text = @"Экзамен не сдан!";
             [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
             [self.view addSubview:resultLabel];
-            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 252, 64, 64)];
+            UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
             badImage.image  = [UIImage imageNamed:@"bad.png"];
             [self.view addSubview:badImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 272, 152, 22)];
+            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
             countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
             countLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(42, 342, 64, 64)];
+            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
             timeImage.image  = [UIImage imageNamed:@"clock.png"];
             [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(114, 362, 152, 22)];
+            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
             timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
             timeLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:timeLabel];
         }
     }
+    if (_examen) {
+        if (screenHeight == 480) { // 3.5 inch
+            UIImageView *refreshImage = [[UIImageView alloc]initWithFrame:CGRectMake(128, 320, 64, 64)];
+            [refreshImage setImage:[UIImage imageNamed:@"reload.png"]];
+            [refreshImage setUserInteractionEnabled:YES];
+            UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+            [singleTap setNumberOfTapsRequired:1];
+            [refreshImage addGestureRecognizer:singleTap];
+            [self.view addSubview:refreshImage];
+            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 390, 160, 22)];
+            refreshLabel.text = @"Начать заново";
+            refreshLabel.textAlignment = NSTextAlignmentCenter;
+            [self.view addSubview:refreshLabel];
+        }
+        else { // 4 inch
+            UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(128, 320, 64, 64)];
+            [imageview setImage:[UIImage imageNamed:@"reload.png"]];
+            [imageview setUserInteractionEnabled:YES];
+            UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+            [singleTap setNumberOfTapsRequired:1];
+            [imageview addGestureRecognizer:singleTap];
+            [self.view addSubview:imageview];
+            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 390, 160, 22)];
+            refreshLabel.text = @"Начать заново";
+            refreshLabel.textAlignment = NSTextAlignmentCenter;
+            [self.view addSubview:refreshLabel];
+        }
+    }
+    else NSLog(@"Ne examen");
     _timeString = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+}
+
+- (void)singleTapping:(UIGestureRecognizer *)recognizer {
+    NSLog(@"and again...");
+    [self performSegueWithIdentifier:@"examenAgain" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"examenAgain"]) {
+        NSMutableArray *rightArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongArray = [[NSMutableArray alloc] init];
+        NSMutableArray *wrongSelectedArray = [[NSMutableArray alloc] init];
+        ExamenViewController *detailViewController = [segue destinationViewController];
+        detailViewController.wrongArray = wrongArray;
+        detailViewController.rightArray = rightArray;
+        detailViewController.wrongSelectedArray = wrongSelectedArray;
+    }
 }
 
 - (IBAction)resultShare:(id)sender {
