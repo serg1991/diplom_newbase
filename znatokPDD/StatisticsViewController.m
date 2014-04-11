@@ -67,7 +67,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
     UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [trashButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarTrash"] forState:UIControlStateNormal];
-    trashButton.frame = CGRectMake(0, 0, 22, 22);
+    trashButton.frame = CGRectMake(0, 0, 18, 25);
     [trashButton addTarget:self action:@selector(confirmReset) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *trashIconButton = [[UIBarButtonItem alloc]initWithCustomView:trashButton];
     self.navigationItem.rightBarButtonItem = trashIconButton;

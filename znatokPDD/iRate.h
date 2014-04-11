@@ -95,7 +95,6 @@ typedef NS_ENUM(NSUInteger, iRateErrorCode)
 
 @end
 
-
 @interface iRate : NSObject
 
 + (iRate *)sharedInstance;

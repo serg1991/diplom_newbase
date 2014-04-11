@@ -32,8 +32,12 @@ static NSString * kAppID = @"4289778";
     return @"VKontakte";
 }
 
-- (UIImage *)activityImage {
-    return [UIImage imageNamed:@"ic_vk_logo_nb"];
+- (UIImage *)_activityImage {
+    return [UIImage imageNamed:@"vk_share"];
+}
+
++ (UIActivityCategory)activityCategory {
+    return UIActivityCategoryShare;
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
@@ -167,10 +171,6 @@ static NSString * kAppID = @"4289778";
                                               otherButtonTitles:nil];
     [alertView show];
     [self.HUD hide:YES];
-}
-
-+ (UIActivityCategory)activityCategory {
-    return UIActivityCategoryShare;
 }
 
 @end

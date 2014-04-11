@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "Reachability.h"
+#import "VKontakteActivity.h"
+#import <Social/Social.h>
+#import <MessageUI/MessageUI.h>
 
 @interface ResultViewController : UIViewController
+
 @property (nonatomic) bool examen;
-@property (nonatomic) NSUInteger rightCount;
-@property (nonatomic) NSUInteger time;
+@property (nonatomic) int rightCount;
+@property (nonatomic) int time;
+@property (nonatomic, strong) NSArray *shareItems;
+@property (nonatomic, strong) NSString *timeString;
 
 @end

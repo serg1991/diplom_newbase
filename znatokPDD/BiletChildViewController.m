@@ -195,7 +195,7 @@
     if ([[segue identifier] isEqualToString:@"ResultBilet"]) {
         ResultViewController *detailViewController = [segue destinationViewController];
         detailViewController.examen = false;
-        detailViewController.rightCount = _rightAnswersArray.count;
+        detailViewController.rightCount = (int)_rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
     }
 }
