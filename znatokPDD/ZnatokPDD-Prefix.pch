@@ -14,3 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+#define kLabelFrameMaxSize CGSizeMake(265.0, 200.0)
+#define kExamenLabelFrameMaxSize CGSizeMake(285.0, 200.0)
+#define kListDifference 10
+#define kExamenDifference 27

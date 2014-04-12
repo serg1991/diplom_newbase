@@ -96,34 +96,44 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"themeListCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"themeListCell"];
     long row = [indexPath row];
-    NSString *themecount = [NSString stringWithFormat:@"Вопросов : %@", _themeQuestionNumber[row]];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _themeTheme[row]];
-    cell.detailTextLabel.text = themecount;
+    cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Вопросов : %@", _themeQuestionNumber[row]];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          cell.textLabel.font, NSFontAttributeName,
+                                          nil];
+    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+    
+    NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          cell.detailTextLabel.font, NSFontAttributeName,
+                                          nil];
+    CGRect detailTextLabelSize = [cell.detailTextLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
+    cell.detailTextLabel.frame = CGRectMake(5, 5, detailTextLabelSize.size.width, detailTextLabelSize.size.height);
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = [[_themeTheme objectAtIndex:indexPath.row]
-                   sizeWithFont:[UIFont systemFontOfSize:18]
-                   constrainedToSize:CGSizeMake(260, CGFLOAT_MAX)];
-    double commonsize = size.height + 14;
-    if (commonsize < 43) {
-        commonsize = 44.0;
-    }
-    else if (commonsize < 57) {
-        commonsize = 66.0;
-    }
-    else if (commonsize > 66 && commonsize < 79) {
-        commonsize = 88.0;
-    }
-    else {
-        commonsize = 110.0;
-    }
+    long row = [indexPath row];
+    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", row + 1, _themeTheme[row]];
+    NSString *detailTextLabel = [NSString stringWithFormat:@"Вопросов : %@", _themeQuestionNumber[row]];
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIFont systemFontOfSize:17.0f], NSFontAttributeName,
+                                          nil];
+    NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont systemFontOfSize:12.0f], NSFontAttributeName,
+                                           nil];
+    CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+    CGRect detailTextLabelSize = [detailTextLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
     
-    return commonsize;
+    return kListDifference + textLabelSize.size.height + detailTextLabelSize.size.height;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

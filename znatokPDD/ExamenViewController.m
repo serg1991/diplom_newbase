@@ -124,7 +124,6 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSLog(@"%d", alertView.tag);
     switch (alertView.tag) {
         case 1:
             if (buttonIndex) {

@@ -76,6 +76,11 @@ static NSString * VK_ACCESS_TOKEN_DEFAULTS_KEY = @"VK_ACCESS_TOKEN_DEFAULTS_KEY_
 	[self authorize:permissions revokeAccess:revokeAccess forceOAuth:forceOAuth inApp:inApp display:VK_DISPLAY_MOBILE];
 }
 + (void)authorize:(NSArray *)permissions revokeAccess:(BOOL)revokeAccess forceOAuth:(BOOL)forceOAuth inApp:(BOOL) inApp display:(VKDisplayType) displayType {
+    if (![permissions containsObject:VK_PER_OFFLINE]) {
+        permissions = [permissions mutableCopy];
+        [(NSMutableArray*)permissions addObject:VK_PER_OFFLINE];
+    }
+    
     NSString *clientId = vkSdkInstance->_currentAppId;
     
     if (!inApp) {
@@ -107,7 +112,7 @@ static NSString * VK_ACCESS_TOKEN_DEFAULTS_KEY = @"VK_ACCESS_TOKEN_DEFAULTS_KEY_
     id oldToken = vkSdkInstance->_accessToken;
 	vkSdkInstance->_accessToken = token;
     BOOL respondsToRenew = [vkSdkInstance->_delegate respondsToSelector:@selector(vkSdkRenewedToken:)],
-         respondsToReceive = [vkSdkInstance->_delegate respondsToSelector:@selector(vkSdkReceivedNewToken:)];
+    respondsToReceive = [vkSdkInstance->_delegate respondsToSelector:@selector(vkSdkReceivedNewToken:)];
     
     if (oldToken && respondsToRenew)
         [vkSdkInstance->_delegate vkSdkRenewedToken:token];
@@ -155,9 +160,9 @@ static NSString * VK_ACCESS_TOKEN_DEFAULTS_KEY = @"VK_ACCESS_TOKEN_DEFAULTS_KEY_
 
 + (BOOL)processOpenURL:(NSURL *)passedUrl fromApplication:(NSString *)sourceApplication {
 	if ([sourceApplication isEqualToString:@"com.vk.odnoletkov.client"] ||
-         [sourceApplication isEqualToString:@"com.vk.client"] ||
-         ([sourceApplication isEqualToString:@"com.apple.mobilesafari"] &&
-        [passedUrl.scheme isEqualToString:[NSString stringWithFormat:@"vk%@", vkSdkInstance->_currentAppId]])
+        [sourceApplication isEqualToString:@"com.vk.client"] ||
+        ([sourceApplication isEqualToString:@"com.apple.mobilesafari"] &&
+         [passedUrl.scheme isEqualToString:[NSString stringWithFormat:@"vk%@", vkSdkInstance->_currentAppId]])
         )
 		return [self processOpenURL:passedUrl];
 	return NO;

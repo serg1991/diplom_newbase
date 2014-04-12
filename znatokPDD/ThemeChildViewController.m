@@ -128,6 +128,15 @@
         cell.textLabel.numberOfLines = 0;
     }
     
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          cell.textLabel.font, NSFontAttributeName,
+                                          nil];
+    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+    
     return cell;
 }
 
@@ -221,37 +230,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = [[[self getAnswers] objectAtIndex:indexPath.row]
-                   sizeWithFont:[UIFont systemFontOfSize:15]
-                   constrainedToSize:CGSizeMake(276, CGFLOAT_MAX)];
-    double commonsize = size.height;
-    if (commonsize < 20) {
-        return commonsize = 44;
-    }
-    else if (commonsize < 40) {
-        return commonsize = 62;
-    }
-    else if (commonsize < 55) {
-        return commonsize = 80;
-    }
-    else if (commonsize < 72) {
-        return commonsize = 98;
-    }
-    else if (commonsize < 90) {
-        return commonsize = 116;
-    }
-    else if (commonsize < 108) {
-        return commonsize = 134;
-    }
-    else if (commonsize < 142) {
-        return commonsize = 152;
-    }
-    else if (commonsize < 160) {
-        return commonsize = 176;
-    }
-    else {
-        return commonsize = 200;
-    }
+    NSUInteger rowNumber = [indexPath row];
+    NSMutableArray *answerArray = [self getAnswers];
+    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIFont systemFontOfSize:15.0f], NSFontAttributeName,
+                                          nil];
+    CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+    
+    return kExamenDifference + textLabelSize.size.height;
 }
 
 @end

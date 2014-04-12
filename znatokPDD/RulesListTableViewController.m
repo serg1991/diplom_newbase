@@ -120,29 +120,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ruleListCell" forIndexPath:indexPath];
     long row = [indexPath row];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
-    
+    cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          cell.textLabel.font, NSFontAttributeName,
+                                          nil];
+    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = [[_ruleNumbers objectAtIndex:indexPath.row]
-                   sizeWithFont:[UIFont systemFontOfSize:18]
-                   constrainedToSize:CGSizeMake(263, CGFLOAT_MAX)];
-    double commonsize = size.height + 14;
-    if (commonsize < 43) {
-        commonsize = 44.0;
-    }
-    else if (commonsize < 57) {
-        commonsize = 66.0;
-    }
-    else if (commonsize > 66 && commonsize < 79) {
-        commonsize = 88.0;
-    }
-    else {
-        commonsize = 132.0;
-    }
-    
-    return commonsize;
+    long row = [indexPath row];
+    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIFont systemFontOfSize:18.0f], NSFontAttributeName,
+                                          nil];
+    CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+
+    return kExamenDifference + textLabelSize.size.height;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
