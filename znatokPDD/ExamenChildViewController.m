@@ -202,7 +202,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ResultExamen"]) {
         ResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.examen = true;
+        detailViewController.type = 2;
         detailViewController.rightCount = (int)_rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
     }

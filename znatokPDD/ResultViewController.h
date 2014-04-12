@@ -16,9 +16,12 @@
 
 @interface ResultViewController : UIViewController
 
-@property (nonatomic) bool examen;
+@property (nonatomic) int type;
 @property (nonatomic) int rightCount;
+@property (nonatomic) int themeCommon;
+@property (nonatomic) int themeNumber;
 @property (nonatomic) int time;
+@property (nonatomic, retain) NSMutableArray *themeName;
 @property (nonatomic, strong) NSArray *shareItems;
 @property (nonatomic, strong) NSString *timeString;
 

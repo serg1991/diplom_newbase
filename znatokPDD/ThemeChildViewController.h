@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <sqlite3.h>
+#import "ResultViewController.h"
 
 @interface ThemeChildViewController : UIViewController
 
@@ -19,9 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) NSUInteger themeNumber;
 @property (nonatomic) NSUInteger themeCount;
+@property (nonatomic, retain) NSMutableArray *themeName;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
-@property (nonatomic, retain) NSString *startDate;
+@property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic) NSTimeInterval finishDate;
 
 @end

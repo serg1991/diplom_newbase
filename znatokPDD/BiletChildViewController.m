@@ -113,7 +113,7 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[0]];
         cell.textLabel.numberOfLines = 0;
     }
-    else {
+    else if (rowNumber < answerArray.count - 2) {
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
         cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
         cell.textLabel.numberOfLines = 0;
@@ -192,7 +192,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ResultBilet"]) {
         ResultViewController *detailViewController = [segue destinationViewController];
-        detailViewController.examen = false;
+        detailViewController.type = 0;
         detailViewController.rightCount = (int)_rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
     }

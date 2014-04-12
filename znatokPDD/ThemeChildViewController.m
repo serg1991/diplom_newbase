@@ -108,7 +108,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = [UIFont italicSystemFontOfSize:15.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[0]];
+        cell.textLabel.text = [NSString stringWithFormat:@"Вопрос %d / %d \n %@", _index + 1, _themeCount , answerArray[0]];
         cell.textLabel.numberOfLines = 0;
     }
     else {
@@ -174,18 +174,13 @@
     NSUInteger rightCount = _rightAnswersArray.count;
     NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == _themeCount) {
-        [self getResultOfTest];
         [self writeStatisticsToBase];
+        [self getResultOfTest];
     }
 }
 
 - (void)getResultOfTest {
-    if (_wrongAnswersArray.count <= 2) {
-        [self performSegueWithIdentifier:@"GoodResultTheme" sender:self];
-    }
-    else {
-        [self performSegueWithIdentifier:@"BadResultTheme" sender:self];
-    }
+    [self performSegueWithIdentifier:@"ResultTheme" sender:self];
 }
 
 - (void)writeStatisticsToBase {
@@ -197,11 +192,9 @@
     const char *dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     NSDate *date = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-    NSString *dateString = [dateFormatter stringFromDate:date];
+    _finishDate = [date timeIntervalSince1970];
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_theme_stat(themeNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%@', '%@')", (int)_themeNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, dateString];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paper_ab_theme_stat(themeNumber, rightCount, wrongCount, startDate, finishDate) VALUES ('%d', '%d', '%d', '%11.0f', '%11.0f')", (int)_themeNumber + 1, (int)_rightAnswersArray.count, (int)_wrongAnswersArray.count, _startDate, _finishDate];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
@@ -215,6 +208,18 @@
     }
     else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ResultTheme"]) {
+        ResultViewController *detailViewController = [segue destinationViewController];
+        detailViewController.type = 1;
+        detailViewController.themeName = _themeName;
+        detailViewController.themeNumber = (int)_themeNumber;
+        detailViewController.themeCommon = (int)_rightAnswersArray.count + (int)_wrongAnswersArray.count;
+        detailViewController.rightCount = (int)_rightAnswersArray.count;
+        detailViewController.time = _finishDate - _startDate;
     }
 }
 

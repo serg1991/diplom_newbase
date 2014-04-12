@@ -747,6 +747,7 @@
                     <connections>
                         <outlet property="imageView" destination="1wZ-3u-Wi0" id="c1a-97-Aqf"/>
                         <outlet property="tableView" destination="nyD-BP-LLh" id="TGJ-Of-p0J"/>
+                        <segue destination="QGX-ze-FcP" kind="push" identifier="ResultTheme" id="4US-eR-NMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlV-gP-D3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -769,7 +770,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Q2H-VW-Mf4"/>
         <segue reference="jE6-7w-nn4"/>
+        <segue reference="dwv-j1-B7e"/>
     </inferredMetricsTieBreakers>
 </document>

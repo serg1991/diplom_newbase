@@ -144,6 +144,7 @@
         ThemeViewController *detailViewController = [segue destinationViewController];
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         long row = [myIndexPath row];
+        detailViewController.themeName = _themeTheme;
         detailViewController.themeNumber = row;
         detailViewController.themeCount = _themeQuestionNumber;
         detailViewController.wrongArray = wrongArray;

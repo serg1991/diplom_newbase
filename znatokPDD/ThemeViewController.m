@@ -25,9 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSDate *date = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-    _dateString = [dateFormatter stringFromDate:date];
+    _startDate = [date timeIntervalSince1970];
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
     self.pageController.dataSource = self;
@@ -97,8 +95,9 @@
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
-    childViewController.startDate = _dateString;
+    childViewController.startDate = _startDate;
     childViewController.themeCount = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+    childViewController.themeName = _themeName;
     
     return childViewController;
 }
@@ -122,10 +121,9 @@
     
     return [self viewControllerAtIndex:index];
 }
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return [[_themeCount objectAtIndex:_themeNumber]integerValue];
-}
+//- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+//    return [[_themeCount objectAtIndex:_themeNumber]integerValue];
+//}
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     return 0;
