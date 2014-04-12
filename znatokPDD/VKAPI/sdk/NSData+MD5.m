@@ -22,6 +22,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <Foundation/Foundation.h>
+
 @implementation NSData (MD5)
 
 - (NSString *)MD5 {
