@@ -105,6 +105,7 @@
         else {
             NSLog(@"Failed to open database!");
         }
+        [self viewDidLoad];
     }
     else {
         NSLog(@"Mozhno bylo by ne nazhimat' togda!");

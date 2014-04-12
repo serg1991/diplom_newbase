@@ -27,17 +27,6 @@
     [super viewDidLoad];
     [self getAnswers];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.tableView addObserver:self forKeyPath:@"contentSize" options:0 context:NULL];
-}
-
-- (void)dealloc {
-    [self.tableView removeObserver:self forKeyPath:@"contentSize"];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    CGRect frame = self.tableView.frame;
-    frame.size = self.tableView.contentSize;
-    self.tableView.frame = frame;
 }
 
 - (void)showComment {
@@ -148,13 +137,13 @@
     if ([self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже правильно ответил
         self.tableView.allowsSelection = NO;
         if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
-            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
     }
     else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
         long questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
         if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithLong:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
-            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
     }
 }
 
@@ -173,12 +162,12 @@
             if ([settings boolForKey:@"needVibro"]) {
                 AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
             }
-            cell.contentView.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
         }
         else { // если ответ неправильный
-            cell.contentView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
