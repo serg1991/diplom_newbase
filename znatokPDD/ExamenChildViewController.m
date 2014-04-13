@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getAnswers];
+    _mainArray = [self getAnswers];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -81,26 +81,23 @@
 }
 
 - (NSUInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSUInteger)section {
-    NSArray *array = [self getAnswers];
-    
-    return array.count - 2;
+    return _mainArray.count - 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger rowNumber = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    NSMutableArray *answerArray = [self getAnswers];
     if (rowNumber == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = [UIFont italicSystemFontOfSize:15.0];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", answerArray[0]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", _mainArray[0]];
         cell.textLabel.numberOfLines = 0;
     }
     else {
         cell.textLabel.font = [UIFont systemFontOfSize:15.0];
-        cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
         cell.textLabel.numberOfLines = 0;
     }
     
@@ -118,16 +115,15 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger rowNumber = [indexPath row];
-    NSArray *array = [self getAnswers];
     if ([self.rightAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже правильно ответил
         self.tableView.allowsSelection = NO;
-        if (rowNumber == [array[array.count - 2] intValue])  // если ответ правильный
+        if (rowNumber == [_mainArray[_mainArray.count - 2] intValue])  // если ответ правильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
     }
     else if ([self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_index + 1]] ) { // делаю красиво, если пользователь возвращается к вопросу, на который уже НЕправильно ответил
         long questnum = [self.wrongAnswersArray indexOfObject:[NSNumber numberWithInteger:_index + 1]];
         self.tableView.allowsSelection = NO;
-        if (rowNumber != [array[array.count - 2] intValue] && [NSNumber numberWithLong:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
+        if (rowNumber != [_mainArray[_mainArray.count - 2] intValue] && [NSNumber numberWithLong:rowNumber] == [NSNumber numberWithInt:[[self.wrongAnswersSelectedArray objectAtIndex:questnum] intValue]])  // если ответ НЕправильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
     }
 }
@@ -136,16 +132,16 @@
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSUInteger rowNumber = [indexPath row];
-    NSArray *array = [self getAnswers];
     if (rowNumber == 0) {
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else {
-        if (rowNumber == [array[array.count - 2] intValue]) { // если ответ правильный
+        if (rowNumber == [_mainArray[_mainArray.count - 2] intValue]) { // если ответ правильный
             if ([settings boolForKey:@"needVibro"]) {
                 AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
-            }            cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
+            }
+            cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
         }
@@ -210,8 +206,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger rowNumber = [indexPath row];
-    NSMutableArray *answerArray = [self getAnswers];
-    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, answerArray[rowNumber]];
+    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [UIFont systemFontOfSize:15.0f], NSFontAttributeName,
                                           nil];

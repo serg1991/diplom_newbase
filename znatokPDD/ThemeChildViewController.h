@@ -21,6 +21,7 @@
 @property (nonatomic) NSUInteger themeNumber;
 @property (nonatomic) NSUInteger themeCount;
 @property (nonatomic, retain) NSMutableArray *themeName;
+@property (nonatomic, retain) NSMutableArray *mainArray;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersSelectedArray;
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
