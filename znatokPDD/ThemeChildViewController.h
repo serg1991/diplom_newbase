@@ -13,13 +13,13 @@
 
 @interface ThemeChildViewController : UIViewController
 
-@property (assign, nonatomic) NSUInteger index;
+@property (assign, nonatomic) int index;
 @property (nonatomic) sqlite3 *pdd_ab;
 @property (nonatomic) sqlite3 *pdd_ab_stat;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic) NSUInteger themeNumber;
-@property (nonatomic) NSUInteger themeCount;
+@property (nonatomic) int themeNumber;
+@property (nonatomic) int themeCount;
 @property (nonatomic, retain) NSMutableArray *themeName;
 @property (nonatomic, retain) NSMutableArray *mainArray;
 @property (nonatomic, retain) NSMutableArray *rightAnswersArray;

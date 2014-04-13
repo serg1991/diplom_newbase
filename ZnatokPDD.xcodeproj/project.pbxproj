@@ -90,6 +90,10 @@
 		A58CF98618F6A66900AA2B2E /* bad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58CF98418F6A66900AA2B2E /* bad@2x.png */; };
 		A58EDA4318E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */; };
 		A58EDA4518E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */; };
+		A591798218FACA6100B7CCB3 /* LinesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591798118FACA6100B7CCB3 /* LinesDetailViewController.m */; };
+		A591798718FACA6A00B7CCB3 /* SignsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591798618FACA6A00B7CCB3 /* SignsDetailViewController.m */; };
+		A591798A18FACB4200B7CCB3 /* SignsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591798918FACB4200B7CCB3 /* SignsListTableViewController.m */; };
+		A591798D18FACD3400B7CCB3 /* RulesAndSignsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A591798C18FACD3400B7CCB3 /* RulesAndSignsTableViewController.m */; };
 		A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26B18E759F6004D6996 /* ThemeViewController.m */; };
 		A592F26F18E75A26004D6996 /* ThemeChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A592F26E18E75A26004D6996 /* ThemeChildViewController.m */; };
 		A59D6FB71896FFC400017711 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59D6FB61896FFC400017711 /* SettingsViewController.m */; };
@@ -229,6 +233,14 @@
 		A58CF98418F6A66900AA2B2E /* bad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bad@2x.png"; sourceTree = "<group>"; };
 		A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UINavigationBarBackIndicatorDefault@2x.png"; sourceTree = "<group>"; };
 		A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UINavigationBarBackIndicatorDefault.png; sourceTree = "<group>"; };
+		A591798018FACA6100B7CCB3 /* LinesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinesDetailViewController.h; path = znatokPDD/LinesDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		A591798118FACA6100B7CCB3 /* LinesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinesDetailViewController.m; path = znatokPDD/LinesDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		A591798518FACA6A00B7CCB3 /* SignsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignsDetailViewController.h; path = znatokPDD/SignsDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		A591798618FACA6A00B7CCB3 /* SignsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignsDetailViewController.m; path = znatokPDD/SignsDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		A591798818FACB4200B7CCB3 /* SignsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignsListTableViewController.h; path = znatokPDD/SignsListTableViewController.h; sourceTree = SOURCE_ROOT; };
+		A591798918FACB4200B7CCB3 /* SignsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignsListTableViewController.m; path = znatokPDD/SignsListTableViewController.m; sourceTree = SOURCE_ROOT; };
+		A591798B18FACD3400B7CCB3 /* RulesAndSignsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RulesAndSignsTableViewController.h; path = znatokPDD/RulesAndSignsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		A591798C18FACD3400B7CCB3 /* RulesAndSignsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RulesAndSignsTableViewController.m; path = znatokPDD/RulesAndSignsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		A592F26A18E759F6004D6996 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
 		A592F26B18E759F6004D6996 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
 		A592F26D18E75A26004D6996 /* ThemeChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeChildViewController.h; sourceTree = "<group>"; };
@@ -348,15 +360,23 @@
 				A526410318DB1E7100AD31D6 /* ExamenViewController.h */,
 				A526410418DB1E7100AD31D6 /* ExamenViewController.m */,
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
+				A591798018FACA6100B7CCB3 /* LinesDetailViewController.h */,
+				A591798118FACA6100B7CCB3 /* LinesDetailViewController.m */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A52EB7BE18EA0BB300E4E537 /* ResultViewController.h */,
 				A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */,
+				A591798B18FACD3400B7CCB3 /* RulesAndSignsTableViewController.h */,
+				A591798C18FACD3400B7CCB3 /* RulesAndSignsTableViewController.m */,
 				A563E893189C473D004320F0 /* RulesDetailViewController.h */,
 				A563E894189C473D004320F0 /* RulesDetailViewController.m */,
 				A5C18401189BEC6B00845C10 /* RulesListTableViewController.h */,
 				A5C18402189BEC6B00845C10 /* RulesListTableViewController.m */,
 				A59D6FB51896FFC400017711 /* SettingsViewController.h */,
 				A59D6FB61896FFC400017711 /* SettingsViewController.m */,
+				A591798518FACA6A00B7CCB3 /* SignsDetailViewController.h */,
+				A591798618FACA6A00B7CCB3 /* SignsDetailViewController.m */,
+				A591798818FACB4200B7CCB3 /* SignsListTableViewController.h */,
+				A591798918FACB4200B7CCB3 /* SignsListTableViewController.m */,
 				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
 				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
 				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
@@ -671,7 +691,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A591798A18FACB4200B7CCB3 /* SignsListTableViewController.m in Sources */,
 				A5A690CB18984D7C001D5275 /* BiletListTableViewController.m in Sources */,
+				A591798218FACA6100B7CCB3 /* LinesDetailViewController.m in Sources */,
 				A5C18403189BEC6B00845C10 /* RulesListTableViewController.m in Sources */,
 				A592F26C18E759F6004D6996 /* ThemeViewController.m in Sources */,
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
@@ -685,11 +707,13 @@
 				A56A012918F0C295000D38F9 /* Reachability.m in Sources */,
 				A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */,
 				A5B04AB918BF80B1007B4D05 /* BiletViewController.m in Sources */,
+				A591798D18FACD3400B7CCB3 /* RulesAndSignsTableViewController.m in Sources */,
 				A592F26F18E75A26004D6996 /* ThemeChildViewController.m in Sources */,
 				A5614FE118F20EE700263A57 /* MBProgressHUD.m in Sources */,
 				A522E604189521C70090AFA2 /* main.m in Sources */,
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
 				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
+				A591798718FACA6A00B7CCB3 /* SignsDetailViewController.m in Sources */,
 				A5B04AB818BF80B1007B4D05 /* BiletChildViewController.m in Sources */,
 				A52EB7C018EA0BB300E4E537 /* ResultViewController.m in Sources */,
 			);

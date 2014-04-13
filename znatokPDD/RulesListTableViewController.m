@@ -7,7 +7,6 @@
 //
 
 #import "RulesListTableViewController.h"
-#import "RulesDetailViewController.h"
 
 @interface RulesListTableViewController ()
 
@@ -26,6 +25,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+    UILabel *labelback = [[UILabel alloc] init];
+    [labelback setText:@"ПДД и знаки"];
+    [labelback sizeToFit];
+    int space = 6;
+    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+    [view addSubview:imageView];
+    [view addSubview:labelback];
+    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        labelback.alpha = 0.0;
+        CGRect orig = labelback.frame;
+        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        labelback.alpha = 1.0;
+        labelback.frame = orig;
+    } completion:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+    self.navigationItem.leftBarButtonItem = backButton;
     _ruleNumbers = @[@"Общие положения",
                      @"Общие обязанности водителей",
                      @"Применение специальных сигналов",
@@ -74,28 +95,6 @@
                     @"pdd22",
                     @"pdd23",
                     @"pdd24"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
-    UILabel *labelback = [[UILabel alloc] init];
-    [labelback setText:@"Меню"];
-    [labelback sizeToFit];
-    int space = 6;
-    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    [view addSubview:imageView];
-    [view addSubview:labelback];
-    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:button];
-    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        labelback.alpha = 0.0;
-        CGRect orig = labelback.frame;
-        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-        labelback.alpha = 1.0;
-        labelback.frame = orig;
-    } completion:nil];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 - (void)confirmCancel {
@@ -120,6 +119,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ruleListCell" forIndexPath:indexPath];
     long row = [indexPath row];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _ruleNumbers[row]];
+    cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:18.0f];
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
     backView.backgroundColor = [UIColor clearColor];
@@ -140,8 +140,8 @@
                                           [UIFont systemFontOfSize:18.0f], NSFontAttributeName,
                                           nil];
     CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-
-    return kExamenDifference + textLabelSize.size.height;
+    
+    return kExamenDifference + textLabelSize.size.height - 4;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

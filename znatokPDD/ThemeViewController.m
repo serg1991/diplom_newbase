@@ -90,13 +90,13 @@
 
 - (ThemeChildViewController *)viewControllerAtIndex:(NSUInteger)index {
     ThemeChildViewController *childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ThemeChildViewController"];
-    childViewController.index = index;
-    childViewController.themeNumber = _themeNumber;
+    childViewController.index = (int)index;
+    childViewController.themeNumber = (int)_themeNumber;
     childViewController.rightAnswersArray = _rightArray;
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _startDate;
-    childViewController.themeCount = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+    childViewController.themeCount = (int)[[_themeCount objectAtIndex:_themeNumber]integerValue];
     childViewController.themeName = _themeName;
     
     return childViewController;
