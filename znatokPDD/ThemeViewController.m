@@ -112,8 +112,9 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(ThemeChildViewController *)viewController index];
     index++;
-    if (index == [[_themeCount objectAtIndex:_themeNumber]integerValue])
+    if (index == [[_themeCount objectAtIndex:_themeNumber]integerValue]) {
         return nil;
+    }
     return [self viewControllerAtIndex:index];
 }
 

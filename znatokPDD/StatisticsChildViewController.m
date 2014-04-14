@@ -361,10 +361,12 @@
                 NSString *seconds = [NSString stringWithFormat:@"%d", timeDiff % 60];
                 NSUInteger myMinute = [minutes intValue];
                 NSUInteger mySecond = [seconds intValue];
-                if (myMinute < 10)
+                if (myMinute < 10) {
                     minutes = [NSString stringWithFormat:@"0%d", timeDiff / 60];
-                if (mySecond < 10)
+                }
+                if (mySecond < 10) {
                     seconds = [NSString stringWithFormat:@"0%d", timeDiff % 60];
+                }
                 NSString *exTime =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement3, 1)];
                 NSDateFormatter *date_formatter = [[NSDateFormatter alloc] init];

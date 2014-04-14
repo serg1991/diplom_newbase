@@ -102,8 +102,9 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(BiletChildViewController *)viewController index];
     index++;
-    if (index == 20)
+    if (index == 20) {
         return nil;
+    }
     return [self viewControllerAtIndex:index];
 }
 

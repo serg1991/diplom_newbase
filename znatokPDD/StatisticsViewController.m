@@ -140,8 +140,9 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(StatisticsChildViewController *)viewController index];
     index++;
-    if (index == 3)
+    if (index == 3) {
         return nil;
+    }
     return [self viewControllerAtIndex:index];
 }
 

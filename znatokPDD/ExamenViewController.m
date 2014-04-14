@@ -25,8 +25,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (_timer)
+    if (_timer) {
         return;
+    }
     remainingTicks = 1200;
     [self updateLabel];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleTimerTick) userInfo:nil repeats:YES];
@@ -53,10 +54,12 @@
     NSString *seconds = [NSString stringWithFormat:@"%d", remainingTicks % 60];
     NSUInteger myMinute = [minutes intValue];
     NSUInteger mySecond = [seconds intValue];
-    if (myMinute < 10)
+    if (myMinute < 10) {
         minutes = [NSString stringWithFormat:@"0%d", remainingTicks / 60];
-    if (mySecond < 10)
+    }
+    if (mySecond < 10) {
         seconds = [NSString stringWithFormat:@"0%d", remainingTicks % 60];
+    }
     theLabel.text =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
 }
 
@@ -175,8 +178,9 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = [(ExamenChildViewController *)viewController index];
     index++;
-    if (index == 20)
+    if (index == 20) {
         return nil;
+    }
     return [self viewControllerAtIndex:index];
 }
 

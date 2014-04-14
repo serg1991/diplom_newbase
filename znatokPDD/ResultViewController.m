@@ -27,10 +27,12 @@
     NSString *seconds = [NSString stringWithFormat:@"%d", _time % 60];
     NSUInteger myMinute = [minutes intValue];
     NSUInteger mySecond = [seconds intValue];
-    if (myMinute < 10)
+    if (myMinute < 10) {
         minutes = [NSString stringWithFormat:@"0%d", _time / 60];
-    if (mySecond < 10)
+    }
+    if (mySecond < 10) {
         seconds = [NSString stringWithFormat:@"0%d", _time % 60];
+    }
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     if (_type == 0) {
