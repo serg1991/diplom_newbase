@@ -53,7 +53,7 @@
                    @"Знаки особых предписаний",
                    @"Информационные знаки",
                    @"Знаки сервиса",
-                   @"Знаки дополнительной информации"];
+                   @"Знаки дополнительной информации (таблички)"];
     _signDetail = @[@"/www/znak1",
                     @"/www/znak2",
                     @"/www/znak3",
@@ -71,7 +71,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
