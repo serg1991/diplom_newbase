@@ -455,7 +455,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="nLe-Yk-Ty7" kind="push" id="1nC-tS-RLY"/>
+                                            <segue destination="nLe-Yk-Ty7" kind="push" identifier="showHorizontalLines" id="1nC-tS-RLY"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="kLG-wX-E2g" detailTextLabel="did-DR-Ct5" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="gfN-2a-mkN">
@@ -482,7 +482,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="nLe-Yk-Ty7" kind="push" id="oLr-VN-ceD"/>
+                                            <segue destination="nLe-Yk-Ty7" kind="push" identifier="showVerticalLines" id="oLr-VN-ceD"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -927,7 +927,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="CRY-o0-vKC" kind="push" id="iIn-hW-2CQ"/>
+                                    <segue destination="CRY-o0-vKC" kind="push" identifier="showSignDetails" id="iIn-hW-2CQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -971,7 +971,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zno-0g-CJt"/>
                     <connections>
-                        <outlet property="rulesWebView" destination="Bat-wh-IzT" id="U3g-Qs-Txq"/>
+                        <outlet property="linesWebView" destination="Bat-wh-IzT" id="o1i-sG-9rc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzf-UK-nzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1007,7 +1007,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SbC-S2-ugR"/>
                     <connections>
-                        <outlet property="rulesWebView" destination="wvr-kN-gds" id="2kf-jw-tHd"/>
+                        <outlet property="signWebView" destination="wvr-kN-gds" id="Khh-DB-HC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjA-Jx-dXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1031,7 +1031,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="79G-Bc-XIz"/>
-        <segue reference="oLr-VN-ceD"/>
+        <segue reference="1nC-tS-RLY"/>
         <segue reference="4US-eR-NMK"/>
     </inferredMetricsTieBreakers>
 </document>

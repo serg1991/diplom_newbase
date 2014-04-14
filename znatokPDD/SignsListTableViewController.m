@@ -47,7 +47,7 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
-    _signsNames = @[@"Предупреждающие знаки",
+    _signNames = @[@"Предупреждающие знаки",
                     @"Знаки приоритета",
                     @"Запрещающие знаки",
                     @"Предписывающие знаки",
@@ -55,6 +55,14 @@
                     @"Информационные знаки",
                     @"Знаки сервиса",
                     @"Знаки дополнительной информации"];
+    _signDetail = @[@"/www/znak1",
+                    @"/www/znak2",
+                    @"/www/znak3",
+                    @"/www/znak4",
+                    @"/www/znak5",
+                    @"/www/znak6",
+                    @"/www/znak7",
+                    @"/www/znak8"];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -74,14 +82,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_signsNames count];
+    return [_signNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"signListCell" forIndexPath:indexPath];
     long row = [indexPath row];
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _signsNames[row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", row + 1, _signNames[row]];
     cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
     backView.backgroundColor = [UIColor clearColor];
@@ -97,13 +105,24 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     long row = [indexPath row];
-    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", row + 1, _signsNames[row]];
+    NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", row + 1, _signNames[row]];
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [UIFont systemFontOfSize:17.0f], NSFontAttributeName,
                                           nil];
     CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
     
     return kExamenDifference + textLabelSize.size.height;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showSignDetails"]) {
+        SignsDetailViewController *detailViewController = [segue destinationViewController];
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        long row = [myIndexPath row];
+        detailViewController.signDetailModel  = [NSString stringWithFormat:@"%@", _signDetail[row]];
+        NSString *result = [NSString stringWithFormat:@"%ld. %@", row + 1, _signNames[row]];
+        detailViewController.signName = result;
+    }
 }
 
 @end

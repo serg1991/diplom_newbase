@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SignsDetailViewController.h"
 
 @interface SignsListTableViewController : UITableViewController
 
-@property (nonatomic, retain) NSArray *signsNames;
+@property (nonatomic, retain) NSArray *signNames;
+@property (nonatomic, retain) NSArray *signDetail;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LinesDetailViewController.h"
 
 @interface RulesAndSignsTableViewController : UITableViewController
 

@@ -10,4 +10,8 @@
 
 @interface SignsDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *signWebView;
+@property (strong, nonatomic) NSString *signDetailModel;
+@property (strong, nonatomic) NSString *signName;
+
 @end

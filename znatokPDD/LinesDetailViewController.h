@@ -10,4 +10,8 @@
 
 @interface LinesDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *linesWebView;
+@property (strong, nonatomic) NSString *lineDetailModel;
+@property (strong, nonatomic) NSString *lineName;
+
 @end

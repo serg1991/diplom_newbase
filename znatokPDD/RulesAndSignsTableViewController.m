@@ -60,24 +60,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 4;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showHorizontalLines"]) {
+        LinesDetailViewController *detailViewController = [segue destinationViewController];
+        detailViewController.lineDetailModel  = @"/www/razgoriz";
+        detailViewController.lineName = @"Горизонтальная разметка";
+    }
+    if ([[segue identifier] isEqualToString:@"showVerticalLines"]) {
+        LinesDetailViewController *detailViewController = [segue destinationViewController];
+        detailViewController.lineDetailModel  = @"/www/razvert";
+        detailViewController.lineName = @"Вертикальная разметка";
+    }
 }
-*/
+
 @end

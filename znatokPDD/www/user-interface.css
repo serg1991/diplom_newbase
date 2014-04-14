@@ -1,0 +1,59 @@
+.pop-up-message,
+.pop-up-message *{
+	box-sizing: content-box;
+}
+.pop-up-message{
+	position: absolute;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	padding: 20px;
+/*
+	border: 1px solid silver;
+	border-radius: 3px;
+*/
+	background: #fff;
+	z-index: 1500;
+	color: #333;
+/* 	box-shadow: 5px 5px 100px rgba(0, 0, 150, .3); */
+}
+.pop-up-message > div{
+	height: 100%;
+	overflow-y: auto;
+}
+/*
+.pop-up-message.with-veil{
+	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+*/
+	.pop-up-message .icon-close{
+		height: 29px;
+		width: 29px;
+		float: right;
+		padding: 0px;
+		margin: -33px -33px 0 0;
+		font-size: 0px;
+		cursor: pointer;
+		background: url('image/close.png');
+		background-size: cover;
+		
+	}
+	.pop-up-message .icon-close:hover{
+		color: #333;
+	}
+
+.hover-dotted:hover{
+	border-bottom: 1px dotted;
+	text-decoration: none;
+}
+#veil{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1499;
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+}
