@@ -8,25 +8,15 @@
 	top: 50%;
 	left: 50%;
 	padding: 20px;
-/*
-	border: 1px solid silver;
-	border-radius: 3px;
-*/
 	background: #fff;
 	z-index: 1500;
 	color: #333;
-/* 	box-shadow: 5px 5px 100px rgba(0, 0, 150, .3); */
 }
 .pop-up-message > div{
 	height: 100%;
 	overflow-y: auto;
 }
-/*
-.pop-up-message.with-veil{
-	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
-}
-*/
-	.pop-up-message .icon-close{
+.pop-up-message .icon-close{
 		height: 29px;
 		width: 29px;
 		float: right;
@@ -38,9 +28,9 @@
 		background-size: cover;
 		
 	}
-	.pop-up-message .icon-close:hover{
+.pop-up-message .icon-close:hover{
 		color: #333;
-	}
+}
 
 .hover-dotted:hover{
 	border-bottom: 1px dotted;
