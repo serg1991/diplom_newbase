@@ -18,7 +18,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
     return self;
 }
 
@@ -36,11 +35,9 @@
     UILabel *labelback = [[UILabel alloc] init];
     if (_type == 0) {
         [labelback setText:@"К списку билетов"];
-    }
-    else if (_type == 1) {
+    } else if (_type == 1) {
         [labelback setText:@"К списку тем"];
-    }
-    else {
+    } else {
         [labelback setText:@"В меню"];
     }
     [labelback sizeToFit];
@@ -53,11 +50,9 @@
     UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
     if (_type == 0) {
         [button addTarget:self action:@selector(backToBiletList) forControlEvents:UIControlEventTouchUpInside];
-    }
-    else if (_type == 1) {
+    } else if (_type == 1) {
         [button addTarget:self action:@selector(backToThemeList) forControlEvents:UIControlEventTouchUpInside];
-    }
-    else {
+    } else {
         [button addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
     }
     [view addSubview:button];
@@ -70,14 +65,12 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
-    
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarAction"] forState:UIControlStateNormal];
     shareButton.frame = CGRectMake(0, 0, 18, 25);
     [shareButton addTarget:self action:@selector(resultShare:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *shareIconButton = [[UIBarButtonItem alloc]initWithCustomView:shareButton];
     self.navigationItem.rightBarButtonItem = shareIconButton;
-    
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (_type != 1) {
         if (_rightCount > 17) { //good result
@@ -105,8 +98,7 @@
                 timeLabel.textAlignment = NSTextAlignmentCenter;
                 timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
                 [self.view addSubview:timeLabel];
-            }
-            else { // 4 inch
+            } else { // 4 inch
                 UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
                 resultImage.image  = [UIImage imageNamed:@"cars.png"];
                 [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
@@ -131,8 +123,7 @@
                 timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
                 [self.view addSubview:timeLabel];
             }
-        }
-        else { // bad result
+        } else { // bad result
             if (screenHeight == 480) { // 3.5 inch
                 UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
                 resultImage.image  = [UIImage imageNamed:@"crash.png"];
@@ -184,8 +175,7 @@
                 [self.view addSubview:timeLabel];
             }
         }
-    }
-    else { // theme
+    } else { // theme
         if (screenHeight == 480) { //3.5 inch
             UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
@@ -212,8 +202,7 @@
             themeName.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
             themeName.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:themeName];
-        }
-        else { // 4 inch
+        } else { // 4 inch
             UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
             resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
             [self.view addSubview:resultImage];
@@ -254,8 +243,7 @@
             refreshLabel.text = @"Начать заново";
             refreshLabel.textAlignment = NSTextAlignmentCenter;
             [self.view addSubview:refreshLabel];
-        }
-        else { // 4 inch
+        } else { // 4 inch
             UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(128, 360, 64, 64)];
             [imageview setImage:[UIImage imageNamed:@"reload.png"]];
             [imageview setUserInteractionEnabled:YES];
@@ -300,8 +288,7 @@
                                               otherButtonTitles:nil];
         [alert show];
         NSLog(@"There IS NO internet connection");
-    }
-    else {
+    } else {
         if (_type != 1) {
             NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
@@ -312,8 +299,7 @@
             [activityVC setValue:@"Мой результат в приложении Знаток ПДД" forKey:@"subject"];
             activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint];
             [self presentViewController:activityVC animated:YES completion:nil];
-        }
-        else {
+        } else {
             NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
             _shareItems = @[[NSString stringWithFormat:@"Мой результат прохождения тематического теста по ПДД - %d / %d со временем %@.\n Я пользуюсь Знаток ПДД для #iPhone", _rightCount, _themeCommon, _timeString], [self screenshot],[NSURL URLWithString:@"http://yandex.ru"]];
@@ -332,7 +318,6 @@
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     return image;
 }
 

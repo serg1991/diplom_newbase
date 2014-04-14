@@ -20,7 +20,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
     return self;
 }
 
@@ -134,7 +133,7 @@
             [self.navigationController popViewControllerAnimated:YES];
             break;
     }
-
+    
 }
 
 - (void)confirmCancel {
@@ -161,7 +160,6 @@
     childViewController.randomNumbers = _randomNumbers;
     childViewController.timer = _timer;
     childViewController.remainingTicks = remainingTicks;
-    
     return childViewController;
 }
 
@@ -171,7 +169,6 @@
         return nil;
     }
     index--;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -179,9 +176,7 @@
     NSUInteger index = [(ExamenChildViewController *)viewController index];
     index++;
     if (index == 20)
-        
         return nil;
-    
     return [self viewControllerAtIndex:index];
 }
 

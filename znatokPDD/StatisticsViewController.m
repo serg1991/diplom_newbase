@@ -19,7 +19,6 @@
     if (self) {
         // Custom initialization
     }
-    
     return self;
 }
 
@@ -85,12 +84,12 @@
         dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         docsDir = [dirPaths objectAtIndex:0];
         databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-		const char *dbpath = [databasePath UTF8String];
+		const char * dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
             char *errMsg;
-            const char *sql_stmt_removeBiletStat = "DELETE FROM paper_ab_stat WHERE RecNo > 0";
-            const char *sql_stmt_removeThemeStat = "DELETE FROM paper_ab_theme_stat WHERE RecNo > 0";
-            const char *sql_stmt_removeExamenStat = "DELETE FROM paper_ab_examen_stat WHERE RecNo > 0";
+            const char * sql_stmt_removeBiletStat = "DELETE FROM paper_ab_stat WHERE RecNo > 0";
+            const char * sql_stmt_removeThemeStat = "DELETE FROM paper_ab_theme_stat WHERE RecNo > 0";
+            const char * sql_stmt_removeExamenStat = "DELETE FROM paper_ab_examen_stat WHERE RecNo > 0";
             if (sqlite3_exec(_pdd_ab_stat, sql_stmt_removeBiletStat, NULL, NULL, &errMsg) != SQLITE_OK) {
                 NSLog(@"Failed to remove bilet table!");
             }
@@ -101,13 +100,11 @@
                 NSLog(@"Failed to remove examen table!");
             }
             sqlite3_close(_pdd_ab_stat);
-        }
-        else {
+        } else {
             NSLog(@"Failed to open database!");
         }
         [self viewDidLoad];
-    }
-    else {
+    } else {
         NSLog(@"Mozhno bylo by ne nazhimat' togda!");
     }
 }
@@ -128,7 +125,6 @@
 - (StatisticsChildViewController *)viewControllerAtIndex:(NSUInteger)index {
     StatisticsChildViewController *childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StatisticsChildViewController"];
     childViewController.index = index;
-    
     return childViewController;
 }
 
@@ -138,7 +134,6 @@
         return nil;
     }
     index--;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -146,19 +141,15 @@
     NSUInteger index = [(StatisticsChildViewController *)viewController index];
     index++;
     if (index == 3)
-        
         return nil;
-    
     return [self viewControllerAtIndex:index];
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    
     return 3;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    
     return 0;
 }
 

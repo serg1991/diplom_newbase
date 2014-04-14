@@ -18,7 +18,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
     return self;
 }
 
@@ -98,7 +97,6 @@
     childViewController.startDate = _startDate;
     childViewController.themeCount = (int)[[_themeCount objectAtIndex:_themeNumber]integerValue];
     childViewController.themeName = _themeName;
-    
     return childViewController;
 }
 
@@ -108,7 +106,6 @@
         return nil;
     }
     index--;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -116,14 +113,17 @@
     NSUInteger index = [(ThemeChildViewController *)viewController index];
     index++;
     if (index == [[_themeCount objectAtIndex:_themeNumber]integerValue])
-        
         return nil;
-    
     return [self viewControllerAtIndex:index];
 }
-//- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-//    return [[_themeCount objectAtIndex:_themeNumber]integerValue];
-//}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
+        return [[_themeCount objectAtIndex:_themeNumber]integerValue];
+    } else {
+        return 0;
+    }
+}
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     return 0;

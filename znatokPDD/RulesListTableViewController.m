@@ -18,7 +18,6 @@
     self = [super initWithStyle:style];
     if (self) {
     }
-    
     return self;
 }
 
@@ -131,7 +130,6 @@
                                           nil];
     CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
     cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-
     return cell;
 }
 
@@ -142,7 +140,6 @@
                                           [UIFont systemFontOfSize:18.0f], NSFontAttributeName,
                                           nil];
     CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    
     return kExamenDifference + textLabelSize.size.height - 4;
 }
 

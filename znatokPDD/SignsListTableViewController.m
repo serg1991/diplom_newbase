@@ -18,7 +18,6 @@
     self = [super initWithStyle:style];
     if (self) {
     }
-    
     return self;
 }
 
@@ -48,13 +47,13 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
     _signNames = @[@"Предупреждающие знаки",
-                    @"Знаки приоритета",
-                    @"Запрещающие знаки",
-                    @"Предписывающие знаки",
-                    @"Знаки особых предписаний",
-                    @"Информационные знаки",
-                    @"Знаки сервиса",
-                    @"Знаки дополнительной информации"];
+                   @"Знаки приоритета",
+                   @"Запрещающие знаки",
+                   @"Предписывающие знаки",
+                   @"Знаки особых предписаний",
+                   @"Информационные знаки",
+                   @"Знаки сервиса",
+                   @"Знаки дополнительной информации"];
     _signDetail = @[@"/www/znak1",
                     @"/www/znak2",
                     @"/www/znak3",
@@ -99,7 +98,6 @@
                                           nil];
     CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
     cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-    
     return cell;
 }
 
@@ -110,7 +108,6 @@
                                           [UIFont systemFontOfSize:17.0f], NSFontAttributeName,
                                           nil];
     CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    
     return kExamenDifference + textLabelSize.size.height;
 }
 

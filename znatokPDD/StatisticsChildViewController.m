@@ -18,7 +18,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
     return self;
 }
 
@@ -30,7 +29,7 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [databasePath UTF8String];
+    const char * dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2;
     int i = 0;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
@@ -42,7 +41,7 @@
         [BiletCommonStatTitle sizeToFit];
         [scrollView addSubview:BiletCommonStatTitle];
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_stat"];
-        const char *query_stmt1 = [querySQL1 UTF8String];
+        const char * query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement1) == SQLITE_ROW) {
                 if (sqlite3_column_int(statement1, 2) != 0) {
@@ -64,8 +63,7 @@
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
-                }
-                else {
+                } else {
                     NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
                     UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                     BiletCommonStat.text = stat;
@@ -83,8 +81,7 @@
                 }
             }
             sqlite3_finalize(statement1);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
         UILabel *BiletStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
@@ -94,7 +91,7 @@
         [BiletStatTitle sizeToFit];
         [scrollView addSubview:BiletStatTitle];
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT biletNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_stat GROUP BY biletNumber ORDER BY percent DESC"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
+        const char * query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement2) == SQLITE_ROW) {
                 NSString *stat = [NSString stringWithFormat:@" Билет №%d - %3.2f%%", sqlite3_column_int(statement2, 0), sqlite3_column_double(statement2, 3) * 100];
@@ -114,20 +111,17 @@
                 i++;
             }
             sqlite3_finalize(statement2);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #2!");
         }
         sqlite3_close(_pdd_ab_stat);
-    }
-    else {
+    } else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == 480) {
         [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
-    }
-    else {
+    } else {
         [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
     }
     [self.view addSubview:scrollView];
@@ -141,7 +135,7 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [databasePath UTF8String];
+    const char * dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2;
     int i = 0;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
@@ -153,7 +147,7 @@
         [BiletCommonStatTitle sizeToFit];
         [scrollView addSubview:BiletCommonStatTitle];
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount) + SUM(wrongCount)) FROM paper_ab_theme_stat"];
-        const char *query_stmt1 = [querySQL1 UTF8String];
+        const char * query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement1) == SQLITE_ROW) {
                 if (sqlite3_column_int(statement1, 2) != 0) {
@@ -175,8 +169,7 @@
                     UIGraphicsEndImageContext();
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
-                }
-                else {
+                } else {
                     NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
                     UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                     BiletCommonStat.text = stat;
@@ -194,8 +187,7 @@
                 }
             }
             sqlite3_finalize(statement1);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
         UILabel *ThemeStatTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
@@ -205,7 +197,7 @@
         [ThemeStatTitle sizeToFit];
         [scrollView addSubview:ThemeStatTitle];
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT themeNumber, SUM(rightCount), SUM(wrongCount), cast(SUM(rightCount) AS FLOAT) / cast ((SUM(rightCount) + SUM(wrongCount))AS FLOAT) as percent FROM paper_ab_theme_stat GROUP BY themeNumber ORDER BY percent DESC"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
+        const char * query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement2) == SQLITE_ROW) {
                 NSString *stat = [NSString stringWithFormat:@" Тема №%d - %3.2f%%", sqlite3_column_int(statement2, 0), sqlite3_column_double(statement2, 3) * 100];
@@ -225,20 +217,17 @@
                 i++;
             }
             sqlite3_finalize(statement2);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #2!");
         }
         sqlite3_close(_pdd_ab_stat);
-    }
-    else {
+    } else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == 480) {
         [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
-    }
-    else {
+    } else {
         [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
     }
     [self.view addSubview:scrollView];
@@ -251,11 +240,11 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [databasePath UTF8String];
+    const char * dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement1, *statement2, *statement3;
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         NSString *querySQL1 = [NSString stringWithFormat:@"SELECT SUM(rightCount), SUM(wrongCount), (SUM(rightCount)+SUM(wrongCount)) FROM paper_ab_examen_stat"];
-        const char *query_stmt1 = [querySQL1 UTF8String];
+        const char * query_stmt1 = [querySQL1 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt1, -1, &statement1, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement1) == SQLITE_ROW) {
                 UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 300, 40)];
@@ -280,8 +269,7 @@
                     UIGraphicsEndImageContext();
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
-                }
-                else {
+                } else {
                     NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
                     UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                     ExResult.text = stat;
@@ -299,12 +287,11 @@
                 }
             }
             sqlite3_finalize(statement1);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #1!");
         }
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT Count(*), Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END), (Count(*) - Count(CASE WHEN rightCount>17 THEN 1 ELSE NULL END)) FROM paper_ab_examen_stat"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
+        const char * query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement2) == SQLITE_ROW) {
                 if (sqlite3_column_int(statement2, 0) != 0) {
@@ -329,8 +316,7 @@
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
                     _bottomBestResult = ExResult.frame;
-                }
-                else {
+                } else {
                     UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
                     ExTriesTitle.numberOfLines = 2;
                     ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : 0\nУспешных \t\t\t\t\t\t  Неуспешных"];
@@ -355,8 +341,7 @@
                 }
             }
             sqlite3_finalize(statement2);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #2!");
         }
         UILabel *ExBestResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(0, _bottomBestResult.origin.y + 50, 300, 20)];
@@ -367,7 +352,7 @@
         [ExBestResultTitle sizeToFit];
         [self.view addSubview:ExBestResultTitle];
         NSString *querySQL3 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 5"];
-        const char *query_stmt3 = [querySQL3 UTF8String];
+        const char * query_stmt3 = [querySQL3 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
             int i = 0;
             while (sqlite3_step(statement3) == SQLITE_ROW) {
@@ -396,13 +381,11 @@
                 i++;
             }
             sqlite3_finalize(statement3);
-        }
-        else {
+        } else {
             NSLog(@"Ne mogu vypolnit' zapros #3!");
         }
         sqlite3_close(_pdd_ab_stat);
-    }
-    else {
+    } else {
         NSLog(@"Ne mogu ustanovit' soedinenie!");
     }
 }

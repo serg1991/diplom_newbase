@@ -18,7 +18,6 @@
     self = [super initWithStyle:style];
     if (self) {
     }
-    
     return self;
 }
 
@@ -84,7 +83,6 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = _biletNumbers[row];
     cell.detailTextLabel.text = record;
-    
     return cell;
 }
 
@@ -109,28 +107,26 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     NSString *defaultDBPath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"pdd_stat.sqlite"]];
-    const char *dbpath = [defaultDBPath UTF8String];
+    const char * dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement;
     _biletRecords = [[NSMutableArray alloc] init];
     if (sqlite3_open(dbpath, &_pdd_ab_stat) == SQLITE_OK) {
         for (long row = 0; row < 40; row ++) {
             NSString *querySQL = [NSString stringWithFormat:@"SELECT Max(rightCount) from paper_ab_stat WHERE biletNumber = \"%ld\"", row + 1];
-            const char *query_stmt = [querySQL UTF8String];
+            const char * query_stmt = [querySQL UTF8String];
             if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
                 if (sqlite3_step(statement) == SQLITE_ROW) {
                     NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
                     [_biletRecords addObject:arrayelement];
                 }
-            }
-            else {
+            } else {
                 NSNumber *arrayelement = [NSNumber numberWithInt:0];
-               [_biletRecords addObject:arrayelement];
+                [_biletRecords addObject:arrayelement];
             }
             sqlite3_finalize(statement);
         }
     }
     sqlite3_close(_pdd_ab_stat);
-    
     return _biletRecords;
 }
 

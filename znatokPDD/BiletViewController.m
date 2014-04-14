@@ -14,7 +14,6 @@
 
 @implementation BiletViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSDate *date = [[NSDate alloc] init];
@@ -88,7 +87,6 @@
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _startDate;
-    
     return childViewController;
 }
 
@@ -98,7 +96,6 @@
         return nil;
     }
     index--;
-    
     return [self viewControllerAtIndex:index];
 }
 
@@ -106,19 +103,15 @@
     NSUInteger index = [(BiletChildViewController *)viewController index];
     index++;
     if (index == 20)
-        
         return nil;
-    
     return [self viewControllerAtIndex:index];
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    
     return 20;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    
     return 0;
 }
 

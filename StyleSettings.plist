@@ -16,8 +16,10 @@
 <true/>
 <key>kRequireSpaceAfterConditionalStatement</key>
 <true/>
+<key>kRequireEmptyLineAboveConditionalStatement</key>
+<false/>
 <key>kRequireEmptyLineAboveReturnStatement</key>
-<true/>
+<false/>
 <key>kRequireNoEmptyLineAsFirstLineInMethod</key>
 <false/>
 <key>kRequireSpaceAfterPropertyTypeDeclaration</key>
@@ -39,9 +41,11 @@
 <key>kMathSpacingRule</key>
 <integer>1</integer>
 <key>kElseFormatRule</key>
-<integer>3</integer>
+<integer>0</integer>
 <key>kElseIfFormatRule</key>
-<integer>3</integer>
+<integer>0</integer>
+<key>kRequireSpaceAboveBreak</key>
+<false/>
 <key>kRequireSpaceBeforeParameter</key>
 <false/>
 <key>kRequireSpaceBetweenTernaryOperators</key>
@@ -66,6 +70,8 @@
 <true/>
 <key>kNumberOfEmptyLinesAboveCategory</key>
 <integer>1</integer>
+<key>kStaticVariableAsteriskSpacingRule</key>
+<integer>1</integer>
 <key>kNumberOfEmptyLinesBeforePragma</key>
 <integer>1</integer>
 <key>kNumberOfEmptyLinesAfterPragma</key>
@@ -74,6 +80,8 @@
 <integer>1</integer>
 <key>kComparisonSpacingRule</key>
 <integer>1</integer>
+<key>kAllowSingleLineIfStatements</key>
+<false/>
 
 </dict>
 </plist>

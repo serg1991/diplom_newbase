@@ -18,7 +18,6 @@
     self = [super initWithStyle:style];
     if (self) {
     }
-    
     return self;
 }
 
@@ -26,13 +25,13 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"pdd.sqlite"];
-    const char *dbpath = [defaultDBPath UTF8String];
+    const char * dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement, *statement2;
     _themeTheme = [[NSMutableArray alloc] init];
     _themeQuestionNumber = [[NSMutableArray alloc] init];
     if (sqlite3_open(dbpath, &_pdd) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT ThemeName from paper_ab_themes"];
-        const char *query_stmt = [querySQL UTF8String];
+        const char * query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(_pdd, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 NSString *arrayelement = [[NSString alloc]
@@ -43,7 +42,7 @@
         }
         sqlite3_finalize(statement);
         NSString *querySQL2 = [NSString stringWithFormat:@"SELECT COUNT(*) FROM paper_ab GROUP BY QuestionType"];
-        const char *query_stmt2 = [querySQL2 UTF8String];
+        const char * query_stmt2 = [querySQL2 UTF8String];
         if (sqlite3_prepare_v2(_pdd, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement2) == SQLITE_ROW) {
                 NSNumber *arrayelement = [NSNumber numberWithInt:sqlite3_column_int(statement2, 0)];
@@ -112,11 +111,10 @@
     cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
     
     NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          cell.detailTextLabel.font, NSFontAttributeName,
-                                          nil];
+                                           cell.detailTextLabel.font, NSFontAttributeName,
+                                           nil];
     CGRect detailTextLabelSize = [cell.detailTextLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
     cell.detailTextLabel.frame = CGRectMake(5, 5, detailTextLabelSize.size.width, detailTextLabelSize.size.height);
-    
     return cell;
 }
 
@@ -132,7 +130,6 @@
                                            nil];
     CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
     CGRect detailTextLabelSize = [detailTextLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
-    
     return kListDifference + textLabelSize.size.height + detailTextLabelSize.size.height;
 }
 

@@ -18,7 +18,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    
     return self;
 }
 
@@ -72,8 +71,7 @@
                                               otherButtonTitles:nil];
         [alert show];
         NSLog(@"There IS NO internet connection");
-    }
-    else {
+    } else {
         NSLog(@"There IS internet connection");
         VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
         NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://yandex.ru"]];
@@ -109,8 +107,7 @@
                                               otherButtonTitles:nil];
         [alert show];
         NSLog(@"There IS NO internet connection");
-    }
-    else {
+    } else {
         NSLog(@"There IS internet connection");
         if ([MFMailComposeViewController canSendMail]) {
             NSString *emailTitle = @"Знаток ПДД - письмо разработчику";
@@ -122,8 +119,7 @@
             [mc setMessageBody:messageBody isHTML:NO];
             [mc setToRecipients:toRecipents];
             [self presentViewController:mc animated:YES completion:NULL];
-        }
-        else {
+        } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
                                                             message:@"Вы не можете отправлять email-сообщения. Убедитесь, что в настройках почты подключен аккаунт."
                                                            delegate:self
