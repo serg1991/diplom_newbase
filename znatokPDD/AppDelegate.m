@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  diplom
+//  ZnatokPDD
 //
 //  Created by Sergey Kiselev on 26.01.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.

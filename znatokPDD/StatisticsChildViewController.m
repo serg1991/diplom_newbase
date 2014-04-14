@@ -1,6 +1,6 @@
 //
 //  StatisticsChildViewController.m
-//  diplom
+//  ZnatokPDD
 //
 //  Created by Sergey Kiselev on 23.03.14.
 //  Copyright (c) 2014 Sergey Kiselev. All rights reserved.
