@@ -13,5 +13,11 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic) sqlite3 *pdd_ab_stat;
+@property (weak, nonatomic) IBOutlet UIImageView *image1;
+@property (weak, nonatomic) IBOutlet UIImageView *image2;
+@property (weak, nonatomic) IBOutlet UIImageView *image3;
+@property (weak, nonatomic) IBOutlet UIImageView *image4;
+@property (weak, nonatomic) IBOutlet UIImageView *image5;
+@property (weak, nonatomic) IBOutlet UIImageView *image6;
 
 @end

@@ -24,7 +24,6 @@
         [settings setBool:YES forKey:@"showComment"];
     }
     [settings synchronize];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

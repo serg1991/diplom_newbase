@@ -263,7 +263,6 @@
 }
 
 - (void)singleTapping:(UIGestureRecognizer *)recognizer {
-    NSLog(@"and again...");
     [self performSegueWithIdentifier:@"examenAgain" sender:self];
 }
 
@@ -317,7 +316,6 @@
 
 - (UIImage *)screenshot {
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 1.0);
-    NSLog(@"%f", [UIScreen mainScreen].scale);
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

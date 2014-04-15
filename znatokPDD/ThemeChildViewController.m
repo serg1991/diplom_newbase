@@ -219,7 +219,6 @@
                                               [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
                                               nil];
         CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        NSLog(@"%f", kExamenDifference + textLabelSize.size.height - 1);
         return kExamenDifference + textLabelSize.size.height - 1;
         
     } else {

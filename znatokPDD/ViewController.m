@@ -18,8 +18,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *singleTap1 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap2 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap3 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap4 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap5 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap6 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    [_image1 addGestureRecognizer:singleTap1];
+    [_image2 addGestureRecognizer:singleTap2];
+    [_image3 addGestureRecognizer:singleTap3];
+    [_image4 addGestureRecognizer:singleTap4];
+    [_image5 addGestureRecognizer:singleTap5];
+    [_image6 addGestureRecognizer:singleTap6];
     navBarHairlineImageView = [self findHairlineImageViewUnder:self.navigationController.navigationBar];
     [self ifStatTablesExists];
+}
+
+- (void)singleTapping:(UIGestureRecognizer *)recognizer {
+    switch ((long)recognizer.view.tag) {
+        case 1:
+            [self performSegueWithIdentifier:@"showTheme" sender:self];
+            break;
+        case 2:
+            [self performSegueWithIdentifier:@"showBilet" sender:self];
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"showExamen" sender:self];
+            break;
+        case 4:
+            [self performSegueWithIdentifier:@"showStatistics" sender:self];
+            break;
+        case 5:
+            [self performSegueWithIdentifier:@"showRules" sender:self];
+            break;
+        case 6:
+            [self performSegueWithIdentifier:@"showSettings" sender:self];
+            break;
+    }
 }
 
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
