@@ -294,7 +294,7 @@
         if (_type != 1) {
             NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
-            _shareItems = @[[NSString stringWithFormat:@"Мой результат прохождения теста по ПДД - %d/20 со временем %@.\n Я пользуюсь Знаток ПДД для #iPhone", _rightCount, _timeString], [self screenshot],[NSURL URLWithString:@"http://yandex.ru"]];
+            _shareItems = @[[NSString stringWithFormat:@"Мой результат в тесте по ПДД - %d/20 со временем %@.\n #ЗнатокПДД", _rightCount, _timeString], [self screenshot],[NSURL URLWithString:@"http://yandex.ru"]];
             UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                     initWithActivityItems:_shareItems
                                                     applicationActivities:@[vkontakteActivity]];
@@ -304,7 +304,7 @@
         } else {
             NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
-            _shareItems = @[[NSString stringWithFormat:@"Мой результат прохождения тематического теста по ПДД - %d / %d со временем %@.\n Я пользуюсь Знаток ПДД для #iPhone", _rightCount, _themeCommon, _timeString], [self screenshot],[NSURL URLWithString:@"http://yandex.ru"]];
+            _shareItems = @[[NSString stringWithFormat:@"Мой результат в тематическом тесте по ПДД - %d / %d со временем %@.\n #ЗнатокПДД", _rightCount, _themeCommon, _timeString], [self screenshot],[NSURL URLWithString:@"http://yandex.ru"]];
             UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                     initWithActivityItems:_shareItems
                                                     applicationActivities:@[vkontakteActivity]];
@@ -316,7 +316,8 @@
 }
 
 - (UIImage *)screenshot {
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 1.0);
+    NSLog(@"%f", [UIScreen mainScreen].scale);
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

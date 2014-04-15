@@ -82,8 +82,7 @@
         [_randomNumbers addObject:[NSNumber numberWithUnsignedLong:randomNumber]];
     }
     //добавление контроллеров в массив
-    NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
-    self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
+    self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     ExamenChildViewController *initialViewController = [self viewControllerAtIndex:0];
@@ -93,7 +92,7 @@
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
     //добавление шапки из названия контроллера и таймера
-    self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 100, 30)];
+    self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 60, 30)];
     _timer = nil;
     [self.navigationItem setTitle:@"Экзамен"];
     [self.navigationController.navigationBar addSubview:theLabel];
