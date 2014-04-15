@@ -767,7 +767,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-Ce-im2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-Ce-im2">
                                 <rect key="frame" x="2" y="2" width="316" height="566"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -777,14 +777,28 @@
                                     <outlet property="delegate" destination="qhf-aJ-uaC" id="ltD-Eu-2rP"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-9m-duP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-9m-duP">
                                 <rect key="frame" x="2" y="2" width="316" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="f2i-LD-YZh"/>
+                                    <constraint firstAttribute="width" constant="316" id="x55-y8-lJF"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rqg-Ce-im2" secondAttribute="bottom" id="8PK-0a-xvI"/>
+                            <constraint firstAttribute="trailing" secondItem="x9l-9m-duP" secondAttribute="trailing" constant="2" id="C4k-yn-qo3"/>
+                            <constraint firstItem="rqg-Ce-im2" firstAttribute="top" secondItem="x9l-9m-duP" secondAttribute="top" id="DgV-PR-p3S"/>
+                            <constraint firstItem="x9l-9m-duP" firstAttribute="top" secondItem="1lB-7r-Qru" secondAttribute="top" constant="2" id="Fpc-ZB-8ex"/>
+                            <constraint firstItem="x9l-9m-duP" firstAttribute="leading" secondItem="1lB-7r-Qru" secondAttribute="leading" constant="2" id="Hwo-ym-cn0"/>
+                            <constraint firstItem="rqg-Ce-im2" firstAttribute="leading" secondItem="x9l-9m-duP" secondAttribute="leading" id="fLk-f3-ht4"/>
+                            <constraint firstItem="rqg-Ce-im2" firstAttribute="trailing" secondItem="x9l-9m-duP" secondAttribute="trailing" id="i21-Ro-x6m"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rKK-mr-8i3"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="imageView" destination="x9l-9m-duP" id="bXg-aP-iZ2"/>
                         <outlet property="tableView" destination="rqg-Ce-im2" id="fX2-Vk-h1f"/>
@@ -807,7 +821,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="35n-OM-kl5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="35n-OM-kl5">
                                 <rect key="frame" x="2" y="2" width="316" height="566"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -817,12 +831,25 @@
                                     <outlet property="delegate" destination="4XG-hJ-eoF" id="USh-6x-GiB"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-Hq-JYn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-Hq-JYn">
                                 <rect key="frame" x="2" y="2" width="316" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="ScH-wF-2qi"/>
+                                    <constraint firstAttribute="width" constant="316" id="ZWP-FZ-Qfh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DNg-Hq-JYn" secondAttribute="trailing" constant="2" id="7hS-D2-Y8Z"/>
+                            <constraint firstItem="DNg-Hq-JYn" firstAttribute="top" secondItem="pbu-72-lAH" secondAttribute="top" constant="2" id="84B-0I-dcF"/>
+                            <constraint firstItem="DNg-Hq-JYn" firstAttribute="leading" secondItem="pbu-72-lAH" secondAttribute="leading" constant="2" id="I4L-DE-Rop"/>
+                            <constraint firstItem="35n-OM-kl5" firstAttribute="top" secondItem="DNg-Hq-JYn" secondAttribute="top" id="NxK-zc-mTg"/>
+                            <constraint firstItem="35n-OM-kl5" firstAttribute="trailing" secondItem="DNg-Hq-JYn" secondAttribute="trailing" id="XsB-bI-kah"/>
+                            <constraint firstAttribute="bottom" secondItem="35n-OM-kl5" secondAttribute="bottom" id="ads-hN-yi7"/>
+                            <constraint firstItem="35n-OM-kl5" firstAttribute="leading" secondItem="DNg-Hq-JYn" secondAttribute="leading" id="ozd-fk-wVb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QMw-KG-TXS"/>
                     <connections>
@@ -866,7 +893,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-BP-LLh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-BP-LLh">
                                 <rect key="frame" x="2" y="2" width="316" height="566"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -876,12 +903,28 @@
                                     <outlet property="delegate" destination="wZR-XZ-S4N" id="dyh-HI-mKd"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wZ-3u-Wi0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1wZ-3u-Wi0">
                                 <rect key="frame" x="2" y="2" width="316" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="316" id="Dzp-0V-YoN"/>
+                                    <constraint firstAttribute="height" constant="118" id="axJ-cR-rN8"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="trailing" secondItem="1wZ-3u-Wi0" secondAttribute="trailing" id="4Hj-8y-LDb"/>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="top" secondItem="1wZ-3u-Wi0" secondAttribute="top" id="50e-hQ-I1o"/>
+                            <constraint firstAttribute="bottom" secondItem="nyD-BP-LLh" secondAttribute="bottom" id="9B1-nI-N5f"/>
+                            <constraint firstAttribute="trailing" secondItem="1wZ-3u-Wi0" secondAttribute="trailing" constant="2" id="Dqj-oR-A9d"/>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="leading" secondItem="DIg-5N-c1t" secondAttribute="leading" constant="2" id="OBX-Fc-595"/>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="leading" secondItem="1wZ-3u-Wi0" secondAttribute="leading" id="SWy-VR-O1v"/>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="top" secondItem="DIg-5N-c1t" secondAttribute="top" constant="2" id="bWM-Cd-C7R"/>
+                            <constraint firstItem="1wZ-3u-Wi0" firstAttribute="top" secondItem="DIg-5N-c1t" secondAttribute="top" constant="2" id="jk1-V9-i5q"/>
+                            <constraint firstItem="nyD-BP-LLh" firstAttribute="centerX" secondItem="DIg-5N-c1t" secondAttribute="centerX" id="sc0-oc-bMG"/>
+                            <constraint firstItem="1wZ-3u-Wi0" firstAttribute="leading" secondItem="DIg-5N-c1t" secondAttribute="leading" constant="2" id="tU1-hm-ZAd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eOU-Du-Udo"/>
                     <connections>
@@ -1032,6 +1075,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="79G-Bc-XIz"/>
         <segue reference="1nC-tS-RLY"/>
-        <segue reference="4US-eR-NMK"/>
+        <segue reference="dwv-j1-B7e"/>
     </inferredMetricsTieBreakers>
 </document>
