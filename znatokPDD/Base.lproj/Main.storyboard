@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D38" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SYC-oe-ptk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D43" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SYC-oe-ptk">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -280,7 +280,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DlR-gB-RNW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tpI-RH-dQ6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -308,8 +308,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Правила Дорожного Движения" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6bv-XC-QK9">
-                                                    <rect key="frame" x="15" y="3" width="267" height="22"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Правила дорожного движения" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6bv-XC-QK9">
+                                                    <rect key="frame" x="15" y="3" width="262" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -421,7 +421,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjd-qv-Mjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="2092"/>
+            <point key="canvasLocation" x="913" y="2528"/>
         </scene>
         <!--Rules List Table View Controller - ПДД-->
         <scene sceneID="dGS-6Y-5ni">
@@ -482,7 +482,7 @@
                     <view key="view" contentMode="scaleToFill" id="fHz-we-XU9">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.85098046059999999" green="0.85098046059999999" blue="0.85098046059999999" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z39-WO-Mrq"/>
                 </viewController>
@@ -557,7 +557,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-YP-ct4">
-                                <rect key="frame" x="87" y="353" width="147" height="30"/>
+                                <rect key="frame" x="87" y="309" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Рассказать друзьям">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -568,7 +568,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyI-ZO-gAC">
-                                <rect key="frame" x="65" y="391" width="190" height="30"/>
+                                <rect key="frame" x="65" y="347" width="190" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Написать разработчику">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -581,6 +581,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zqd-eJ-Erv">
                                 <rect key="frame" x="251" y="80" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.8706054688" green="0.8706054688" blue="0.8706054688" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="vibroSwitchCnahged:" destination="Mhv-MW-aWB" eventType="valueChanged" id="kwU-ls-boN"/>
                                 </connections>
@@ -588,11 +589,12 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKQ-dr-PlI">
                                 <rect key="frame" x="251" y="126" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.8706054688" green="0.8706054688" blue="0.8706054688" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="commentSwitchChanged:" destination="Mhv-MW-aWB" eventType="valueChanged" id="h7s-y3-z15"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вибрация при правильном ответе" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-cL-13m">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вибрация при неправильном ответе" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-cL-13m">
                                 <rect key="frame" x="20" y="68" width="214" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -603,23 +605,23 @@
                                 <rect key="frame" x="20" y="119" width="223" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="5cG-TM-28q"/>
+                                    <constraint firstAttribute="height" constant="46" id="mNM-oU-aWD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(c) Sergey Kiselev, 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-bH-MNl">
-                                <rect key="frame" x="20" y="483" width="280" height="21"/>
+                                <rect key="frame" x="20" y="463" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ae-20-orr">
-                                <rect key="frame" x="20" y="463" width="280" height="21"/>
+                                <rect key="frame" x="20" y="443" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="uAq-KD-i27"/>
+                                    <constraint firstAttribute="height" constant="21" id="8Ch-2S-Fzs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -627,28 +629,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="leading" secondItem="DtR-zk-xDM" secondAttribute="trailing" constant="8" symbolic="YES" id="0qe-8E-Nau"/>
-                            <constraint firstItem="6Y7-YP-ct4" firstAttribute="centerX" secondItem="oyI-ZO-gAC" secondAttribute="centerX" id="46a-uC-SJs"/>
-                            <constraint firstItem="Zqd-eJ-Erv" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="80" id="6Cl-Dy-Nwe"/>
-                            <constraint firstItem="Zsv-bH-MNl" firstAttribute="leading" secondItem="6ae-20-orr" secondAttribute="leading" id="6tf-tO-Ve0"/>
-                            <constraint firstItem="DtR-zk-xDM" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="119" id="9y9-AE-Kl9"/>
-                            <constraint firstItem="Zqd-eJ-Erv" firstAttribute="centerY" secondItem="fH9-cL-13m" secondAttribute="centerY" id="AZe-WO-gqg"/>
-                            <constraint firstItem="fH9-cL-13m" firstAttribute="trailing" secondItem="6Y7-YP-ct4" secondAttribute="trailing" id="BIh-M9-hDr"/>
-                            <constraint firstItem="6ae-20-orr" firstAttribute="centerX" secondItem="oyI-ZO-gAC" secondAttribute="centerX" id="Etx-Bc-2XW"/>
-                            <constraint firstItem="Zsv-bH-MNl" firstAttribute="top" secondItem="oyI-ZO-gAC" secondAttribute="bottom" constant="62" id="MmL-7z-CSS"/>
-                            <constraint firstItem="6ae-20-orr" firstAttribute="trailing" secondItem="AKQ-dr-PlI" secondAttribute="trailing" id="UYD-g9-fa5"/>
-                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="top" secondItem="6Y7-YP-ct4" secondAttribute="bottom" constant="8" symbolic="YES" id="Wt9-Yg-lel"/>
-                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="leading" secondItem="Zqd-eJ-Erv" secondAttribute="leading" id="Y55-Iu-9Xn"/>
-                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="top" secondItem="Zqd-eJ-Erv" secondAttribute="bottom" constant="15" id="ZNk-HR-bY9"/>
-                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="leading" secondItem="ySU-eo-rbF" secondAttribute="leading" constant="65" id="ar9-gF-tJ6"/>
-                            <constraint firstItem="6ae-20-orr" firstAttribute="trailing" secondItem="Zsv-bH-MNl" secondAttribute="trailing" id="bW7-ZJ-8AT"/>
-                            <constraint firstAttribute="bottom" secondItem="6ae-20-orr" secondAttribute="bottom" constant="20" symbolic="YES" id="esS-jD-oLi"/>
-                            <constraint firstItem="fH9-cL-13m" firstAttribute="leading" secondItem="ySU-eo-rbF" secondAttribute="leading" constant="20" symbolic="YES" id="gFe-4p-ovf"/>
-                            <constraint firstAttribute="bottom" secondItem="Zsv-bH-MNl" secondAttribute="bottom" id="hZM-cZ-6gN"/>
-                            <constraint firstItem="fH9-cL-13m" firstAttribute="leading" secondItem="DtR-zk-xDM" secondAttribute="leading" id="lAA-08-Ubp"/>
-                            <constraint firstItem="6ae-20-orr" firstAttribute="top" secondItem="oyI-ZO-gAC" secondAttribute="bottom" constant="42" id="pRs-5B-rHx"/>
-                            <constraint firstItem="fH9-cL-13m" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="68" id="pyX-QF-bgq"/>
-                            <constraint firstItem="6ae-20-orr" firstAttribute="leading" secondItem="DtR-zk-xDM" secondAttribute="leading" id="uWd-Iu-J5q"/>
+                            <constraint firstItem="fH9-cL-13m" firstAttribute="leading" secondItem="DtR-zk-xDM" secondAttribute="leading" id="3OJ-ip-nx0"/>
+                            <constraint firstAttribute="bottom" secondItem="Zsv-bH-MNl" secondAttribute="bottom" constant="20" symbolic="YES" id="A2x-5m-jk9"/>
+                            <constraint firstItem="Zsv-bH-MNl" firstAttribute="trailing" secondItem="6ae-20-orr" secondAttribute="trailing" id="C39-i1-DGi"/>
+                            <constraint firstItem="6ae-20-orr" firstAttribute="leading" secondItem="Zsv-bH-MNl" secondAttribute="leading" id="HWR-yf-lOt"/>
+                            <constraint firstItem="Zqd-eJ-Erv" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="80" id="Hhy-SR-uqM"/>
+                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="centerX" secondItem="6Y7-YP-ct4" secondAttribute="centerX" id="I2v-2E-szf"/>
+                            <constraint firstItem="6ae-20-orr" firstAttribute="top" secondItem="oyI-ZO-gAC" secondAttribute="bottom" constant="66" id="Jcw-3x-cUw"/>
+                            <constraint firstItem="DtR-zk-xDM" firstAttribute="leading" secondItem="6ae-20-orr" secondAttribute="leading" id="N2m-mA-lcB"/>
+                            <constraint firstItem="fH9-cL-13m" firstAttribute="leading" secondItem="ySU-eo-rbF" secondAttribute="leading" constant="20" symbolic="YES" id="Ogh-qc-fQg"/>
+                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="trailing" secondItem="6ae-20-orr" secondAttribute="trailing" id="S5w-1B-QxK"/>
+                            <constraint firstItem="Zsv-bH-MNl" firstAttribute="top" secondItem="oyI-ZO-gAC" secondAttribute="bottom" constant="86" id="Xrb-aq-6zr"/>
+                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="leading" secondItem="Zqd-eJ-Erv" secondAttribute="leading" id="ctY-cJ-olc"/>
+                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="top" secondItem="Zqd-eJ-Erv" secondAttribute="bottom" constant="15" id="dyU-eW-CUa"/>
+                            <constraint firstItem="fH9-cL-13m" firstAttribute="trailing" secondItem="6Y7-YP-ct4" secondAttribute="trailing" id="fDK-CV-cSS"/>
+                            <constraint firstItem="DtR-zk-xDM" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="119" id="j6V-kK-6ry"/>
+                            <constraint firstItem="AKQ-dr-PlI" firstAttribute="leading" secondItem="DtR-zk-xDM" secondAttribute="trailing" constant="8" symbolic="YES" id="jFu-rX-tkV"/>
+                            <constraint firstItem="fH9-cL-13m" firstAttribute="top" secondItem="GZ5-kA-vnU" secondAttribute="bottom" constant="68" id="o98-G3-kdA"/>
+                            <constraint firstItem="fH9-cL-13m" firstAttribute="centerY" secondItem="Zqd-eJ-Erv" secondAttribute="centerY" id="pKk-D3-gAa"/>
+                            <constraint firstItem="k5C-az-WQX" firstAttribute="top" secondItem="6ae-20-orr" secondAttribute="bottom" constant="40" id="plC-eJ-4Tv"/>
+                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="leading" secondItem="ySU-eo-rbF" secondAttribute="leading" constant="65" id="rKe-0h-6Y2"/>
+                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="top" secondItem="6Y7-YP-ct4" secondAttribute="bottom" constant="8" symbolic="YES" id="tet-ml-lDD"/>
+                            <constraint firstItem="oyI-ZO-gAC" firstAttribute="centerX" secondItem="6ae-20-orr" secondAttribute="centerX" id="zYo-th-emO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Настройки" id="gk1-2D-a9k"/>
@@ -997,8 +999,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="mQp-Pq-Wsa"/>
         <segue reference="1nC-tS-RLY"/>
         <segue reference="4US-eR-NMK"/>
-        <segue reference="jE6-7w-nn4"/>
     </inferredMetricsTieBreakers>
 </document>

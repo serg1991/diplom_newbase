@@ -162,6 +162,7 @@
     childViewController.randomNumbers = _randomNumbers;
     childViewController.timer = _timer;
     childViewController.remainingTicks = remainingTicks;
+    _currentIndex = index;
     return childViewController;
 }
 

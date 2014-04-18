@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ExamenChildViewController.h"
+@class ExamenChildViewController;
 
-@interface ExamenViewController : UIViewController <UIPageViewControllerDataSource>
-{
+@interface ExamenViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
+
 @private
     int remainingTicks;
 }
@@ -24,6 +25,7 @@
 @property (nonatomic) NSTimeInterval startDate;
 @property (nonatomic, retain) UILabel *theLabel;
 @property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic) int currentIndex;
 
 - (void)handleTimerTick;
 - (void)updateLabel;

@@ -35,25 +35,51 @@
 }
 
 - (void)singleTapping:(UIGestureRecognizer *)recognizer {
+    double delayInSeconds = 0.1;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     switch ((long)recognizer.view.tag) {
-        case 1:
-            [self performSegueWithIdentifier:@"showTheme" sender:self];
+        case 1: {
+            _image1.image = [UIImage imageNamed:@"bookmark_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [self performSegueWithIdentifier:@"showTheme" sender:self];
+            });
             break;
-        case 2:
+        }
+        case 2: {
+            _image2.image = [UIImage imageNamed:@"bilet_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"showBilet" sender:self];
+            });
             break;
-        case 3:
+        }
+        case 3: {
+            _image3.image = [UIImage imageNamed:@"examen_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"showExamen" sender:self];
+            });
             break;
-        case 4:
+        }
+        case 4: {
+            _image4.image = [UIImage imageNamed:@"statistics_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"showStatistics" sender:self];
+            });
             break;
-        case 5:
+        }
+        case 5: {
+            _image5.image = [UIImage imageNamed:@"literature_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"showRules" sender:self];
+            });
             break;
-        case 6:
+        }
+        case 6: {
+            _image6.image = [UIImage imageNamed:@"settings_hl.png"];
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"showSettings" sender:self];
+            });
             break;
+        }
     }
 }
 
@@ -72,6 +98,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    _image1.image = [UIImage imageNamed:@"bookmark.png"];
+    _image2.image = [UIImage imageNamed:@"bilet.png"];
+    _image3.image = [UIImage imageNamed:@"examen.png"];
+    _image4.image = [UIImage imageNamed:@"statistics.png"];
+    _image5.image = [UIImage imageNamed:@"literature.png"];
+    _image6.image = [UIImage imageNamed:@"settings.png"];
+    
     navBarHairlineImageView.hidden = YES;
 }
 

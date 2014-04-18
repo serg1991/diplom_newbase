@@ -74,7 +74,7 @@
     } else {
         NSLog(@"There IS internet connection");
         VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
-        NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! Знаток ПДД для #iPhone", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://yandex.ru"]];
+        NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! #ЗнатокПДД для iPhone \n", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://itunes.apple.com/app/id865961195"]];
         UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                 initWithActivityItems:shareItems
                                                 applicationActivities:@[vkontakteActivity]];

@@ -141,13 +141,13 @@
         [self showComment];
     } else {
         if (rowNumber == [_mainArray[_mainArray.count - 2] intValue]) { // если ответ правильный
-            if ([settings boolForKey:@"needVibro"]) {
-                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при правильном ответе
-            }
             cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
         } else { // если ответ неправильный
+            if ([settings boolForKey:@"needVibro"]) {
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при неправильном ответе
+            }
             cell.contentView.backgroundColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];

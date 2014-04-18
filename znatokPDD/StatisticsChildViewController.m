@@ -61,7 +61,6 @@
                     }
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
                 } else {
@@ -77,7 +76,6 @@
                     CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
                 }
@@ -170,7 +168,6 @@
                     }
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
                 } else {
@@ -186,7 +183,6 @@
                     CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [scrollView addSubview:BiletCommonStat];
                 }
@@ -273,7 +269,6 @@
                     CGContextFillRect(context, CGRectMake(300 * (sqlite3_column_int(statement1, 0) * 1.0 / sqlite3_column_int(statement1, 2)), 0.0, 300 * (sqlite3_column_double(statement1, 1) * 1.0 / sqlite3_column_int(statement1, 2)), 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
                 } else {
@@ -289,7 +284,6 @@
                     CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
                 }
@@ -321,7 +315,6 @@
                     CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 300 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
                     _bottomBestResult = ExResult.frame;
@@ -344,7 +337,6 @@
                     CGContextFillRect(context, CGRectMake(300 * 0.5, 0.0, 300 * 0.5, 20));
                     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
-                    CGContextRelease(context);
                     ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                     [self.view addSubview:ExResult];
                     _bottomBestResult = ExResult.frame;
