@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BiletChildViewController.h"
+#import "PageControl.h"
 
-@interface BiletViewController : UIViewController <UIPageViewControllerDataSource>
+@interface BiletViewController : UIViewController
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (nonatomic) NSUInteger biletNumber;
@@ -17,5 +18,7 @@
 @property (nonatomic, retain) NSMutableArray *wrongArray;
 @property (nonatomic, retain) NSMutableArray *wrongSelectedArray;
 @property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic) int currentIndex;
+@property (nonatomic) PageControl *pageControl;
 
 @end

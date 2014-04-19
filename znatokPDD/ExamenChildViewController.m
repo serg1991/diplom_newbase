@@ -132,6 +132,11 @@
             cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
             self.tableView.allowsSelection = NO;
             [self.rightAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
+            NSDictionary *theInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.rightAnswersArray, @"rightAnswersArray", nil];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"AnsweredRight"
+             object:self
+             userInfo:theInfo];
         } else { // если ответ неправильный
             if ([settings boolForKey:@"needVibro"]) {
                 AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); // вибрация при неправильном ответе
@@ -140,6 +145,11 @@
             self.tableView.allowsSelection = NO;
             [self.wrongAnswersArray addObject:[NSNumber numberWithLong:_index + 1]];
             [self.wrongAnswersSelectedArray addObject:[NSNumber numberWithLong:rowNumber]];
+            NSDictionary *theInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.wrongAnswersArray, @"wrongAnswersArray", nil];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"AnsweredWrong"
+             object:self
+             userInfo:theInfo];
         }
     }
     NSUInteger wrongCount = _wrongAnswersArray.count;
@@ -153,7 +163,11 @@
 }
 
 - (void)getResultOfTest {
-    [self performSegueWithIdentifier:@"ResultExamen" sender:self];
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self performSegueWithIdentifier:@"ResultExamen" sender:self];
+    });
 }
 
 - (void)writeStatisticsToBase {

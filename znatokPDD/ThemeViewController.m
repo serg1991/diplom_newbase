@@ -27,7 +27,6 @@
     _startDate = [date timeIntervalSince1970];
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
-    self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     ThemeChildViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
@@ -65,12 +64,48 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredRight:) name:@"AnsweredRight" object:nil];
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings boolForKey:@"showComment"]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"ClosedComment" object:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"AnsweredWrong" object:nil];
+    }
+    CGRect f = CGRectMake(0, 480 , 320, 20);
+    _pageControl = [[PageControl alloc] initWithFrame:f];
+    if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
+      _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+    } else {
+        _pageControl.numberOfPages = 0;
+    }
+    _pageControl.currentPage = 0;
+    [self.view addSubview:_pageControl];
+}
+
+- (void)questionAnsweredRight:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
+}
+
+- (void)questionAnsweredWrong:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex) {
         [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
 }
 
@@ -97,6 +132,7 @@
     childViewController.startDate = _startDate;
     childViewController.themeCount = (int)[[_themeCount objectAtIndex:_themeNumber]integerValue];
     childViewController.themeName = _themeName;
+    _currentIndex = (int)index;
     return childViewController;
 }
 
@@ -118,16 +154,16 @@
     return [self viewControllerAtIndex:index];
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
-        return [[_themeCount objectAtIndex:_themeNumber]integerValue];
-    } else {
-        return 0;
-    }
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
+- (void)nextTap {
+	if (_currentIndex == [[_themeCount objectAtIndex:_themeNumber]integerValue] - 1) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+		return;
+	} else {
+		_currentIndex += 1;
+	}
+	
+	ThemeChildViewController *toViewController = (ThemeChildViewController *)[self viewControllerAtIndex:_currentIndex];
+	[_pageController setViewControllers:[NSArray arrayWithObject:toViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 @end

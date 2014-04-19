@@ -40,7 +40,7 @@
     } else if (_type == 1) {
         [labelback setText:@"К списку тем"];
     } else {
-        [labelback setText:@"В меню"];
+        [labelback setText:@"Меню"];
     }
     [labelback sizeToFit];
     int space = 6;

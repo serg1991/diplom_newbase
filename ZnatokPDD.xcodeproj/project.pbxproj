@@ -66,6 +66,7 @@
 		A56A012618F0BF57000D38F9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56A012518F0BF57000D38F9 /* MessageUI.framework */; };
 		A56A012918F0C295000D38F9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A56A012818F0C295000D38F9 /* Reachability.m */; };
 		A56B76F618D869DA00B1CDCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */; };
+		A57379261902F05200B603A5 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A57379251902F05100B603A5 /* PageControl.m */; };
 		A57AFA0218F5B9D9002560F1 /* bilet.png in Resources */ = {isa = PBXBuildFile; fileRef = A57AFA0018F5B9D9002560F1 /* bilet.png */; };
 		A57AFA0318F5B9D9002560F1 /* bilet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A57AFA0118F5B9D9002560F1 /* bilet@2x.png */; };
 		A57B891118D3045500CB1E52 /* pdd.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A57B891018D3045500CB1E52 /* pdd.sqlite */; };
@@ -198,6 +199,8 @@
 		A56A012718F0C295000D38F9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A56A012818F0C295000D38F9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A56B76F518D869DA00B1CDCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A57379241902F05100B603A5 /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageControl.h; path = ../znatokPDD/PageControl.h; sourceTree = "<group>"; };
+		A57379251902F05100B603A5 /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageControl.m; path = ../znatokPDD/PageControl.m; sourceTree = "<group>"; };
 		A57AFA0018F5B9D9002560F1 /* bilet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bilet.png; sourceTree = "<group>"; };
 		A57AFA0118F5B9D9002560F1 /* bilet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bilet@2x.png"; sourceTree = "<group>"; };
 		A57B891018D3045500CB1E52 /* pdd.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = pdd.sqlite; sourceTree = "<group>"; };
@@ -441,6 +444,8 @@
 				A5326A7A18EC09F9006FF377 /* iRate.m */,
 				A5614FDF18F20EE700263A57 /* MBProgressHUD.h */,
 				A5614FE018F20EE700263A57 /* MBProgressHUD.m */,
+				A57379241902F05100B603A5 /* PageControl.h */,
+				A57379251902F05100B603A5 /* PageControl.m */,
 				A56A012718F0C295000D38F9 /* Reachability.h */,
 				A56A012818F0C295000D38F9 /* Reachability.m */,
 				A508A05318F21555001CA259 /* sdk.xcodeproj */,
@@ -655,6 +660,7 @@
 				A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */,
 				A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */,
 				A522E60E189521C70090AFA2 /* ViewController.m in Sources */,
+				A57379261902F05200B603A5 /* PageControl.m in Sources */,
 				A59D6FB71896FFC400017711 /* SettingsViewController.m in Sources */,
 				A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */,
 				A5326A7C18EC09F9006FF377 /* iRate.m in Sources */,

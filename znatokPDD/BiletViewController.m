@@ -20,7 +20,6 @@
     _startDate = [date timeIntervalSince1970];
     NSDictionary *options = (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) ? [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger:UIPageViewControllerSpineLocationMid] forKey: UIPageViewControllerOptionSpineLocationKey] : nil;
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
-    self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     BiletChildViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
@@ -58,12 +57,38 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredRight:) name:@"AnsweredRight" object:nil];
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    if ([settings boolForKey:@"showComment"]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"ClosedComment" object:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"AnsweredWrong" object:nil];
+    }
+    CGRect f = CGRectMake(0, 480 , 320, 20);
+    _pageControl = [[PageControl alloc] initWithFrame:f];
+    _pageControl.numberOfPages = 20;
+    _pageControl.currentPage = 0;
+    [self.view addSubview:_pageControl];
 }
 
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+- (void)questionAnsweredRight:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
+}
+
+- (void)questionAnsweredWrong:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
 }
 
 - (void)confirmCancel {
@@ -73,6 +98,13 @@
                                           cancelButtonTitle:@"Нет"
                                           otherButtonTitles:@"Да, выйти", nil];
     [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex) {
+        [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,33 +119,20 @@
     childViewController.wrongAnswersArray = _wrongArray;
     childViewController.wrongAnswersSelectedArray = _wrongSelectedArray;
     childViewController.startDate = _startDate;
+    _currentIndex = (int)index;
     return childViewController;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = [(BiletChildViewController *)viewController index];
-    if (index == 0) {
-        return nil;
-    }
-    index--;
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = [(BiletChildViewController *)viewController index];
-    index++;
-    if (index == 20) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index];
-}
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return 20;
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
+- (void)nextTap {
+	if (_currentIndex == kBiletQuestionNumber - 1) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+		return;
+	} else {
+		_currentIndex += 1;
+	}
+	
+	BiletChildViewController *toViewController = (BiletChildViewController *)[self viewControllerAtIndex:_currentIndex];
+	[_pageController setViewControllers:[NSArray arrayWithObject:toViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 @end

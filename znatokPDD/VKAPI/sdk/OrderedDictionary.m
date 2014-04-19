@@ -27,17 +27,13 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent) {
 	NSString *objectString;
 	if ([object isKindOfClass:[NSString class]]) {
 		objectString = (NSString *)object;
-	}
-	else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)]) {
+	} else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)]) {
 		objectString = [(NSDictionary *)object descriptionWithLocale :locale indent :indent];
-	}
-	else if ([object respondsToSelector:@selector(descriptionWithLocale:)]) {
+	} else if ([object respondsToSelector:@selector(descriptionWithLocale:)]) {
 		objectString = [(NSSet *)object descriptionWithLocale :locale];
-	}
-	else {
+	} else {
 		objectString = [object description];
 	}
-    
 	return objectString;
 }
 
@@ -53,7 +49,6 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent) {
 		dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
 		array = [[NSMutableArray alloc] initWithCapacity:capacity];
 	}
-    
 	return self;
 }
 
@@ -117,7 +112,6 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent) {
 		 DescriptionForObject([self objectForKey:key], locale, level)];
 	}
 	[description appendFormat:@"%@}\n", indentString];
-    
 	return description;
 }
 

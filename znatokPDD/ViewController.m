@@ -18,12 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITapGestureRecognizer *singleTap1 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-    UITapGestureRecognizer *singleTap2 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-    UITapGestureRecognizer *singleTap3 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-    UITapGestureRecognizer *singleTap4 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-    UITapGestureRecognizer *singleTap5 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-    UITapGestureRecognizer *singleTap6 =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    UITapGestureRecognizer *singleTap6 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
     [_image1 addGestureRecognizer:singleTap1];
     [_image2 addGestureRecognizer:singleTap2];
     [_image3 addGestureRecognizer:singleTap3];

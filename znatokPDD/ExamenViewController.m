@@ -83,7 +83,6 @@
     }
     //добавление контроллеров в массив
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     ExamenChildViewController *initialViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
@@ -122,6 +121,33 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredRight:) name:@"AnsweredRight" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"AnsweredWrong" object:nil];
+    CGRect f = CGRectMake(0, 480 , 320, 20);
+    _pageControl = [[PageControl alloc] initWithFrame:f];
+    _pageControl.numberOfPages = 20;
+    _pageControl.currentPage = 0;
+    [self.view addSubview:_pageControl];
+}
+
+- (void)questionAnsweredRight:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
+}
+
+- (void)questionAnsweredWrong:(id)object {
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    NSLog (@"Successfully received the test notification!");
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self nextTap];
+        _pageControl.currentPage++;
+    });
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -131,8 +157,9 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }
             break;
-        case 2:
+        case 2: {
             [self.navigationController popViewControllerAnimated:YES];
+        }
             break;
     }
     
@@ -162,34 +189,19 @@
     childViewController.randomNumbers = _randomNumbers;
     childViewController.timer = _timer;
     childViewController.remainingTicks = remainingTicks;
-    _currentIndex = index;
+    _currentIndex = (int)index;
     return childViewController;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger index = [(ExamenChildViewController *)viewController index];
-    if (index == 0) {
-        return nil;
-    }
-    index--;
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSUInteger index = [(ExamenChildViewController *)viewController index];
-    index++;
-    if (index == 20) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index];
-}
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return 20;
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
+- (void)nextTap {
+	if (_currentIndex == kBiletQuestionNumber - 1) {
+        return;
+	} else {
+		_currentIndex += 1;
+	}
+	
+	ExamenChildViewController *toViewController = (ExamenChildViewController *)[self viewControllerAtIndex:_currentIndex];
+	[_pageController setViewControllers:[NSArray arrayWithObject:toViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 @end

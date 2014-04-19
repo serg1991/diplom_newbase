@@ -106,7 +106,6 @@
                 CGContextFillRect(context, CGRectMake(300 * sqlite3_column_double(statement2, 3), 0.0, 300 * (1 - sqlite3_column_double(statement2, 3)), 20));
                 UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
-                CGContextRelease(context);
                 BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                 [scrollView addSubview:BiletStat];
                 i++;
@@ -213,7 +212,6 @@
                 CGContextFillRect(context, CGRectMake(300 * sqlite3_column_double(statement2, 3), 0.0, 300 * (1 - sqlite3_column_double(statement2, 3)), 20));
                 UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
-                CGContextRelease(context);
                 BiletStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                 [scrollView addSubview:BiletStat];
                 i++;

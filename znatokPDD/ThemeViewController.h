@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ThemeChildViewController.h"
+#import "PageControl.h"
 
-@interface ThemeViewController : UIViewController <UIPageViewControllerDataSource>
+@interface ThemeViewController : UIViewController
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (nonatomic) NSUInteger themeNumber;
@@ -19,5 +20,7 @@
 @property (nonatomic, retain) NSMutableArray *themeCount;
 @property (nonatomic, retain) NSMutableArray *themeName;
 @property (nonatomic) NSTimeInterval startDate;
+@property (nonatomic) int currentIndex;
+@property (nonatomic) PageControl *pageControl;
 
 @end

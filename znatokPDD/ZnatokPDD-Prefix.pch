@@ -18,3 +18,4 @@
 #define kExamenLabelFrameMaxSize CGSizeMake(285.0, 200.0)
 #define kListDifference 10
 #define kExamenDifference 27
+#define kBiletQuestionNumber 20
