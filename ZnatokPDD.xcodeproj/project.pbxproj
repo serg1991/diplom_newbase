@@ -33,9 +33,6 @@
 		A522E60B189521C70090AFA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A522E609189521C70090AFA2 /* Main.storyboard */; };
 		A522E60E189521C70090AFA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A522E60D189521C70090AFA2 /* ViewController.m */; };
 		A522E610189521C70090AFA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A522E60F189521C70090AFA2 /* Images.xcassets */; };
-		A522E617189521C70090AFA2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E616189521C70090AFA2 /* XCTest.framework */; };
-		A522E618189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
-		A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
 		A526410518DB1E7100AD31D6 /* ExamenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410418DB1E7100AD31D6 /* ExamenViewController.m */; };
 		A526410918DB1F4100AD31D6 /* ExamenChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A526410718DB1F4100AD31D6 /* ExamenChildViewController.m */; };
 		A52EB7C018EA0BB300E4E537 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */; };
@@ -117,13 +114,6 @@
 			remoteGlobalIDString = F3BACC401865905B003158DA;
 			remoteInfo = VKSdkResources;
 		};
-		A522E61A189521C70090AFA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A522E5EC189521C70090AFA2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A522E5F3189521C70090AFA2;
-			remoteInfo = ZnatokPDD;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -160,8 +150,6 @@
 		A522E60C189521C70090AFA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A522E60D189521C70090AFA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A522E60F189521C70090AFA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZnatokPDDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A522E616189521C70090AFA2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A526410318DB1E7100AD31D6 /* ExamenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenViewController.h; sourceTree = "<group>"; };
 		A526410418DB1E7100AD31D6 /* ExamenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamenViewController.m; sourceTree = "<group>"; };
 		A526410618DB1F4100AD31D6 /* ExamenChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamenChildViewController.h; sourceTree = "<group>"; };
@@ -266,16 +254,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A522E612189521C70090AFA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A522E617189521C70090AFA2 /* XCTest.framework in Frameworks */,
-				A522E619189521C70090AFA2 /* UIKit.framework in Frameworks */,
-				A522E618189521C70090AFA2 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -303,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				A522E5F4189521C70090AFA2 /* ZnatokPDD.app */,
-				A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,7 +296,6 @@
 				A5CCDE5C18F0677F0052456F /* Social.framework */,
 				A5CDAD6218F5EF8A002FAE8A /* StoreKit.framework */,
 				A522E5FB189521C70090AFA2 /* UIKit.framework */,
-				A522E616189521C70090AFA2 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,24 +452,6 @@
 			productReference = A522E5F4189521C70090AFA2 /* ZnatokPDD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A522E614189521C70090AFA2 /* ZnatokPDDTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDDTests" */;
-			buildPhases = (
-				A522E611189521C70090AFA2 /* Sources */,
-				A522E612189521C70090AFA2 /* Frameworks */,
-				A522E613189521C70090AFA2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A522E61B189521C70090AFA2 /* PBXTargetDependency */,
-			);
-			name = ZnatokPDDTests;
-			productName = ZnatokPDDTests;
-			productReference = A522E615189521C70090AFA2 /* ZnatokPDDTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -510,9 +468,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					A522E614189521C70090AFA2 = {
-						TestTargetID = A522E5F3189521C70090AFA2;
 					};
 				};
 			};
@@ -536,7 +491,6 @@
 			projectRoot = "";
 			targets = (
 				A522E5F3189521C70090AFA2 /* ZnatokPDD */,
-				A522E614189521C70090AFA2 /* ZnatokPDDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -621,13 +575,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A522E613189521C70090AFA2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -681,22 +628,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A522E611189521C70090AFA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A522E61B189521C70090AFA2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A522E5F3189521C70090AFA2 /* ZnatokPDD */;
-			targetProxy = A522E61A189521C70090AFA2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A522E609189521C70090AFA2 /* Main.storyboard */ = {
@@ -824,46 +756,6 @@
 			};
 			name = Release;
 		};
-		A522E62A189521C70090AFA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZnatokPDD.app/ZnatokPDD";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
-				PRODUCT_NAME = ZnatokPDDTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		A522E62B189521C70090AFA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZnatokPDD.app/ZnatokPDD";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZnatokPDD/ZnatokPDD-Prefix.pch";
-				INFOPLIST_FILE = "ZnatokPDDTests/ZnatokPDDTests-Info.plist";
-				PRODUCT_NAME = ZnatokPDDTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -881,15 +773,6 @@
 			buildConfigurations = (
 				A522E627189521C70090AFA2 /* Debug */,
 				A522E628189521C70090AFA2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A522E629189521C70090AFA2 /* Build configuration list for PBXNativeTarget "ZnatokPDDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A522E62A189521C70090AFA2 /* Debug */,
-				A522E62B189521C70090AFA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
