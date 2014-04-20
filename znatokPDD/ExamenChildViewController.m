@@ -25,6 +25,9 @@
     [super viewDidLoad];
     _mainArray = [self getAnswers];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {

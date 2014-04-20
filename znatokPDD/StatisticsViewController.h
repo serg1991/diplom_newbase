@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StatisticsChildViewController.h"
+#import <sqlite3.h>
 
-@interface StatisticsViewController : UIViewController <UIPageViewControllerDataSource>
+@interface StatisticsViewController : UIViewController
 
-@property (strong, nonatomic) UIPageViewController *pageController;
 @property (nonatomic) sqlite3 *pdd_ab_stat;
+@property (nonatomic, assign) CGRect bottomBestResult;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+- (IBAction)controlChanged:(id)sender;
 
 @end

@@ -24,7 +24,6 @@
 		A5199E0B18F9F04000162C3A /* theme_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = A5199E0918F9F04000162C3A /* theme_complete.png */; };
 		A5199E0C18F9F04000162C3A /* theme_complete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5199E0A18F9F04000162C3A /* theme_complete@2x.png */; };
 		A51E8AA918DE428500BAC3E5 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */; };
-		A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */; };
 		A522E5F8189521C70090AFA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F7189521C70090AFA2 /* Foundation.framework */; };
 		A522E5FA189521C70090AFA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5F9189521C70090AFA2 /* CoreGraphics.framework */; };
 		A522E5FC189521C70090AFA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A522E5FB189521C70090AFA2 /* UIKit.framework */; };
@@ -135,8 +134,6 @@
 		A5199E0A18F9F04000162C3A /* theme_complete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "theme_complete@2x.png"; sourceTree = "<group>"; };
 		A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
-		A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsChildViewController.h; sourceTree = "<group>"; };
-		A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsChildViewController.m; sourceTree = "<group>"; };
 		A522E5F4189521C70090AFA2 /* ZnatokPDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZnatokPDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A522E5F7189521C70090AFA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A522E5F9189521C70090AFA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,8 +331,6 @@
 				A591798618FACA6A00B7CCB3 /* SignsDetailViewController.m */,
 				A591798818FACB4200B7CCB3 /* SignsListTableViewController.h */,
 				A591798918FACB4200B7CCB3 /* SignsListTableViewController.m */,
-				A51E8AAA18DE49D700BAC3E5 /* StatisticsChildViewController.h */,
-				A51E8AAB18DE49D700BAC3E5 /* StatisticsChildViewController.m */,
 				A51E8AA718DE428500BAC3E5 /* StatisticsViewController.h */,
 				A51E8AA818DE428500BAC3E5 /* StatisticsViewController.m */,
 				A592F26D18E75A26004D6996 /* ThemeChildViewController.h */,
@@ -621,7 +616,6 @@
 				A5614FE118F20EE700263A57 /* MBProgressHUD.m in Sources */,
 				A522E604189521C70090AFA2 /* main.m in Sources */,
 				A5A690D418985634001D5275 /* ThemeListTableViewController.m in Sources */,
-				A51E8AAD18DE49D700BAC3E5 /* StatisticsChildViewController.m in Sources */,
 				A591798718FACA6A00B7CCB3 /* SignsDetailViewController.m in Sources */,
 				A5B04AB818BF80B1007B4D05 /* BiletChildViewController.m in Sources */,
 				A52EB7C018EA0BB300E4E537 /* ResultViewController.m in Sources */,
@@ -674,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -706,7 +700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -725,7 +719,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
@@ -747,7 +741,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;

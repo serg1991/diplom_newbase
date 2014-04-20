@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D43" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SYC-oe-ptk">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -482,31 +482,30 @@
                     <view key="view" contentMode="scaleToFill" id="fHz-we-XU9">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Z39-WO-Mrq"/>
+                    <navigationItem key="navigationItem" id="Z39-WO-Mrq">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="0Dd-jQ-ZAd">
+                            <rect key="frame" x="56" y="7" width="209" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Билеты"/>
+                                <segment title="Темы"/>
+                                <segment title="Экзамен"/>
+                            </segments>
+                            <connections>
+                                <action selector="controlChanged:" destination="Zxv-Lk-QLT" eventType="valueChanged" id="GTK-tw-xwd"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="0Dd-jQ-ZAd" id="vaw-5g-ZTJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOH-XO-y8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913" y="4285"/>
-        </scene>
-        <!--Statistics Child View Controller-->
-        <scene sceneID="u8n-Co-VW1">
-            <objects>
-                <viewController storyboardIdentifier="StatisticsChildViewController" id="lWQ-R7-q0m" customClass="StatisticsChildViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NC8-hD-8Yh"/>
-                        <viewControllerLayoutGuide type="bottom" id="beU-y4-Fzz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wke-P6-srW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyk-T3-8le" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1325" y="4285"/>
         </scene>
         <!--Rules Detail View Controller-->
         <scene sceneID="5hI-W6-rGN">

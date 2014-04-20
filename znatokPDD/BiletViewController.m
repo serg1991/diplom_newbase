@@ -32,9 +32,6 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
     self.navigationItem.titleView = label;
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-    }
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     [labelback setText:@"Прервать"];
@@ -75,6 +72,9 @@
     _pageControl.numberOfPages = 20;
     _pageControl.currentPage = 0;
     [self.view addSubview:_pageControl];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (void)questionAnsweredRight:(id)object {

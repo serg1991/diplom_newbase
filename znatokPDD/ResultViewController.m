@@ -260,6 +260,9 @@
         }
     }
     _timeString = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (void)singleTapping:(UIGestureRecognizer *)recognizer {
