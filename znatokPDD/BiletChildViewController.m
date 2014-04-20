@@ -35,16 +35,41 @@
                                                    delegate:self
                                           cancelButtonTitle:@"ОК"
                                           otherButtonTitles:nil];
+    alert.tag = 1;
+    [alert show];
+}
+
+- (void)showTitleComment {
+    NSUInteger arrayCount = _mainArray.count;
+    NSString *comment = [NSString stringWithFormat:@"%@", _mainArray[arrayCount - 1]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Подсказка"
+                                                    message:comment
+                                                   delegate:self
+                                          cancelButtonTitle:@"ОК"
+                                          otherButtonTitles:nil];
+    alert.tag = 2;
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSDictionary *theInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.wrongAnswersArray, @"wrongAnswersArray", nil];
-    if (!buttonIndex) {
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"ClosedComment"
-         object:self
-         userInfo:theInfo];
+    if (alertView.tag == 1) {
+        NSDictionary *theInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.wrongAnswersArray, @"wrongAnswersArray", nil];
+        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:20]] ) {
+            if (!buttonIndex) {
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"ClosedComment"
+                 object:self
+                 userInfo:theInfo];
+            }
+        } else {
+            if (!buttonIndex) {
+                double delayInSeconds = 0.5;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self performSegueWithIdentifier:@"ResultBilet" sender:self];
+                });
+            }
+        }
     }
 }
 
@@ -148,7 +173,7 @@
     if (rowNumber == 0) {
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self showComment];
+        [self showTitleComment];
     } else {
         if (rowNumber == [_mainArray[_mainArray.count - 2] intValue]) { // если ответ правильный
             cell.contentView.backgroundColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
@@ -190,9 +215,11 @@
 - (void)getResultOfTest {
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self performSegueWithIdentifier:@"ResultBilet" sender:self];
-    });
+    if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:20]] ) {
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self performSegueWithIdentifier:@"ResultBilet" sender:self];
+        });
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

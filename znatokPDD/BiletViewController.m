@@ -64,8 +64,14 @@
     } else {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"AnsweredWrong" object:nil];
     }
+    CGRect appFrame = [[UIScreen mainScreen] bounds];
+    if (appFrame.size.height > 480) {
     CGRect f = CGRectMake(0, 480 , 320, 20);
-    _pageControl = [[PageControl alloc] initWithFrame:f];
+        _pageControl = [[PageControl alloc] initWithFrame:f];
+    } else {
+        CGRect f = CGRectMake(0, 392 , 320, 20);
+        _pageControl = [[PageControl alloc] initWithFrame:f];
+    }
     _pageControl.numberOfPages = 20;
     _pageControl.currentPage = 0;
     [self.view addSubview:_pageControl];
