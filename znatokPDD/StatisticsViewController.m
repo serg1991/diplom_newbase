@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.segmentedControl.selectedSegmentIndex = 0;
+    self.segmentedControl.tintColor = [UIColor blackColor];
     [self getBiletStatistics];
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.delegate = nil;
