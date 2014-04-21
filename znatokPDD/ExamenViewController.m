@@ -160,7 +160,7 @@
     switch (alertView.tag) {
         case 1:
             if (buttonIndex) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
             break;
         case 2: {
