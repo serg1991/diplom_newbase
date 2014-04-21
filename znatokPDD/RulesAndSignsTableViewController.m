@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *label = [[UILabel alloc] init];
@@ -47,6 +48,14 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    } else {
+        UIButton *customBackButton = [UIButton buttonWithType:101];
+        [customBackButton setTitle:@"Меню" forState:UIControlStateNormal];
+        [customBackButton addTarget:self
+                             action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
+        [self.navigationItem setLeftBarButtonItem:myBackButton];
+    }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 

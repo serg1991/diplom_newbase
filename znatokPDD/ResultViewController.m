@@ -33,6 +33,7 @@
     if (mySecond < 10) {
         seconds = [NSString stringWithFormat:@"0%d", _time % 60];
     }
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     if (_type == 0) {
@@ -67,6 +68,27 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    } else {
+        if (_type == 0) {
+           _backlabel = @"К списку билетов";
+        } else if (_type == 1) {
+           _backlabel = @"К списку тем";
+        } else {
+          _backlabel = @"Меню";
+        }
+        UIButton *customBackButton = [UIButton buttonWithType:101];
+        [customBackButton setTitle:_backlabel forState:UIControlStateNormal];
+        if (_type == 0) {
+            [customBackButton addTarget:self action:@selector(backToBiletList) forControlEvents:UIControlEventTouchUpInside];
+        } else if (_type == 1) {
+            [customBackButton addTarget:self action:@selector(backToThemeList) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            [customBackButton addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
+        }
+        UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
+        [self.navigationItem setLeftBarButtonItem:myBackButton];
+        
+    }
     UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [shareButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarAction"] forState:UIControlStateNormal];
     shareButton.frame = CGRectMake(0, 0, 18, 25);
@@ -150,8 +172,7 @@
                 timeLabel.textAlignment = NSTextAlignmentCenter;
                 timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
                 [self.view addSubview:timeLabel];
-            }
-            else { // 4 inch
+            } else { // 4 inch
                 UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
                 resultImage.image  = [UIImage imageNamed:@"crash.png"];
                 [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
@@ -301,7 +322,11 @@
                                                     initWithActivityItems:_shareItems
                                                     applicationActivities:@[vkontakteActivity]];
             [activityVC setValue:@"Мой результат в приложении Знаток ПДД" forKey:@"subject"];
-            activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+            } else {
+                activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+            }
             [self presentViewController:activityVC animated:YES completion:nil];
         } else {
             NSLog(@"There IS internet connection");
@@ -311,18 +336,31 @@
                                                     initWithActivityItems:_shareItems
                                                     applicationActivities:@[vkontakteActivity]];
             [activityVC setValue:@"Мой результат в приложении Знаток ПДД" forKey:@"subject"];
-            activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+            } else {
+                activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+            }
             [self presentViewController:activityVC animated:YES completion:nil];
         }
     }
 }
 
 - (UIImage *)screenshot {
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 1.0);
-    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 1.0);
+        [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    } else {
+        CGSize imageSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+        UIGraphicsBeginImageContext(imageSize);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     [labelback setText:@"Меню"];
@@ -45,6 +46,14 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    } else {
+        UIButton *customBackButton = [UIButton buttonWithType:101];
+        [customBackButton setTitle:@"Меню" forState:UIControlStateNormal];
+        [customBackButton addTarget:self
+                             action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
+        [self.navigationItem setLeftBarButtonItem:myBackButton];
+    }
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     BOOL vibration = [settings boolForKey:@"needVibro"];
     BOOL comment = [settings boolForKey:@"showComment"];
@@ -79,7 +88,12 @@
                                                 initWithActivityItems:shareItems
                                                 applicationActivities:@[vkontakteActivity]];
         [activityVC setValue:@"Подготовься к экзамену в ГАИ!" forKey:@"subject"];
-        activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        NSLog(@"%d", (int)[[UIDevice currentDevice] systemVersion]);
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        } else {
+            activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+        }
         [self presentViewController:activityVC animated:YES completion:nil];
     }
 }

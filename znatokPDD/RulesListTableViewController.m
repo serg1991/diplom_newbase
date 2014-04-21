@@ -23,7 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     [labelback setText:@"ПДД и знаки"];
@@ -46,6 +47,7 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    }
     _ruleNumbers = @[@"Общие положения",
                      @"Общие обязанности водителей",
                      @"Применение специальных сигналов",
@@ -128,9 +130,17 @@
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           cell.textLabel.font, NSFontAttributeName,
                                           nil];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
     cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
     return cell;
+    } else {
+        CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                                     constrainedToSize:kLabelFrameMaxSize
+                                         lineBreakMode:NSLineBreakByWordWrapping];
+        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -139,8 +149,15 @@
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [UIFont systemFontOfSize:18.0f], NSFontAttributeName,
                                           nil];
-    CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    return kExamenDifference + textLabelSize.size.height - 4;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+        return kExamenDifference + textLabelSize.size.height - 4;
+    } else {
+        CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                                     constrainedToSize:kExamenLabelFrameMaxSize
+                                         lineBreakMode:NSLineBreakByWordWrapping];
+        return kExamenDifference + textLabelSize.height - 4;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

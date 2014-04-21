@@ -145,12 +145,20 @@
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
     backView.backgroundColor = [UIColor clearColor];
     cell.backgroundView = backView;
-    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          cell.textLabel.font, NSFontAttributeName,
-                                          nil];
-    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-    return cell;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              cell.textLabel.font, NSFontAttributeName,
+                                              nil];
+        CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+        return cell;
+    } else {
+        CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                                               constrainedToSize:kExamenLabelFrameMaxSize
+                                                   lineBreakMode:NSLineBreakByWordWrapping];
+        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -266,20 +274,33 @@
         NSString *textLabel = [NSString stringWithFormat:@"%@", _mainArray[0]];
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
         style.alignment = NSTextAlignmentCenter;
-        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                              style, NSParagraphStyleAttributeName,
-                                              [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
-                                              nil];
-        CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        return kExamenDifference + textLabelSize.size.height - 1;
-        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                  style, NSParagraphStyleAttributeName,
+                                                  [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
+                                                  nil];
+            CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            return kExamenDifference + textLabelSize.size.height - 1;
+        } else {
+            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
+                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+            return kExamenDifference + textLabelSize.height - 1;
+        }
     } else {
         NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
         NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                               [UIFont systemFontOfSize:15.0f], NSFontAttributeName,
                                               nil];
-        CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        return kExamenDifference + textLabelSize.size.height - 1;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            return kExamenDifference + textLabelSize.size.height - 1;
+        } else {
+            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
+                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+            return kExamenDifference + textLabelSize.height - 1;
+        }
     }
 }
 

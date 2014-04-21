@@ -24,5 +24,6 @@
 @property (nonatomic, retain) NSMutableArray *themeName;
 @property (nonatomic, strong) NSArray *shareItems;
 @property (nonatomic, strong) NSString *timeString;
+@property (nonatomic, strong) NSString *backlabel;
 
 @end

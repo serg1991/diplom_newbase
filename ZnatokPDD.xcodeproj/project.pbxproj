@@ -94,6 +94,8 @@
 		A5CDAD6318F5EF8A002FAE8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CDAD6218F5EF8A002FAE8A /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A5D0FFC418FC122F00589B7A /* www in Resources */ = {isa = PBXBuildFile; fileRef = A5D0FFC318FC122F00589B7A /* www */; };
 		A5D2BE3818F2075000248E7C /* VKontakteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2BE3718F2075000248E7C /* VKontakteActivity.m */; };
+		A5EA0FFE1905AA6B00649112 /* UIButtonBarTrash6.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EA0FFC1905AA6B00649112 /* UIButtonBarTrash6.png */; };
+		A5EA0FFF1905AA6B00649112 /* UIButtonBarTrash6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EA0FFD1905AA6B00649112 /* UIButtonBarTrash6@2x.png */; };
 		A5F53B3418F7F2FE00648441 /* crash.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F53B3218F7F2FE00648441 /* crash.png */; };
 		A5F53B3518F7F2FE00648441 /* crash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5F53B3318F7F2FE00648441 /* crash@2x.png */; };
 /* End PBXBuildFile section */
@@ -230,6 +232,8 @@
 		A5D0FFC318FC122F00589B7A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		A5D2BE3618F2075000248E7C /* VKontakteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKontakteActivity.h; path = ../znatokPDD/VKontakteActivity.h; sourceTree = "<group>"; };
 		A5D2BE3718F2075000248E7C /* VKontakteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKontakteActivity.m; path = ../znatokPDD/VKontakteActivity.m; sourceTree = "<group>"; };
+		A5EA0FFC1905AA6B00649112 /* UIButtonBarTrash6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarTrash6.png; sourceTree = "<group>"; };
+		A5EA0FFD1905AA6B00649112 /* UIButtonBarTrash6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarTrash6@2x.png"; sourceTree = "<group>"; };
 		A5F53B3218F7F2FE00648441 /* crash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crash.png; sourceTree = "<group>"; };
 		A5F53B3318F7F2FE00648441 /* crash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crash@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -394,6 +398,8 @@
 				A53DC91418F73756009B1ED4 /* UIButtonBarAction.png */,
 				A53DC91518F73756009B1ED4 /* UIButtonBarAction@2x.png */,
 				A583B82E18E8B9C600E2B6BF /* UIButtonBarTrash.png */,
+				A5EA0FFC1905AA6B00649112 /* UIButtonBarTrash6.png */,
+				A5EA0FFD1905AA6B00649112 /* UIButtonBarTrash6@2x.png */,
 				A583B82C18E8B83000E2B6BF /* UIButtonBarTrash@2x.png */,
 				A58EDA4418E0E089003B9D42 /* UINavigationBarBackIndicatorDefault.png */,
 				A58EDA4218E0DF94003B9D42 /* UINavigationBarBackIndicatorDefault@2x.png */,
@@ -551,6 +557,7 @@
 				A518052919003BB200A43226 /* settings_hl@2x.png in Resources */,
 				A5199E0C18F9F04000162C3A /* theme_complete@2x.png in Resources */,
 				A5326A7B18EC09F9006FF377 /* iRate.bundle in Resources */,
+				A5EA0FFE1905AA6B00649112 /* UIButtonBarTrash6.png in Resources */,
 				A5BA5F3118F7EBF50005A5BF /* vk_share.png in Resources */,
 				A566181718F5B7D500B2B95C /* bookmark@2x.png in Resources */,
 				A566181F18F5B7D500B2B95C /* settings@2x.png in Resources */,
@@ -563,6 +570,7 @@
 				A57AFA0318F5B9D9002560F1 /* bilet@2x.png in Resources */,
 				A518052F19003BC200A43226 /* literature_hl@2x.png in Resources */,
 				A53DC91918F73C68009B1ED4 /* logo_share.png in Resources */,
+				A5EA0FFF1905AA6B00649112 /* UIButtonBarTrash6@2x.png in Resources */,
 				A583B82F18E8B9C600E2B6BF /* UIButtonBarTrash.png in Resources */,
 				A518052319003A8A00A43226 /* examen_hl@2x.png in Resources */,
 				A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */,
@@ -668,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -700,7 +708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -719,7 +727,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
@@ -741,7 +749,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "ZnatokPDD/ZnatokPDD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;

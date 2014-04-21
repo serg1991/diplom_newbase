@@ -27,53 +27,75 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     [self.pageController didMoveToParentViewController:self];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 22)];
-    label.font = [UIFont systemFontOfSize: 18.0f];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
-    self.navigationItem.titleView = label;
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
-    UILabel *labelback = [[UILabel alloc] init];
-    [labelback setText:@"Прервать"];
-    [labelback sizeToFit];
-    int space = 6;
-    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    [view addSubview:imageView];
-    [view addSubview:labelback];
-    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:button];
-    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        labelback.alpha = 0.0;
-        CGRect orig = labelback.frame;
-        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-        labelback.alpha = 1.0;
-        labelback.frame = orig;
-    } completion:nil];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.leftBarButtonItem = backButton;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 22)];
+        label.font = [UIFont systemFontOfSize: 18.0f];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
+        self.navigationItem.titleView = label;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+        UILabel *labelback = [[UILabel alloc] init];
+        [labelback setText:@"Прервать"];
+        [labelback sizeToFit];
+        int space = 6;
+        labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+        view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+        [view addSubview:imageView];
+        [view addSubview:labelback];
+        UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+        [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+        [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            labelback.alpha = 0.0;
+            CGRect orig = labelback.frame;
+            labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+            labelback.alpha = 1.0;
+            labelback.frame = orig;
+        } completion:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+        self.navigationItem.leftBarButtonItem = backButton;
+        if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        }
+        CGRect appFrame = [[UIScreen mainScreen] bounds];
+        if (appFrame.size.height > 480) {
+            CGRect f = CGRectMake(0, 480 , 320, 20);
+            _pageControl = [[PageControl alloc] initWithFrame:f];
+        } else {
+            CGRect f = CGRectMake(0, 392 , 320, 20);
+            _pageControl = [[PageControl alloc] initWithFrame:f];
+        }
+        _pageControl.numberOfPages = 20;
+        _pageControl.currentPage = 0;
+        [self.view addSubview:_pageControl];
+    } else {
+        UIButton *customBackButton = [UIButton buttonWithType:101];
+        [customBackButton setTitle:@"Прервать" forState:UIControlStateNormal];
+        [customBackButton addTarget:self
+                             action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
+        [self.navigationItem setLeftBarButtonItem:myBackButton];
+        NSString *title = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
+        [self.navigationItem setTitle:title];
+        CGRect appFrame = [[UIScreen mainScreen] bounds];
+        if (appFrame.size.height > 480) {
+            CGRect f = CGRectMake(0, 500 , 320, 20);
+            _pageControl = [[PageControl alloc] initWithFrame:f];
+        } else {
+            CGRect f = CGRectMake(0, 412 , 320, 20);
+            _pageControl = [[PageControl alloc] initWithFrame:f];
+        }
+        _pageControl.numberOfPages = 20;
+        _pageControl.currentPage = 0;
+        [self.view addSubview:_pageControl];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredRight:) name:@"AnsweredRight" object:nil];
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     if ([settings boolForKey:@"showComment"]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"ClosedComment" object:nil];
     } else {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredWrong:) name:@"AnsweredWrong" object:nil];
-    }
-    CGRect appFrame = [[UIScreen mainScreen] bounds];
-    if (appFrame.size.height > 480) {
-    CGRect f = CGRectMake(0, 480 , 320, 20);
-        _pageControl = [[PageControl alloc] initWithFrame:f];
-    } else {
-        CGRect f = CGRectMake(0, 392 , 320, 20);
-        _pageControl = [[PageControl alloc] initWithFrame:f];
-    }
-    _pageControl.numberOfPages = 20;
-    _pageControl.currentPage = 0;
-    [self.view addSubview:_pageControl];
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
 }
 

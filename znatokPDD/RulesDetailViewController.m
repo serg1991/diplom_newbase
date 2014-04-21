@@ -23,13 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
     label.numberOfLines = 0;
     label.font = [UIFont systemFontOfSize:12.0f];
     label.text = _ruleName;
     self.navigationItem.titleView = label;
-    NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_ruleDetailModel ofType:@"html"]];
-    [_rulesWebView loadRequest:[NSURLRequest requestWithURL:htmlFile]];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
     UILabel *labelback = [[UILabel alloc] init];
     [labelback setText:@"ПДД"];
@@ -52,6 +51,17 @@
     } completion:nil];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
     self.navigationItem.leftBarButtonItem = backButton;
+    } else {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
+        label.numberOfLines = 0;
+        label.font = [UIFont systemFontOfSize:12.0f];
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = [UIColor whiteColor];
+        label.text = _ruleName;
+        self.navigationItem.titleView = label;
+    }
+    NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_ruleDetailModel ofType:@"html"]];
+    [_rulesWebView loadRequest:[NSURLRequest requestWithURL:htmlFile]];
 }
 
 - (void)confirmCancel {
