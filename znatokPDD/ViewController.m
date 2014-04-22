@@ -48,35 +48,35 @@
         case 2: {
             _image2.image = [UIImage imageNamed:@"bilet_hl.png"];
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"showBilet" sender:self];
+                [self performSegueWithIdentifier:@"showBilet" sender:self];
             });
             break;
         }
         case 3: {
             _image3.image = [UIImage imageNamed:@"examen_hl.png"];
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"showExamen" sender:self];
+                [self performSegueWithIdentifier:@"showExamen" sender:self];
             });
             break;
         }
         case 4: {
             _image4.image = [UIImage imageNamed:@"statistics_hl.png"];
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"showStatistics" sender:self];
+                [self performSegueWithIdentifier:@"showStatistics" sender:self];
             });
             break;
         }
         case 5: {
             _image5.image = [UIImage imageNamed:@"literature_hl.png"];
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"showRules" sender:self];
+                [self performSegueWithIdentifier:@"showRules" sender:self];
             });
             break;
         }
         case 6: {
             _image6.image = [UIImage imageNamed:@"settings_hl.png"];
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"showSettings" sender:self];
+                [self performSegueWithIdentifier:@"showSettings" sender:self];
             });
             break;
         }

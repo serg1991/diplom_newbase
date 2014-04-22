@@ -24,33 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
-    label.numberOfLines = 0;
-    label.font = [UIFont systemFontOfSize:12.0f];
-    label.text = _ruleName;
-    self.navigationItem.titleView = label;
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
-    UILabel *labelback = [[UILabel alloc] init];
-    [labelback setText:@"ПДД"];
-    [labelback sizeToFit];
-    int space = 6;
-    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    [view addSubview:imageView];
-    [view addSubview:labelback];
-    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:button];
-    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        labelback.alpha = 0.0;
-        CGRect orig = labelback.frame;
-        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-        labelback.alpha = 1.0;
-        labelback.frame = orig;
-    } completion:nil];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.leftBarButtonItem = backButton;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
+        label.numberOfLines = 0;
+        label.font = [UIFont systemFontOfSize:12.0f];
+        label.text = _ruleName;
+        self.navigationItem.titleView = label;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+        UILabel *labelback = [[UILabel alloc] init];
+        [labelback setText:@"ПДД"];
+        [labelback sizeToFit];
+        int space = 6;
+        labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+        view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+        [view addSubview:imageView];
+        [view addSubview:labelback];
+        UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+        [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+        [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            labelback.alpha = 0.0;
+            CGRect orig = labelback.frame;
+            labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+            labelback.alpha = 1.0;
+            labelback.frame = orig;
+        } completion:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+        self.navigationItem.leftBarButtonItem = backButton;
     } else {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
         label.numberOfLines = 0;

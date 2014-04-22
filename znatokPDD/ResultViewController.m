@@ -34,47 +34,47 @@
         seconds = [NSString stringWithFormat:@"0%d", _time % 60];
     }
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
-    UILabel *labelback = [[UILabel alloc] init];
-    if (_type == 0) {
-        [labelback setText:@"К списку билетов"];
-    } else if (_type == 1) {
-        [labelback setText:@"К списку тем"];
-    } else {
-        [labelback setText:@"Меню"];
-    }
-    [labelback sizeToFit];
-    int space = 6;
-    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    [view addSubview:imageView];
-    [view addSubview:labelback];
-    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    if (_type == 0) {
-        [button addTarget:self action:@selector(backToBiletList) forControlEvents:UIControlEventTouchUpInside];
-    } else if (_type == 1) {
-        [button addTarget:self action:@selector(backToThemeList) forControlEvents:UIControlEventTouchUpInside];
-    } else {
-        [button addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
-    }
-    [view addSubview:button];
-    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^ {
-        labelback.alpha = 0.0;
-        CGRect orig = labelback.frame;
-        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-        labelback.alpha = 1.0;
-        labelback.frame = orig;
-    } completion:nil];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.leftBarButtonItem = backButton;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+        UILabel *labelback = [[UILabel alloc] init];
+        if (_type == 0) {
+            [labelback setText:@"К списку билетов"];
+        } else if (_type == 1) {
+            [labelback setText:@"К списку тем"];
+        } else {
+            [labelback setText:@"Меню"];
+        }
+        [labelback sizeToFit];
+        int space = 6;
+        labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+        view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+        [view addSubview:imageView];
+        [view addSubview:labelback];
+        UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+        if (_type == 0) {
+            [button addTarget:self action:@selector(backToBiletList) forControlEvents:UIControlEventTouchUpInside];
+        } else if (_type == 1) {
+            [button addTarget:self action:@selector(backToThemeList) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            [button addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
+        }
+        [view addSubview:button];
+        [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^ {
+            labelback.alpha = 0.0;
+            CGRect orig = labelback.frame;
+            labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+            labelback.alpha = 1.0;
+            labelback.frame = orig;
+        } completion:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+        self.navigationItem.leftBarButtonItem = backButton;
     } else {
         if (_type == 0) {
-           _backlabel = @"К списку билетов";
+            _backlabel = @"К списку билетов";
         } else if (_type == 1) {
-           _backlabel = @"К списку тем";
+            _backlabel = @"К списку тем";
         } else {
-          _backlabel = @"Меню";
+            _backlabel = @"Меню";
         }
         UIButton *customBackButton = [UIButton buttonWithType:101];
         [customBackButton setTitle:_backlabel forState:UIControlStateNormal];

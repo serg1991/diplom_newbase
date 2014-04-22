@@ -25,28 +25,28 @@
     [super viewDidLoad];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
-    UILabel *labelback = [[UILabel alloc] init];
-    [labelback setText:@"ПДД и знаки"];
-    [labelback sizeToFit];
-    int space = 6;
-    labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
-    view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
-    [view addSubview:imageView];
-    [view addSubview:labelback];
-    UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
-    [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:button];
-    [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        labelback.alpha = 0.0;
-        CGRect orig = labelback.frame;
-        labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
-        labelback.alpha = 1.0;
-        labelback.frame = orig;
-    } completion:nil];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.leftBarButtonItem = backButton;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
+        UILabel *labelback = [[UILabel alloc] init];
+        [labelback setText:@"ПДД и знаки"];
+        [labelback sizeToFit];
+        int space = 6;
+        labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
+        view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
+        [view addSubview:imageView];
+        [view addSubview:labelback];
+        UIButton *button = [[UIButton alloc] initWithFrame:view.frame];
+        [button addTarget:self action:@selector(confirmCancel) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+        [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+            labelback.alpha = 0.0;
+            CGRect orig = labelback.frame;
+            labelback.frame = CGRectMake(labelback.frame.origin.x + 25, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+            labelback.alpha = 1.0;
+            labelback.frame = orig;
+        } completion:nil];
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
+        self.navigationItem.leftBarButtonItem = backButton;
     }
     _ruleNumbers = @[@"Общие положения",
                      @"Общие обязанности водителей",
@@ -131,13 +131,13 @@
                                           cell.textLabel.font, NSFontAttributeName,
                                           nil];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-    return cell;
+        CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+        return cell;
     } else {
         CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
-                                     constrainedToSize:kLabelFrameMaxSize
-                                         lineBreakMode:NSLineBreakByWordWrapping];
+                                               constrainedToSize:kLabelFrameMaxSize
+                                                   lineBreakMode:NSLineBreakByWordWrapping];
         cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
         return cell;
     }

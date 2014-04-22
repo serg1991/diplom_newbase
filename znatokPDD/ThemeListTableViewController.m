@@ -120,20 +120,20 @@
         NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                cell.detailTextLabel.font, NSFontAttributeName,
                                                nil];
-    CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-    CGRect detailTextLabelSize = [cell.detailTextLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
-    cell.detailTextLabel.frame = CGRectMake(5, 5, detailTextLabelSize.size.width, detailTextLabelSize.size.height);
-    return cell;
+        CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+        CGRect detailTextLabelSize = [cell.detailTextLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
+        cell.detailTextLabel.frame = CGRectMake(5, 5, detailTextLabelSize.size.width, detailTextLabelSize.size.height);
+        return cell;
     } else {
         CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17.0f]
-                                     constrainedToSize:kExamenLabelFrameMaxSize
-                                         lineBreakMode:NSLineBreakByWordWrapping];
+                                               constrainedToSize:kExamenLabelFrameMaxSize
+                                                   lineBreakMode:NSLineBreakByWordWrapping];
         cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
         CGSize detailTextLabelSize = [cell.detailTextLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:12.0f]
-                                                     constrainedToSize:kExamenLabelFrameMaxSize
-                                                         lineBreakMode:NSLineBreakByWordWrapping];
-
+                                                           constrainedToSize:kExamenLabelFrameMaxSize
+                                                               lineBreakMode:NSLineBreakByWordWrapping];
+        
         cell.detailTextLabel.frame = CGRectMake(5, 5, detailTextLabelSize.width, detailTextLabelSize.height);
         return cell;
     }
@@ -144,22 +144,22 @@
     NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", row + 1, _themeTheme[row]];
     NSString *detailTextLabel = [NSString stringWithFormat:@"Вопросов : %@", _themeQuestionNumber[row]];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [UIFont systemFontOfSize:17.0f], NSFontAttributeName,
-                                          nil];
-    NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont systemFontOfSize:12.0f], NSFontAttributeName,
-                                           nil];
-    CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-    CGRect detailTextLabelSize = [detailTextLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
-    return kListDifference + textLabelSize.size.height + detailTextLabelSize.size.height;
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [UIFont systemFontOfSize:17.0f], NSFontAttributeName,
+                                              nil];
+        NSDictionary *attributesDictionary2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIFont systemFontOfSize:12.0f], NSFontAttributeName,
+                                               nil];
+        CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+        CGRect detailTextLabelSize = [detailTextLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary2 context:nil];
+        return kListDifference + textLabelSize.size.height + detailTextLabelSize.size.height;
     } else {
         CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17.0f]
                                      constrainedToSize:kExamenLabelFrameMaxSize
-                                     lineBreakMode:NSLineBreakByWordWrapping];
+                                         lineBreakMode:NSLineBreakByWordWrapping];
         CGSize detailTextLabelSize = [detailTextLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:12.0f]
-                                      constrainedToSize:kExamenLabelFrameMaxSize
-                                      lineBreakMode:NSLineBreakByWordWrapping];
+                                                 constrainedToSize:kExamenLabelFrameMaxSize
+                                                     lineBreakMode:NSLineBreakByWordWrapping];
         return kListDifference + textLabelSize.height + detailTextLabelSize.height;
     }
 }
