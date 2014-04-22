@@ -293,7 +293,7 @@
             return kExamenDifference + textLabelSize.size.height - 16;
         } else {
             CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                         constrainedToSize:CGSizeMake(300.0, 200.0)
                                              lineBreakMode:NSLineBreakByWordWrapping];
             return kExamenDifference + textLabelSize.height - 16;
         }
@@ -307,7 +307,7 @@
             return kExamenDifference + textLabelSize.size.height - 1;
         } else {
             CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                         constrainedToSize:CGSizeMake(300.0, 200.0)
                                              lineBreakMode:NSLineBreakByWordWrapping];
             return kExamenDifference + textLabelSize.height - 1;
         }

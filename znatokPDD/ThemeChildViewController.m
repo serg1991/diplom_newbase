@@ -284,7 +284,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger rowNumber = [indexPath row];
     if (rowNumber == 0) {
-        NSString *textLabel = [NSString stringWithFormat:@"%@", _mainArray[0]];
+        NSString *textLabel = [NSString stringWithFormat:@"Вопрос %d / %d \n %@", _index + 1, _themeCount, _mainArray[0]];
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
         style.alignment = NSTextAlignmentCenter;
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -293,12 +293,12 @@
                                               [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
                                               nil];
         CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        return kExamenDifference + textLabelSize.size.height - 1;
+        return kExamenDifference + textLabelSize.size.height - 16;
         } else {
             CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                         constrainedToSize:CGSizeMake(300.0, 200.0)
                                              lineBreakMode:NSLineBreakByWordWrapping];
-            return kExamenDifference + textLabelSize.height - 1;
+            return kExamenDifference + textLabelSize.height - 16;
         }
     } else {
         NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
@@ -310,7 +310,7 @@
         return kExamenDifference + textLabelSize.size.height - 1;
         } else {
             CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                         constrainedToSize:CGSizeMake(300.0, 200.0)
                                              lineBreakMode:NSLineBreakByWordWrapping];
             return kExamenDifference + textLabelSize.height - 1;
         }
