@@ -88,7 +88,6 @@
                                                 initWithActivityItems:shareItems
                                                 applicationActivities:@[vkontakteActivity]];
         [activityVC setValue:@"Подготовься к экзамену в ГАИ!" forKey:@"subject"];
-        NSLog(@"%d", (int)[[UIDevice currentDevice] systemVersion]);
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
             activityVC.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToFlickr, UIActivityTypePostToTencentWeibo, UIActivityTypePostToVimeo, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
         } else {

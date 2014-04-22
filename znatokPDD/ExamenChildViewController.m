@@ -30,6 +30,18 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    _flashTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(indicator:) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [_flashTimer invalidate];
+}
+
+- (void)indicator:(BOOL)animated {
+    [self.tableView flashScrollIndicators];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
     int height =  (_imageView.image == 0) ? 0 : 118;
     return height;
@@ -165,7 +177,6 @@
     }
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
-    NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {
         [self writeStatisticsToBase];
         [self getResultOfTest];
@@ -196,7 +207,6 @@
         const char * insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Zapis' proizvedena uspeshno");
         } else {
             NSLog(@"%s", insert_stmt);
             NSLog(@"Zapis' proizvedena neuspeshno");

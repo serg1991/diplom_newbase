@@ -129,8 +129,6 @@
             }
                 break;
         }
-    } else {
-        NSLog(@"Mozhno bylo by ne nazhimat' togda!");
     }
 }
 

@@ -27,5 +27,6 @@
 @property (nonatomic) NSTimeInterval finishDate;
 @property (nonatomic, retain) NSTimer *timer;
 @property (assign, nonatomic) NSUInteger remainingTicks;
+@property (nonatomic, retain) NSTimer *flashTimer;
 
 @end

@@ -315,7 +315,6 @@
         NSLog(@"There IS NO internet connection");
     } else {
         if (_type != 1) {
-            NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
             _shareItems = @[[NSString stringWithFormat:@"Мой результат в тесте по ПДД - %d/20 со временем %@.\n #ЗнатокПДД \n", _rightCount, _timeString], [self screenshot],[NSURL URLWithString:@"http://itunes.apple.com/app/id865961195"]];
             UIActivityViewController *activityVC = [[UIActivityViewController alloc]
@@ -329,7 +328,6 @@
             }
             [self presentViewController:activityVC animated:YES completion:nil];
         } else {
-            NSLog(@"There IS internet connection");
             VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
             _shareItems = @[[NSString stringWithFormat:@"Мой результат в тематическом тесте по ПДД - %d / %d со временем %@.\n #ЗнатокПДД \n", _rightCount, _themeCommon, _timeString], [self screenshot],[NSURL URLWithString:@"http://itunes.apple.com/app/id865961195"]];
             UIActivityViewController *activityVC = [[UIActivityViewController alloc]

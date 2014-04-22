@@ -30,6 +30,18 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    _flashTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(indicator:) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [_flashTimer invalidate];
+}
+
+- (void)indicator:(BOOL)animated {
+    [self.tableView flashScrollIndicators];
+}
+
 - (void)showComment {
     NSUInteger arrayCount = _mainArray.count;
     NSString *comment = [NSString stringWithFormat:@"%@ \n Правильный ответ - %d.", _mainArray[arrayCount - 1], [_mainArray[arrayCount - 2] intValue]];
@@ -216,7 +228,6 @@
     }
     NSUInteger wrongCount = _wrongAnswersArray.count;
     NSUInteger rightCount = _rightAnswersArray.count;
-    NSLog(@"Номер вопроса - %d, правильных ответов - %d, неправильных ответов - %d", (int)_index + 1, (int)rightCount, (int)wrongCount);
     if (rightCount + wrongCount == 20) {
         [self writeStatisticsToBase];
         [self getResultOfTest];
@@ -257,7 +268,6 @@
         const char * insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(_pdd_ab_stat, insert_stmt, -1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Zapis' proizvedena uspeshno");
         } else {
             NSLog(@"Zapis' proizvedena neuspeshno");
         }
@@ -280,12 +290,12 @@
                                                   [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
                                                   nil];
             CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-            return kExamenDifference + textLabelSize.size.height - 1;
+            return kExamenDifference + textLabelSize.size.height - 16;
         } else {
             CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
                                          constrainedToSize:kExamenLabelFrameMaxSize
                                              lineBreakMode:NSLineBreakByWordWrapping];
-            return kExamenDifference + textLabelSize.height - 1;
+            return kExamenDifference + textLabelSize.height - 16;
         }
     } else {
         NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];

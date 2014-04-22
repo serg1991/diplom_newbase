@@ -25,5 +25,6 @@
 @property (nonatomic, retain) NSMutableArray *wrongAnswersArray;
 @property (nonatomic) NSTimeInterval startDate;
 @property (nonatomic) NSTimeInterval finishDate;
+@property (nonatomic, retain) NSTimer *flashTimer;
 
 @end

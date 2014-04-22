@@ -159,8 +159,6 @@
         } else {
             NSLog(@"Failed to open/create database");
         }
-    } else {
-        NSLog(@"File exists!");
     }
 }
 

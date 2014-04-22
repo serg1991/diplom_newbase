@@ -92,7 +92,7 @@
     [self.pageController didMoveToParentViewController:self];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         //добавление шапки из названия контроллера и таймера
-        self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 6, 60, 30)];
+        self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 7, 60, 30)];
         _timer = nil;
         [self.navigationItem setTitle:@"Экзамен"];
         [self.navigationController.navigationBar addSubview:theLabel];
@@ -166,7 +166,6 @@
 - (void)questionAnsweredRight:(id)object {
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    NSLog (@"Successfully received the test notification!");
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self nextTap];
         _pageControl.currentPage++;
@@ -176,7 +175,6 @@
 - (void)questionAnsweredWrong:(id)object {
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    NSLog (@"Successfully received the test notification!");
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self nextTap];
         _pageControl.currentPage++;
