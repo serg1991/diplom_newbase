@@ -219,7 +219,7 @@
                 } else {
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
                         NSString *stat = [NSString stringWithFormat:@" 0 \t\t\t\t\t\t\t\t 0 "];
-                        UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 40, 300, 20)];
+                        UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 30, 300, 20)];
                         BiletCommonStat.text = stat;
                         BiletCommonStat.textColor = [UIColor whiteColor];
                         UIGraphicsBeginImageContext(CGSizeMake(300, 20));
