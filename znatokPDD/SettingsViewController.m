@@ -81,9 +81,8 @@
         [alert show];
         NSLog(@"There IS NO internet connection");
     } else {
-        NSLog(@"There IS internet connection");
         VKontakteActivity *vkontakteActivity = [[VKontakteActivity alloc] initWithParent:self];
-        NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! #ЗнатокПДД для iPhone \n", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://itunes.apple.com/app/id865961195"]];
+        NSArray *shareItems = @[@"Подготовка к экзамену в ГАИ! #ЗнатокПДД для iPhone\n", [UIImage imageNamed:@"logo_share.png"],[NSURL URLWithString:@"http://itunes.apple.com/app/id865961195"]];
         UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                 initWithActivityItems:shareItems
                                                 applicationActivities:@[vkontakteActivity]];
@@ -121,7 +120,6 @@
         [alert show];
         NSLog(@"There IS NO internet connection");
     } else {
-        NSLog(@"There IS internet connection");
         if ([MFMailComposeViewController canSendMail]) {
             NSString *emailTitle = @"Знаток ПДД - письмо разработчику";
             NSString *messageBody = [NSString stringWithFormat:@"Мой вопрос: \n \n \n Мое устройство - %@. \n Версия прошивки - %@.", [UIDevice currentDevice].model, [[UIDevice currentDevice] systemVersion]];
