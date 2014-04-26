@@ -15,7 +15,9 @@
     #import <Foundation/Foundation.h>
 #endif
 #define kLabelFrameMaxSize CGSizeMake(265.0, 200.0)
+#define kLabelIpadFrameMaxSize CGSizeMake(732.0, 200.0)
 #define kExamenLabelFrameMaxSize CGSizeMake(285.0, 200.0)
+#define kExamenLabelIpadFrameMaxSize CGSizeMake(720.0, 200.0)
 #define kListDifference 10
 #define kExamenDifference 27
 #define kBiletQuestionNumber 20

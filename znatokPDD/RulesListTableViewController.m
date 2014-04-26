@@ -130,16 +130,34 @@
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           cell.textLabel.font, NSFontAttributeName,
                                           nil];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
-        return cell;
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        cell.textLabel.font = [UIFont systemFontOfSize:30.0f];
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              cell.textLabel.font, NSFontAttributeName,
+                                              nil];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+            return cell;
+        } else {
+            CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
+                                                   constrainedToSize:kLabelIpadFrameMaxSize
+                                                       lineBreakMode:NSLineBreakByWordWrapping];
+            cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
+            return cell;
+        }
     } else {
-        CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
-                                               constrainedToSize:kLabelFrameMaxSize
-                                                   lineBreakMode:NSLineBreakByWordWrapping];
-        cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
-        return cell;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGRect textLabelSize = [cell.textLabel.text boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.size.width, textLabelSize.size.height);
+            return cell;
+        } else {
+            CGSize textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                                                   constrainedToSize:kLabelFrameMaxSize
+                                                       lineBreakMode:NSLineBreakByWordWrapping];
+            cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
+            return cell;
+        }
     }
 }
 
@@ -149,14 +167,29 @@
     NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [UIFont systemFontOfSize:18.0f], NSFontAttributeName,
                                           nil];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-        return kExamenDifference + textLabelSize.size.height - 4;
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [UIFont systemFontOfSize:30.0f], NSFontAttributeName,
+                                              nil];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            return kExamenDifference + textLabelSize.size.height;
+        } else {
+            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
+                                         constrainedToSize:kExamenLabelIpadFrameMaxSize
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+            return kExamenDifference + textLabelSize.height;
+        }
     } else {
-        CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
-                                     constrainedToSize:kExamenLabelFrameMaxSize
-                                         lineBreakMode:NSLineBreakByWordWrapping];
-        return kExamenDifference + textLabelSize.height - 4;
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGRect textLabelSize = [textLabel boundingRectWithSize:kLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            return kExamenDifference + textLabelSize.size.height - 4;
+        } else {
+            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                                         constrainedToSize:kExamenLabelFrameMaxSize
+                                             lineBreakMode:NSLineBreakByWordWrapping];
+            return kExamenDifference + textLabelSize.height - 4;
+        }
     }
 }
 
