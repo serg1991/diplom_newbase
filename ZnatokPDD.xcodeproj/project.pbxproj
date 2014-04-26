@@ -32,6 +32,7 @@
 		A53DC91618F73756009B1ED4 /* UIButtonBarAction.png in Resources */ = {isa = PBXBuildFile; fileRef = A53DC91418F73756009B1ED4 /* UIButtonBarAction.png */; };
 		A53DC91718F73756009B1ED4 /* UIButtonBarAction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A53DC91518F73756009B1ED4 /* UIButtonBarAction@2x.png */; };
 		A53DC91918F73C68009B1ED4 /* logo_share.png in Resources */ = {isa = PBXBuildFile; fileRef = A53DC91818F73C68009B1ED4 /* logo_share.png */; };
+		A547AE49190C4B9400E3A9FC /* Main_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A547AE47190C4B9400E3A9FC /* Main_ipad.storyboard */; };
 		A54F73F318D6402700EAB2A5 /* StyleSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A54F73F218D6402700EAB2A5 /* StyleSettings.plist */; };
 		A5614FE118F20EE700263A57 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A5614FE018F20EE700263A57 /* MBProgressHUD.m */; };
 		A563E895189C473D004320F0 /* RulesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A563E894189C473D004320F0 /* RulesDetailViewController.m */; };
@@ -153,6 +154,7 @@
 		A53DC91418F73756009B1ED4 /* UIButtonBarAction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarAction.png; sourceTree = "<group>"; };
 		A53DC91518F73756009B1ED4 /* UIButtonBarAction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarAction@2x.png"; sourceTree = "<group>"; };
 		A53DC91818F73C68009B1ED4 /* logo_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_share.png; sourceTree = "<group>"; };
+		A547AE48190C4B9400E3A9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = znatokPDD/Base.lproj/Main_ipad.storyboard; sourceTree = SOURCE_ROOT; };
 		A54F73F218D6402700EAB2A5 /* StyleSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StyleSettings.plist; sourceTree = "<group>"; };
 		A5614FDF18F20EE700263A57 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		A5614FE018F20EE700263A57 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		A522E5FD189521C70090AFA2 /* ZnatokPDD */ = {
 			isa = PBXGroup;
 			children = (
+				A57A609C190C4ACC0080265F /* iPad */,
 				A5614FE218F20F6400263A57 /* 3rd party */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
@@ -320,6 +323,7 @@
 				A522E60F189521C70090AFA2 /* Images.xcassets */,
 				A591798018FACA6100B7CCB3 /* LinesDetailViewController.h */,
 				A591798118FACA6100B7CCB3 /* LinesDetailViewController.m */,
+				A547AE47190C4B9400E3A9FC /* Main_ipad.storyboard */,
 				A522E609189521C70090AFA2 /* Main.storyboard */,
 				A52EB7BE18EA0BB300E4E537 /* ResultViewController.h */,
 				A52EB7BF18EA0BB300E4E537 /* ResultViewController.m */,
@@ -432,6 +436,13 @@
 			name = "3rd party";
 			sourceTree = "<group>";
 		};
+		A57A609C190C4ACC0080265F /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -539,6 +550,7 @@
 				A566181E18F5B7D500B2B95C /* settings.png in Resources */,
 				A58CF98518F6A66900AA2B2E /* bad.png in Resources */,
 				A5C092661907E4E50078EA9E /* bookmark_hl@2x.png in Resources */,
+				A547AE49190C4B9400E3A9FC /* Main_ipad.storyboard in Resources */,
 				A566181B18F5B7D500B2B95C /* literature@2x.png in Resources */,
 				A522E60B189521C70090AFA2 /* Main.storyboard in Resources */,
 				A5C092691907E4E50078EA9E /* literature_hl.png in Resources */,
@@ -641,6 +653,14 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		A547AE47190C4B9400E3A9FC /* Main_ipad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A547AE48190C4B9400E3A9FC /* Base */,
+			);
+			name = Main_ipad.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -733,6 +753,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
 				PROVISIONING_PROFILE = "3E7FB40B-B1E4-4E61-A03C-A16E99085496";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "./**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -757,6 +778,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = ZnatokPDD;
 				PROVISIONING_PROFILE = "3E7FB40B-B1E4-4E61-A03C-A16E99085496";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "./**";
 				WRAPPER_EXTENSION = app;
 			};

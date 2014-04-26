@@ -43,8 +43,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSUInteger)section {
-    int height =  (_imageView.image == 0) ? 0 : 118;
-    return height;
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        int height =  (_imageView.image == 0) ? 0 : 285;
+        return height;
+    } else {
+        int height =  (_imageView.image == 0) ? 0 : 118;
+        return height;
+    }
 }
 
 - (NSMutableArray *)getAnswers {

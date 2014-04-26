@@ -59,12 +59,17 @@
             self.navigationController.interactivePopGestureRecognizer.enabled = NO;
         }
         CGRect appFrame = [[UIScreen mainScreen] bounds];
-        if (appFrame.size.height > 480) {
-            CGRect f = CGRectMake(0, 480 , 320, 20);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            CGRect f = CGRectMake(0, 936, 768, 20);
             _pageControl = [[PageControl alloc] initWithFrame:f];
         } else {
-            CGRect f = CGRectMake(0, 392 , 320, 20);
-            _pageControl = [[PageControl alloc] initWithFrame:f];
+            if (appFrame.size.height > 480) {
+                CGRect f = CGRectMake(0, 480 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            } else {
+                CGRect f = CGRectMake(0, 392 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            }
         }
         _pageControl.numberOfPages = 20;
         _pageControl.currentPage = 0;
@@ -79,12 +84,17 @@
         NSString *title = [NSString stringWithFormat:@"Билет №%lu", (unsigned long)_biletNumber + 1];
         [self.navigationItem setTitle:title];
         CGRect appFrame = [[UIScreen mainScreen] bounds];
-        if (appFrame.size.height > 480) {
-            CGRect f = CGRectMake(0, 500 , 320, 20);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            CGRect f = CGRectMake(0, 956 , 768, 20);
             _pageControl = [[PageControl alloc] initWithFrame:f];
         } else {
-            CGRect f = CGRectMake(0, 412 , 320, 20);
-            _pageControl = [[PageControl alloc] initWithFrame:f];
+            if (appFrame.size.height > 480) {
+                CGRect f = CGRectMake(0, 500 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            } else {
+                CGRect f = CGRectMake(0, 412 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            }
         }
         _pageControl.numberOfPages = 20;
         _pageControl.currentPage = 0;

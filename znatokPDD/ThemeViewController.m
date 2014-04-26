@@ -66,20 +66,35 @@
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
         self.navigationItem.leftBarButtonItem = backButton;
         CGRect appFrame = [[UIScreen mainScreen] bounds];
-        if (appFrame.size.height > 480) {
-            CGRect f = CGRectMake(0, 480 , 320, 20);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            CGRect f = CGRectMake(0, 936, 768, 20);
             _pageControl = [[PageControl alloc] initWithFrame:f];
         } else {
-            CGRect f = CGRectMake(0, 392 , 320, 20);
-            _pageControl = [[PageControl alloc] initWithFrame:f];
+            if (appFrame.size.height > 480) {
+                CGRect f = CGRectMake(0, 480 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            } else {
+                CGRect f = CGRectMake(0, 392 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            }
         }
-        if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
-            _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
-            _pageControl.currentPage = 0;
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 41) {
+                _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+                _pageControl.currentPage = 0;
+            } else {
+                _pageControl.numberOfPages = 0;
+            }
+            [self.view addSubview:_pageControl];
         } else {
-            _pageControl.numberOfPages = 0;
+            if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
+                _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+                _pageControl.currentPage = 0;
+            } else {
+                _pageControl.numberOfPages = 0;
+            }
+            [self.view addSubview:_pageControl];
         }
-        [self.view addSubview:_pageControl];
     } else {
         UIButton *customBackButton = [UIButton buttonWithType:101];
         [customBackButton setTitle:@"Прервать" forState:UIControlStateNormal];
@@ -90,20 +105,35 @@
         NSString *title = [NSString stringWithFormat:@"Тема №%lu", (unsigned long)_themeNumber + 1];
         [self.navigationItem setTitle:title];
         CGRect appFrame = [[UIScreen mainScreen] bounds];
-        if (appFrame.size.height > 480) {
-            CGRect f = CGRectMake(0, 500 , 320, 20);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            CGRect f = CGRectMake(0, 956 , 768, 20);
             _pageControl = [[PageControl alloc] initWithFrame:f];
         } else {
-            CGRect f = CGRectMake(0, 412 , 320, 20);
-            _pageControl = [[PageControl alloc] initWithFrame:f];
+            if (appFrame.size.height > 480) {
+                CGRect f = CGRectMake(0, 500 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            } else {
+                CGRect f = CGRectMake(0, 412 , 320, 20);
+                _pageControl = [[PageControl alloc] initWithFrame:f];
+            }
         }
-        if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
-            _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
-            _pageControl.currentPage = 0;
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 60) {
+                _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+                _pageControl.currentPage = 0;
+            } else {
+                _pageControl.numberOfPages = 0;
+            }
+            [self.view addSubview:_pageControl];
         } else {
-            _pageControl.numberOfPages = 0;
+            if ([[_themeCount objectAtIndex:_themeNumber]integerValue] <= 20) {
+                _pageControl.numberOfPages = [[_themeCount objectAtIndex:_themeNumber]integerValue];
+                _pageControl.currentPage = 0;
+            } else {
+                _pageControl.numberOfPages = 0;
+            }
+            [self.view addSubview:_pageControl];
         }
-        [self.view addSubview:_pageControl];
     }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(questionAnsweredRight:) name:@"AnsweredRight" object:nil];
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
