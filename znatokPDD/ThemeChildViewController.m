@@ -69,7 +69,7 @@
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 1) {
         NSDictionary *theInfo = [NSDictionary dictionaryWithObjectsAndKeys:self.wrongAnswersArray, @"wrongAnswersArray", nil];
-        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:20]] ) {
+        if (![self.wrongAnswersArray containsObject:[NSNumber numberWithLong:_themeCount]] ) {
             if (!buttonIndex) {
                 [[NSNotificationCenter defaultCenter]
                  postNotificationName:@"ClosedComment"
@@ -81,7 +81,7 @@
                 double delayInSeconds = 0.5;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    [self performSegueWithIdentifier:@"ResultBilet" sender:self];
+                    [self performSegueWithIdentifier:@"ResultTheme" sender:self];
                 });
             }
         }
