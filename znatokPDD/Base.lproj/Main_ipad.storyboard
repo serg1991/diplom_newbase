@@ -201,13 +201,72 @@
                         <viewControllerLayoutGuide type="top" id="JyN-9u-QdK"/>
                         <viewControllerLayoutGuide type="bottom" id="2Kz-hc-PAc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ccB-Zc-LVM">
+                    <view key="view" contentMode="scaleToFill" id="n2R-5w-zSo">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osB-cI-kNp">
+                                <rect key="frame" x="256" y="44" width="256" height="256"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-YX-YAh">
+                                <rect key="frame" x="20" y="326" width="728" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9od-Pn-Mq3">
+                                <rect key="frame" x="20" y="471" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-1e-JSA">
+                                <rect key="frame" x="176" y="518" width="106" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qs-iv-CRv">
+                                <rect key="frame" x="480" y="471" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcX-8e-6qO">
+                                <rect key="frame" x="636" y="518" width="106" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="7E5-gX-tHa">
+                                <rect key="frame" x="20" y="819" width="728" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-uJ-IWz">
+                                <rect key="frame" x="320" y="725" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDK-Ka-gyl">
+                                <rect key="frame" x="20" y="893" width="722" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U4n-uP-BFD"/>
                     <connections>
+                        <outlet property="reloadImage" destination="mrd-uJ-IWz" id="ZyU-3Y-u6y"/>
+                        <outlet property="reloadLabel" destination="CDK-Ka-gyl" id="9Ve-mu-fmC"/>
+                        <outlet property="resultImage" destination="osB-cI-kNp" id="YWh-Of-1Lm"/>
+                        <outlet property="resultLabel" destination="5qr-YX-YAh" id="5XO-Qy-gFE"/>
+                        <outlet property="rightCountImage" destination="9od-Pn-Mq3" id="4qm-QV-dxH"/>
+                        <outlet property="rightCountLabel" destination="8RD-1e-JSA" id="ZFF-r2-YmA"/>
+                        <outlet property="themeLabel" destination="7E5-gX-tHa" id="Kxc-FA-6XV"/>
+                        <outlet property="timeImage" destination="3Qs-iv-CRv" id="0j1-zZ-PwD"/>
+                        <outlet property="timeLabel" destination="OcX-8e-6qO" id="kKZ-WB-HFo"/>
                         <segue destination="Vvz-rb-67Z" kind="push" identifier="examenAgain" id="eeE-8P-One"/>
                     </connections>
                 </viewController>
@@ -339,7 +398,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hre-GD-NOv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V6N-To-hsW">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1060,8 +1119,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wzT-H1-NKX"/>
         <segue reference="l8H-lb-8GH"/>
+        <segue reference="eeE-8P-One"/>
         <segue reference="Y1y-eY-mZu"/>
     </inferredMetricsTieBreakers>
 </document>

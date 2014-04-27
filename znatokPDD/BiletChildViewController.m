@@ -221,6 +221,7 @@
         detailViewController.type = 0;
         detailViewController.rightCount = (int)_rightAnswersArray.count;
         detailViewController.time = _finishDate - _startDate;
+        detailViewController.biletNumber = (int)_biletNumber;
     }
 }
 

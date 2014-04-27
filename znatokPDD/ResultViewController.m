@@ -43,9 +43,15 @@
         } else {
             [labelback setText:@"Меню"];
         }
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            labelback.font = [UIFont systemFontOfSize:30.0f];
+        }
         [labelback sizeToFit];
         int space = 6;
         labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y - 9, labelback.frame.size.width, labelback.frame.size.height);
+        }
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
         view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
         [view addSubview:imageView];
@@ -95,190 +101,52 @@
     [shareButton addTarget:self action:@selector(resultShare:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *shareIconButton = [[UIBarButtonItem alloc]initWithCustomView:shareButton];
     self.navigationItem.rightBarButtonItem = shareIconButton;
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (_type != 1) {
         if (_rightCount > 17) { //good result
-            if (screenHeight == 480) { //3.5 inch
-                UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-                resultImage.image  = [UIImage imageNamed:@"cars.png"];
-                [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
-                [resultImage.layer setBorderWidth:1.0];
-                [self.view addSubview:resultImage];
-                UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
-                resultLabel.text = @"Экзамен сдан!";
-                resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
-                [self.view addSubview:resultLabel];
-                UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
-                goodImage.image  = [UIImage imageNamed:@"good.png"];
-                [self.view addSubview:goodImage];
-                UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
-                countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
-                countLabel.textAlignment = NSTextAlignmentCenter;
-                [self.view addSubview:countLabel];
-                UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
-                timeImage.image  = [UIImage imageNamed:@"clock.png"];
-                [self.view addSubview:timeImage];
-                UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
-                timeLabel.textAlignment = NSTextAlignmentCenter;
-                timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-                [self.view addSubview:timeLabel];
-            } else { // 4 inch
-                UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-                resultImage.image  = [UIImage imageNamed:@"cars.png"];
-                [resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
-                [resultImage.layer setBorderWidth:1.0];
-                [self.view addSubview:resultImage];
-                UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 160, 118, 22)];
-                resultLabel.text = @"Экзамен сдан!";
-                resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
-                [self.view addSubview:resultLabel];
-                UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
-                goodImage.image  = [UIImage imageNamed:@"good.png"];
-                [self.view addSubview:goodImage];
-                UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
-                countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
-                countLabel.textAlignment = NSTextAlignmentCenter;
-                [self.view addSubview:countLabel];
-                UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
-                timeImage.image  = [UIImage imageNamed:@"clock.png"];
-                [self.view addSubview:timeImage];
-                UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
-                timeLabel.textAlignment = NSTextAlignmentCenter;
-                timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-                [self.view addSubview:timeLabel];
-            }
+                _resultImage.image  = [UIImage imageNamed:@"cars.png"];
+                [_resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
+                [_resultImage.layer setBorderWidth:1.0];
+                _resultLabel.text = @"Экзамен сдан!";
+                _resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
+                _rightCountImage.image  = [UIImage imageNamed:@"good.png"];
+                _rightCountLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
+                _timeImage.image  = [UIImage imageNamed:@"clock.png"];
+                _timeLabel.textAlignment = NSTextAlignmentCenter;
+                _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
         } else { // bad result
-            if (screenHeight == 480) { // 3.5 inch
-                UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-                resultImage.image  = [UIImage imageNamed:@"crash.png"];
-                [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
-                [resultImage.layer setBorderWidth:1.0];
-                [self.view addSubview:resultImage];
-                UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 160, 160, 22)];
-                resultLabel.text = @"Экзамен не сдан!";
-                resultLabel.textColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
-                [self.view addSubview:resultLabel];
-                UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
-                badImage.image  = [UIImage imageNamed:@"bad.png"];
-                [self.view addSubview:badImage];
-                UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
-                countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
-                countLabel.textAlignment = NSTextAlignmentCenter;
-                [self.view addSubview:countLabel];
-                UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
-                timeImage.image  = [UIImage imageNamed:@"clock.png"];
-                [self.view addSubview:timeImage];
-                UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
-                timeLabel.textAlignment = NSTextAlignmentCenter;
-                timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-                [self.view addSubview:timeLabel];
-            } else { // 4 inch
-                UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-                resultImage.image  = [UIImage imageNamed:@"crash.png"];
-                [resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
-                [resultImage.layer setBorderWidth:1.0];
-                [self.view addSubview:resultImage];
-                UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 180, 160, 22)];
-                resultLabel.text = @"Экзамен не сдан!";
-                resultLabel.textColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
-                [self.view addSubview:resultLabel];
-                UIImageView *badImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 242, 64, 64)];
-                badImage.image  = [UIImage imageNamed:@"bad.png"];
-                [self.view addSubview:badImage];
-                UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 263, 70, 22)];
-                countLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
-                countLabel.textAlignment = NSTextAlignmentCenter;
-                [self.view addSubview:countLabel];
-                UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 242, 64, 64)];
-                timeImage.image  = [UIImage imageNamed:@"clock.png"];
-                [self.view addSubview:timeImage];
-                UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 263, 70, 22)];
-                timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-                timeLabel.textAlignment = NSTextAlignmentCenter;
-                [self.view addSubview:timeLabel];
+            _resultImage.image  = [UIImage imageNamed:@"crash.png"];
+            [_resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
+            [_resultImage.layer setBorderWidth:1.0];
+            _resultLabel.text = @"Экзамен не сдан!";
+            _resultLabel.textColor = [UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f];
+            _rightCountImage.image  = [UIImage imageNamed:@"bad.png"];
+            _rightCountLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
+            _timeImage.image  = [UIImage imageNamed:@"clock.png"];
+            _timeLabel.textAlignment = NSTextAlignmentCenter;
+            _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+            if (_type == 0) {
+                _themeLabel.text = [NSString stringWithFormat:@"Билет № %d", _biletNumber + 1];
             }
         }
     } else { // theme
-        if (screenHeight == 480) { //3.5 inch
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-            resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
-            [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 160, 130, 22)];
-            resultLabel.text = @"Тема пройдена!";
-            [self.view addSubview:resultLabel];
-            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
-            goodImage.image  = [UIImage imageNamed:@"good.png"];
-            [self.view addSubview:goodImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
-            countLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)_rightCount, (unsigned long)_themeCommon];
-            countLabel.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
-            timeImage.image  = [UIImage imageNamed:@"clock.png"];
-            [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
-            timeLabel.textAlignment = NSTextAlignmentCenter;
-            timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-            [self.view addSubview:timeLabel];
-            UILabel *themeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 345, 320, 66)];
-            themeName.numberOfLines = 0;
-            themeName.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
-            themeName.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:themeName];
-        } else { // 4 inch
-            UIImageView *resultImage = [[UIImageView alloc] initWithFrame:CGRectMake(96, 10, 128, 128)];
-            resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
-            [self.view addSubview:resultImage];
-            UILabel  *resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 160, 130, 22)];
-            resultLabel.text = @"Тема пройдена!";
-            [self.view addSubview:resultLabel];
-            UIImageView *goodImage = [[UIImageView alloc] initWithFrame:CGRectMake(22, 222, 64, 64)];
-            goodImage.image  = [UIImage imageNamed:@"good.png"];
-            [self.view addSubview:goodImage];
-            UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 243, 70, 22)];
-            countLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)_rightCount, (unsigned long)_themeCommon];
-            countLabel.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:countLabel];
-            UIImageView *timeImage = [[UIImageView alloc] initWithFrame:CGRectMake(170, 222, 64, 64)];
-            timeImage.image  = [UIImage imageNamed:@"clock.png"];
-            [self.view addSubview:timeImage];
-            UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(238, 243, 70, 22)];
-            timeLabel.textAlignment = NSTextAlignmentCenter;
-            timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-            [self.view addSubview:timeLabel];
-            UILabel *themeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 390, 320, 66)];
-            themeName.numberOfLines = 0;
-            themeName.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
-            themeName.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:themeName];
+            _resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
+            _resultLabel.text = @"Тема пройдена!";
+        if (_rightCount > _themeCommon - _rightCount) {
+            _rightCountImage.image  = [UIImage imageNamed:@"good.png"];
+        } else {
+            _rightCountImage.image  = [UIImage imageNamed:@"bad.png"];
         }
+            _rightCountLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)_rightCount, (unsigned long)_themeCommon];
+            _timeImage.image  = [UIImage imageNamed:@"clock.png"];
+            _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+            _themeLabel.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
     }
     if (_type == 2) {
-        if (screenHeight == 480) { // 3.5 inch
-            UIImageView *refreshImage = [[UIImageView alloc]initWithFrame:CGRectMake(128, 320, 64, 64)];
-            [refreshImage setImage:[UIImage imageNamed:@"reload.png"]];
-            [refreshImage setUserInteractionEnabled:YES];
+            [_reloadImage setImage:[UIImage imageNamed:@"reload.png"]];
             UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
             [singleTap setNumberOfTapsRequired:1];
-            [refreshImage addGestureRecognizer:singleTap];
-            [self.view addSubview:refreshImage];
-            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 390, 160, 22)];
-            refreshLabel.text = @"Начать заново";
-            refreshLabel.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:refreshLabel];
-        } else { // 4 inch
-            UIImageView *imageview = [[UIImageView alloc]initWithFrame:CGRectMake(128, 360, 64, 64)];
-            [imageview setImage:[UIImage imageNamed:@"reload.png"]];
-            [imageview setUserInteractionEnabled:YES];
-            UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-            [singleTap setNumberOfTapsRequired:1];
-            [imageview addGestureRecognizer:singleTap];
-            [self.view addSubview:imageview];
-            UILabel *refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 430, 160, 22)];
-            refreshLabel.text = @"Начать заново";
-            refreshLabel.textAlignment = NSTextAlignmentCenter;
-            [self.view addSubview:refreshLabel];
-        }
+            [_reloadImage addGestureRecognizer:singleTap];
+            _reloadLabel.text = @"Начать заново";
     }
     _timeString = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
