@@ -103,16 +103,16 @@
     self.navigationItem.rightBarButtonItem = shareIconButton;
     if (_type != 1) {
         if (_rightCount > 17) { //good result
-                _resultImage.image  = [UIImage imageNamed:@"cars.png"];
-                [_resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
-                [_resultImage.layer setBorderWidth:1.0];
-                _resultLabel.text = @"Экзамен сдан!";
-                _resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
-                _rightCountImage.image  = [UIImage imageNamed:@"good.png"];
-                _rightCountLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
-                _timeImage.image  = [UIImage imageNamed:@"clock.png"];
-                _timeLabel.textAlignment = NSTextAlignmentCenter;
-                _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+            _resultImage.image  = [UIImage imageNamed:@"cars.png"];
+            [_resultImage.layer setBorderColor:[[UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f] CGColor]];
+            [_resultImage.layer setBorderWidth:1.0];
+            _resultLabel.text = @"Экзамен сдан!";
+            _resultLabel.textColor = [UIColor colorWithRed:0 / 255.0f green:152 / 255.0f blue:70 / 255.0f alpha:1.0f];
+            _rightCountImage.image  = [UIImage imageNamed:@"good.png"];
+            _rightCountLabel.text = [NSString stringWithFormat:@"%lu / 20", (unsigned long)_rightCount];
+            _timeImage.image  = [UIImage imageNamed:@"clock.png"];
+            _timeLabel.textAlignment = NSTextAlignmentCenter;
+            _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
         } else { // bad result
             _resultImage.image  = [UIImage imageNamed:@"crash.png"];
             [_resultImage.layer setBorderColor:[[UIColor colorWithRed:236 / 255.0f green:30 / 255.0f blue:36 / 255.0f alpha:1.0f] CGColor]];
@@ -124,29 +124,29 @@
             _timeImage.image  = [UIImage imageNamed:@"clock.png"];
             _timeLabel.textAlignment = NSTextAlignmentCenter;
             _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-            if (_type == 0) {
-                _themeLabel.text = [NSString stringWithFormat:@"Билет № %d", _biletNumber + 1];
-            }
+        }
+        if (_type == 0) {
+            _themeLabel.text = [NSString stringWithFormat:@"Билет № %d", _biletNumber + 1];
         }
     } else { // theme
-            _resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
-            _resultLabel.text = @"Тема пройдена!";
+        _resultImage.image  = [UIImage imageNamed:@"theme_complete.png"];
+        _resultLabel.text = @"Тема пройдена!";
         if (_rightCount > _themeCommon - _rightCount) {
             _rightCountImage.image  = [UIImage imageNamed:@"good.png"];
         } else {
             _rightCountImage.image  = [UIImage imageNamed:@"bad.png"];
         }
-            _rightCountLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)_rightCount, (unsigned long)_themeCommon];
-            _timeImage.image  = [UIImage imageNamed:@"clock.png"];
-            _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
-            _themeLabel.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
+        _rightCountLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)_rightCount, (unsigned long)_themeCommon];
+        _timeImage.image  = [UIImage imageNamed:@"clock.png"];
+        _timeLabel.text = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
+        _themeLabel.text = [NSString stringWithFormat:@"Тема %d. %@", _themeNumber + 1, _themeName[_themeNumber]];
     }
     if (_type == 2) {
-            [_reloadImage setImage:[UIImage imageNamed:@"reload.png"]];
-            UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
-            [singleTap setNumberOfTapsRequired:1];
-            [_reloadImage addGestureRecognizer:singleTap];
-            _reloadLabel.text = @"Начать заново";
+        [_reloadImage setImage:[UIImage imageNamed:@"reload.png"]];
+        UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+        [singleTap setNumberOfTapsRequired:1];
+        [_reloadImage addGestureRecognizer:singleTap];
+        _reloadLabel.text = @"Начать заново";
     }
     _timeString = [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {

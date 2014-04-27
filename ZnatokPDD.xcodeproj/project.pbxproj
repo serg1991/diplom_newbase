@@ -306,7 +306,6 @@
 		A522E5FD189521C70090AFA2 /* ZnatokPDD */ = {
 			isa = PBXGroup;
 			children = (
-				A57A609C190C4ACC0080265F /* iPad */,
 				A5614FE218F20F6400263A57 /* 3rd party */,
 				A522E606189521C70090AFA2 /* AppDelegate.h */,
 				A522E607189521C70090AFA2 /* AppDelegate.m */,
@@ -434,13 +433,6 @@
 				A5D2BE3718F2075000248E7C /* VKontakteActivity.m */,
 			);
 			name = "3rd party";
-			sourceTree = "<group>";
-		};
-		A57A609C190C4ACC0080265F /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
