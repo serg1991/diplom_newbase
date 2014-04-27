@@ -27,10 +27,16 @@
         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UINavigationBarBackIndicatorDefault"]];
         UILabel *labelback = [[UILabel alloc] init];
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            labelback.font = [UIFont systemFontOfSize:30.0f];
+        }
         [labelback setText:@"Меню"];
         [labelback sizeToFit];
         int space = 6;
         labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y, labelback.frame.size.width, labelback.frame.size.height);
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            labelback.frame = CGRectMake(imageView.frame.origin.x + imageView.frame.size.width + space, labelback.frame.origin.y - 8, labelback.frame.size.width, labelback.frame.size.height);
+        }
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, labelback.frame.size.width + imageView.frame.size.width + space, imageView.frame.size.height)];
         view.bounds = CGRectMake(view.bounds.origin.x + 8, view.bounds.origin.y - 1, view.bounds.size.width, view.bounds.size.height);
         [view addSubview:imageView];
@@ -47,6 +53,12 @@
         } completion:nil];
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:view];
         self.navigationItem.leftBarButtonItem = backButton;
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            UILabel *bigLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 30)];
+            bigLabel.text = @"Темы";
+            bigLabel.font = [UIFont systemFontOfSize:30.0];
+            self.navigationItem.titleView = bigLabel;
+        }
     } else {
         UIButton *customBackButton = [UIButton buttonWithType:101];
         [customBackButton setTitle:@"Меню" forState:UIControlStateNormal];
@@ -55,6 +67,10 @@
         UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
         [self.navigationItem setLeftBarButtonItem:myBackButton];
     }
+    [self getThemeNameCount];
+}
+
+- (void)getThemeNameCount {
     NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"pdd.sqlite"];
     const char * dbpath = [defaultDBPath UTF8String];
     sqlite3_stmt *statement, *statement2;

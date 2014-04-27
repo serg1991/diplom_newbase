@@ -18,6 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        UILabel *bigLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+        bigLabel.text = @"Знаток ПДД";
+        bigLabel.font = [UIFont boldSystemFontOfSize:30.0];
+        self.navigationItem.titleView = bigLabel;
+    }
     UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
     UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
     UITapGestureRecognizer *singleTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
@@ -104,7 +110,6 @@
     _image4.image = [UIImage imageNamed:@"statistics.png"];
     _image5.image = [UIImage imageNamed:@"literature.png"];
     _image6.image = [UIImage imageNamed:@"settings.png"];
-    
     navBarHairlineImageView.hidden = YES;
 }
 
