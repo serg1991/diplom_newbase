@@ -164,7 +164,13 @@
         self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 8, 66, 30)];
         self.theLabel.backgroundColor = [UIColor clearColor];
         self.theLabel.textColor = [UIColor whiteColor];
-        self.theLabel.font = [UIFont systemFontOfSize:20];
+        self.theLabel.font = [UIFont systemFontOfSize:20.0f];
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            self.theLabel = [[UILabel alloc] initWithFrame:CGRectMake(680, 7, 80, 30)];
+            self.theLabel.font = [UIFont boldSystemFontOfSize:20.0f];
+            self.theLabel.textColor = [UIColor grayColor];
+            self.theLabel.backgroundColor = [UIColor clearColor];
+        }
         _timer = nil;
         [self.navigationItem setTitle:@"Экзамен"];
         [self.navigationController.navigationBar addSubview:theLabel];

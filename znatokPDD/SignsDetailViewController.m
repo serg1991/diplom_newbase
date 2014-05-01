@@ -64,8 +64,10 @@
     } else {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
         label.numberOfLines = 0;
+        if (UI_USER_INTERFACE_IDIOM()!=UIUserInterfaceIdiomPad) {
         label.font = [UIFont systemFontOfSize:12.0f];
         label.textColor = [UIColor whiteColor];
+        }
         label.text = _signName;
         label.backgroundColor = [UIColor clearColor];
         self.navigationItem.titleView = label;

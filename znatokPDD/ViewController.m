@@ -22,6 +22,7 @@
         UILabel *bigLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
         bigLabel.text = @"Знаток ПДД";
         bigLabel.font = [UIFont boldSystemFontOfSize:30.0];
+        bigLabel.backgroundColor = [UIColor clearColor];
         self.navigationItem.titleView = bigLabel;
     }
     UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];

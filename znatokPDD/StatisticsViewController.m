@@ -82,7 +82,11 @@
         UIBarButtonItem *myBackButton = [[UIBarButtonItem alloc] initWithCustomView:customBackButton];
         [self.navigationItem setLeftBarButtonItem:myBackButton];
         UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [trashButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarTrash6"] forState:UIControlStateNormal];
+        if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+            [trashButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarTrash"] forState:UIControlStateNormal];
+        } else {
+            [trashButton setBackgroundImage:[UIImage imageNamed:@"UIButtonBarTrash6"] forState:UIControlStateNormal];
+        }
         trashButton.frame = CGRectMake(0, 0, 18, 25);
         [trashButton addTarget:self action:@selector(confirmReset) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *trashIconButton = [[UIBarButtonItem alloc]initWithCustomView:trashButton];
@@ -149,7 +153,7 @@
                     [subview removeFromSuperview];
                 }
                 if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-//                    [self getExamenStatisticsIpad];
+                    //                    [self getExamenStatisticsIpad];
                 } else {
                     [self getExamenStatisticsIphone];
                 }
@@ -320,9 +324,9 @@
     }
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == 480) {
-        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 10))];
     } else {
-        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 13))];
     }
     [self.view addSubview:scrollView];
 }
@@ -348,7 +352,7 @@
             [BiletCommonStatTitle sizeToFit];
             [scrollView addSubview:BiletCommonStatTitle];
         } else {
-            BiletCommonStatTitle.text = @"Общая статистика ответов на билеты\nПравильных ответов\t\t\t  Неправильных ответов";
+            BiletCommonStatTitle.text = @"Общая статистика ответов на билеты\nПравильных ответов\t\t\t\t\t\t\t\t\t\t\t  Неправильных ответов";
             BiletCommonStatTitle.textAlignment = NSTextAlignmentCenter;
             BiletCommonStatTitle.numberOfLines = 2;
             BiletCommonStatTitle.font = [UIFont italicSystemFontOfSize:30];
@@ -380,7 +384,7 @@
                         BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                         [scrollView addSubview:BiletCommonStat];
                     } else {
-                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
                         UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 748, 33)];
                         BiletCommonStat.font = [UIFont systemFontOfSize:30.0f];
                         BiletCommonStat.text = stat;
@@ -621,9 +625,9 @@
     }
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
     if (screenHeight == 480) {
-        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 9))];
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 10))];
     } else {
-        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 12))];
+        [scrollView setContentSize:CGSizeMake(scrollView.bounds.size.width, scrollView.bounds.size.height + 30 * (i - 13))];
     }
     [self.view addSubview:scrollView];
 }
@@ -675,7 +679,7 @@
                         BiletCommonStat.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                         [scrollView addSubview:BiletCommonStat];
                     } else {
-                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
                         UILabel *BiletCommonStat = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 748, 33)];
                         BiletCommonStat.text = stat;
                         BiletCommonStat.font = [UIFont systemFontOfSize:30.0f];
@@ -812,7 +816,7 @@
                         ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                         [self.view addSubview:ExResult];
                     } else {
-                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
                         UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 40, 300, 20)];
                         ExResult.text = stat;
                         ExResult.textColor = [UIColor whiteColor];
@@ -871,15 +875,13 @@
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt2, -1, &statement2, NULL) == SQLITE_OK) {
             if (sqlite3_step(statement2) == SQLITE_ROW) {
                 if (sqlite3_column_int(statement2, 0) != 0) {
-                    UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
-                    ExTriesTitle.numberOfLines = 2;
-                    ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
-                    ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                        UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+                        ExTriesTitle.numberOfLines = 2;
+                        ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
+                        ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
                         [ExTriesTitle sizeToFit];
-                    }
-                    [self.view addSubview:ExTriesTitle];
-                    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                        [self.view addSubview:ExTriesTitle];
                         NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
                         UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 110, 300, 20)];
                         ExResult.text = stat;
@@ -896,7 +898,26 @@
                         [self.view addSubview:ExResult];
                         _bottomBestResult = ExResult.frame;
                     } else {
-                        
+                        UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
+                        ExTriesTitle.numberOfLines = 2;
+                        ExTriesTitle.text = [NSString stringWithFormat:@"\t\t\t\t\tПопыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
+                        ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
+                        [self.view addSubview:ExTriesTitle];
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
+                        UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 120, 300, 20)];
+                        ExResult.text = stat;
+                        ExResult.textColor = [UIColor whiteColor];
+                        UIGraphicsBeginImageContext(CGSizeMake(300, 20));
+                        CGContextRef context = UIGraphicsGetCurrentContext();
+                        CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                        CGContextFillRect(context, CGRectMake(0.0, 0.0, 300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 20));
+                        CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                        CGContextFillRect(context, CGRectMake(300 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 300 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 20));
+                        UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                        UIGraphicsEndImageContext();
+                        ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                        [self.view addSubview:ExResult];
+                        _bottomBestResult = ExResult.frame;
                     }
                 } else {
                     UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 300, 40)];
@@ -958,7 +979,7 @@
             [ExBestResultTitle sizeToFit];
         }
         [self.view addSubview:ExBestResultTitle];
-        NSString *querySQL3 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 5"];
+        NSString *querySQL3 = [NSString stringWithFormat:@"SELECT rightCount, finishDate, startDate FROM paper_ab_examen_stat ORDER BY rightCount DESC, (finishDate-startDate) LIMIT 7"];
         const char * query_stmt3 = [querySQL3 UTF8String];
         if (sqlite3_prepare_v2(_pdd_ab_stat, query_stmt3, -1, &statement3, NULL) == SQLITE_OK) {
             int i = 0;
@@ -979,8 +1000,18 @@
                 NSDateFormatter *date_formatter = [[NSDateFormatter alloc] init];
                 [date_formatter setDateFormat:@"dd MMMM YYYY"];
                 NSString *result = [date_formatter stringFromDate:date];
-                NSString *stat2 = [NSString stringWithFormat:@" %d\t     |\t\t %@\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
-                UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 80 + (30 * i), 300, 20)];
+                NSString *stat2;
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                    stat2 = [NSString stringWithFormat:@" %d\t     |\t\t %@\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                } else {
+                    stat2 = [NSString stringWithFormat:@"\t\t\t %d\t     |\t\t\t\t\t\t %@\t\t\t\t\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                }
+                UILabel *exBestResults;
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                    exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 80 + (30 * i), 300, 20)];
+                } else {
+                    exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(10, _bottomBestResult.origin.y + 90 + (30 * i), 300, 20)];
+                }
                 exBestResults.text = stat2;
                 exBestResults.textColor = [UIColor blackColor];
                 exBestResults.layer.borderColor = [UIColor blackColor].CGColor;
@@ -1016,9 +1047,11 @@
                 UILabel *ExCommonResultTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 2, 748, 66)];
                 ExCommonResultTitle.textAlignment = NSTextAlignmentCenter;
                 ExCommonResultTitle.numberOfLines = 2;
-                ExCommonResultTitle.text = @" Общая статистика прохождения экзамена\nПравильных ответов\t\t\t\t\t\t\t\t\t\t\t Неправильных ответов";
+                ExCommonResultTitle.text = @" Общая статистика прохождения экзамена\nПравильных ответов\t\t\t\t\t\t\t\t\t\t\t\t Неправильных ответов";
                 ExCommonResultTitle.font = [UIFont italicSystemFontOfSize:30.0f];
-                [ExCommonResultTitle sizeToFit];
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                    [ExCommonResultTitle sizeToFit];
+                }
                 [self.view addSubview:ExCommonResultTitle];
                 if (sqlite3_column_int(statement1, 2) != 0) {
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -1038,7 +1071,7 @@
                         ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
                         [self.view addSubview:ExResult];
                     } else {
-                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement1, 0), sqlite3_column_int(statement1, 1)];
                         UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 748, 33)];
                         ExResult.font = [UIFont systemFontOfSize:30.0f];
                         ExResult.text = stat;
@@ -1104,6 +1137,8 @@
                     ExTriesTitle.font = [UIFont italicSystemFontOfSize:30.0f];
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
                         [ExTriesTitle sizeToFit];
+                    } else {
+                        ExTriesTitle.text = [NSString stringWithFormat:@"Попыток прохождения экзаменационного теста : %d\nУспешных \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  Неуспешных", sqlite3_column_int(statement2, 0)];
                     }
                     [self.view addSubview:ExTriesTitle];
                     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -1124,10 +1159,25 @@
                         [self.view addSubview:ExResult];
                         _bottomBestResult = ExResult.frame;
                     } else {
-                        
+                        NSString *stat = [NSString stringWithFormat:@" %d \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t %d ", sqlite3_column_int(statement2, 1), sqlite3_column_int(statement2, 2)];
+                        UILabel *ExResult = [[UILabel alloc] initWithFrame: CGRectMake(10, 220, 748, 33)];
+                        ExResult.font = [UIFont systemFontOfSize:30.0f];
+                        ExResult.text = stat;
+                        ExResult.textColor = [UIColor whiteColor];
+                        UIGraphicsBeginImageContext(CGSizeMake(748, 33));
+                        CGContextRef context = UIGraphicsGetCurrentContext();
+                        CGContextSetRGBFillColor(context,  0.0, 0.8, 0.0, 1.0);//green
+                        CGContextFillRect(context, CGRectMake(0.0, 0.0, 748 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 33));
+                        CGContextSetRGBFillColor(context,  0.8, 0.0, 0.0, 1.0);//red
+                        CGContextFillRect(context, CGRectMake(748 * (1 - (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0))), 0.0, 748 * (sqlite3_column_double(statement2, 2) * 1.0 / sqlite3_column_int(statement2, 0)), 33));
+                        UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+                        UIGraphicsEndImageContext();
+                        ExResult.backgroundColor = [UIColor colorWithPatternImage:resultingImage];
+                        [self.view addSubview:ExResult];
+                        _bottomBestResult = ExResult.frame;
                     }
                 } else {
-                    UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 80, 748, 33)];
+                    UILabel *ExTriesTitle = [[UILabel alloc] initWithFrame: CGRectMake(10, 160, 748, 33)];
                     ExTriesTitle.numberOfLines = 2;
                     ExTriesTitle.text = [NSString stringWithFormat:@"   Попыток прохождения экзаменационного теста : 0\nУспешных \t\t\t\t\t\t  Неуспешных"];
                     ExTriesTitle.font = [UIFont italicSystemFontOfSize:11];
@@ -1207,7 +1257,12 @@
                 NSDateFormatter *date_formatter = [[NSDateFormatter alloc] init];
                 [date_formatter setDateFormat:@"dd MMMM YYYY"];
                 NSString *result = [date_formatter stringFromDate:date];
-                NSString *stat2 = [NSString stringWithFormat:@"\t     %d\t\t     |\t\t\t %@\t\t\t\t\t |\t\t\t\t\t %@ \t\t\t\t\t\t", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                NSString *stat2;
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                    stat2 = [NSString stringWithFormat:@"\t     %d\t\t     |\t\t\t %@\t\t\t\t\t |\t\t\t\t\t %@ \t\t\t\t\t\t", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                } else {
+                    stat2 = [NSString stringWithFormat:@"\t     \t\t%d\t\t\t\t     |\t\t\t\t\t\t\t\t\t\t %@\t\t\t\t\t\t\t\t\t |\t\t\t\t\t %@ \t\t\t\t\t", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                }
                 UILabel *exBestResults = [[UILabel alloc] initWithFrame: CGRectMake(20, _bottomBestResult.origin.y + 135 + (45 * i), 768, 33)];
                 exBestResults.text = stat2;
                 exBestResults.textColor = [UIColor blackColor];

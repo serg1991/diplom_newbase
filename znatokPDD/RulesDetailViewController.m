@@ -63,9 +63,11 @@
     } else {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
         label.numberOfLines = 0;
+        if (UI_USER_INTERFACE_IDIOM()!=UIUserInterfaceIdiomPad) {
         label.font = [UIFont systemFontOfSize:12.0f];
-        label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor whiteColor];
+        }
+        label.backgroundColor = [UIColor clearColor];
         label.text = _ruleName;
         self.navigationItem.titleView = label;
     }

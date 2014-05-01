@@ -63,10 +63,13 @@
     } else {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 1, 44)];
         label.numberOfLines = 0;
+        if (UI_USER_INTERFACE_IDIOM()!=UIUserInterfaceIdiomPad) {
         label.font = [UIFont systemFontOfSize:12.0f];
+        label.textColor = [UIColor whiteColor];
+        }
         label.text = _lineName;
         label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor whiteColor];
+
         self.navigationItem.titleView = label;
     }
     NSURL *htmlFile = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:_lineDetailModel ofType:@"html"]];

@@ -291,52 +291,73 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSUInteger rowNumber = [indexPath row];
-    if (rowNumber == 0) {
-        NSString *textLabel = [NSString stringWithFormat:@"%@", _mainArray[0]];
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.alignment = NSTextAlignmentCenter;
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) { // ipad
+        if (rowNumber == 0) { // question
+            NSString *textLabel = [NSString stringWithFormat:@"%@", _mainArray[0]];
+            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+            style.alignment = NSTextAlignmentCenter;
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                      style, NSParagraphStyleAttributeName,
+                                                      [UIFont italicSystemFontOfSize:30.0f],  NSFontAttributeName,
+                                                      nil];
+                CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+                return kExamenDifference + textLabelSize.size.height;
+            } else {
+                CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
+                                             constrainedToSize:CGSizeMake(700.0, 200.0)
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                return kExamenDifference + textLabelSize.height;
+            }
+        } else { // answers
+            NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
             NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                  style, NSParagraphStyleAttributeName,
-                                                  [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
+                                                  [UIFont systemFontOfSize:30.0f], NSFontAttributeName,
                                                   nil];
-            CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-            if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-                attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                         style, NSParagraphStyleAttributeName,
-                                         [UIFont italicSystemFontOfSize:30.0f],  NSFontAttributeName,
-                                         nil];
-               textLabelSize = [textLabel boundingRectWithSize:kExamenLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
                 return kExamenDifference + textLabelSize.size.height + 4;
+            } else {
+                CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
+                                             constrainedToSize:CGSizeMake(700.0, 200.0)
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                return kExamenDifference + textLabelSize.height - 1;
             }
-            return kExamenDifference + textLabelSize.size.height - 16;
-        } else {
-            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:CGSizeMake(300.0, 200.0)
-                                             lineBreakMode:NSLineBreakByWordWrapping];
-            return kExamenDifference + textLabelSize.height - 16;
         }
-    } else {
-        NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
-        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                              [UIFont systemFontOfSize:15.0f], NSFontAttributeName,
-                                              nil];
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-            if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-                attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [UIFont systemFontOfSize:30.0f],  NSFontAttributeName,
-                                        nil];
-                textLabelSize = [textLabel boundingRectWithSize:kExamenLabelIpadFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
-                return kExamenDifference + textLabelSize.size.height + 4;
+    } else { // iphone
+        if (rowNumber == 0) { // question
+            NSString *textLabel = [NSString stringWithFormat:@"%@", _mainArray[0]];
+            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+            style.alignment = NSTextAlignmentCenter;
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                      style, NSParagraphStyleAttributeName,
+                                                      [UIFont italicSystemFontOfSize:15.0f],  NSFontAttributeName,
+                                                      nil];
+                CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+                return kExamenDifference + textLabelSize.size.height - 16;
+            } else {
+                CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
+                                             constrainedToSize:CGSizeMake(300.0, 200.0)
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                return kExamenDifference + textLabelSize.height - 16;
             }
-            return kExamenDifference + textLabelSize.size.height - 1;
-        } else {
-            CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
-                                         constrainedToSize:CGSizeMake(300.0, 200.0)
-                                             lineBreakMode:NSLineBreakByWordWrapping];
-            return kExamenDifference + textLabelSize.height - 1;
+        } else { // answers
+            NSString *textLabel = [NSString stringWithFormat:@"%ld. %@", (long)rowNumber, _mainArray[rowNumber]];
+            NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                  [UIFont systemFontOfSize:15.0f], NSFontAttributeName,
+                                                  nil];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+                CGRect textLabelSize = [textLabel boundingRectWithSize:kExamenLabelFrameMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributesDictionary context:nil];
+                return kExamenDifference + textLabelSize.size.height - 1;
+            } else {
+                CGSize textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15.0f]
+                                             constrainedToSize:CGSizeMake(300.0, 200.0)
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
+                return kExamenDifference + textLabelSize.height - 1;
+            }
         }
     }
 }

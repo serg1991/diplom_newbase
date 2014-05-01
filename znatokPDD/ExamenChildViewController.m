@@ -238,7 +238,7 @@
                                                    lineBreakMode:NSLineBreakByWordWrapping];
         if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
             textLabelSize = [cell.textLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
-                                            constrainedToSize:kExamenLabelIpadFrameMaxSize
+                                            constrainedToSize:CGSizeMake(730.0, 200.0)
                                                 lineBreakMode:NSLineBreakByWordWrapping];
         }
         cell.textLabel.frame = CGRectMake(5, 5, textLabelSize.width, textLabelSize.height);
@@ -297,7 +297,7 @@
                                              lineBreakMode:NSLineBreakByWordWrapping];
             if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
                 textLabelSize = [textLabel sizeWithFont:[UIFont fontWithName:@"Helvetica" size:30.0f]
-                                      constrainedToSize:CGSizeMake(750.0, 200.0)
+                                      constrainedToSize:CGSizeMake(720.0, 200.0)
                                           lineBreakMode:NSLineBreakByWordWrapping];
             }
             return kExamenDifference + textLabelSize.height - 1;
