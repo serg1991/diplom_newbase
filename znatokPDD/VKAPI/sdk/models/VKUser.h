@@ -148,8 +148,7 @@
 @property (nonatomic, strong) NSNumber *blacklisted_by_me;
 @property (nonatomic, strong) NSString *twitter;
 @property (nonatomic, strong) NSString *skype;
-@property (nonatomic, strong) NSNumber *facebook;
-@property (nonatomic, strong) NSString *facebook_name;
+@property (nonatomic, strong) NSString *facebook;
 @property (nonatomic, strong) NSString *livejournal;
 @property (nonatomic, strong) NSString *wall_default;
 /// Для метода account.lookupContacts
