@@ -27,11 +27,14 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent) {
 	NSString *objectString;
 	if ([object isKindOfClass:[NSString class]]) {
 		objectString = (NSString *)object;
-	} else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)]) {
-		objectString = [(NSDictionary *)object descriptionWithLocale :locale indent :indent];
-	} else if ([object respondsToSelector:@selector(descriptionWithLocale:)]) {
-		objectString = [(NSSet *)object descriptionWithLocale :locale];
-	} else {
+	}
+	else if ([object respondsToSelector:@selector(descriptionWithLocale:indent:)]) {
+		objectString = [(NSDictionary *)object descriptionWithLocale : locale indent : indent];
+	}
+	else if ([object respondsToSelector:@selector(descriptionWithLocale:)]) {
+		objectString = [(NSSet *)object descriptionWithLocale : locale];
+	}
+	else {
 		objectString = [object description];
 	}
 	return objectString;

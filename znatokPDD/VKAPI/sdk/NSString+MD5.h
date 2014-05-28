@@ -22,7 +22,6 @@
 
 #import "NSString+MD5.h"
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-
 @interface NSString (MD5)
 
 - (NSString *)MD5;

@@ -163,7 +163,7 @@
 + (void)authorize:(NSArray *)permissions revokeAccess:(BOOL)revokeAccess forceOAuth:(BOOL)forceOAuth inApp:(BOOL) inApp;
 
 /**
- Starts authorization process.
+ Starts authorization process. 
  @param permissions Array of permissions for your applications. All permissions you can
  @param revokeAccess If YES, user will allow logout (to change user)
  @param forceOAuth If YES, SDK will use only oauth authorization through mobile safari. Otherwise, it will try to authorize through VK application
@@ -219,6 +219,11 @@
  Has no effect for logout in VK app
  */
 + (void) forceLogout;
+
+/**
+ * Checks if there is some application, which may process authorize url
+ */
++ (BOOL) vkAppMayExists;
 // Deny allocating more SDK
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 + (instancetype)alloc __attribute__((unavailable("alloc not available, call initialize: or instance instead")));

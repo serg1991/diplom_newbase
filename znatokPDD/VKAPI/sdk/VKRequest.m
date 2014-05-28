@@ -52,6 +52,10 @@
 @end
 
 @interface VKRequest ()
+{
+    /// Semaphore for blocking current thread
+    dispatch_semaphore_t _waitUntilDoneSemaphore;
+}
 @property (nonatomic, readwrite, strong) VKRequestTiming *requestTiming;
 /// Selected method name
 @property (nonatomic, strong) NSString *methodName;
@@ -71,6 +75,10 @@
 @property (nonatomic, strong) NSArray *photoObjects;
 /// How much times request was loaded
 @property (readwrite, assign) int attemptsUsed;
+/// This request response
+@property (nonatomic, strong)   VKResponse *response;
+/// This request error
+@property (nonatomic, strong)   NSError    *error;
 @end
 
 @implementation VKRequest
@@ -85,7 +93,6 @@
 	newRequest.methodName       = method;
 	newRequest.methodParameters = parameters;
 	newRequest.httpMethod       = httpMethod;
-    
 	return newRequest;
 }
 
@@ -118,7 +125,7 @@
 }
 
 - (NSString *)description {
-    //	return [NSString stringWithFormat:@"<VKRequest: %p>\nMethod: %@ (%@)\nparameters: %@", self, _methodName, _httpMethod, _methodParameters];
+//	return [NSString stringWithFormat:@"<VKRequest: %p>\nMethod: %@ (%@)\nparameters: %@", self, _methodName, _httpMethod, _methodParameters];
     return [NSString stringWithFormat:@"<VKRequest: %p; Method: %@ (%@)>", self, _methodName, _httpMethod];
 }
 
@@ -216,9 +223,10 @@
 	        return;
 		}
 	    if (self.attempts == 0 || ++self.attemptsUsed < self.attempts) {
-	        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^(void) {
-	            [self start];
-			});
+	        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), self.responseQueue,
+                           ^(void) {
+                                [self start];
+                            });
 	        return;
 		}
         
@@ -226,17 +234,31 @@
 	    [self provideError:[error copyWithVkError:vkErr]];
         [_requestTiming finished];
 	}];
+    [self setOperation:operation responseQueue:self.responseQueue];
 	[self setupProgress:operation];
     return operation;
+}
+- (void)setOperation:(VKHTTPOperation*) operation responseQueue:(dispatch_queue_t)responseQueue {
+    [operation setSuccessCallbackQueue:responseQueue];
+    [operation setFailureCallbackQueue:responseQueue];
 }
 - (void)start {
 	_executionOperation = self.executionOperation;
     if (_executionOperation == nil)
         return;
+
     if (self.debugTiming) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(operationDidStart:) name:VKNetworkingOperationDidStart object:nil];
     }
-	[[VKHTTPClient getClient] enqueueOperation:_executionOperation];
+    if (!self.waitUntilDone) {
+        [[VKHTTPClient getClient] enqueueOperation:_executionOperation];
+    } else {
+        [self setOperation:(VKHTTPOperation*)_executionOperation responseQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)];
+        _waitUntilDoneSemaphore = dispatch_semaphore_create(0);
+        [[VKHTTPClient getClient] enqueueOperation:_executionOperation];
+        dispatch_semaphore_wait(_waitUntilDoneSemaphore, DISPATCH_TIME_FOREVER);
+        [self finishRequest];
+    }
 }
 - (void) operationDidStart:(NSNotification*) notification {
     if (notification.object == _executionOperation)
@@ -264,22 +286,43 @@
 	    for (VKRequest *postRequest in _postRequestsQueue)
 			[postRequest start];
         [_requestTiming finished];
-	    dispatch_sync(dispatch_get_main_queue(), ^{
-	        if (self.completeBlock)
-				self.completeBlock(vkResp);
-		});
+        self.response = vkResp;
+        if (self.waitUntilDone) {
+            dispatch_semaphore_signal(_waitUntilDoneSemaphore);
+        } else {
+            dispatch_sync(self.responseQueue, ^{
+                [self finishRequest];
+            });
+        }
+        
 	});
 }
 
 - (void)provideError:(NSError *)error {
 	error.vkError.request = self;
-	dispatch_async(dispatch_get_main_queue(), ^{
+    self.error = error;
+    if (self.waitUntilDone) {
+        dispatch_semaphore_signal(_waitUntilDoneSemaphore);
+    }
+    else {
+        dispatch_async(self.responseQueue, ^{
+            [self finishRequest];
+        });
+    }
+}
+- (void) finishRequest {
+    if (self.error) {
         if (self.errorBlock) {
-            self.errorBlock(error);
+            self.errorBlock(self.error);
         }
         for (VKRequest *postRequest in _postRequestsQueue)
-            if (postRequest.errorBlock) postRequest.errorBlock(error);
-    });
+            if (postRequest.errorBlock) postRequest.errorBlock(self.error);
+    } else {
+        if (self.completeBlock)
+            self.completeBlock(self.response);
+    }
+    self.response = nil;
+    self.error    = nil;
 }
 
 - (void)repeat {
@@ -364,6 +407,12 @@
 	}
 	return lang;
 }
+-(dispatch_queue_t)responseQueue {
+    if (!_responseQueue) {
+        return dispatch_get_main_queue();
+    }
+    return _responseQueue;
+}
 
 - (void)setPreferredLang:(NSString *)preferredLang {
 	_preferredLang = preferredLang;
@@ -371,6 +420,7 @@
 }
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.responseQueue = nil;
 }
 
 @end

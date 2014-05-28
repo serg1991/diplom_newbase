@@ -998,11 +998,11 @@
                 NSString *exTime =  [NSString stringWithFormat:@"%@ : %@", minutes, seconds];
                 NSDate *date = [NSDate dateWithTimeIntervalSince1970:sqlite3_column_int(statement3, 1)];
                 NSDateFormatter *date_formatter = [[NSDateFormatter alloc] init];
-                [date_formatter setDateFormat:@"dd MMMM YYYY"];
+                [date_formatter setDateFormat:@"dd.MM.YYYY"];
                 NSString *result = [date_formatter stringFromDate:date];
                 NSString *stat2;
                 if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-                    stat2 = [NSString stringWithFormat:@" %d\t     |\t\t %@\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
+                    stat2 = [NSString stringWithFormat:@" %d          | \t  %@   \t  | \t %@   ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
                 } else {
                     stat2 = [NSString stringWithFormat:@"\t\t\t %d\t     |\t\t\t\t\t\t %@\t\t\t\t\t | %@ ", 20 - sqlite3_column_int(statement3, 0), result, exTime];
                 }
