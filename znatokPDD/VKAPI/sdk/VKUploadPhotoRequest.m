@@ -23,7 +23,7 @@
 #import "VKUploadPhotoRequest.h"
 #import "VKApi.h"
 @implementation VKUploadPhotoRequest
-- (instancetype)initWithImage:(UIImage *)image parameters:(VKImageParameters *)parameters albumId:(int)albumId groupId:(int)groupId {
+- (instancetype)initWithImage:(UIImage *)image parameters:(VKImageParameters *)parameters albumId:(NSInteger)albumId groupId:(NSInteger)groupId {
 	self = [super init];
 	self.image            = image;
 	self.imageParameters  = parameters;
@@ -31,7 +31,9 @@
 	self.groupId          = groupId;
 	return self;
 }
-
+-(NSString *)methodName {
+    return @"VKUploadPhotoRequest";
+}
 - (VKRequest *)getServerRequest {
 	if (self.albumId && self.groupId)
 		return [[VKApi photos] getUploadServer:self.albumId andGroupId:self.groupId];

@@ -19,6 +19,10 @@
 //  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 //  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//  --------------------------------------------------------------------------------
+//
+//  Modified by Ruslan Kavetsky
 
 @import Foundation;
 @import UIKit;
@@ -34,7 +38,8 @@
 #import "VKBatchRequest.h"
 #import "NSError+VKError.h"
 #import "VKApiModels.h"
-
+#import "VKUploadImage.h"
+#import "VKShareDialogController.h"
 /**
  Global SDK events delegate protocol.
  You should implement it, typically as main view controller or as application delegate.
@@ -83,18 +88,24 @@
  @param newToken new token for API requests
  */
 - (void)vkSdkRenewedToken:(VKAccessToken *)newToken;
+/**
+ Requests delegate about redirect to Safari during authorization procedure. 
+ By default returns YES
+ */
+- (BOOL)vkSdkAuthorizationAllowFallbackToSafari;
 
+/**
+ Applications which not using VK SDK as main way of authentication should override this method and return NO.
+ By default returns YES.
+ */
+- (BOOL)vkSdkIsBasicAuthorization;
 @end
 
 /**
  Entry point for using VK sdk. Should be initialized at application start
  */
 @interface VKSdk : NSObject
-{
-@private
-	VKAccessToken *_accessToken;            ///< access token for API-requests
-	NSString *_currentAppId;                ///< app id for current application
-}
+
 ///-------------------------------
 /// @name Delegate
 ///-------------------------------
@@ -163,7 +174,7 @@
 + (void)authorize:(NSArray *)permissions revokeAccess:(BOOL)revokeAccess forceOAuth:(BOOL)forceOAuth inApp:(BOOL) inApp;
 
 /**
- Starts authorization process. 
+ Starts authorization process.
  @param permissions Array of permissions for your applications. All permissions you can
  @param revokeAccess If YES, user will allow logout (to change user)
  @param forceOAuth If YES, SDK will use only oauth authorization through mobile safari. Otherwise, it will try to authorize through VK application
@@ -209,21 +220,30 @@
 /**
  * Checks if somebody logged in with SDK
  */
-+ (BOOL) isLoggedIn;
++ (BOOL)isLoggedIn;
+
 /**
  Make try to read token from defaults and start session again.
  */
-+ (BOOL) wakeUpSession;
++ (BOOL)wakeUpSession;
+
 /**
  Forces logout using OAuth (with VKAuthorizeController). Removes all cookies for *.vk.com.
  Has no effect for logout in VK app
  */
-+ (void) forceLogout;
++ (void)forceLogout;
 
 /**
  * Checks if there is some application, which may process authorize url
  */
-+ (BOOL) vkAppMayExists;
++ (BOOL)vkAppMayExists;
+
+/**
+ Check existing permissions
+ @param permissions array of permissions you want to check
+ */
++ (BOOL)hasPermissions:(NSArray *)permissions;
+
 // Deny allocating more SDK
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 + (instancetype)alloc __attribute__((unavailable("alloc not available, call initialize: or instance instead")));

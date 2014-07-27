@@ -72,16 +72,24 @@
 @property (nonatomic, strong) NSNumber *platform;
 @end
 
+@interface VKExports : VKApiObject
+@property (nonatomic, strong) NSNumber *twitter;
+@property (nonatomic, strong) NSNumber *facebook;
+@property (nonatomic, strong) NSNumber *livejournal;
+@property (nonatomic, strong) NSNumber *instagram;
+@end
+
 @interface VKUser : VKApiObject
 @property (nonatomic, strong) NSNumber *id;
 @property (nonatomic, strong) NSString *first_name;
 @property (nonatomic, strong) NSString *last_name;
+@property (nonatomic, strong) NSString *first_name_acc;
+@property (nonatomic, strong) NSString *last_name_acc;
 @property (nonatomic, strong) NSString *first_name_gen;
 @property (nonatomic, strong) NSString *last_name_gen;
 @property (nonatomic, strong) NSString *first_name_dat;
 @property (nonatomic, strong) NSString *last_name_dat;
 @property (nonatomic, strong) NSString *first_name_ins;
-@property (nonatomic, strong) NSString *first_name_acc;
 @property (nonatomic, strong) NSString *last_name_ins;
 @property (nonatomic, strong) VKPersonal *personal;
 @property (nonatomic, strong) NSNumber *sex;
@@ -106,7 +114,7 @@
 @property (nonatomic, strong) VKUser *relation_partner;
 @property (nonatomic, strong) VKCounters *counters;
 @property (nonatomic, strong) NSString *nickname;
-@property (nonatomic, strong) NSString *exports;
+@property (nonatomic, strong) VKExports *exports;
 @property (nonatomic, strong) NSNumber *wall_comments;
 @property (nonatomic, strong) NSNumber *can_write_private_message;
 @property (nonatomic, strong) NSString *phone;
